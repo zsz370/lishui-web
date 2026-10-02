@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', system-ui, sans-serif;
+  background: linear-gradient(180deg, #eef3f8 0%, #f6efe2 100%);
+  color: #1c3a5a;
+}
+
+.font-cn {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Microsoft YaHei', serif;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition;
+}
+.btn-primary {
+  @apply btn bg-ls-ink text-white hover:bg-ls-lake;
+}
+.btn-ghost {
+  @apply btn bg-white/70 text-ls-ink border border-ls-ink/20 hover:bg-white;
+}
+
+.card {
+  @apply bg-white/85 backdrop-blur rounded-xl shadow-sm border border-ls-ink/10 overflow-hidden;
+}
+
+.tag {
+  @apply inline-block px-2 py-0.5 text-xs rounded-full;
+}
+.tag-gj { @apply bg-red-100 text-red-800; }
+.tag-sj { @apply bg-amber-100 text-amber-800; }
+.tag-shi { @apply bg-sky-100 text-sky-800; }
+.tag-qu { @apply bg-emerald-100 text-emerald-800; }
+.tag-plain { @apply bg-slate-100 text-slate-700; }
