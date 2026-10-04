@@ -14,8 +14,8 @@ body,
 
 body {
   font-family: 'Noto Sans SC', 'Microsoft YaHei', system-ui, sans-serif;
-  background: linear-gradient(180deg, #eef3f8 0%, #f6efe2 100%);
-  color: #1c3a5a;
+  background: #f5f6f1;
+  color: #284736;
 }
 
 .font-cn {

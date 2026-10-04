@@ -1,79 +1,82 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { mainNodes } from '../data/nodes.js';
-import { personas, HOST_ID } from '../data/personas.js';
-import NodeCard from '../components/NodeCard.jsx';
+import { HOST_ID, getPersona } from '../data/personas.js';
+import { topics, collectionUrl } from '../data/collections.js';
+import { ArrowUpRight } from '@phosphor-icons/react';
 import { useItinerary } from '../data/store.jsx';
+import WelcomeGuide from '../components/WelcomeGuide.jsx';
+import TopicIcon from '../components/TopicIcon.jsx';
+import GuideAvatar from '../components/GuideAvatar.jsx';
+import Photo from '../components/Photo.jsx';
+import ServiceShortcuts from '../components/ServiceShortcuts.jsx';
+import './Home.css';
 
+const scenes = [
+  { id: 'lakeside', name: '湖畔暮色', src: '/assets/images/hero-lakeside.webp', alt: '湖畔弯曲的道路与落日，来自项目溧水风景素材' },
+  { id: 'wuxiang', name: '无想山', src: '/assets/images/hero-wuxiang.webp', alt: '无想山层叠的山林与远处湖泊' },
+  { id: 'bridge', name: '天生桥', src: '/assets/images/hero-tianshengqiao.webp', alt: '天生桥景区河道与山林航拍' },
+];
 export default function Home() {
-  const { items, add } = useItinerary();
-  const host = personas.find((p) => p.id === HOST_ID);
+  const { items, applyScene } = useItinerary();
+  const host = getPersona(HOST_ID);
+  const [scene, setScene] = useState(0);
+  const [failedScenes, setFailedScenes] = useState([]);
+
   return (
-    <div className="space-y-8">
-      <section className="card p-6 md:p-10 relative overflow-hidden">
-        <div className="absolute -right-10 -bottom-10 w-56 h-56 rounded-full bg-ls-lake/10 blur-2xl pointer-events-none" />
-        <div className="flex flex-col md:flex-row gap-6 items-start">
-          <div className="flex-1 space-y-3">
-            <div className="text-xs tracking-widest text-ls-fire">2026 数媒竞赛 · 参赛作品</div>
-            <h1 className="font-cn text-3xl md:text-4xl leading-snug">
-              秦淮源头的山水与烟火<br />
-              <span className="text-ls-lake">溧水寻味之旅</span>
-            </h1>
-            <p className="text-sm md:text-base text-ls-ink/80 leading-relaxed">
-              12 位原创溧水数字人导游 · 多智能体路由 · RAG 对话讲解 · 生成可分享的行程卡片。<br />
-              非遗约 50–60 项（国家级 1、省级 3、市级十余项、区级数十项），景点、美食、民俗一站串起。
-            </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              <Link to="/nodes" className="btn-primary">开始逛</Link>
-              <Link to="/itinerary" className="btn-ghost">我的行程 ({items.length})</Link>
-              <Link to="/about" className="btn-ghost text-ls-ink/70">关于作品</Link>
-            </div>
+    <div className="home-experience">
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="home-scenery" aria-hidden="true">
+          {scenes.map((item, index) => <img key={item.id} src={item.src} alt="" className={scene === index ? 'is-current' : ''}
+            fetchpriority={index === 0 ? 'high' : 'auto'}
+            onError={() => setFailedScenes((failed) => failed.includes(index) ? failed : [...failed, index])} />)}
+        </div>
+        <div className="home-hero-wash" aria-hidden="true" />
+        <div className="home-hero-copy">
+          <div className="home-eyebrow"><span className="home-eyebrow-line" />南京 · 溧水 <span className="home-eyebrow-en">LISHUI, NANJING</span></div>
+          <p className="home-hero-kicker">秦淮源头的山水与烟火</p>
+          <h1 id="home-title">一程山水，<br />一味溧水。</h1>
+          <p className="home-hero-description">跟着淮源姐，走进秦淮源头。<br />看湖光山色，听乡里故事，再尝一口地道风味。</p>
+          <div className="home-hero-actions">
+            <Link to="/nodes" className="home-start">开始我的溧水之旅 <ArrowUpRight size={18} aria-hidden="true" /></Link>
+            <Link to="/itinerary" className="home-itinerary">我的行程{items.length > 0 ? ` · ${items.length} 处` : ''}<span aria-hidden="true">→</span></Link>
           </div>
-          <div className="w-40 md:w-52 shrink-0">
-            <div className="card aspect-[3/4] bg-ls-mist grid place-items-center relative">
-              <img src={host.avatar} alt={host.name} className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
-              <div className="absolute bottom-2 left-2 right-2 text-center">
-                <div className="text-sm">{host.name} · 主控导游</div>
-                <div className="text-[10px] text-ls-ink/50">点击专家头像气泡，随时转接</div>
-              </div>
+          <div className="home-scene-picker" aria-label="选择首页风景">
+            <p>先遇见一处风景<span aria-hidden="true"> / </span><span lang="en">A FIRST GLIMPSE</span></p>
+            <div className="home-scene-options">
+              {scenes.map((item, index) => <button type="button" key={item.id} className={scene === index ? 'is-selected' : ''} onClick={() => setScene(index)} aria-pressed={scene === index} disabled={failedScenes.includes(index)}>
+                <img src={item.src} alt="" /><span>{item.name}</span>
+              </button>)}
             </div>
+            <span className="home-sr-only" aria-live="polite">当前风景：{scenes[scene].alt}{failedScenes.includes(scene) ? '，图片暂时无法加载，请选择其他风景。' : ''}</span>
           </div>
         </div>
+        <WelcomeGuide host={host} />
       </section>
 
-      <section>
-        <h2 className="font-cn text-xl mb-3 flex items-center gap-2">
-          <span>首发主打 · 4 个必逛节点</span>
-          <span className="text-xs text-ls-ink/50">（按"值得游玩程度"依次排列）</span>
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {mainNodes.map((n) => <NodeCard key={n.id} node={n} />)}
+      <section className="home-topics" aria-labelledby="topics-title">
+        <div className="section-heading"><div><p className="section-overline">随心出发</p><h2 id="topics-title">今天，想怎样逛溧水？</h2></div><Link to="/nodes">探索栏目 <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
+        <div className="home-topic-shortcuts">
+          {topics.map((topic) => <Link key={topic.id} to={collectionUrl(topic.id)} style={{ '--topic-color': topic.color }}>
+            <span className="home-topic-icon"><TopicIcon name={topic.icon} /></span><span>{topic.name}</span><small>{topic.description.split('，')[0]}</small>
+          </Link>)}
         </div>
       </section>
 
-      <section>
-        <h2 className="font-cn text-xl mb-3">专家矩阵 · 12 位数字人</h2>
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-          {personas.map((p) => (
-            <div key={p.id} className="card p-2 text-center">
-              <div className="aspect-square rounded-lg mb-1 grid place-items-center text-white text-lg font-cn" style={{ background: p.color }}>
-                <img src={p.avatar} alt={p.name} className="w-full h-full rounded-lg object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
-                <span className="absolute">{p.name[0]}</span>
-              </div>
-              <div className="text-xs font-medium">{p.name}</div>
-              <div className="text-[10px] text-ls-ink/60">{p.domain}</div>
-            </div>
-          ))}
-        </div>
+      <section className="home-trip-tasks" aria-labelledby="trip-tasks-title">
+        <div className="section-heading"><div><p className="section-overline">秦淮源头的一天</p><h2 id="trip-tasks-title">先安排一天，再听一段故事。</h2></div><Link to="/itinerary">编辑我的行程 <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
+        <p>从两份设计草案开始，补上实际出行条件。替换当前地点，保留已填的日期、人数和预算。</p>
+        <div><Link to="/itinerary" onClick={() => applyScene('culture')}><span>无车的一日文化游</span><p>从河谷故事到城区漫步，核对交通，再安排停留。</p><ArrowUpRight size={20} aria-hidden="true" /></Link><Link to="/itinerary" onClick={() => applyScene('rain')}><span>遇雨，保留文化体验</span><p>考虑收藏展陈与休息空间，先确认开放和室外衔接。</p><ArrowUpRight size={20} aria-hidden="true" /></Link></div>
+      </section>
+      <ServiceShortcuts />
+      <section className="home-inspiration" aria-labelledby="inspiration-title">
+        <Photo src="/nodes/n_tsq.jpg" alt="天生桥的山林与河谷" />
+        <div><p className="section-overline">给这一次出发，一点灵感</p><h2 id="inspiration-title">沿着秦淮，<br />听一段山水故事。</h2><p>先从天生桥认识溧水，让河谷的风景和胭脂客的讲述，陪你打开这一程。</p><Link to={collectionUrl('scenery', 'river')}>开启这段漫游 <ArrowUpRight size={18} aria-hidden="true" /></Link></div>
       </section>
 
-      <section className="text-xs text-ls-ink/60">
-        <div className="card p-4 space-y-1">
-          <div className="text-ls-ink font-medium text-sm">关于数据的合规口径</div>
-          <div>· 知识库全部为团队原创调研（12 人设 / ~100 文档 / 180 条 QA）。</div>
-          <div>· 溧水非遗对外统一表述为"约 50–60 项"，不写死精确数；具体级别、年代以官方名录为准。</div>
-          <div>· 校官碑、中山毫等属文物保护口径，不列入非遗。</div>
-          <div>· AI 生成/合成内容按规范标识；图片来源逐项登记于《素材授权台账》。</div>
-        </div>
+      <section className="home-guide-note" aria-label="导游介绍">
+        <div className="guide-avatar-stack">{['03_yanzhike', '07_fuxiaomei', '04_dalonggu'].map((id) => <GuideAvatar key={id} persona={getPersona(id)} />)}</div>
+        <div><h2>一路有人陪你</h2><p>看风景、寻乡味、听故事，淮源姐会帮你找到懂这里的导游。</p></div>
+        <Link to="/guides" className="home-meet-guides">认识导游 <ArrowUpRight size={20} aria-hidden="true" /></Link>
       </section>
     </div>
   );

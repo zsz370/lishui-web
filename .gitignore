@@ -15,3 +15,8 @@ pnpm-debug.log*
 coverage
 .vite
 *.tsbuildinfo
+scripts/probe-*.local.mjs
+
+# 内部资料，不随仓库共享（本地保留，队友看不到）
+.web_review/
+docs/

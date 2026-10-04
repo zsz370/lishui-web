@@ -5,11 +5,25 @@
   "type": "module",
   "description": "2026 数媒竞赛 · 溧水文旅数字人矩阵 Web 产品化（MVP 骨架）",
   "scripts": {
+    "dev:api": "node --env-file=config/integrations.env.local server/index.mjs",
+    "rag:index": "node --env-file=config/integrations.env.local scripts/build-rag-index.mjs",
+    "test:agents": "node --test scripts/agents.test.mjs",
+    "check:integrations": "node --env-file=config/integrations.env.local scripts/check-integrations.mjs --live",
+    "audit:agents": "node scripts/audit-agents.mjs",
+    "test:qa": "node --test scripts/audit-qa.test.mjs",
+    "test:foundation": "node --test scripts/foundation-qa.test.mjs",
+    "test:itinerary": "node --test scripts/itinerary.test.mjs",
+    "knowledge:export": "node scripts/normalize-qa.mjs && node scripts/export-reviewed-corpus.mjs",
+    "check:foundation": "node --env-file=config/integrations.env.local scripts/check-foundation-live.mjs",
     "dev": "vite",
+    "check:introductions": "node scripts/check-node-introductions.mjs",
+    "prebuild": "npm run check:introductions",
     "build": "vite build",
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "@fly-ai/flyai-cli": "1.0.16",
+    "@phosphor-icons/react": "^2.1.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0"

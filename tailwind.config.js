@@ -6,12 +6,12 @@ export default {
       colors: {
         // 山水 + 烟火 —— 溧水调
         ls: {
-          ink: '#1c3a5a',
-          lake: '#3d8fbf',
-          mountain: '#5a7f5a',
-          fire: '#c0562a',
-          rice: '#f6efe2',
-          mist: '#eef3f8',
+          ink: '#284736',
+          lake: '#627b51',
+          mountain: '#687b55',
+          fire: '#a6784b',
+          rice: '#f6f3ec',
+          mist: '#edf0e6',
         },
       },
       fontFamily: {

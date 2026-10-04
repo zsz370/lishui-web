@@ -5,6 +5,8 @@ import Nodes from './pages/Nodes.jsx';
 import NodeDetail from './pages/NodeDetail.jsx';
 import Itinerary from './pages/Itinerary.jsx';
 import About from './pages/About.jsx';
+import Guides from './pages/Guides.jsx';
+import Services from './pages/Services.jsx';
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
         <Route path="/nodes/:id" element={<NodeDetail />} />
         <Route path="/itinerary" element={<Itinerary />} />
         <Route path="/about" element={<About />} />
+        <Route path="/guides" element={<Guides />} />
+        <Route path="/services" element={<Services />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </Layout>
