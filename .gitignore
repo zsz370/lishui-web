@@ -19,4 +19,11 @@ scripts/probe-*.local.mjs
 
 # 内部资料，不随仓库共享（本地保留，队友看不到）
 .web_review/
+.local_demo/
 docs/
+
+# 生成产物（脚本可重跑，队友 clone 后自己生成）
+output/
+
+# 个人习惯启动脚本（README 里已有 npm run dev）
+启动本地联调.cmd
