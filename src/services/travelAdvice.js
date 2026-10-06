@@ -1,6 +1,7 @@
 import { getPersona } from '../data/personas.js';
 import { getTravelService, recommendStays, serviceSources, stayDefaults } from '../data/travelServices.js';
 import { getWeather, selectWeatherDay, weatherText, weatherAdvice } from './weather.js';
+import { extractTripContext, stayOverview, transportOverview } from './chatContext.js';
 
 const rules = [
   ['support', /丢失|丢了|遗失|失物|投诉|退票|退改|退款|求助|报警|急救|发票|厕所|洗手间|卫生间|母婴室|lost|refund|help/i],
@@ -43,12 +44,14 @@ export function inferStayPreferences(question, base = stayDefaults) {
   return pref;
 }
 
-export function accommodationAnswer(preferences, question = '') {
+export function accommodationAnswer(preferences, question = '', context) {
   const candidates = recommendStays(preferences);
   const group = preferences.companions === 'seniors' ? '带长辈时，先确认电梯、浴室防滑和到门口是否要爬坡。' : preferences.companions === 'family' ? '带孩子时，提前确认床型、加床、早餐与儿童入住要求。' : '先核对入住日期、床型和目标片区。';
   const transport = preferences.transport === 'transit' ? '没有车的话，优先比较城区和地铁周边，再核对到景点的最后一段接驳。' : '自驾可以比较乡村与山居，同时确认停车和夜间返程路线。';
-  const budget = question.match(/\d{2,5}\s*(?:元|块)/)?.[0] || (preferences.budget === '300' ? '每晚300元以内' : preferences.budget === '600' ? '每晚300—600元' : '你能接受的预算');
-  return `住得舒心才是正经。${transport}\n${group}\n\n可以先比较：\n${candidates.map((candidate, index) => `${index + 1}. ${candidate.name}（${candidate.area}）：${candidate.intro}`).join('\n')}\n\n我尚未取得这些候选的实时房价、房态与设施。请按${budget}在预订渠道核价；这份排序只参考位置和出行需求，不能保证预算内有房。告诉我入住日期、人数和是否自驾，还能继续缩小范围。`;
+  const budget = context?.maxPrice ? `每晚${context.maxPrice}元以内` : question.match(/\d{2,5}\s*(?:元|块)/)?.[0] || (preferences.budget === '300' ? '每晚300元以内' : preferences.budget === '600' ? '每晚300—600元' : '你能接受的预算');
+  const dates = context?.checkInDate && context?.checkOutDate ? `已记下${context.checkInDate}入住、${context.checkOutDate}退房。\n` : '';
+  const followUp = dates ? '你更想住城区、乡村还是山居？也可以补充入住人数，继续缩小范围。' : '告诉我入住日期、人数和是否自驾，还能继续缩小范围。';
+  return `${dates}住得舒心才是正经。${transport}\n${group}\n\n可以先比较：\n${candidates.map((candidate, index) => `${index + 1}. ${candidate.name}（${candidate.area}）：${candidate.intro}`).join('\n')}\n\n我尚未取得这些候选的实时房价、房态与设施。请按${budget}在预订渠道核价；这份排序只参考位置和出行需求，不能保证预算内有房。${followUp}`;
 }
 
 export async function answerTravelService(serviceId, question, { history = [], preferences = stayDefaults, node } = {}) {
@@ -69,10 +72,17 @@ export async function answerTravelService(serviceId, question, { history = [], p
   if (serviceId === 'stay') {
     const previous = history.filter((message) => message.role === 'user').slice(-3).map((message) => message.content).join('；');
     const pref = inferStayPreferences(`${previous}；${question}`, preferences);
-    if (/退改|退款|退房|取消/.test(question)) return reply('stay', '先看你的具体订单：入住日期、可取消时限、预付款和退款渠道。联系原预订平台或经营方确认；我不能替你预订、取消或承诺退款。', sourced(serviceSources.stays));
-    return reply('stay', accommodationAnswer(pref, question), { ...sourced(serviceSources.stays), stayPreferences: pref, links: [{ label: '按条件比较住宿', url: '/services?service=stay' }] });
+    if (/退改|退款|取消/.test(question)) return reply('stay', '先看你的具体订单：入住日期、可取消时限、预付款和退款渠道。联系原预订平台或经营方确认；我不能替你预订、取消或承诺退款。', sourced(serviceSources.stays));
+    const ctx = extractTripContext({ question, history, preferences, serviceId }, node);
+    pref.transport = ctx.mode === 'driving' ? 'drive' : 'transit';
+    pref.companions = ctx.companions;
+    if (ctx.maxPrice) pref.budget = ctx.maxPrice <= 300 ? '300' : ctx.maxPrice <= 600 ? '600' : 'flexible';
+    if (!ctx.checkInDate || !ctx.checkOutDate) return reply('stay', stayOverview(ctx), { kind: 'needs_input', ...sourced(serviceSources.stays), stayPreferences: pref });
+    return reply('stay', accommodationAnswer(pref, question, ctx), { ...sourced(serviceSources.stays), stayPreferences: pref, links: [{ label: '按条件比较住宿', url: '/services?service=stay' }] });
   }
   if (serviceId === 'transport') {
+    const ctx = extractTripContext({ question, history, preferences }, node);
+    if (!ctx.origin || !ctx.destination) return reply('transport', transportOverview(ctx), { kind: 'needs_input', ...sourced(serviceSources.transit) });
     let content = `先确认你的出发地和目的地${node ? `，当前正在看「${node.name}」` : ''}。\n高铁“溧水站”与地铁 S7“溧水站”是不同站点，搜索时请明确交通方式。\n从南京方向到溧水城区，可比较高铁到溧水站后接驳，或经机场线 S1 方向在空港新城江宁衔接 S7；具体换乘按当天线路图与列车指示安排。`;
     if (/S9|石臼湖|水上列车/i.test(question)) content = '想看跨湖列车风景，认识的是 S9 跨石臼湖路段；S7 主要服务溧水城区方向，两者不能互换。先核对你的出发站、目的地和当天运营信息，再安排换乘及到湖边的接驳。';
     if (/自驾|开车|停车/.test(question)) content = `自驾请在导航中确认「${node?.name || '你的目的地'}」的正式入口与停车场；节假日按现场指引停放。停车收费、开放车位与充电设施尚未接入实时信息，请先向景区或经营方确认。`;
@@ -92,6 +102,6 @@ export async function answerTravelService(serviceId, question, { history = [], p
     return reply('support', '先向现场工作人员或经营方说明问题，保留订单、收据和相关沟通记录。需要进一步咨询非紧急政务服务，可拨打12345；紧急危险联系110、120或119。这里提供渠道指引，尚未代你提交投诉或工单。', sourced(serviceSources.hotlines));
   }
   if (serviceId === 'accessibility') return reply('accessibility', '带长辈、孩子或轮椅出行，先向目标场所确认入口台阶、电梯、坡道、无障碍卫生间、休息点，以及接驳车是否能使用。住宿同步确认床型、浴室防滑与夜间通行。\n尽量安排同片区活动，减少折返并预留休息。我尚未逐点核实所有设施，请提供具体目的地后，再按这些项目联系场所确认。', { links: [{ label: '一起考虑住宿', url: '/services?service=stay' }] });
-  if (serviceId === 'shopping') return reply('shopping', '喜欢乡味，可以比较玉带糕、云片糕等糕点；喜欢小物，可以寻找当地手艺相关文创。\n带回家前看清配料、过敏原、生产日期和保存条件，鲜果与需冷藏食品按返程时长挑选。不要默认糕点都能常温久放；包装、价格与售后由实际经营方确认，保留凭证。', { links: [{ label: '看看糕点与乡味', url: '/nodes?topic=flavors&group=sweet' }] });
+  if (serviceId === 'shopping') return reply('shopping', '喜欢乡味，可以比较玉带糕、云片糕等糕点；喜欢小物，可以寻找当地手艺相关文创。\n带回家前看清配料、过敏原、生产日期、保质期和保存条件，鲜果与需冷藏食品按返程时长挑选。不要默认糕点都能常温久放；包装、价格与售后由实际经营方确认，保留凭证。', { links: [{ label: '看看糕点与乡味', url: '/nodes?topic=flavors&group=sweet' }] });
   return reply('planning', '先告诉我来几天、从哪里出发、是否自驾，以及同行有没有长辈或孩子。\n一天可以先围绕一个片区选1—2处感兴趣的内容；两天一晚先定住宿位置，再衔接两天的活动。天气、开放预约和返程交通要一起核对。你可以把喜欢的地点加入“我的行程”，再按需要查看住宿与交通服务。', { links: [{ label: '我的行程', url: '/itinerary' }, { label: '住宿建议', url: '/services?service=stay' }] });
 }

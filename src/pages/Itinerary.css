@@ -104,3 +104,14 @@
   .plan-section-heading h2 { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .itinerary-experience button { transition: none; } }
+.plan-day-heading { border-bottom: 1px solid #b7c8a9; padding: 18px 0 10px; margin-top: 20px; color: #45613c; font-size: 20px; }
+.plan-place-region { margin-top: 6px; }
+.plan-place-region > summary { display: list-item; width: fit-content; max-width: 100%; min-height: 44px; padding: 8px 0; color: #596e4f; cursor: pointer; overflow-wrap: anywhere; }
+.plan-place-region > div { display: grid; gap: 6px; margin-bottom: 12px; }
+.plan-place-region label { color: #596e4f; }
+.plan-place-region input { width: 100%; border: 1px solid #c7d3bb; border-radius: 6px; padding: 10px 12px; background: #fffdf6; }
+.plan-place-region small { color: #637657; }
+.plan-export-mode { padding: 20px; border: 1px solid #d1dcc5; border-radius: 10px; background: #eef2e7; margin-top: 24px; }
+.plan-export-mode label { display: flex; align-items: center; gap: 10px; }
+.plan-export-mode input[type="checkbox"] { width: 20px; height: 20px; min-height: 20px; flex-shrink: 0; accent-color: #456b3b; }
+.plan-export-mode p { margin-top: 8px; color: #596d4f; }

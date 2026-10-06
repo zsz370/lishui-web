@@ -1,9 +1,9 @@
 import { apiRequest, backendEnabled } from './api.js';
 import { normalizePlace } from '../data/itinerary.js';
 
-export async function findPlaces(query, signal) {
+export async function findPlaces(query, signal, city = '') {
   if (!backendEnabled) throw new Error('离线模式无法查询地图，请联网后确认实际地点。');
-  const result = await apiRequest('places', { keywords: query, city: '320100' }, { signal, timeoutMs: 20000 });
+  const result = await apiRequest('places', { keywords: query, city }, { signal, timeoutMs: 20000 });
   if (!Array.isArray(result.places)) throw new Error('地图未返回有效地点。');
   return result.places.map((place) => normalizePlace({ ...place, checkedAt: result.checkedAt })).filter(Boolean);
 }
@@ -16,5 +16,5 @@ export function normalizeRoute(result) {
 }
 export async function queryLeg(leg, mode, signal) {
   if (!backendEnabled) throw new Error('离线模式无法查询实时路线。');
-  return normalizeRoute(await apiRequest('route', { origin: leg.from.place.location, destination: leg.to.place.location, mode }, { signal, timeoutMs: 20000 }));
+  return normalizeRoute(await apiRequest('route', { origin: leg.from.place.location, destination: leg.to.place.location, mode, originCity: leg.from.place.citycode, destinationCity: leg.to.place.citycode }, { signal, timeoutMs: 20000 }));
 }

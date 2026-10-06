@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, CaretRight, MagnifyingGlass, X } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowUpRight, CaretRight, MagnifyingGlass, X, BookOpen } from '@phosphor-icons/react';
 import { nodes, getNode } from '../data/nodes.js';
 import { topics, getTopic, getGroup, belongsToTopic, collectionUrl, detailUrl } from '../data/collections.js';
 import { getPersona, guideUrl } from '../data/personas.js';
@@ -9,6 +9,7 @@ import Photo from '../components/Photo.jsx';
 import TopicIcon from '../components/TopicIcon.jsx';
 import GuideAvatar from '../components/GuideAvatar.jsx';
 import ServiceShortcuts from '../components/ServiceShortcuts.jsx';
+import PageGuide from '../components/PageGuide.jsx';
 import { departmentPlans } from '../../config/agent-system.plan.js';
 
 export default function Nodes() {
@@ -45,11 +46,12 @@ export default function Nodes() {
   return (
     <div className="explore-page">
       <div className="explore-heading">
-        <div><p className="section-overline">跟着心意，认识溧水</p><h1>{topic ? topic.name : '探索溧水'}</h1><p>{topic ? topic.description : '先选一个主题。山水、乡味与故事，慢慢遇见。'}</p></div>
+        <div><p className="section-overline">跟着心意，认识溧水</p><h1>{topic ? topic.name : '探索溧水'}</h1><p>{topic ? topic.description : '先选一个主题。山水、乡味与故事，慢慢遇见。'}</p><a className="page-guide-jump" href="#explore-guide">让导游帮我选 <ArrowUpRight size={16} aria-hidden="true" /></a></div>
         <div className="explore-search"><label className="sr-only" htmlFor="explore-query">搜索想去的地方或想尝的味道</label><MagnifyingGlass size={20} aria-hidden="true" /><input id="explore-query" type="search" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜地点、乡味或故事" />{query && <button type="button" aria-label="清空搜索" onClick={() => updateQuery('')}><X size={16} aria-hidden="true" /></button>}</div>
       </div>
 
       <nav className="explore-topic-tabs" aria-label="探索栏目">
+        <Link to="/atlas"><BookOpen size={18} aria-hidden="true" />翻阅图鉴</Link>
         <Link to="/nodes" className={!topic ? 'is-selected' : ''} aria-current={!topic ? 'page' : undefined}>全部栏目</Link>
         {topics.map((item) => <Link key={item.id} to={collectionUrl(item.id)} className={topic?.id === item.id ? 'is-selected' : ''} aria-current={topic?.id === item.id ? 'page' : undefined}><TopicIcon name={item.icon} size={18} />{item.name}</Link>)}
       </nav>
@@ -94,6 +96,11 @@ export default function Nodes() {
           })}
         </div>
       </>}
+      <PageGuide id="explore-guide" title="下一站，和导游一起选" description={primary ? `正在看${primary.name}。可以问这里的故事，也可以问美食、天气和交通。` : '先告诉我想看风景、尝乡味还是逛街区，伙伴们会一起帮你安排。'} node={primary} />
+      <section className="explore-atlas-entry" aria-labelledby="explore-atlas-title">
+        <div><p className="section-overline">翻一页，遇见另一种溧水</p><h2 id="explore-atlas-title">还有一些风物，等你慢慢发现。</h2><p>把山水、乡味、民俗与街区收进一本图鉴。看一张图，读一段介绍，找到下一处好奇。</p></div>
+        <Link to="/atlas"><BookOpen size={19} aria-hidden="true" /><span>探索更多<span className="explore-atlas-link-note">打开风物图鉴</span></span><ArrowUpRight size={20} aria-hidden="true" /></Link>
+      </section>
     </div>
   );
 }

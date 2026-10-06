@@ -13,9 +13,22 @@
     "test:qa": "node --test scripts/audit-qa.test.mjs",
     "test:foundation": "node --test scripts/foundation-qa.test.mjs",
     "test:itinerary": "node --test scripts/itinerary.test.mjs",
+    "test:experience": "node --test scripts/experience-export.test.mjs",
+    "test:atlas": "node --test scripts/atlas-content.test.mjs",
+    "test:content": "node --test scripts/content-depth.test.mjs",
+    "test:routing": "node --test scripts/routing-stream.test.mjs",
+    "test:speech": "node --test scripts/answer-speech.test.mjs",
+    "check:routing": "node --env-file=config/integrations.env.local scripts/check-routing-live.mjs",
+    "eval:rag": "node --env-file=config/integrations.env.local scripts/evaluate-rag.mjs --repeat=3",
+    "eval:human:prepare": "node scripts/prepare-human-review.mjs",
+    "test:curation": "node --test scripts/content-curation.test.mjs scripts/review-score.test.mjs",
+    "check:content": "node --env-file=config/integrations.env.local scripts/check-content-live.mjs",
     "knowledge:export": "node scripts/normalize-qa.mjs && node scripts/export-reviewed-corpus.mjs",
     "check:foundation": "node --env-file=config/integrations.env.local scripts/check-foundation-live.mjs",
-    "dev": "vite",
+    "dev": "node scripts/dev-local.mjs",
+    "dev:web": "vite",
+    "demo:offline:build": "node scripts/build-offline-demo.mjs",
+    "demo:offline:serve": "node scripts/start-offline-demo.mjs --root=.local_demo/site",
     "check:introductions": "node scripts/check-node-introductions.mjs",
     "prebuild": "npm run check:introductions",
     "build": "vite build",
@@ -26,13 +39,13 @@
     "@phosphor-icons/react": "^2.1.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "7.18.4"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
-    "vite": "^5.4.0"
+    "vite": "6.4.3"
   }
 }

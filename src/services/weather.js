@@ -1,5 +1,5 @@
 // 和风经服务端代理；显式关闭后端时才使用公开模型预报。
-import { apiRequest, backendEnabled } from './api.js';
+import { apiRequest, backendEnabled, offlineDemo } from './api.js';
 const BASE_URL = import.meta.env?.VITE_WEATHER_API_BASE_URL || 'https://api.open-meteo.com/v1/forecast';
 export const weatherLocations = {
   lishui: { name: '溧水城区', latitude: 31.65, longitude: 119.02 },
@@ -28,6 +28,7 @@ export const weatherAdvice = (day) => {
   return advice.join(' ') || '按体感增减衣物，山区与湖边行程同时留意现场天气。';
 };
 export async function getWeather(locationId = 'lishui', { refresh = false } = {}) {
+  if (offlineDemo) throw new Error('离线演示不查询实时天气，当前天气未知。');
   const location = weatherLocations[locationId] || weatherLocations.lishui;
   const key = location.name;
   const cached = cache.get(key);
@@ -35,7 +36,7 @@ export async function getWeather(locationId = 'lishui', { refresh = false } = {}
   if (pending.has(key)) return pending.get(key);
   const request = (async () => {
     if (backendEnabled) {
-      const data = await apiRequest('weather', { location: locationId });
+      const data = await apiRequest('weather', { location: locationId }, { timeoutMs: 20000 });
       if (!Array.isArray(data.days) || data.days[0]?.date !== shanghaiDate()) throw new Error('WEATHER_STALE');
       cache.set(key, data);
       return data;

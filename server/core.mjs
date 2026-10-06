@@ -1,3 +1,12 @@
+import { isIP } from 'node:net';
+
+export function clientAddress(req, trustLoopbackProxy = false) {
+  const address=req.socket.remoteAddress;
+  const loopback=['127.0.0.1','::1','::ffff:127.0.0.1'].includes(address);
+  const forwarded=req.headers['x-real-ip'];
+  return trustLoopbackProxy&&loopback&&typeof forwarded==='string'&&isIP(forwarded)?forwarded:address;
+}
+
 export class AppError extends Error {
   constructor(code, message, status = 400) { super(message); this.code = code; this.status = status; }
 }
@@ -30,9 +39,13 @@ export function endpoint(value, fallback, hosts) {
 export function getConfig(env = process.env) {
   const weatherHost = (env.QWEATHER_API_HOST || '').replace(/^https:\/\//, '').replace(/\/$/, '');
   if (weatherHost && !/^[a-z0-9-]+\.re\.qweatherapi\.com$|^[a-z0-9-]+\.qweatherapi\.com$/i.test(weatherHost)) throw new Error('Invalid weather host');
+  const origins=(env.API_ALLOWED_ORIGINS||'http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173,http://127.0.0.1:4173').split(',').map((value)=>value.trim()).filter(Boolean);
+  if(!origins.length||origins.some((value)=>{try{const url=new URL(value);return url.origin!==value||url.username||url.password||!(url.protocol==='https:'||url.protocol==='http:'&&['localhost','127.0.0.1'].includes(url.hostname));}catch{return true;}})) throw new Error('Invalid allowed origins');
+  const integer=(name,fallback,min,max)=>{const value=Number(env[name]||fallback);if(!Number.isInteger(value)||value<min||value>max)throw new Error(`Invalid ${name}`);return value;};
+  if(env.API_TRUST_LOOPBACK_PROXY && !['true','false'].includes(env.API_TRUST_LOOPBACK_PROXY)) throw new Error('Invalid API_TRUST_LOOPBACK_PROXY');
   return {
     port: Number(env.API_PORT || 8787), host: '127.0.0.1',
-    origins: ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:4173', 'http://127.0.0.1:4173'],
+    origins,trustLoopbackProxy:env.API_TRUST_LOOPBACK_PROXY==='true',rateLimit:integer('API_RATE_LIMIT',20,1,1000),maxInflight:integer('API_MAX_INFLIGHT',4,1,20),chatTimeoutMs:integer('API_CHAT_TIMEOUT_MS',90000,1000,180000),
     llm: { base: endpoint(env.LLM_BASE_URL, 'https://api.siliconflow.cn/v1', ['api.siliconflow.cn']), key: env.LLM_API_KEY, model: env.LLM_MODEL || 'Qwen/Qwen3.5-4B' },
     embedding: { base: endpoint(env.EMBEDDING_BASE_URL, 'https://api.siliconflow.cn/v1', ['api.siliconflow.cn']), key: env.EMBEDDING_API_KEY, model: env.EMBEDDING_MODEL || 'BAAI/bge-m3' },
     bocha: { base: endpoint(env.BOCHA_BASE_URL, 'https://api.bochaai.com', ['api.bochaai.com', 'api.bocha.cn']), key: env.BOCHA_API_KEY },

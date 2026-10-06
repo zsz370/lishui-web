@@ -1,0 +1,12 @@
+/* Main visitor tasks use readable body text; small provenance labels remain secondary. */
+:is(.explore-page, .atlas-page, .itinerary-experience) :is(p, li, summary, label) { font-size: 16px; line-height: 1.85; }
+:is(.explore-page, .atlas-page, .itinerary-experience) :is(input, select, textarea) { font-size: 16px; min-height: 44px; }
+:is(.explore-page, .atlas-page, .itinerary-experience) small { font-size: 13px; line-height: 1.8; }
+:is(.explore-page, .atlas-page, .itinerary-experience) button { font-size: 15px; min-height: 44px; }
+:is(.explore-page, .atlas-page, .itinerary-experience) .section-overline { font-size: 13px; }
+:is(.explore-page, .atlas-page, .itinerary-experience) :is(.plan-source-note, .atlas-note, .atlas-key-hint, .agent-character-domain, .agent-character-status) { font-size: 14px; color: #52664a; }
+:is(.explore-page, .atlas-page, .itinerary-experience) .chat-messages { font-size: 16px; }
+:is(.explore-page, .atlas-page, .itinerary-experience) .chat-messages .text-sm { font-size: 16px; line-height: 1.85; }
+:is(.explore-page, .atlas-page, .itinerary-experience) .chat-messages :is(.text-xs, .text-\[11px\], .text-\[10px\]) { font-size: 13px; }
+.page-guide-jump { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; min-height: 44px; text-decoration: underline; color: #45683c; }
+:is(.explore-page, .atlas-page, .itinerary-experience) :is(button, input, select, a, summary):focus-visible { outline: 3px solid #947139; outline-offset: 3px; }

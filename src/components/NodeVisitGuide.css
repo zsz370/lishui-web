@@ -1,0 +1,19 @@
+.node-visit-guide { margin-top: 28px; padding-top: 24px; border-top: 1px solid #dce2d5; }
+.node-visit-guide h2 { margin: 7px 0 9px; font-size: 20px; font-weight: 600; color: #354b35; }
+.visit-guide-date { color: #697762; font-size: 12px; line-height: 1.8; }
+.visit-guide-items { margin-top: 15px; }
+.visit-guide-items details { border-bottom: 1px solid #e3e7dd; }
+.visit-guide-items summary { cursor: pointer; padding: 14px 4px; font-size: 13px; line-height: 1.7; }
+.visit-guide-items summary > span:first-child { color: #6b7862; margin-right: 10px; font-size: 11px; }
+.visit-guide-items summary:focus-visible { outline: 2px solid #657b53; outline-offset: 3px; border-radius: 4px; }
+.visit-guide-answer { padding: 0 4px 17px; font-size: 13px; line-height: 1.9; }
+.visit-guide-answer p { margin: 7px 0; }
+.visit-guide-answer .visit-guide-kind { color: #647854; font-size: 11px; }
+.visit-guide-answer a { display: block; margin-top: 6px; color: #52674c; font-size: 11px; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 3px; }
+.visit-guide-unknowns { margin-top: 18px; padding: 14px 16px; background: #f2f3e9; border-radius: 6px; font-size: 12px; line-height: 1.9; color: #626e58; }
+.visit-guide-unknowns h3 { margin-bottom: 5px; font-weight: 600; }
+@media (max-width: 600px) {
+  .node-visit-guide h2 { font-size: 18px; }
+  .visit-guide-items summary { padding: 15px 0; }
+  .visit-guide-items summary > span:first-child { display: inline; }
+}

@@ -7,6 +7,8 @@ import { nodePhotos } from '../data/nodeMedia.js';
 import ChatPanel from '../components/ChatPanel.jsx';
 import Photo from '../components/Photo.jsx';
 import GuideAvatar from '../components/GuideAvatar.jsx';
+import NodeVisitGuide from '../components/NodeVisitGuide.jsx';
+import JourneyThread from '../components/JourneyThread.jsx';
 import { useItinerary } from '../data/store.jsx';
 
 export default function NodeDetail() {
@@ -36,12 +38,15 @@ export default function NodeDetail() {
   };
   return <div className="detail-experience">
     <Link className="detail-back" to={back}><ArrowLeft size={17} aria-hidden="true" />回到{searchQuery ? '搜索结果' : topic?.name || '探索栏目'}</Link>
+    <JourneyThread step="discover" />
     <div className="detail-layout">
       <section className="detail-story" aria-label={`${node.name}简介`}>
         <div className="detail-story-copy"><p className="section-overline">{group?.name || node.cat} · 简介</p><h1>{node.name}</h1>
           <div className="detail-description">{introduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
           <a className="detail-ask-link" href="#guide" onClick={focusQuestion}><GuideAvatar className="chat-avatar" persona={persona} /><span>向{persona.name}提问</span><ArrowUpRight size={17} aria-hidden="true" /></a>
           <div className="detail-actions"><button className="experience-button" type="button" onClick={() => add(node.id)} disabled={has(node.id)}>{has(node.id) ? '已加入我的行程' : '+ 加入我的行程'}</button><Link to="/itinerary">看看我的行程 <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
+          <NodeVisitGuide nodeId={node.id} />
+          {node.id === 'c_ldl' && <Link className="detail-ask-link" to="/culture/dragon">用三道小题认识骆山大龙 <ArrowUpRight size={17} aria-hidden="true" /></Link>}
           {node.facts && <details className="detail-extra"><summary>再了解一点</summary><ul>{node.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul></details>}
           <div className="detail-sources" aria-label="简介参考资料">{node.introductionSources.map((source) => <a key={source.url} className="detail-source" href={source.url} target="_blank" rel="noreferrer">资料参考：{source.label} <ArrowUpRight size={13} aria-hidden="true" /></a>)}</div>
         </div>

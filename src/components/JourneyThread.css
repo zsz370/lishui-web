@@ -1,0 +1,9 @@
+.journey-thread { color: #3c593c; border-block: 1px solid #d4decd; padding: 17px 0; margin: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.journey-thread > div { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.journey-thread svg { width: 72px; height: 28px; }
+.journey-thread ol { display: flex; flex-wrap: wrap; gap: 15px; list-style: none; }
+.journey-thread a { display: flex; align-items: center; min-height: 36px; gap: 6px; font-size: 12px; border-bottom: 2px solid transparent; }
+.journey-thread a span { font-family: Georgia, serif; color: #5a6953; }
+.journey-thread a.is-active { border-bottom-color: #3c593c; font-weight: 600; }
+.journey-thread a:focus-visible { outline: 2px solid #3c593c; outline-offset: 4px; }
+@media (max-width: 600px) { .journey-thread { align-items: flex-start; flex-direction: column; gap: 7px; } .journey-thread ol { width: 100%; gap: 12px; justify-content: space-between; } }

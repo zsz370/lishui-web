@@ -143,6 +143,14 @@ button:disabled { cursor: default; }
 .explore-soft-note { padding: 37px 15px 13px; text-align: center; color: #8b947d; }
 .explore-soft-note p { font-family: 'Noto Serif SC', SimSun, serif; font-size: 19px; color: #5f7354; }
 .explore-soft-note span { display: block; margin-top: 11px; font-size: 11px; line-height: 1.8; }
+.explore-atlas-entry { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 34px; padding: 28px 30px; border-top: 1px solid #dbe2d2; background: #f0f2e8; border-radius: 14px; }
+.explore-atlas-entry h2 { font-family: 'Noto Serif SC', SimSun, serif; font-size: clamp(20px, 2.4vw, 26px); font-weight: 500; line-height: 1.5; margin: 8px 0; }
+.explore-atlas-entry > div > p:last-child { color: #617357; font-size: 12px; line-height: 1.9; max-width: 540px; }
+.explore-atlas-entry > a { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; gap: 12px; padding: 14px 18px; min-height: 52px; border-radius: 10px; background: #405b3a; color: #fffef3; font-size: 15px; }
+.explore-atlas-entry > a:hover { background: #30482c; }
+.explore-atlas-entry > a:focus-visible { outline: 3px solid #a48648; outline-offset: 4px; }
+.explore-atlas-link-note { display: block; margin-top: 4px; font-size: 10px; color: #ecf0e3; }
+@media (max-width: 640px) { .explore-atlas-entry { align-items: stretch; flex-direction: column; padding: 23px 20px; gap: 18px; } .explore-atlas-entry > a { justify-content: space-between; } }
 .collection-navigation { display: flex; align-items: center; gap: 25px; margin-bottom: 21px; }
 .collection-navigation > a { display: inline-flex; flex-shrink: 0; align-items: center; gap: 7px; font-size: 11px; color: #859379; }
 .collection-group-tabs { display: flex; gap: 5px; flex-wrap: wrap; }
@@ -285,7 +293,7 @@ button:disabled { cursor: default; }
   .app-main { padding: 17px 16px 24px; }
   .app-footer { padding: 20px 19px calc(88px + env(safe-area-inset-bottom, 0px)); font-size: 10px; }
   .app-footer span { font-size: 9px; }
-  .mobile-tabbar { position: fixed; inset: auto 0 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); z-index: 50; background: #fffef8f5; border-top: 1px solid #dce4d2; backdrop-filter: blur(16px); padding: 8px 6px calc(8px + env(safe-area-inset-bottom,0px)); }
+  .mobile-tabbar { position: fixed; inset: auto 0 0; display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); z-index: 50; background: #fffef8f5; border-top: 1px solid #dce4d2; backdrop-filter: blur(16px); padding: 8px 6px calc(8px + env(safe-area-inset-bottom,0px)); }
   .mobile-tabbar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-height: 45px; font-size: 10px; color: #9ca58e; }
   .mobile-tabbar a.is-active { color: #45673c; }
   .mobile-tabbar a.is-active .tabbar-icon { background: #eaf0dd; border-radius: 20px; }

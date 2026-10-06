@@ -5,6 +5,8 @@
 :root {
   color-scheme: light;
 }
+.offline-demo-notice { border: 1px solid #c9d6bc; border-left: 3px solid #607d4d; padding: 14px 18px; margin-bottom: 22px; background: #eef2e6; color: #344d36; font-size: 13px; line-height: 1.9; }
+.offline-demo-notice strong { font-weight: 600; }
 
 html,
 body,

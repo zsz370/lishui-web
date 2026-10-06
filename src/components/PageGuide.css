@@ -1,0 +1,17 @@
+.page-guide { margin: 32px 0; scroll-margin-top: 90px; }
+.page-guide-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 18px; }
+.page-guide-heading h2 { font-family: 'Noto Serif SC', SimSun, serif; font-size: 25px; font-weight: 500; }
+.page-guide-heading > p { max-width: 48ch; font-size: 16px; line-height: 1.85; color: #536b49; }
+.page-guide .agent-conversation { grid-template-columns: 240px minmax(0, 1fr); gap: 20px; }
+.page-guide .agent-chat-panel { height: 490px; }
+.page-guide .agent-character .guide-portrait { min-height: 235px; }
+.page-guide .agent-character-tagline { margin-top: 7px; }
+.page-guide .agent-character-copy { padding: 12px 18px; }
+@media (max-width: 767px) {
+  .page-guide-heading { display: block; }
+  .page-guide-heading > p { margin-top: 12px; }
+  .page-guide .agent-conversation { grid-template-columns: minmax(0, 1fr); }
+  .page-guide .agent-character { grid-template-columns: 125px minmax(0, 1fr); }
+  .page-guide .agent-character .guide-portrait { min-height: 215px; }
+  .page-guide .agent-chat-panel { height: 450px; }
+}

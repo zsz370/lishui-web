@@ -35,10 +35,11 @@ export async function createKnowledge(providers, model) {
   } catch { /* /ready reports missing/stale index */ }
   const cache=new Map();
   return { chunks, status:()=>({ready:!!index,chunks:chunks.length,dimensions:index?.dimensions,model,hash:corpusHash(chunks),builtAt:index?.builtAt}),
-    async retrieve(question,{nodeId,expertId,serviceId,limit=5}={}) {
+    async retrieve(question,{nodeId,expertId,serviceId,limit=5,signal,onMetric}={}) {
+      signal?.throwIfAborted();
       if(!index) throw new AppError('INDEX_NOT_READY','资料索引尚未建立或已经过期，请重建索引',503);
       let vector=cache.get(question);
-      if(!vector){ [vector]=await providers.embed([question]); if(cache.size>=100) cache.delete(cache.keys().next().value); cache.set(question,vector); }
+      if(!vector){const activeProviders=providers.withRuntime?.({signal,onMetric})||providers;[vector]=await activeProviders.embed([question],{signal});signal?.throwIfAborted();if(cache.size>=100) cache.delete(cache.keys().next().value); cache.set(question,vector); }
       if(vector.length!==index.dimensions) throw new AppError('INDEX_NOT_READY','检索模型维度与索引不一致',503);
       return chunks.map((chunk,i)=>({...chunk,score:cosine(vector,index.vectors[i])})).filter((chunk)=>(!nodeId||chunk.nodeId===nodeId)&&(!expertId||chunk.expertId===expertId)&&(!serviceId||chunk.serviceId===serviceId)&&chunk.score>=0.48).sort((a,b)=>b.score-a.score).slice(0,limit);
     },

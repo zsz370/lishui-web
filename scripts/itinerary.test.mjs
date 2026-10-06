@@ -73,6 +73,16 @@ test('复制包括来源、缺失条件和真实导航参数，不导出凭据�
   const ready = fixture(), leg = buildLegs(ready)[0], url = new URL(navigationUrl(leg, ready.mode));
   assert.equal(url.hostname, 'uri.amap.com'); assert.equal(url.searchParams.get('mode'), 'bus'); assert.equal(url.searchParams.has('key'), false);
 });
+
+test('保存失败时复制和图片共用的导出正文不宣称已经保存，未提供状态时保持未知', () => {
+  const plan = scenePlan('culture');
+  const failed = exportPlan(plan, { savedLocally: false });
+  assert.match(failed, /本次行程未能保存在浏览器/);
+  assert.match(failed, /刷新可能丢失编辑/);
+  assert.doesNotMatch(failed, /已保存在当前浏览器|清空行程可移除本地记录/);
+  assert.match(exportPlan(plan, { savedLocally: true }), /已保存在当前浏览器/);
+  assert.match(exportPlan(plan), /能否刷新恢复请查看页面保存提示/);
+});
 test('日期与天气不匹配、预报过期保持待确认，坏日期不参与天气核对', () => {
   const plan = fixture(); plan.date = '2026-02-31';
   assert.ok(calculatePlan(plan, now).pending.some((text) => text.includes('日期未确定或无效')));
@@ -88,7 +98,7 @@ test('接口失败、断网、非JSON及超时转成可读提示，显式取消�
   fetchMock.mock.mockImplementation(async () => { throw new TypeError('Failed to fetch'); });
   await assert.rejects(apiRequest('route', {}), /无法连接查询服务/);
   fetchMock.mock.mockImplementation(async () => new Response('bad-json'));
-  await assert.rejects(apiRequest('route', {}), /未返回有效资料/);
+  await assert.rejects(apiRequest('route', {}), /查询服务暂未连接.*继续编辑行程/);
   fetchMock.mock.mockImplementation(async () => { throw new DOMException('timeout', 'TimeoutError'); });
   await assert.rejects(apiRequest('route', {}), /查询超时/);
   const controller = new AbortController(); controller.abort();

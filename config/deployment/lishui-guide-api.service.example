@@ -1,0 +1,28 @@
+[Unit]
+Description=Lishui guide API (isolated project service)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=zhangpanhh
+Group=zhangpanhh
+WorkingDirectory=@RELEASE_DIR@
+Environment=NODE_ENV=production
+Environment=TZ=Asia/Shanghai
+Environment=PATH=/home/zhangpanhh/.nvm/versions/node/v20.20.2/bin:/usr/bin:/bin
+ExecStart=/home/zhangpanhh/.nvm/versions/node/v20.20.2/bin/node --env-file=/home/zhangpanhh/apps/lishui-web/shared/config/integrations.env.local server/index.mjs
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/zhangpanhh/apps/lishui-web/shared/logs
+MemoryMax=512M
+StandardOutput=append:/home/zhangpanhh/apps/lishui-web/shared/logs/api.log
+StandardError=append:/home/zhangpanhh/apps/lishui-web/shared/logs/api.log
+
+[Install]
+WantedBy=multi-user.target

@@ -46,7 +46,7 @@ test('第三方错误体和密钥查询参数不流向客户端',async()=>{
 });
 test('票价搜索摘要有差异时不生成现行价格结论，旅行目的地决定天气地点',async()=>{
   const providers={...defaults,search:async()=>[{label:'旧价格',url:'https://example.org/a',excerpt:'票价20元'},{label:'其他价格',url:'https://example.org/b',excerpt:'票价30元'}],generate:async()=>JSON.stringify({selectedIds:['K1','W1','W2']})};
-  const result=await createChat(providers,knowledge)(validateChat({nodeId:'n_tsq',question:'天生桥票价是多少，资料齐全吗'}));
+  const result=await createChat(providers,knowledge)(validateChat({nodeId:'n_fjb',question:'傅家边票价是多少，资料齐全吗'}));
   assert.ok(result.content.includes(chunk.answer));assert.match(result.content,/尚未取得/);assert.ok(!/20元|30元|资料齐全/.test(result.content));
   const ctx=extractContext(validateChat({question:'明天从南京南站去无想山，天气如何'}),{name:'无想山'});assert.equal(ctx.location,'lishui');
 });

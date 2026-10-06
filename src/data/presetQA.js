@@ -14,6 +14,8 @@
 // ---------------------------------------------------------------------------
 import { applyQAReview, additionalQA } from './qaReview.js';
 import { foundationNodeQA } from './foundationQA.js';
+import { contentDepthQA, pendingContentQA } from './contentDepthQA.js';
+import { getNode } from './nodes.js';
 
 // 保留清洗原稿便于追溯；客户端仅调用下方 approved 条目。
 const originalQA = [
@@ -126,10 +128,21 @@ const originalQA = [
     a: '石臼湖上人家传唱的渔歌，是南京市级非遗（NJⅡ-13，2023 年第五批）。水乡的劳作与生活在歌里传下来，也是当地研学、节庆里常被唱起的调子。' },
 ];
 
-export const presetQA = [...originalQA.map(applyQAReview), ...additionalQA, ...foundationNodeQA];
+const reviewedQA = [...originalQA.map(applyQAReview), ...additionalQA, ...foundationNodeQA, ...contentDepthQA, ...pendingContentQA];
+// 保留原稿审计线索；用户移除的节点不再进入现行问答/待核列表。
+export const withdrawnQA = reviewedQA.filter((item) => !getNode(item.nodeId));
+export const presetQA = reviewedQA.filter((item) => getNode(item.nodeId));
 export const approvedQA = presetQA.filter((item) => item.status === 'approved');
 
 const normalize = (text) => String(text || '').toLowerCase().replace(/[\s,，。.？?!！、：:“”"'·]/g, '');
+
+export function queryPendingQA(nodeId, question) {
+  const q = normalize(question);
+  if (!q) return null;
+  return presetQA.find((item) => item.status === 'pending' &&
+    (item.nodeId === nodeId || item.blockGlobally) &&
+    (normalize(item.q) === q || item.blockedKeys?.some((key) => q.includes(normalize(key))))) || null;
+}
 
 export function queryQA(nodeId, question) {
   const list = presetQA.filter((x) => x.nodeId === nodeId);
@@ -139,8 +152,11 @@ export function queryQA(nodeId, question) {
   // 先匹配完整问题，包括待核条目；待核问题不能滑落到其他事实答案。
   const exact = list.find((item) => normalize(item.q) === q);
   if (exact) return exact.status === 'approved' ? exact : null;
+  // 建成时间不能充当始建时间；九孔结构不能证明九龙设计解释。
+  if (nodeId === 'c_cs' && /始建|九龙/.test(q)) return null;
   // 未覆盖的事实维度不要靠地名或零散文字拼成答案。
   if (/面积|人口|海拔|电话号码|电话是多少|详细地址|最新票价|末班|今日档期|今天几点|今天开放/.test(q)) return null;
+  if (nodeId === 'c_ldl' && /(陈列馆|展示馆).*(开放|预约|收费|常年|几点|体验)/.test(q)) return null;
   // 待核问题的独有关键词也要隔离，避免“名字+非遗”等混合输入误命中。
   const pending = list.filter((item) => item.status !== 'approved');
   if (pending.some((item) => (item.blockedKeys || []).some((key) => q.includes(normalize(key))))) return null;

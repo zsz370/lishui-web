@@ -64,12 +64,6 @@ const nodeRecords = [
     tags: [{ text: '地方风物', cls: 'tag-plain' }] },
   { id: 'f_hm', name: '白马黑莓', cat: '美食', expert: '07_fuxiaomei',
     summary: '认识获地理标志产品保护的白马黑莓，再按当季情况选择鲜果或加工品。' },
-  { id: 'f_yt', name: '东屏湖鱼头煲', cat: '美食', expert: '07_fuxiaomei',
-    summary: '从一道东屏湖鱼头煲认识地方餐桌。鱼种、原料产地和具体做法请向店家了解，不能只根据菜名判断。' },
-  { id: 'f_le', name: '溧水老鹅', cat: '美食', expert: '07_fuxiaomei',
-    summary: '把溧水老鹅加入你想了解的乡味清单。想知道哪种做法适合自己，可以向傅小莓提问，再向店家确认食材与供应。' },
-  { id: 'f_pz', name: '螃蟹粽', cat: '美食', expert: '07_fuxiaomei',
-    summary: '以蟹形草编造型得名的小粽子，特色在外形与包制手艺；具体馅料另向店家确认。' },
 
   // —— 民俗非遗 ——
   { id: 'c_ldl', name: '骆山大龙', cat: '民俗', expert: '04_dalonggu',
@@ -128,8 +122,9 @@ const nodeRecords = [
     summary: '走进城中商业街区，与海乐城、永寿坊串联，看看溧水的城市日常。' },
   { id: 's_hl', name: '海乐城', cat: '街区', expert: '10_meiguisao',
     summary: '城中商圈的核心商业空间，可安排购物、就餐与城区游逛中的休息。' },
-  { id: 's_wd', name: '万达广场', cat: '街区', expert: '10_meiguisao',
-    summary: '城南商圈商业空间，可与无想水镇附近行程衔接餐饮和购物。' },
+  { id: 's_wxsz', name: '无想水镇', cat: '街区', expert: '10_meiguisao',
+    summary: '在城南街区看看唐风建筑与夜色，慢慢逛、歇一歇；灯会与演出以当年公告为准。',
+    sourceUrl: 'https://www.njls.gov.cn/zwgk/qrddbjy/dsqjrddychy/202211/t20221124_3764333.html', sourceLabel: '溧水区政府：无想水镇与唐风文化街区' },
 ];
 
 export const nodes = nodeRecords.map((node) => ({

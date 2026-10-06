@@ -42,10 +42,10 @@ export const topics = [
         cover: '/assets/catalog/culture-iron.webp', expert: '04_dalonggu', nodeIds: ['c_tj', 'c_lh'] },
       { id: 'dragon', name: '跟着大龙听乡情', subtitle: '一场龙舞，连着一方乡土',
         intro: '一场龙舞，连接着乡里的记忆与热闹。让大龙姑陪你走近骆山大龙，听听流传至今的故事。',
-        cover: '/assets/personas/04_dalonggu.webp', coverType: 'portrait', expert: '04_dalonggu', nodeIds: ['c_ldl', 'c_hl', 'c_ljd'] },
+        cover: '/assets/catalog/culture-luoshan-dragon.png', expert: '04_dalonggu', nodeIds: ['c_ldl', 'c_hl', 'c_ljd'] },
       { id: 'festivals', name: '节庆里的热闹', subtitle: '听一听，人间烟火的声音',
         intro: '庙会、马灯和乡间节俗，是认识地方生活的另一扇窗。先听一个故事，再按兴趣继续了解。',
-        cover: '/assets/personas/05_gusanniang.webp', coverType: 'portrait', expert: '05_gusanniang', nodeIds: ['c_cs', 'c_xsm', 'c_xz', 'c_tdd', 'c_dsh', 'c_dw', 'c_syg', 'c_qh'] },
+        cover: '/assets/catalog/culture-cishan.jpg', expert: '05_gusanniang', nodeIds: ['c_cs', 'c_xsm', 'c_xz', 'c_tdd', 'c_dsh', 'c_dw', 'c_syg', 'c_qh'] },
     ],
   },
   {
@@ -61,7 +61,7 @@ export const topics = [
         cover: '/assets/catalog/learning-dajinshan.webp', expert: '02_laizhusheng', nodeIds: ['n_djs'] },
       { id: 'streets', name: '街巷日常', subtitle: '逛逛街，把烟火气带回去',
         intro: '通济街与城区街区，可以留给随心走走的一段时间。找吃的、选礼物，或者歇一歇，都不必赶。',
-        expert: '10_meiguisao', nodeIds: ['s_tj', 's_hl', 's_wd'] },
+        cover: '/assets/catalog/street-tongji.jpg', expert: '10_meiguisao', nodeIds: ['s_tj', 's_hl', 's_wxsz'] },
     ],
   },
 ];

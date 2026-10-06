@@ -12,7 +12,7 @@ test('审核状态、节点和引用完整，主打节点各有三条可调用�
     if (item.status === 'approved') {
       assert.ok(item.a.trim());
       assert.ok(item.sources.length, item.q);
-      assert.ok(item.sources.every((source) => source?.label && new URL(source.url).protocol === 'https:'), item.q);
+      assert.ok(item.sources.every((source) => source?.label && (source.kind === 'project_confirmation' && source.url === '/about#ticket-reference' || /^https:\/\//.test(source.url) && new URL(source.url).protocol === 'https:')), item.q);
     } else assert.ok(item.reason);
   }
   for (const node of mainNodes) assert.ok(qaByNode[node.id]?.length >= 3, node.name);
@@ -40,7 +40,7 @@ test('同一地名下的不同意图及大小写标点变体不会串题', () =>
 
 test('缺资料、待核意图、模糊输入及跨节点查询不猜答案', () => {
   const cases = [
-    ['n_tsq', '天生桥'], ['n_wx', '无想山名字为什么这么叫'],
+    ['n_tsq', '天生桥'], ['c_syg', '来首溧水童谣？'],
     ['n_sj', '石臼湖名字有什么传说'], ['c_ldl', '骆山大龙陈列馆正月开放吗'],
     ['c_cs', '蒲塘桥九孔始建于哪年'], ['n_sj', '石臼湖面积是多少'],
     ['n_wx', '今天几点开放'], ['n_tsq', '骆山大龙有多大'],
@@ -67,6 +67,6 @@ test('紧急求助、实际换乘及退改优先分流；待核问题走资料�
   assert.equal(transport.serviceId, 'transport');
   const refund = await ask({ nodeId: 'n_tsq', question: '天生桥游船门票退款怎么办' });
   assert.equal(refund.serviceId, 'support');
-  const pending = await ask({ nodeId: 'n_wx', question: '无想山名字是怎么来的？' });
-  assert.equal(pending.kind, 'fallback');
+  const pending = await ask({ nodeId: 'c_syg', question: '来首溧水童谣？' });
+  assert.equal(pending.kind, 'unavailable');
 });

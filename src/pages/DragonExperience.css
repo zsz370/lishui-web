@@ -1,0 +1,43 @@
+.dragon-experience { color: #344d36; padding-bottom: 32px; }
+.dragon-intro { display: grid; grid-template-columns: 1.7fr 1fr; gap: 35px; padding: 30px 0 38px; }
+.dragon-intro h1 { font-family: 'Noto Serif SC', SimSun, serif; font-size: clamp(32px, 4vw, 44px); line-height: 1.5; margin: 12px 0 16px; font-weight: 500; }
+.dragon-intro p { max-width: 45ch; font-size: 14px; line-height: 2; }
+.dragon-intro .dragon-design-note { color: #5a6953; font-size: 12px; margin-top: 15px; }
+.dragon-symbol { background: #eef1e5; padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; border-radius: 50% 50% 6px 6px; }
+.dragon-symbol > svg { width: 100%; max-width: 240px; height: auto; margin: 20px 0; }
+.dragon-symbol strong { font-family: 'Noto Serif SC', SimSun, serif; font-size: 18px; font-weight: 500; }
+.dragon-symbol > span { font-size: 11px; color: #5a6953; }
+.dragon-symbol > div { display: flex; align-items: center; gap: 12px; border-top: 1px solid #ccd7c2; padding-top: 15px; margin-top: 16px; }
+.dragon-symbol > div p { font-size: 12px; }
+.dragon-start, .dragon-question, .dragon-result { background: #fffdf6; border: 1px solid #d2ddc7; padding: 32px; border-radius: 10px; }
+.dragon-start h2, .dragon-question h2, .dragon-result h2 { font-size: 23px; font-family: 'Noto Serif SC', SimSun, serif; font-weight: 500; line-height: 1.8; }
+.dragon-start > p, .dragon-result > p { font-size: 14px; line-height: 2; margin: 14px 0; }
+.dragon-question-count { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: #566848; margin-bottom: 18px; }
+.dragon-observe { margin: 22px 0; padding: 20px; background: #eef2e6; }
+.dragon-experience h3 { font-size: 14px; font-weight: 600; }
+.dragon-observe p, .dragon-feedback p, .dragon-result li p { margin: 10px 0; font-size: 14px; line-height: 2; }
+.dragon-experience details { font-size: 12px; line-height: 1.8; margin-top: 10px; }
+.dragon-experience summary { cursor: pointer; min-height: 32px; display: list-item; }
+.dragon-experience details a, .dragon-feedback a { display: inline-flex; gap: 6px; align-items: center; text-decoration: underline; font-size: 12px; margin: 5px 0; }
+.dragon-question fieldset { margin: 22px 0; }
+.dragon-question legend { font-size: 13px; margin-bottom: 12px; }
+.dragon-question label { display: flex; align-items: flex-start; gap: 12px; border: 1px solid #d7dfcd; padding: 15px; margin: 10px 0; border-radius: 6px; font-size: 14px; line-height: 1.8; cursor: pointer; }
+.dragon-question label.is-chosen { background: #e9eedf; border-color: #657f51; }
+.dragon-question input { accent-color: #435f3c; width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; }
+.dragon-question fieldset:disabled label { cursor: default; }
+.dragon-question button:disabled { opacity: .6; cursor: not-allowed; }
+.dragon-feedback { border-left: 3px solid #668651; padding: 20px; background: #eef2e6; }
+.dragon-feedback button { display: flex; margin-top: 22px; }
+.dragon-result .dragon-score strong { font-size: 30px; font-weight: 500; }
+.dragon-result ol { list-style: none; margin: 28px 0; }
+.dragon-result li { display: flex; gap: 14px; border-top: 1px solid #dce4d2; padding: 18px 0; }
+.dragon-result li > svg { flex-shrink: 0; margin-top: 3px; }
+.dragon-actions { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+.dragon-actions > a { font-size: 14px; display: flex; align-items: center; gap: 5px; min-height: 44px; }
+.dragon-record { border-top: 1px solid #dce4d2; margin-top: 24px; padding-top: 18px; font-size: 12px; color: #5a6953; line-height: 2; }
+.dragon-record button { display: inline-flex; align-items: center; gap: 5px; margin-right: 18px; min-height: 44px; text-decoration: underline; }
+.dragon-expert { margin-top: 32px; }
+.dragon-expert > h2 { font-size: 20px; margin-bottom: 18px; }
+.dragon-notice { margin-top: 14px; font-size: 13px; line-height: 1.8; }
+.dragon-experience :focus-visible { outline: 2px solid #3c593c; outline-offset: 4px; }
+@media (max-width: 600px) { .dragon-intro { grid-template-columns: 1fr; padding: 20px 0; gap: 22px; } .dragon-symbol { border-radius: 8px; padding: 20px; display: grid; grid-template-columns: 80px 1fr; gap: 10px; } .dragon-symbol > svg { margin: 0; grid-row: span 2; } .dragon-symbol strong { font-size: 15px; } .dragon-symbol > div { grid-column: span 2; margin-top: 0; } .dragon-start, .dragon-question, .dragon-result { padding: 22px 17px; } .dragon-question h2 { font-size: 20px; } .dragon-observe, .dragon-feedback { padding: 16px; } }
