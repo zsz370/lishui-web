@@ -13,12 +13,17 @@ const profiles = [
   { id: '11_dongpingjie', name: '东屏姐', category: 'welcome', domain: '天气与游客服务', tagline: '旅途有疑问，先理清下一步。', intro: '看看天气、找求助渠道、了解退改与设施确认方法。带长辈或孩子出发，也可以先把需要的照顾安排妥当。', destination: '/services?service=weather', action: '查看旅途服务' },
   { id: '12_dongluke', name: '东庐客', category: 'welcome', domain: '双语与参观礼仪', tagline: 'Welcome to Lishui. 欢迎来溧水。', intro: 'Hello! 我是东庐客，欢迎来到溧水。常用旅游英文、拍照询问和参观礼仪，都可以先了解一点，让交流更从容。', destination: '/services?service=etiquette', action: '看看礼仪与双语' },
 ];
-// 同形象 GIF 完成后，可为对应 profile 添加 portraitMotion: { idle: '/assets/personas/...-idle.gif', thinking: '/assets/personas/...-thinking.gif' }。
-// portrait 始终保留，供暂停动态、减少动态偏好及动图加载失败时使用。
+// 由用户确认的原视频剪出两种动作；讲话视频静音，由真实朗读事件驱动。
+// thinking沿用站立；同视频首帧用于暂停/减少动态/加载失败，原定稿仍作后备。
 export const personas = profiles.map((profile) => ({
   ...profile, color: '#4a654d',
   portrait: `/assets/personas/${profile.id}.webp`,
   avatar: `/assets/personas/${profile.id}-avatar.webp`,
+  portraitMotion: {
+    idle: `/assets/personas/motion/${profile.id}-idle.mp4`,
+    speaking: `/assets/personas/motion/${profile.id}-speaking.mp4`,
+  },
+  motionPoster: `/assets/personas/motion/${profile.id}-poster.webp`,
 }));
 export const guideCategories = [
   { id: 'welcome', name: '迎宾与旅途服务' },

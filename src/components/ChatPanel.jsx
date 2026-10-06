@@ -90,17 +90,18 @@ export default function ChatPanel({ node, service, preferences, prompts }) {
   };
 
   const portraitGuide = viewedGuide || activeGuide;
-  const hostSpeaking = speech.status === 'playing' && portraitGuide.id === HOST_ID;
+  const speakingGuideId = speech.status === 'playing' ? msgs[speech.messageId]?.speaker?.id : null;
+  const guideSpeaking = portraitGuide.id === speakingGuideId;
   const participantIds = [...new Set([activeGuide.id, node?.expert, service?.expert, ...msgs.map((message) => message.role === 'host' ? HOST_ID : message.speaker?.id), ...msgs.flatMap((message) => message.collaboration?.trace?.map((task) => task.agentId) || [])].filter(Boolean))];
   return (
     <div className="agent-conversation">
       <aside className="agent-character" aria-label="智能体全身形象">
-        <GuidePortrait key={portraitGuide.id} persona={portraitGuide} state={pending && portraitGuide.id === activeGuide.id ? 'thinking' : hostSpeaking ? 'speaking' : 'idle'} />
+        <GuidePortrait key={portraitGuide.id} persona={portraitGuide} state={pending && portraitGuide.id === activeGuide.id ? 'thinking' : guideSpeaking ? 'speaking' : 'idle'} />
         <div className="agent-character-copy">
           <p className="section-overline">{portraitGuide.id === activeGuide.id ? '当前接待' : '协作伙伴'}</p>
           <h2>{portraitGuide.name}</h2><p className="agent-character-domain">{portraitGuide.domain}</p>
           <p className="agent-character-tagline">{portraitGuide.tagline}</p>
-          <span className="agent-character-status" role="status">{pending ? '正在整理答复' : hostSpeaking ? '正在朗读答复' : '随时可以提问'}</span>
+          <span className="agent-character-status" role="status">{pending ? '正在整理答复' : guideSpeaking ? '正在朗读答复' : '随时可以提问'}</span>
           <Link to={guideUrl(portraitGuide.id)}>认识这位导游 <ArrowUpRight size={14} aria-hidden="true" /></Link>
         </div>
         {participantIds.length > 1 && <div className="agent-participants"><p>查看伙伴形象</p><div>{participantIds.map((id) => {
@@ -116,7 +117,7 @@ export default function ChatPanel({ node, service, preferences, prompts }) {
         <div className="ml-auto text-[11px] text-ls-ink/50">{activeService ? getTravelService(activeService)?.name : '讲解与旅途咨询'}</div>
       </div>
       <div ref={scrollArea} className="chat-messages flex-1 overflow-y-auto px-4 py-3 space-y-3" aria-live="polite" role="log" aria-label="与智能体的对话记录">
-        {msgs.map((m, i) => <Bubble key={i} m={m} pending={pending} onPick={(t) => send(t)} speech={speech.messageId === i ? speech : null} onPlay={() => { setViewedGuide(getPersona(HOST_ID)); speechController.current?.play(i, m.content); }} onStop={() => speechController.current?.stop()} />)}
+        {msgs.map((m, i) => <Bubble key={i} m={m} pending={pending} onPick={(t) => send(t)} speech={speech.messageId === i ? speech : null} onPlay={() => { setViewedGuide(m.speaker || getPersona(HOST_ID)); speechController.current?.play(i, m.content); }} onStop={() => speechController.current?.stop()} />)}
         {pending && <div className="chat-progress" role="status"><p>{tasks.some((task) => task.status === 'running') ? '伙伴正在查询，你可以随时停止。' : '问题已提交，正在等待答复。'}</p>{tasks.filter((task) => !task.taskId.startsWith('dispatch:')).map((task) => <div key={task.taskId}><span>{getPersona(task.agentId)?.name} · {task.label || taskLabel(task.taskId)}</span><strong>{task.status === 'running' ? '查询中' : task.status === 'completed' ? '已完成' : task.status === 'needs_input' ? '需要补充条件' : task.status === 'cancelled' ? '已停止' : '未完成'}</strong></div>)}</div>}
       </div>
       {msgs.length === 1 && <div className="chat-starter-prompts">{(prompts || (service ? [...(serviceQAById[service.id]?.slice(0, 1) || []), ...service.prompts].slice(0, 3) : qaByNode[node?.id]?.slice(0, 3) || ['溧水明天天气怎么样？', '附近住哪方便？', '怎么去这里？'])).map((prompt) => <button type="button" key={prompt} disabled={pending} onClick={() => send(prompt)}>{prompt}</button>)}</div>}
@@ -165,7 +166,7 @@ function Bubble({ m, onPick, pending, speech, onPlay, onStop }) {
         <div className="bg-white border border-ls-ink/10 rounded-2xl rounded-tl-sm px-3 py-2 text-sm">
           <span className="text-[11px] text-ls-ink/50 mr-2">{p?.name}·{p?.domain}</span>
           <span className="chat-answer-text">{m.content}</span>
-          {p?.id === HOST_ID && <AnswerSpeech speech={speech} onPlay={onPlay} onStop={onStop} pending={pending} />}
+          {p && <AnswerSpeech speech={speech} onPlay={onPlay} onStop={onStop} pending={pending} />}
         </div>
         {m.source && <div className="text-[11px] text-ls-ink/50">{m.sourceUrl ? <a href={m.sourceUrl} target="_blank" rel="noreferrer">{m.source}</a> : `参考：${m.source}`}</div>}
         {m.collaboration?.trace?.length > 0 && <details className="text-xs bg-ls-mist rounded-xl p-2">

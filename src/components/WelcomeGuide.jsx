@@ -1,4 +1,5 @@
 import { memo, useEffect, useRef, useState } from 'react';
+import GuideMedia from './GuideMedia.jsx';
 
 const lines = [
   '你好，欢迎来到溧水！我是淮源姐，很高兴陪你走这一程。',
@@ -26,8 +27,6 @@ export default memo(function WelcomeGuide({ host }) {
   const [welcoming, setWelcoming] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const [notice, setNotice] = useState('');
-  const [failedSources, setFailedSources] = useState([]);
-  const [loadedSource, setLoadedSource] = useState('');
   const speechRun = useRef(0);
   const ownsSpeech = useRef(false);
   const speechTimeout = useRef(null);
@@ -89,17 +88,16 @@ export default memo(function WelcomeGuide({ host }) {
       return;
     }
     const voices = window.speechSynthesis.getVoices();
-    const chineseVoice = voices.find((voice) => /^zh[-_]/i.test(voice.lang));
+    const chineseVoice = voices.find((voice) => voice.localService === true && /^zh[-_]/i.test(voice.lang));
     if (voices.length > 0 && !chineseVoice) {
       replay();
-      setNotice('当前设备没有中文语音，请阅读欢迎字幕。');
+      setNotice('当前设备没有本地中文语音，请阅读欢迎字幕。');
       return;
     }
     const token = speechRun.current;
     ownsSpeech.current = true;
     setStep(0);
     setWelcoming(true);
-    setSpeaking(true);
     const failed = () => {
       if (speechRun.current !== token) return;
       cancelSpeech();
@@ -113,7 +111,7 @@ export default memo(function WelcomeGuide({ host }) {
       utterance.rate = 0.95;
       if (chineseVoice) utterance.voice = chineseVoice;
       utterance.onstart = () => {
-        if (speechRun.current === token) setStep(index);
+        if (speechRun.current === token) { setStep(index); setSpeaking(true); }
       };
       utterance.onerror = failed;
       utterance.onend = () => {
@@ -127,10 +125,7 @@ export default memo(function WelcomeGuide({ host }) {
     });
   };
 
-  const animated = Boolean(host.motion) && !paused && !reduced;
-  const desiredSource = animated ? host.motion[welcoming ? 'speaking' : 'idle'] : host.portrait;
-  const source = [desiredSource, host.portrait, host.avatar]
-    .find((candidate) => !failedSources.includes(candidate));
+  const animated = Boolean(host.portraitMotion) && !paused && !reduced;
 
   return (
     <aside className="welcome-guide" aria-label="淮源姐欢迎导览">
@@ -143,23 +138,14 @@ export default memo(function WelcomeGuide({ host }) {
         <p aria-live="polite" aria-atomic="true">{lines[step]}</p>
       </div>
       <div className="welcome-stage">
-        {source ? <>
-          {loadedSource !== source && <div className="welcome-loading" role="status">淮源姐正在入场…</div>}
-          <img className={`welcome-figure ${loadedSource === source ? 'is-loaded' : ''}`} src={source}
-            alt="淮源姐定稿形象，全身站立欢迎游客" width="900" height="1342"
-            onLoad={() => setLoadedSource(source)}
-            onError={() => setFailedSources((failed) => [...failed, source])} />
-        </> : <div className="welcome-media-error" role="status">
-          <span>淮</span><p>形象暂时无法加载，欢迎介绍仍可使用。</p>
-          <button type="button" onClick={() => setFailedSources([])}>重新加载形象</button>
-        </div>}
+        <GuideMedia persona={host} state={speaking ? 'speaking' : 'idle'} animated={animated} />
       </div>
       <div className="welcome-controls">
         <button className="welcome-listen" type="button" onClick={listen} aria-pressed={speaking}>
           <span aria-hidden="true">{speaking ? 'Ⅱ' : '▷'}</span>{speaking ? '停止介绍' : '听欢迎介绍'}
         </button>
         <button type="button" onClick={replay}>重播字幕</button>
-        {host.motion && <button type="button" onClick={() => setPaused((value) => !value)} aria-pressed={paused} disabled={reduced}>
+        {host.portraitMotion && <button type="button" onClick={() => setPaused((value) => !value)} aria-pressed={paused} disabled={reduced}>
           {reduced ? '静态模式' : paused ? '播放形象' : '暂停形象'}
         </button>}
       </div>

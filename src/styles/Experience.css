@@ -39,6 +39,9 @@ button:disabled { cursor: default; }
 .guide-portrait { min-width: 0; overflow: hidden; }
 .guide-portrait .experience-photo { background: #ecefe7; }
 .guide-portrait .experience-photo img { object-fit: contain; }
+.guide-media { display: block; width: 100%; height: 100%; }
+.guide-motion-video { display: block; width: 100%; height: 100%; object-fit: contain; background: #ecefe7; }
+.guide-portrait { position: relative; }
 .chat-avatar { width: 32px; height: 32px; border-width: 1px; }
 .detail-guide-stage { display: grid; grid-template-columns: minmax(100px, .7fr) 1fr; min-height: 230px; margin-bottom: 16px; overflow: hidden; border: 1px solid #e3e9d9; border-radius: 16px; background: #fffdf7; }
 .detail-guide-stage .guide-portrait { height: 230px; }
