@@ -20,9 +20,9 @@ async function start(t, providers, options={}) {
 }
 const post=(base,input,options={})=>fetch(`${base}/api/chat/stream`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(input),...options});
 
-test('八类服务与六类文化知识路由，显式地点和纯翻译不受原名片干扰',()=>{
+test('八类工具与地方知识由同一导游处理，显式地点和纯翻译不受原名片干扰',()=>{
   for(const [q,service] of [['溧水天气怎么样','weather'],['想订酒店','stay'],['从南京南站怎么去天生桥','transport'],['寺庙参观礼仪','etiquette'],['轮椅出行','accessibility'],['伴手礼怎么保存','shopping'],['安排一日游','planning'],['退票退款怎么办','support']]) assert(planChat({question:q}).services.includes(service),q);
-  for(const [q,id] of [['韩熙载与无想山有何联系','03_yanzhike'],['洪蓝玉带糕的名录类别','07_fuxiaomei'],['骆山大龙的文化形制','04_dalonggu'],['打五件是什么类别','05_gusanniang'],['石臼渔歌的项目类别','06_ruanyunan'],['周园有哪些收藏线索','02_laizhusheng']]) assert(planChat({question:q,nodeId:'n_fjb'}).knowledgeTargets.some((target)=>target.expertId===id),q);
+  for(const [q,id] of [['韩熙载与无想山有何联系','01_huaiyuanjie'],['洪蓝玉带糕的名录类别','01_huaiyuanjie'],['骆山大龙的文化形制','01_huaiyuanjie'],['打五件是什么类别','01_huaiyuanjie'],['石臼渔歌的项目类别','01_huaiyuanjie'],['周园有哪些收藏线索','01_huaiyuanjie']]) assert(planChat({question:q,nodeId:'n_fjb'}).knowledgeTargets.some((target)=>target.expertId===id),q);
   assert.equal(planChat({question:'天生桥和洪蓝玉带糕有什么文化看点？'}).knowledgeTargets.length,2);
   const plan=planChat({question:'天生桥和玉带糕分别有什么文化线索？'});
   assert.equal(plan.knowledgeTargets.length,2);
@@ -37,8 +37,8 @@ test('待核问题不调用生成或搜索；非时效已审命中不能被模�
   const held=await createChat({search:async()=>{calls++;return [];},generate:async()=>{calls++;return ''; }},fakeKnowledge)(validateChat({nodeId:'c_syg',question:'来首溧水童谣？'}));
   assert.match(held.content,/尚未核准/);assert.equal(calls,0);
   const knowledge={retrieve:async()=>[{question:'韩熙载是谁',answer:'南唐人物，不支持改名故事',kind:'fact',score:.6,sources:[{label:'已审证据',url:'https://example.org/reviewed'}]}]};
-  const result=await createChat({search:async()=>[{excerpt:'未审故事',url:'https://example.org/web',label:'网页'}],generate:async()=>'{"selectedIds":["W1"]}'},knowledge)(validateChat({nodeId:'n_wx',question:'韩熙载是什么人物？'}));
-  assert.match(result.content,/南唐人物/);assert.doesNotMatch(result.content,/未审故事/);
+  const result=await createChat({search:async()=>[{excerpt:'未审故事',url:'https://example.org/web',label:'网页'}],generate:async()=>'{"selectedIds":["W1"]}'},knowledge)(validateChat({nodeId:'n_wx',question:'韩熙载在无想山的文化线索是什么？'}));
+  assert.equal(result.kind,'unavailable');assert.doesNotMatch(result.content,/未审故事/);
 });
 
 test('跨节点分别过滤、由实际专家答复，来源与任务不串到第一节点',async()=>{
@@ -47,22 +47,22 @@ test('跨节点分别过滤、由实际专家答复，来源与任务不串到�
   const chat=createChat({generate:async()=>'{"selectedIds":["K1"]}'},knowledge);
   const result=await chat(validateChat({question:'天生桥和洪蓝玉带糕有什么文化看点？'}),{onProgress:(event)=>events.push(event)});
   assert.deepEqual(filters.map((item)=>item.nodeId).sort(),['f_ydg','n_tsq']);
-  assert(result.replies.some((item)=>item.speaker.id==='03_yanzhike'));
-  assert(result.replies.some((item)=>item.speaker.id==='07_fuxiaomei'));
-  assert.equal(events.filter((item)=>item.status==='running').length,3); // two knowledge tasks + coordinator
+  assert(result.replies.some((item)=>item.speaker.id==='01_huaiyuanjie'));
+  assert(result.replies.some((item)=>item.speaker.id==='01_huaiyuanjie'));
+  assert.equal(events.filter((item)=>item.status==='running').length,2); // two knowledge tasks + coordinator
   assert(events.filter((item)=>item.status==='completed'&&!item.taskId.startsWith('dispatch:')).every((item)=>item.durationMs>=0));
 });
 
-test('单角色基线顺序执行相同任务，多角色允许独立任务并行',async()=>{
+test('单导游的独立工具查询可并行，结果统一成一条答复',async()=>{
   for(const mode of ['single','multi']) {
     let active=0,maxActive=0;
     const enter=async(value)=>{active++;maxActive=Math.max(maxActive,active);await delay(15);active--;return value;};
     const providers={weather:()=>enter(weatherData()),generate:async(messages,options)=>options?.structured?'{"selectedIds":["K1"]}':'伙伴已核对无想山资料，请结合天气安排行程。'};
     const knowledge={retrieve:()=>enter([{answer:'无想山资料',kind:'fact',score:0.9,sources:[{label:'背景',url:'https://example.org/guide'}]}])};
     const result=await createChat(providers,knowledge)(validateChat({nodeId:'n_wx',question:'今天无想山天气和文化看点是什么？'}),{mode});
-    assert.equal(maxActive,mode==='single'?1:2);
+    assert.equal(maxActive,2);
     assert.match(result.content,/无想山资料|伙伴/);
-    if(mode==='single') assert.equal(result.replies.length,1);
+    assert.equal(result.replies.length,1);assert.equal(result.speaker.id,'01_huaiyuanjie');
   }
 });
 
@@ -73,7 +73,7 @@ test('SSE在结果之前报告实际任务，部分天气失败仍返回其他�
   const result=await readChatEvents(response,(entry)=>events.push(entry));
   assert(events.some((entry)=>entry.taskId==='weather'&&entry.status==='running'));
   assert(events.some((entry)=>entry.taskId==='weather'&&entry.status==='failed'));
-  assert(result.replies.some((reply)=>reply.serviceId==='support'));
+  assert(result.operations.trace.some((task)=>task.taskId==='support'));
   assert.doesNotMatch(JSON.stringify(result),/private upstream/);
 });
 

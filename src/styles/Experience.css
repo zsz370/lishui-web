@@ -41,6 +41,12 @@ button:disabled { cursor: default; }
 .guide-portrait .experience-photo img { object-fit: contain; }
 .guide-media { display: block; width: 100%; height: 100%; }
 .guide-motion-video { display: block; width: 100%; height: 100%; object-fit: contain; background: #ecefe7; }
+.guide-media .experience-photo img { object-fit: contain; object-position: center; }
+.guide-media--transparent,
+.guide-media--transparent .guide-motion-video,
+.guide-media--transparent .experience-photo,
+.guide-media--transparent .photo-loading,
+.guide-media--transparent .photo-fallback { background: transparent; }
 .guide-portrait { position: relative; }
 .chat-avatar { width: 32px; height: 32px; border-width: 1px; }
 .detail-guide-stage { display: grid; grid-template-columns: minmax(100px, .7fr) 1fr; min-height: 230px; margin-bottom: 16px; overflow: hidden; border: 1px solid #e3e9d9; border-radius: 16px; background: #fffdf7; }

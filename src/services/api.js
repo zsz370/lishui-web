@@ -2,7 +2,7 @@ export const offlineDemo = import.meta.env?.VITE_OFFLINE_DEMO === 'true';
 export const backendEnabled = !offlineDemo && Boolean(import.meta.env) && import.meta.env?.VITE_AGENT_API_ENABLED !== 'false';
 import { readChatEvents } from './chatStream.js';
 
-export async function apiChatStream(body, { signal, onProgress, timeoutMs = 100000 } = {}) {
+export async function apiChatStream(body, { signal, onProgress, onAnswer, timeoutMs = 100000 } = {}) {
   if (offlineDemo) throw new Error('离线演示未连接问答服务，请查看已审固定问答。');
   try {
     const activeSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(timeoutMs)]) : AbortSignal.timeout(timeoutMs);
@@ -10,7 +10,7 @@ export async function apiChatStream(body, { signal, onProgress, timeoutMs = 1000
     if (response.status === 404) return apiRequest('chat', body, { signal, timeoutMs });
     if (!response.ok) { const data = await response.json().catch(() => null); throw new Error(data?.error?.message || '查询暂时不可用，请稍后重试。'); }
     if (!response.headers.get('content-type')?.includes('text/event-stream')) throw new Error('查询服务尚未准备好，请稍后重试。');
-    return await readChatEvents(response, onProgress);
+    return await readChatEvents(response, onProgress, onAnswer);
   } catch (error) {
     if (signal?.aborted) throw error;
     if (error.name === 'TimeoutError' || error.name === 'AbortError') throw new Error('查询超时，请稍后重试。');

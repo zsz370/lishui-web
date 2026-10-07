@@ -1,3 +1,4 @@
+import { visitorAnswer } from '../data/visitorAnswerCopy.js';
 import { getVisitGuide } from '../data/nodeVisitGuides.js';
 import './NodeVisitGuide.css';
 
@@ -12,7 +13,7 @@ export default function NodeVisitGuide({ nodeId }) {
       <summary><span>{label}</span><span>{question}</span></summary>
       <div className="visit-guide-answer">
         <p className="visit-guide-kind">{qa?.kind === 'guidance' ? '个人规划建议 · 背景有出处' : qa ? '资料讲解' : '资料待补'}</p>
-        <p>{qa?.a || '尚未取得可用答案，请查看下方待确认项。'}</p>
+        <p>{(qa && visitorAnswer(qa)) || '尚未取得可用答案，请查看下方待确认项。'}</p>
         {qa?.sources.map((source) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.label}{source.publishedAt ? `（${source.publishedAt}）` : ''} ↗</a>)}
       </div>
     </details>)}</div>

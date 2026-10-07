@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ArrowUpRight, BookOpen, MagnifyingGlass, X } from '@phosphor-icons/react';
 import { atlasEntries, atlasCategories, filterAtlas } from '../data/atlas.js';
-import { getPersona, guideUrl } from '../data/personas.js';
+import { getPersona, guideLink } from '../data/personas.js';
 import Photo from '../components/Photo.jsx';
 import JourneyThread from '../components/JourneyThread.jsx';
 import PageGuide from '../components/PageGuide.jsx';
@@ -60,7 +60,7 @@ export default function Atlas() {
         <figure className="atlas-figure"><Photo src={current.photo} alt={`${current.name}资料配图`} eager fallback="暂无配图，先读一段介绍" /><figcaption>{current.photo ? '配图来自团队提供资料；不代表当前季节或活动安排。' : '文字页 · 保留风物介绍'}</figcaption></figure>
         <div className="atlas-copy"><p className="atlas-folio">{current.cat}<span>{String(atlasEntries.findIndex((entry) => entry.id === current.id) + 1).padStart(2, '0')} / {atlasEntries.length}</span></p><h2 ref={heading} tabIndex={-1}>{current.name}</h2><p className="atlas-summary">{current.summary}</p>
           {current.introductionReviewNote && <p className="atlas-note">{current.introductionReviewNote}</p>}
-          <div className="atlas-actions"><Link className="experience-button" to={`/nodes/${current.id}`}>打开风物名片 <ArrowUpRight size={16} aria-hidden="true" /></Link><Link to={guideUrl(current.expert)}>向{guide?.name}提问 <ArrowUpRight size={15} aria-hidden="true" /></Link></div>
+          <div className="atlas-actions"><Link className="experience-button" to={`/nodes/${current.id}`}>打开风物名片 <ArrowUpRight size={16} aria-hidden="true" /></Link><Link to={guideLink({nodeId:current.id})}>向{guide?.name}提问 <ArrowUpRight size={15} aria-hidden="true" /></Link></div>
           <details className="atlas-sources" key={current.id}><summary>这段介绍的参考出处</summary><ul>{current.introductionSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <ArrowUpRight size={13} aria-hidden="true" /></a></li>)}</ul></details>
         </div>
       </section>
@@ -68,7 +68,7 @@ export default function Atlas() {
       <p className="atlas-key-hint">选择阅读区后，可用左右方向键翻页；也可从目录直接打开。</p>
       <details className="atlas-directory"><summary>翻阅目录 · {entries.length}项</summary><ol>{entries.map((entry) => <li key={entry.id}><button type="button" aria-current={entry.id === current.id ? 'page' : undefined} onClick={() => select(entry.id, true)}><span>{entry.cat}</span>{entry.name}{!entry.photo && <small>文字页</small>}</button></li>)}</ol></details>
     </> : <section className="atlas-empty" role="status"><BookOpen size={34} weight="light" aria-hidden="true" /><h2>这次还没有找到</h2><p>换个名称，或回到完整图鉴慢慢翻。</p><button type="button" className="experience-button" onClick={() => update('全部', '', 'c_ldl')}>回到完整图鉴</button></section>}
-    <PageGuide id="atlas-guide" title="这一页，还有哪些故事？" description={current ? `当前翻到「${current.name}」，由对应导游陪你读；翻页会切换当前主题，对话保留。` : '没有找到也没关系，可以把想了解的风物直接告诉导游。'} node={current} />
+    <PageGuide id="atlas-guide" title="这一页，还有哪些故事？" description={current ? `当前翻到「${current.name}」，可以带着当前风物向淮源姐提问，之前的对话仍会保留。` : '没有找到也没关系，可以把想了解的风物直接告诉导游。'} node={current} />
     <Link className="atlas-return" to="/nodes">回到探索栏目 <ArrowRight size={16} aria-hidden="true" /></Link>
   </div>;
 }

@@ -1,0 +1,109 @@
+/* 单导游改版：既有绿色品牌，轻量原生CSS，不新增设计依赖。 */
+.single-home {--guide-green:#244c38;--guide-muted:#566b5d;color:#234334;}
+.single-home h1,.single-home h2,.single-guide-page h1,.guide-chat-welcome h2 {font-family:"Microsoft YaHei", "PingFang SC",sans-serif;letter-spacing:-.04em;}
+.single-home .home-hero {min-height:615px;grid-template-columns:1.1fr .9fr;border-radius:22px;background:#e9eee7;box-shadow:none;}
+.single-home .home-hero-wash {background:linear-gradient(90deg,#f0f4ef 0%,#f0f4efe8 28%,#eff4ee99 55%,#edf1eb44 100%);}
+.single-home .home-scenery img {object-position:50% 55%;}
+.single-home .home-hero-copy {padding:48px 0 38px 44px;color:#244c38;align-self:center;}
+.single-home .home-eyebrow {font-size:14px;letter-spacing:1px;}
+.single-home .home-hero h1 {font-family:"Microsoft YaHei","PingFang SC",sans-serif;font-size:clamp(42px,5vw,66px);line-height:1.2;font-weight:600;letter-spacing:-2px;margin:24px 0;}
+.single-home .home-hero-description {font-size:17px;color:#395441;line-height:1.8;}
+.home-question-form {display:flex;align-items:center;background:#fff;border:1px solid #a8b9a9;border-radius:14px;padding:8px 8px 8px 16px;margin-top:28px;max-width:540px;min-height:62px;}
+.home-question-form input {min-width:0;flex:1;font-size:16px;outline:none;background:none;color:#234334;}
+.home-question-form input::placeholder {color:#687b6c;}
+.home-question-form button {display:grid;place-items:center;background:#244c38;color:#fff;min-width:46px;min-height:46px;border-radius:10px;}
+.home-question-hints {display:flex;flex-wrap:wrap;gap:8px 15px;margin-top:14px;}
+.home-question-hints button {display:inline-flex;align-items:center;gap:4px;color:#3b5c45;font-size:13px;min-height:36px;}
+.single-home .welcome-guide {padding:32px 25px;}
+.single-home .welcome-bubble {max-width:340px;box-shadow:none;border-radius:16px;background:#fffdf7ed;}
+.single-home .welcome-bubble p {font-size:14px;min-height:56px;}
+.single-home .welcome-stage {height:335px;max-width:330px;margin-top:10px;background:transparent;}
+.single-home .welcome-stage .guide-media {padding:0;}
+.single-home .welcome-controls {font-size:12px;gap:14px;}
+.single-home .welcome-footnote {font-size:11px;color:#3d5845;}
+.single-home .home-scene-picker {margin-top:25px;}
+.single-home .home-scene-picker>p,.single-home .home-mobile-scene,.single-home .home-scene-options img {display:none;}
+.single-home .home-scene-options {margin-top:0;gap:8px;}
+.single-home .home-scene-options button {font-size:12px;background:#f6f8f3ad;color:#244c38;border-color:#aebdaf;padding:6px 12px;}
+.single-home .home-scene-options button.is-selected {background:#244c38;color:#fff;border-color:#244c38;}
+.single-home .home-scene-playback,.single-home .home-scene-playback button {color:#3c5844;font-size:11px;}
+.home-discover {padding:65px 0 55px;}
+.home-discover header h2,.home-atlas-feature h2,.home-itinerary-feature h2 {font-size:30px;line-height:1.4;font-weight:500;margin-bottom:12px;}
+.home-discover header p,.home-atlas-feature p,.home-itinerary-feature p {font-size:16px;line-height:1.85;color:#566b5d;}
+.home-picks {display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;margin-top:26px;}
+.home-picks>a {display:block;min-width:0;}
+.home-picks .experience-photo {height:240px;border-radius:16px;}
+.home-picks>a:first-child .experience-photo {height:310px;}
+.home-picks>a>div {position:relative;padding:18px 30px 0 0;}
+.home-picks h3 {font-size:23px;margin-bottom:6px;font-weight:500;}
+.home-picks p {font-size:14px;line-height:1.8;color:#566b5d;}
+.home-picks svg {position:absolute;right:0;top:22px;}
+.home-secondary-link {display:inline-flex;align-items:center;gap:10px;margin-top:22px;min-height:44px;color:#355b41;font-size:15px;}
+.home-atlas-feature {display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center;border-top:1px solid #d6dfd1;padding:50px 0;}
+.home-atlas-feature>div {padding:20px 15px;}
+.home-atlas-feature>div>svg {margin-bottom:24px;}
+.home-atlas-feature .experience-button {margin-top:25px;}
+.home-atlas-feature>a {height:355px;}
+.home-atlas-feature .experience-photo {border-radius:16px;}
+.home-itinerary-feature {display:flex;align-items:center;gap:25px;background:#e6eee2;border-radius:16px;padding:32px;margin:15px 0 30px;}
+.home-itinerary-feature>div {flex:1;}
+.home-itinerary-feature>svg {flex-shrink:0;}
+.home-itinerary-feature h2 {font-size:24px;}
+.page-loading {padding:90px 20px;text-align:center;color:#496347;min-height:55vh;}
+.single-guide-page {max-width:1150px;margin:auto;padding:12px 0 25px;}
+.single-guide-heading {display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px;}
+.single-guide-heading h1 {font-size:32px;line-height:1.4;font-weight:500;}
+.single-guide-heading p {font-size:15px;line-height:1.8;color:#566b5d;margin-top:9px;}
+.single-guide-heading nav {display:flex;gap:15px;flex-shrink:0;}
+.single-guide-heading nav a {display:inline-flex;align-items:center;gap:6px;color:#3f6248;font-size:14px;min-height:44px;}
+.guide-context {display:flex;gap:10px;align-items:center;max-width:max-content;font-size:14px;padding:7px 12px;margin-bottom:15px;background:#e6eee2;border-radius:8px;}
+.guide-context button {display:grid;place-items:center;width:30px;height:30px;}
+.guide-conversation {display:grid;grid-template-columns:230px minmax(0,1fr);gap:32px;align-items:start;}
+.guide-presence {position:sticky;top:105px;align-self:start;padding-top:35px;text-align:center;}
+.guide-presence .guide-portrait {height:330px;background:transparent;}
+.guide-presence h2 {font-size:25px;font-weight:500;margin:14px 0 7px;}
+.guide-presence p {font-size:14px;color:#4c6852;}
+.guide-presence small {display:block;font-size:12px;color:#687d6d;margin-top:14px;}
+.portrait-motion-toggle {background:#ffffffd9;border:1px solid #b9c8b2;border-radius:6px;font-size:11px;padding:6px 10px;position:absolute;bottom:4px;left:50%;transform:translateX(-50%);}
+.guide-dialogue {display:flex;flex-direction:column;min-width:0;min-height:590px;border:1px solid #d6dfd1;border-radius:18px;background:#fffdf8;overflow:hidden;}
+.guide-dialogue-top {display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #e6ebdf;padding:12px 22px;font-size:14px;color:#546d59;}
+.guide-dialogue-top button {font-size:13px;min-height:40px;color:#244c38;}
+.guide-dialogue-messages {padding:28px;min-height:380px;max-height:560px;overflow-y:auto;flex:1;scroll-behavior:auto;}
+.guide-chat-welcome {padding:38px 5px 28px;}
+.guide-chat-welcome h2 {font-size:29px;font-weight:500;line-height:1.5;}
+.guide-chat-welcome p {font-size:16px;line-height:1.9;color:#5a6c5d;margin-top:16px;max-width:36ch;}
+.guide-chat-welcome>div {display:grid;gap:10px;margin-top:25px;}
+.guide-chat-welcome button {text-align:left;border:1px solid #dbe3d6;border-radius:10px;padding:12px 15px;font-size:15px;color:#36583f;background:#f3f6ef;}
+.guide-user-message {margin:8px 0 24px auto;width:fit-content;max-width:88%;border-radius:14px 14px 3px 14px;background:#244c38;color:#fff;padding:13px 17px;font-size:16px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere;}
+.guide-assistant-message {margin:20px 0 28px;}
+.guide-message-author {font-size:13px;color:#5a745d;margin-bottom:9px;}
+.guide-message-text {font-size:16px;line-height:1.95;color:#294531;white-space:pre-wrap;overflow-wrap:anywhere;}
+.guide-answer-actions {display:flex;align-items:center;gap:12px;margin-top:13px;}
+.guide-answer-actions button,.guide-retry button {display:inline-flex;align-items:center;gap:6px;min-height:36px;font-size:13px;color:#466348;}
+.guide-answer-actions small {font-size:12px;color:#687b68;}
+.guide-sources {font-size:13px;line-height:1.8;color:#597358;margin-top:8px;}
+.guide-sources summary {cursor:pointer;min-height:30px;}
+.guide-sources a {display:block;text-decoration:underline;margin-top:7px;overflow-wrap:anywhere;}
+.guide-answer-links {display:flex;flex-wrap:wrap;gap:10px;font-size:14px;margin-top:14px;}
+.guide-answer-links a {text-decoration:underline;}
+.guide-stream-state {display:block;font-size:13px;line-height:1.8;color:#80683e;margin-top:10px;}
+.guide-query-state {font-size:13px;color:#536d53;line-height:1.8;padding:10px 0;}
+.guide-query-state>div {display:flex;flex-wrap:wrap;gap:12px;}
+.guide-query-state button {margin-top:8px;text-decoration:underline;min-height:36px;}
+.guide-retry {padding:0 25px;}
+.guide-composer {display:flex;align-items:center;gap:12px;margin:0 22px;padding:12px 14px;border:1px solid #c7d5bf;border-radius:12px;background:#fff;}
+.guide-composer textarea {resize:vertical;flex:1;min-width:0;min-height:48px;max-height:160px;font-size:16px;line-height:1.6;background:transparent;outline:none;color:#294531;}
+.guide-composer textarea::placeholder {color:#687b6c;}
+.guide-composer button {display:grid;place-items:center;border-radius:9px;background:#244c38;color:#fff;min-width:44px;min-height:44px;}
+.guide-composer button:disabled {opacity:.45;cursor:not-allowed;}
+.guide-input-note {padding:10px 23px 15px;font-size:12px;line-height:1.8;color:#5c705b;}
+.single-guide-entry {display:flex;align-items:center;gap:20px;background:#edf2e7;padding:25px;border-radius:14px;margin:24px 0;}
+.single-guide-entry>div {flex:1;min-width:0;}
+.single-guide-entry h2 {font-size:21px;font-weight:500;line-height:1.5;}
+.single-guide-entry p {font-size:15px;line-height:1.8;color:#536d53;margin-top:9px;}
+.single-guide-prompts {display:flex;flex-wrap:wrap;gap:10px;font-size:14px;margin-top:12px;}
+.single-guide-prompts a {text-decoration:underline;}
+.single-home :is(input,button,a):focus-visible,.single-guide-page :is(a,button,textarea,summary):focus-visible {outline:3px solid #355b41;outline-offset:3px;}
+@media(max-width:950px){.single-guide-heading{align-items:start;flex-direction:column;gap:12px}.guide-conversation{grid-template-columns:175px minmax(0,1fr);gap:20px}.guide-presence .guide-portrait{height:270px}.single-home .home-hero-copy{padding-left:30px}.home-picks{gap:15px}.single-home .home-hero h1{font-size:52px}}
+@media(max-width:767px){.single-home .home-hero{grid-template-columns:1fr;min-height:0;border-radius:16px}.single-home .home-hero-wash{background:linear-gradient(180deg,#f0f4eff2 0%,#f0f4efd9 40%,#eff4ee88 100%)}.single-home .home-hero-copy{padding:30px 24px 12px}.single-home .home-hero h1{font-size:43px;line-height:1.2;margin:16px 0}.single-home .home-hero-description{font-size:16px}.home-question-form{margin-top:22px;padding-left:12px}.home-question-form input{font-size:15px}.home-question-hints{gap:4px 12px}.home-question-hints button{font-size:12px}.single-home .home-scene-picker{margin-top:16px}.single-home .home-scene-options{display:flex}.single-home .welcome-guide{display:grid;grid-template-columns:1.2fr .8fr;grid-template-areas:"bubble figure" "controls figure" "note figure";gap:8px;padding:15px 22px 24px;align-items:center}.single-home .welcome-bubble{grid-area:bubble;padding:13px;align-self:end}.single-home .welcome-bubble p{font-size:13px;min-height:0}.single-home .welcome-bubble::after{display:none}.single-home .welcome-stage{grid-area:figure;width:100%;height:235px;margin:0}.single-home .welcome-controls{grid-area:controls;gap:3px 8px;font-size:11px;align-self:start}.single-home .welcome-controls .welcome-listen{font-size:12px;width:auto}.single-home .welcome-footnote{grid-area:note;font-size:10px;align-self:start;margin-top:0}.home-discover{padding:38px 0}.home-discover header h2,.home-atlas-feature h2{font-size:25px}.home-picks{grid-template-columns:1fr 1fr;gap:24px 15px}.home-picks>a:first-child{grid-column:1/-1}.home-picks .experience-photo,.home-picks>a:first-child .experience-photo{height:180px}.home-picks h3{font-size:21px}.home-picks p{font-size:13px}.home-atlas-feature{grid-template-columns:1fr;gap:22px;padding:30px 0}.home-atlas-feature>div{padding:0}.home-atlas-feature>a{height:250px}.home-itinerary-feature{padding:24px;flex-wrap:wrap;gap:14px}.home-itinerary-feature>div{flex-basis:75%}.home-itinerary-feature h2{font-size:22px}.home-itinerary-feature>.experience-button{margin-left:0}.guide-conversation{grid-template-columns:1fr}.guide-presence{position:static;padding:0;display:grid;grid-template-columns:60px 1fr;text-align:left;gap:2px 15px}.guide-presence .guide-portrait{grid-row:1/4;height:82px}.guide-presence h2{font-size:21px;margin:8px 0 0}.guide-presence p{font-size:13px}.guide-presence small{font-size:11px;margin:0}.guide-presence .portrait-motion-toggle{display:none}.single-guide-heading h1{font-size:28px}.single-guide-heading nav{gap:16px;flex-wrap:wrap}.guide-dialogue{min-height:520px;border-radius:13px}.guide-dialogue-top{padding:8px 16px}.guide-dialogue-messages{padding:20px 17px;min-height:300px;max-height:50dvh}.guide-chat-welcome{padding:18px 0}.guide-chat-welcome h2{font-size:25px}.guide-composer{margin:0 12px;padding:10px}.guide-input-note{padding-inline:14px}.single-guide-entry{align-items:start;flex-wrap:wrap;gap:12px;padding:21px}.single-guide-entry>.guide-avatar{display:none}.single-guide-entry>div{flex-basis:100%}.single-guide-entry h2{font-size:20px}.single-guide-page{padding-top:0}}
+@media(prefers-reduced-motion:reduce){.single-home *,.single-guide-page *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

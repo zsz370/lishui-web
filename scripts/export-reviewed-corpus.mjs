@@ -5,7 +5,7 @@ import { approvedServiceQA } from '../src/data/foundationQA.js';
 
 const dir = new URL('../docs/corpus-audit/', import.meta.url);
 await mkdir(dir, { recursive: true });
-const envelope = { version: '2026-10-05', scope: '已审节点与服务基础QA；已排除用户撤下的节点，原始整库仍未获批', count: approvedQA.length + approvedServiceQA.length };
+const envelope = { version: '2026-10-07-single-guide', scope: '淮源姐统一的山水、美食、民俗与出行知识；原事实、审核和来源保留，退休角色不再作为知识归属', count: approvedQA.length + approvedServiceQA.length };
 const chunks = approvedQA.map(({ id, nodeId, q, a, keys, kind, reviewedAt, sources }) => ({
   id, nodeId, expertId: getNode(nodeId).expert, topic: getNode(nodeId).cat, scope: 'node',
   question: q, answer: a, keys, kind, status: 'approved', reviewedAt, sources,

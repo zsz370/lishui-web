@@ -25,8 +25,8 @@ export default function StayPlanner({ onPreferences }) {
     </div><button className="experience-button" type="submit" disabled={state.loading}>{state.loading ? '正在查询报价…' : '查询酒店与民宿'}</button></form>
     <div aria-live="polite">{state.error ? <p role="status">{state.error}，请检查日期后重试。</p> : state.data ? <section className="stay-results"><h4>本次查询结果</h4><p>{state.data.query.checkInDate}入住，{state.data.query.checkOutDate}退房 · 查询时间：{new Date(state.data.checkedAt).toLocaleString('zh-CN')}</p>
       {state.data.hotels.length ? <ol>{state.data.hotels.map((hotel, index) => <li key={`${hotel.name}-${index}`}><span>{hotel.price || '平台未提供报价'}</span><h5>{hotel.name}</h5><p>{hotel.address}</p>{hotel.url && <a href={hotel.url} target="_blank" rel="noreferrer">查看住宿详情与入住条件</a>}<small>房型库存、早餐、设施和取消政策尚未确认。</small></li>)}</ol> : <p>本次没有匹配结果，请调整日期或预算。</p>}
-      <p>{pref.companions === 'seniors' ? '带长辈时先向酒店确认电梯、入口台阶和浴室防滑。' : pref.companions === 'family' ? '带孩子时先确认床型、儿童入住政策和早餐。' : '请核对入住人数、床型和订单条款。'}{pref.transport === 'transit' ? '在咨询区告诉石臼郎出发地，可继续查交通路线。' : '请另向酒店确认停车条件。'}</p>
-    </section> : <p className="stay-empty">选好日期后查询，也可以在咨询区告诉无想嫂你的住宿需求。</p>}</div>
+      <p>{pref.companions === 'seniors' ? '带长辈时先向酒店确认电梯、入口台阶和浴室防滑。' : pref.companions === 'family' ? '带孩子时先确认床型、儿童入住政策和早餐。' : '请核对入住人数、床型和订单条款。'}{pref.transport === 'transit' ? '在咨询区告诉淮源姐出发地，可继续查交通路线。' : '请另向酒店确认停车条件。'}</p>
+    </section> : <p className="stay-empty">选好日期后查询，也可以在咨询区告诉淮源姐你的住宿需求。</p>}</div>
     <p className="service-source-note">数据来源：飞猪 FlyAI。价格为查询时平台返回报价，网页未锁定房间。</p>
   </div>;
 }

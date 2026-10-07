@@ -6,10 +6,10 @@ export default function GuideMedia({ persona, state = 'idle', animated = true })
   const source = persona.portraitMotion?.[state] || persona.portraitMotion?.idle;
   const poster = persona.motionPoster || persona.portrait;
   const fail = () => setFailedSources((current) => current.includes(source) ? current : [...current, source]);
-  return <span className="guide-media">
+  return <span className={`guide-media${persona.transparent ? ' guide-media--transparent' : ''}`}>
     {animated && source && !failedSources.includes(source)
       ? <MotionVideo key={source} src={source} poster={poster} name={persona.name} onFailure={fail} />
-      : <Photo src={poster} fallbackSrc={persona.portrait} alt={`${persona.name}的全身数字人形象`} fallback="人物形象暂时无法加载" eager />}
+      : <Photo src={poster} fallbackSrc={persona.transparent ? undefined : persona.portrait} alt={`${persona.name}的全身数字人形象`} fallback="人物形象暂时无法加载" eager />}
   </span>;
 }
 

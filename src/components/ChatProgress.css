@@ -12,3 +12,4 @@
 .chat-answer-speech button:focus-visible { outline: 2px solid #5d7750; outline-offset: 3px; }
 .chat-answer-speech > p { margin-top: 7px; line-height: 1.8; }
 .chat-speech-caption { color: #30482c; font-size: 12px; }
+.chat-stream-notice { font-size: 12px; color: #687761; margin-top: 10px; }

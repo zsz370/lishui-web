@@ -1,3 +1,4 @@
+import { queryVisitorQA } from '../data/visitorQuery.js';
 // 已审的固定QA优先；其余问题经服务端检索、联网与工具查询。
 import { planChat } from '../data/chatRouting.js';
 import { getPersona } from '../data/personas.js';
@@ -9,7 +10,7 @@ import { queryServiceQA } from '../data/foundationQA.js';
 import { reviewedAnswer } from './reviewedAnswer.js';
 import { queryTicketQA, ticketOnlyQuestion } from '../data/ticketReference.js';
 
-export async function ask({ nodeId, question, expertId, serviceId, history, preferences, signal, onProgress }) {
+export async function ask({ nodeId, question, expertId, serviceId, history, preferences, signal, onProgress, onAnswer }) {
   signal?.throwIfAborted();
   question = String(question || '').trim();
   const plan = planChat({ question, nodeId, expertId, serviceId, history });
@@ -33,18 +34,20 @@ export async function ask({ nodeId, question, expertId, serviceId, history, pref
   };
   const foundation = queryServiceQA(question);
   if (foundation) return reviewedAnswer(foundation);
+  const friendly = !plan.literalTranslation && !requested.length && plan.knowledgeTargets.length <= 1 && queryVisitorQA(node?.id, question);
+  if (friendly) return reviewedAnswer(friendly, persona.id);
   const exact = hit && hit.q.replace(/[\s，。？?!！]/g, '') === question.replace(/[\s，。？?!！]/g, '');
   if (backendEnabled && (!exact || serviceIntent || plan.knowledgeTargets.length > 1)) {
     return apiChatStream({ nodeId: node?.id, question, expertId,
       serviceId: mentioned ? undefined : serviceId, preferences,
-      history: (history || []).filter((message) => ['user', 'expert'].includes(message.role)).slice(-6).map(({ role, content }) => ({ role, content: content.slice(0, 4000) })),
-    }, { signal, onProgress });
+      history: (history || []).filter((message) => !message.incomplete && ['user', 'expert'].includes(message.role)).slice(-6).map(({ role, content }) => ({ role, content: content.slice(0, 4000) })),
+    }, { signal, onProgress, onAnswer });
   }
   if (requested.length && (!hit || serviceIntent)) {
     const replies = await Promise.all(requested.map((id) => answerTravelService(id, question, { history, preferences, node })));
-    return { ...replies[0], replies, serviceId: requested[0] };
+    return { ...replies[0], speaker:getPersona('01_huaiyuanjie'), content:replies.map(reply=>reply.content).join('\n\n'), replies:[{...replies[0],content:replies.map(reply=>reply.content).join('\n\n')}], serviceId:requested[0] };
   }
-  if (hit) return { ...reviewedAnswer(hit, persona.id), suggest: ['怎么去最方便？', '如何安排行程？'] };
+  if (exact) return { ...reviewedAnswer(hit, persona.id), suggest: ['怎么去最方便？', '如何安排行程？'] };
   return {
     kind: 'fallback',
     speaker: persona,

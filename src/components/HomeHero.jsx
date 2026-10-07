@@ -1,6 +1,6 @@
 import { memo, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Pause, Play } from '@phosphor-icons/react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ArrowUpRight, Pause, Play, PaperPlaneRight } from '@phosphor-icons/react';
 import { getPersona, HOST_ID } from '../data/personas.js';
 import WelcomeGuide from './WelcomeGuide.jsx';
 
@@ -19,6 +19,8 @@ const nextScene = (current, available) => {
 
 export default memo(function HomeHero({ itineraryCount }) {
   const [scene, setScene] = useState(0);
+  const [question,setQuestion]=useState('');const navigate=useNavigate();
+  const ask=(text)=>navigate('/guide?q='+encodeURIComponent(text||question||'只有一天，没有车，怎么逛溧水？'));
   const [failed, setFailed] = useState([]);
   const [loaded, setLoaded] = useState([]);
   const [paused, setPaused] = useState(false);
@@ -51,11 +53,11 @@ export default memo(function HomeHero({ itineraryCount }) {
     </div>
     <div className="home-hero-wash" aria-hidden="true" />
     <div className="home-hero-copy">
-      <div className="home-eyebrow"><span className="home-eyebrow-line" />南京 · 溧水 <span className="home-eyebrow-en">LISHUI, NANJING</span></div>
-      <p className="home-hero-kicker">秦淮源头的山水与烟火</p>
-      <h1 id="home-title">一程山水，<br />一味溧水。</h1>
-      <p className="home-hero-description">跟着淮源姐，走进秦淮源头。<br />看湖光山色，听乡里故事，再尝一口地道风味。</p>
-      <div className="home-hero-actions"><Link to="/nodes" className="home-start">开始我的溧水之旅 <ArrowUpRight size={18} aria-hidden="true" /></Link><Link to="/itinerary" className="home-itinerary">我的行程{itineraryCount > 0 ? ` · ${itineraryCount} 处` : ''}<span aria-hidden="true">→</span></Link></div>
+      <p className="home-eyebrow">你的溧水旅行向导</p>
+      <h1 id="home-title">来溧水，<br />问淮源姐。</h1>
+      <p className="home-hero-description">想去哪里，想听什么故事？<br />山水、乡味与吃住行，陪你一起安排。</p>
+      <form className="home-question-form" onSubmit={event=>{event.preventDefault();ask();}}><label className="home-sr-only" htmlFor="home-question">问淮源姐</label><input id="home-question" maxLength={1000} value={question} onChange={event=>setQuestion(event.target.value)} placeholder="例如：一天时间，没有车，怎么逛？"/><button type="submit" aria-label="和淮源姐开始对话"><PaperPlaneRight size={22}/></button></form>
+      <div className="home-question-hints">{['帮我安排一天','想听无想山的故事','找一点本地乡味'].map(text=><button type="button" key={text} onClick={()=>ask(text)}>{text}<ArrowUpRight size={14}/></button>)}</div>
       <div className="home-scene-picker" aria-label="首页风景与轮播控制">
         <p>先遇见一处风景<span aria-hidden="true"> / </span><span lang="en">A FIRST GLIMPSE</span></p>
         <div className="home-scene-options">{scenes.map((item, index) => <button type="button" key={item.id} className={scene === index ? 'is-selected' : ''} onClick={() => select(index)} aria-pressed={scene === index} disabled={failed.includes(index)}>{!failed.includes(index) && <img src={item.src} alt="" />}<span>{item.name}</span></button>)}</div>

@@ -7,7 +7,7 @@ const args = Object.fromEntries(process.argv.slice(2).map((item) => item.replace
 const root = resolve(args.root || fileURLToPath(new URL('./site/', import.meta.url)));
 const port = Number(args.port || 4493);
 if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error('端口请使用1024—65535之间的整数。');
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.png': 'image/png', '.svg': 'image/svg+xml', '.mp3': 'audio/mpeg', '.wav': 'audio/wav', '.woff2': 'font/woff2', '.gif': 'image/gif', '.mp4': 'video/mp4' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.png': 'image/png', '.svg': 'image/svg+xml', '.mp3': 'audio/mpeg', '.wav': 'audio/wav', '.woff2': 'font/woff2', '.gif': 'image/gif', '.mp4': 'video/mp4', '.webm': 'video/webm' };
 await stat(resolve(root, 'index.html'));
 const server = http.createServer(async (request, response) => {
   if (!['GET', 'HEAD'].includes(request.method)) { response.writeHead(405, { Allow: 'GET, HEAD' }); response.end(); return; }

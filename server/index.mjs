@@ -5,7 +5,7 @@ import { getConfig, AppError, textField, clientAddress } from './core.mjs';
 import { createProviders } from './providers.mjs';
 import { createKnowledge } from './knowledge.mjs';
 import { createChat, validateChat } from './chat.mjs';
-import { agentPlans, departmentPlans } from '../config/agent-system.plan.js';
+import { agentPlans } from '../config/agent-system.plan.js';
 import { personas } from '../src/data/personas.js';
 
 export function createApi({config,providers,knowledge,log=console.log}) {
@@ -27,7 +27,7 @@ export function createApi({config,providers,knowledge,log=console.log}) {
       if(req.method==='OPTIONS'){res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS');res.setHeader('Access-Control-Allow-Headers','Content-Type');return send(204,{});}
       if(req.method==='GET'&&url.pathname==='/health') return send(200,{status:'ok'});
       if(req.method==='GET'&&url.pathname==='/ready'){const status=readiness();return send(status.ready?200:503,status);}
-      if(req.method==='GET'&&url.pathname==='/api/agents') return send(200,{agents:agentPlans.map((agent)=>({...agent,...personas.find((persona)=>persona.id===agent.id),tools:['knowledge_retrieval',...agent.tools],approvedQA:knowledge.chunks.filter((chunk)=>chunk.expertId===agent.id).length})),departments:departmentPlans,status:readiness()});
+      if(req.method==='GET'&&['/api/guide','/api/agents'].includes(url.pathname)) return send(200,{agents:agentPlans.map((agent)=>({...agent,...personas.find((persona)=>persona.id===agent.id),tools:['knowledge_retrieval',...agent.tools],approvedQA:knowledge.chunks.filter((chunk)=>chunk.expertId===agent.id).length})),architecture:'single-guide',status:readiness()});
       const allowed=['/api/chat','/api/chat/stream','/api/weather','/api/stays','/api/translate','/api/places','/api/route'];
       if(!allowed.includes(url.pathname)) throw new AppError('NOT_FOUND','接口不存在',404);
       if(req.method!=='POST') throw new AppError('METHOD_NOT_ALLOWED','请使用POST请求',405);
@@ -52,7 +52,7 @@ export function createApi({config,providers,knowledge,log=console.log}) {
         streaming=true;res.setHeader('Content-Type','text/event-stream; charset=utf-8');res.setHeader('X-Accel-Buffering','no');res.flushHeaders();
         event('ready',{requestId,startedAt:new Date().toISOString()});
         heartbeat=setInterval(()=>{if(!res.destroyed&&!res.writableEnded)res.write(': keepalive\n\n');},10000);heartbeat.unref();
-        result=await chat(valid,{...runtime,onProgress:(entry)=>event('progress',entry)});
+        result=await chat(valid,{...runtime,onProgress:(entry)=>event('progress',entry),onAnswer:(entry)=>event('answer',entry)});
       }
       else if(url.pathname==='/api/chat') result=await chat(validateChat(input),runtime);
       else if(url.pathname==='/api/weather') result=await activeProviders.weather(textField(input.location||'lishui','地点',20));

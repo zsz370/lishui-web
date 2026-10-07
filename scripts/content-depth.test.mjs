@@ -4,6 +4,7 @@ import { presetQA, approvedQA, queryQA } from '../src/data/presetQA.js';
 import { getVisitGuide } from '../src/data/nodeVisitGuides.js';
 import { getNode } from '../src/data/nodes.js';
 import { createChat, validateChat } from '../server/chat.mjs';
+import { visitorAnswer } from '../src/data/visitorAnswerCopy.js';
 
 test('四个主打节点的五项指南均有对应正文、出处和运营待确认项', () => {
   for (const id of ['n_tsq', 'n_wx', 'n_fjb', 'n_sj']) {
@@ -14,7 +15,7 @@ test('四个主打节点的五项指南均有对应正文、出处和运营待�
     assert.match(guide.unknowns, /未确认|尚未确认/);
   }
   assert.equal(getVisitGuide('missing'), null);
-  for (const expert of ['05_gusanniang', '06_ruanyunan']) {
+  for (const expert of ['01_huaiyuanjie']) {
     assert(approvedQA.filter((item) => getNode(item.nodeId).expert === expert).length >= 3);
   }
 });
@@ -38,13 +39,13 @@ test('传统会期、农业采收和同名歌曲保留各自的时效及资料�
   for (const item of presetQA.filter((item) => item.status === 'pending')) assert.equal(queryQA(item.nodeId, item.q), null);
 });
 
-test('全部完整节点QA在服务端直接使用获审正文，不再触发联网或模型', async () => {
+test('全部完整节点QA使用对应游客版，审核来源不变且不触发外部服务', async () => {
   const unexpected = async () => { throw new Error('完整获审问题不应调用外部服务'); };
   const chat = createChat({ search: unexpected, generate: unexpected }, { retrieve: unexpected });
   for (const qa of approvedQA) {
     const response = await chat(validateChat({ nodeId: qa.nodeId, question: qa.q }));
     assert.equal(response.kind, 'preset', qa.q);
-    assert.equal(response.content, qa.a, qa.q);
+    assert.equal(response.content, visitorAnswer(qa), qa.q);
     assert.equal(response.speaker.id, getNode(qa.nodeId).expert);
     assert.equal(response.reviewedAt, qa.reviewedAt);
     assert.deepEqual(response.sources, qa.sources);
@@ -55,9 +56,9 @@ test('已审人物变体答复不会混入相反的未审改名故事', async ()
   const qa = queryQA('n_wx', '韩熙载是谁？');
   const chunk = { id: qa.id, question: qa.q, answer: qa.a, sources: qa.sources, kind: qa.kind, score: 0.65 };
   const chat = createChat({ search: async () => [{ label: '未审核网页', url: 'https://example.org/story', excerpt: '韩熙载亲自将龙鸣山改名无想山。' }], generate: async () => JSON.stringify({ selectedIds: ['K1', 'W1'] }) }, { retrieve: async () => [chunk] });
-  const response = await chat(validateChat({ nodeId: 'n_wx', question: '韩熙载与无想山有何联系？' }));
+  const response = await chat(validateChat({ nodeId: 'n_wx', question: '韩熙载在无想山的文化线索是什么？' }));
   assert.equal(response.kind, 'rag');
-  assert.match(response.content, /不能证明他亲自改了山名/);
+  assert.match(response.content, /南唐大臣.*读书台/);
   assert.doesNotMatch(response.content, /联网摘录|亲自将龙鸣山改名/);
   assert(response.sources.every((source) => source.url !== 'https://example.org/story'));
 });

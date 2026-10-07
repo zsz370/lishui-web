@@ -1,3 +1,4 @@
+import { visitorAnswer } from '../src/data/visitorAnswerCopy.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { presetQA, approvedQA, queryQA, qaByNode } from '../src/data/presetQA.js';
@@ -53,7 +54,7 @@ test('知识回答携带可展示的来源，地铁知识不被通用交通路�
   for (const item of approvedQA) {
     const response = await ask({ nodeId: item.nodeId, question: item.q });
     assert.equal(response.kind, 'preset', item.q);
-    assert.equal(response.content, item.a, item.q);
+    assert.equal(response.content, visitorAnswer(item), item.q);
     assert.equal(response.sourceUrl, item.sources[0].url, item.q);
     assert.equal(response.reviewedAt, item.reviewedAt);
   }

@@ -2,6 +2,7 @@ import { createHash, randomBytes } from 'node:crypto';
 import { execFile } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { AppError, requireValue, upstream, safeUrl, textField, dates, today } from './core.mjs';
+import { readModelStream } from './modelStream.mjs';
 
 export function normalizeHotels(raw, query) {
   if (raw?.status !== 0 || !Array.isArray(raw.data?.itemList)) throw new AppError('UPSTREAM_FAILED', '飞猪未返回有效的住宿查询结果', 502);
@@ -32,6 +33,18 @@ export function createProviders(config, fetcher = fetch, runFile = execFile, { s
     return upstream('硅基流动', `${service.base}/${path}`, options, request);
   };
   const providers = {
+    async generateStream(messages, { onDelta = () => {}, timeoutMs = 30000 } = {}) {
+      const started = Date.now(); let usage;
+      try {
+        const options = json({ model: config.llm.model, messages, temperature: 0, max_tokens: 650, enable_thinking: false, stream: true, stream_options: { include_usage: true } });
+        options.headers.Authorization = `Bearer ${requireValue(config.llm.key, '硅基流动')}`;
+        options.signal = AbortSignal.timeout(timeoutMs);
+        const response = await request(`${config.llm.base}/chat/completions`, options);
+        if (!response.ok) throw new AppError('UPSTREAM_FAILED', '问答服务暂时不可用', 502);
+        const result = await readModelStream(response, onDelta); usage = result.usage;
+        metrics('generate_stream', started, 'completed', usage); return result.content;
+      } catch (error) { metrics('generate_stream', started, signal?.aborted ? 'cancelled' : 'failed', usage); throw error; }
+    },
     async generate(messages, { structured = false, timeoutMs = 12000 } = {}) {
       const started=Date.now();let usage;
       try {

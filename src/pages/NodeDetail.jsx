@@ -1,10 +1,10 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react';
 import { getNode } from '../data/nodes.js';
-import { getPersona } from '../data/personas.js';
+import { getPersona, guideLink } from '../data/personas.js';
 import { getNodeCollection, getTopic, getGroup, collectionUrl } from '../data/collections.js';
 import { nodePhotos } from '../data/nodeMedia.js';
-import ChatPanel from '../components/ChatPanel.jsx';
+import PageGuide from '../components/PageGuide.jsx';
 import Photo from '../components/Photo.jsx';
 import GuideAvatar from '../components/GuideAvatar.jsx';
 import NodeVisitGuide from '../components/NodeVisitGuide.jsx';
@@ -26,16 +26,6 @@ export default function NodeDetail() {
   if (params.get('from')) searchOrigin.set('topic', params.get('from'));
   const back = searchQuery ? `/nodes?${searchOrigin}` : topic ? collectionUrl(topic.id, group?.id) : '/nodes';
   const introduction = node.introduction;
-  const focusQuestion = (event) => {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
-    // 避免浏览器执行锚点跳转时覆盖输入框焦点，仍保留可分享的链接。
-    event.preventDefault();
-    window.history.replaceState(window.history.state, '', '#guide');
-    document.getElementById('guide')?.scrollIntoView({ block: 'start' });
-    const input = document.getElementById(`guide-question-${node.id}`);
-    input?.scrollIntoView({ block: 'nearest' });
-    input?.focus({ preventScroll: true });
-  };
   return <div className="detail-experience">
     <Link className="detail-back" to={back}><ArrowLeft size={17} aria-hidden="true" />回到{searchQuery ? '搜索结果' : topic?.name || '探索栏目'}</Link>
     <JourneyThread step="discover" />
@@ -43,7 +33,7 @@ export default function NodeDetail() {
       <section className="detail-story" aria-label={`${node.name}简介`}>
         <div className="detail-story-copy"><p className="section-overline">{group?.name || node.cat} · 简介</p><h1>{node.name}</h1>
           <div className="detail-description">{introduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-          <a className="detail-ask-link" href="#guide" onClick={focusQuestion}><GuideAvatar className="chat-avatar" persona={persona} /><span>向{persona.name}提问</span><ArrowUpRight size={17} aria-hidden="true" /></a>
+          <Link className="detail-ask-link" to={guideLink({nodeId:node.id})}><GuideAvatar className="chat-avatar" persona={persona} /><span>向{persona.name}提问</span><ArrowUpRight size={17} aria-hidden="true" /></Link>
           <div className="detail-actions"><button className="experience-button" type="button" onClick={() => add(node.id)} disabled={has(node.id)}>{has(node.id) ? '已加入我的行程' : '+ 加入我的行程'}</button><Link to="/itinerary">看看我的行程 <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
           <NodeVisitGuide nodeId={node.id} />
           {node.id === 'c_ldl' && <Link className="detail-ask-link" to="/culture/dragon">用三道小题认识骆山大龙 <ArrowUpRight size={17} aria-hidden="true" /></Link>}
@@ -53,7 +43,7 @@ export default function NodeDetail() {
         <div className="detail-photo"><Photo src={nodePhotos[node.id]} alt={node.name} eager /></div>
       </section>
       <section id="guide" className="detail-chat" aria-label="数字导游问答">
-        <ChatPanel key={node.id} node={node} />
+        <PageGuide node={node} title={`关于${node.name}，继续问淮源姐`} />
       </section>
     </div>
   </div>;

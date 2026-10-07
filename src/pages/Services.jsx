@@ -4,26 +4,25 @@ import { ArrowLeft, ArrowUpRight, Bed, CloudSun, Train, Translate, Lifebuoy, Whe
 import { travelServices, getTravelService, serviceUrl, stayDefaults, serviceSources } from '../data/travelServices.js';
 import { getPersona, guideUrl } from '../data/personas.js';
 import GuideAvatar from '../components/GuideAvatar.jsx';
-import ChatPanel from '../components/ChatPanel.jsx';
+import PageGuide from '../components/PageGuide.jsx';
 import WeatherPanel from '../components/WeatherPanel.jsx';
 import StayPlanner from '../components/StayPlanner.jsx';
-import { departmentPlans } from '../../config/agent-system.plan.js';
+
 const icons = { weather: CloudSun, stay: Bed, transport: Train, etiquette: Translate, support: Lifebuoy, accessibility: Wheelchair, shopping: Gift, planning: MapTrifold };
 
 export default function Services() {
   const [params] = useSearchParams();
   const service = getTravelService(params.get('service')) || travelServices[0];
   const guide = getPersona(service.expert);
-  const coordinator = getPersona(departmentPlans.find((department) => department.id === 'services').coordinator);
+
   const [preferences, setPreferences] = useState(stayDefaults);
   return <div className="services-experience"><Link to="/" className="detail-back"><ArrowLeft size={17} aria-hidden="true" />回到会客厅</Link>
-    <div className="explore-heading"><div><p className="section-overline">玩得尽兴，也过得从容</p><h1>旅途服务</h1><p>住宿、天气、交通和日常需求，交给懂这一程的伙伴。</p></div><Link to="/itinerary">看看我的行程 <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
+    <div className="explore-heading"><div><p className="section-overline">玩得尽兴，也过得从容</p><h1>旅途服务</h1><p>住宿、天气、交通和日常需求，直接问淮源姐。</p></div><Link to="/itinerary">看看我的行程 <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
     <nav className="service-menu" aria-label="旅途服务分类">{travelServices.map((item) => {
       const Icon = icons[item.icon];
       return <Link key={item.id} to={serviceUrl(item.id)} className={item.id === service.id ? 'is-selected' : ''} aria-current={item.id === service.id ? 'page' : undefined}><Icon size={22} weight="light" aria-hidden="true" /><span>{item.shortName}</span></Link>;
     })}</nav>
-    <Link className="collection-guide" to={guideUrl(coordinator.id)}><GuideAvatar persona={coordinator} /><div><h3>{coordinator.name}统筹旅途服务</h3><p>天气、住宿、交通与双语需求，由对应伙伴协作处理。</p></div></Link>
-    <div className="service-guide-heading"><GuideAvatar persona={guide} /><div><h2>{service.name}</h2><p>{guide.name} · {service.description}</p></div><Link to={guideUrl(guide.id)}>认识导游 <ArrowUpRight size={15} aria-hidden="true" /></Link></div>
+    <div className="service-guide-heading"><GuideAvatar persona={guide} /><div><h2>{service.name}</h2><p>{guide.name} · {service.description}</p></div><Link to={guideUrl(guide.id)}>问淮源姐 <ArrowUpRight size={15} aria-hidden="true" /></Link></div>
     <div className="service-content-layout"><section className="service-information" aria-label={`${service.name}资料与建议`}>
       {service.id === 'weather' ? <WeatherPanel /> : service.id === 'stay' ? <StayPlanner onPreferences={setPreferences} /> : <div className="service-reading"><h3>先把这几件事想清楚</h3><ul>{service.points.map((point) => <li key={point}>{point}</li>)}</ul>
         {service.id === 'transport' && <><div className="transport-options"><h4>怎么到溧水？</h4><p><strong>高铁：</strong>在12306按出发站与到达站核对车次，到站后再安排接驳。</p><p><strong>地铁：</strong>S7与S9服务方向不同，按实际目的地查看当日线路与换乘。</p><p><strong>自驾：</strong>核对景区正式入口、停车场与返程路线，不默认有空位或充电桩。</p></div><a className="service-reference" href={serviceSources.transit.url} target="_blank" rel="noreferrer">查看最新地铁调整参考 <ArrowUpRight size={14} aria-hidden="true" /></a></>}
@@ -33,7 +32,7 @@ export default function Services() {
         {service.id === 'shopping' && <Link className="experience-text-button" to="/nodes?topic=flavors&group=sweet">认识糕点与乡味 <ArrowUpRight size={15} aria-hidden="true" /></Link>}
         {service.id === 'planning' && <Link className="experience-button" to="/itinerary">整理我的行程 <ArrowUpRight size={15} aria-hidden="true" /></Link>}
       </div>}
-    </section><section className="service-conversation" aria-label={`${guide.name}服务咨询`}><ChatPanel key={service.id} service={service} preferences={preferences} /></section></div>
-    <p className="service-boundary-note">可查询天气、住宿报价、地点路线与译文；跨板块需求由伙伴协作整理。房型库存、末班车、设施与订单规则请向对应经营方确认。</p>
+    </section><section className="service-conversation" aria-label={`${guide.name}服务咨询`}><PageGuide service={service} title={`问问${service.name}`} prompts={service.prompts} preferences={preferences} /></section></div>
+    <p className="service-boundary-note">可查询天气、住宿报价、地点路线与译文；淮源姐结合你的条件整理安排。房型库存、末班车、设施与订单规则请向对应经营方确认。</p>
   </div>;
 }

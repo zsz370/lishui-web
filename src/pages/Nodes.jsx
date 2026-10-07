@@ -10,7 +10,7 @@ import TopicIcon from '../components/TopicIcon.jsx';
 import GuideAvatar from '../components/GuideAvatar.jsx';
 import ServiceShortcuts from '../components/ServiceShortcuts.jsx';
 import PageGuide from '../components/PageGuide.jsx';
-import { departmentPlans } from '../../config/agent-system.plan.js';
+
 
 export default function Nodes() {
   const [params, setParams] = useSearchParams();
@@ -33,9 +33,8 @@ export default function Nodes() {
   };
   const selectedNodes = (group?.nodeIds || []).map(getNode).filter(Boolean);
   const primary = selectedNodes[0];
-  const department = departmentPlans.find((item) => item.id === topic?.id);
-  const section = department?.sections.find((item) => item.id === group?.id);
-  const guide = getPersona(section?.owner || primary?.expert || group?.expert);
+
+  const guide = getPersona(primary?.expert || group?.expert);
   const primaryLink = primary ? detailUrl(primary.id, topic.id, group.id) : '/nodes';
   const searchDetailUrl = (nodeId) => {
     const origin = new URLSearchParams({ q: query });
@@ -55,7 +54,6 @@ export default function Nodes() {
         <Link to="/nodes" className={!topic ? 'is-selected' : ''} aria-current={!topic ? 'page' : undefined}>全部栏目</Link>
         {topics.map((item) => <Link key={item.id} to={collectionUrl(item.id)} className={topic?.id === item.id ? 'is-selected' : ''} aria-current={topic?.id === item.id ? 'page' : undefined}><TopicIcon name={item.icon} size={18} />{item.name}</Link>)}
       </nav>
-      {department && <Link className="collection-guide" to={guideUrl(department.coordinator)}><GuideAvatar persona={getPersona(department.coordinator)} /><div><h3>{getPersona(department.coordinator).name}统筹{department.name}</h3><p>小主题由对应伙伴负责，住宿、天气和交通可一起咨询。</p></div><CaretRight size={18} aria-hidden="true" /></Link>}
 
       {query.trim() ? <section className="search-results" aria-label="搜索结果" aria-live="polite">
         <div className="section-heading"><h2>找到 {results.length} 处相关内容</h2><button type="button" onClick={() => updateQuery('')}>回到栏目</button></div>
@@ -89,14 +87,9 @@ export default function Nodes() {
         </div>
         {selectedNodes.length > 3 && <details className="collection-more"><summary>还有更多乡里故事，展开看看</summary><div>{selectedNodes.slice(3).map((node) => <Link key={node.id} to={detailUrl(node.id, topic.id, group.id)}><div><h3>{node.name}</h3><p>{node.summary}</p></div><CaretRight size={16} aria-hidden="true" /></Link>)}</div></details>}
         </section>}
-        <div className="collection-companions"><span>陪你逛这个栏目</span>
-          {({ scenery: ['03_yanzhike', '08_wuxiangsao', '09_shijiulang'], flavors: ['07_fuxiaomei', '10_meiguisao'], culture: ['04_dalonggu', '05_gusanniang', '06_ruanyunan'], leisure: ['02_laizhusheng', '08_wuxiangsao', '10_meiguisao'] }[topic.id] || []).map((id) => {
-            const companion = getPersona(id);
-            return <Link key={id} to={guideUrl(id)}><GuideAvatar persona={companion} /><span>{companion.name}</span></Link>;
-          })}
-        </div>
+
       </>}
-      <PageGuide id="explore-guide" title="下一站，和导游一起选" description={primary ? `正在看${primary.name}。可以问这里的故事，也可以问美食、天气和交通。` : '先告诉我想看风景、尝乡味还是逛街区，伙伴们会一起帮你安排。'} node={primary} />
+      <PageGuide id="explore-guide" title="下一站，和导游一起选" description={primary ? `正在看${primary.name}。可以问这里的故事，也可以问美食、天气和交通。` : '先告诉我想看风景、尝乡味还是逛街区，淮源姐会陪你一起安排。'} node={primary} />
       <section className="explore-atlas-entry" aria-labelledby="explore-atlas-title">
         <div><p className="section-overline">翻一页，遇见另一种溧水</p><h2 id="explore-atlas-title">还有一些风物，等你慢慢发现。</h2><p>把山水、乡味、民俗与街区收进一本图鉴。看一张图，读一段介绍，找到下一处好奇。</p></div>
         <Link to="/atlas"><BookOpen size={19} aria-hidden="true" /><span>探索更多<span className="explore-atlas-link-note">打开风物图鉴</span></span><ArrowUpRight size={20} aria-hidden="true" /></Link>

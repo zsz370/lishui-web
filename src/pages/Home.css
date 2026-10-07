@@ -43,7 +43,9 @@
 .welcome-status-dot { width: 5px; height: 5px; border-radius: 50%; background: #82947d; }
 .welcome-status-dot.is-active { background: #5e7859; animation: guide-status 1.6s ease-in-out infinite; }
 .welcome-bubble p { margin-top: 9px; min-height: 44px; font-size: 12px; line-height: 1.85; color: #52624f; }
-.welcome-stage { position: relative; height: 305px; max-width: 330px; margin: 15px auto 0; overflow: hidden; border-radius: 48% 48% 0 0; background: radial-gradient(ellipse at center, #e5e6df 0%, #eeeee700 70%); mask-image: linear-gradient(to bottom, #000 85%, transparent 100%); }
+.welcome-stage { position: relative; height: 305px; max-width: 330px; margin: 15px auto 0; overflow: hidden; background: transparent; }
+.welcome-stage .guide-media { padding: 8px 12px 12px; }
+.welcome-stage .guide-motion-video { object-fit: contain; object-position: center; }
 .welcome-figure { width: 100%; height: 100%; object-fit: contain; object-position: center; opacity: 0; transition: opacity 250ms ease; }
 .welcome-figure.is-loaded { opacity: 1; }
 .welcome-loading { position: absolute; inset: 0; display: grid; place-items: center; color: #6c7b69; font-size: 12px; background: #eeeee7; }

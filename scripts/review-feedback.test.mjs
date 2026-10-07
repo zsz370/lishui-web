@@ -1,3 +1,4 @@
+import { visitorAnswer } from '../src/data/visitorAnswerCopy.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createChat, validateChat, extractContext } from '../server/chat.mjs';
@@ -23,7 +24,7 @@ test('三景区票价前后端一致，包含日期、优惠范围与未确认�
   for(const qa of ticketQA) {
     const input={nodeId:qa.nodeId,question:qa.q};
     const server=await noTools()(validateChat(input)),client=await ask(input);
-    assert.equal(server.content,qa.a);assert.equal(client.content,qa.a);
+    assert.equal(server.content,visitorAnswer(qa));assert.equal(client.content,visitorAnswer(qa));
     assert.match(server.content,/2026年10月5日/);assert.match(server.source,/参考/);
   }
   assert.match(ticketQA[0].a,/18元.*57元.*85元/s);assert.match(ticketQA[0].a,/不自行按半价/);

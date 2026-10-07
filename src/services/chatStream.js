@@ -1,5 +1,5 @@
-// Status events describe executed tasks; answer text arrives only in result.
-export async function readChatEvents(response, onProgress = () => {}) {
+// Keep task progress and answer deltas separate; only result confirms completion.
+export async function readChatEvents(response, onProgress = () => {}, onAnswer = () => {}) {
   if (!response.body) throw new Error('服务没有返回查询结果，请重试。');
   const reader = response.body.getReader(), decoder = new TextDecoder();
   let buffer = '', result;
@@ -11,6 +11,7 @@ export async function readChatEvents(response, onProgress = () => {}) {
     let payload;
     try { payload = JSON.parse(data); } catch { throw new Error('查询结果格式异常，请重试。'); }
     if (type === 'progress') onProgress(payload);
+    if (type === 'answer') onAnswer(payload);
     if (type === 'result') result = payload;
     if (type === 'error') throw new Error(payload.error?.message || '查询未完成，请重试。');
   };
