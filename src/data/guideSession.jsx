@@ -1,8 +1,8 @@
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ask } from '../services/chat.js';
 import { host } from './personas.js';
 import { planChat } from './chatRouting.js';
-const Context=createContext(null);
+import {GuideSessionContext as Context} from './guideSessionContext.js';
 export function GuideSessionProvider({children}) {
   const [messages,setMessages]=useState([]),[drafts,setDrafts]=useState([]),[pending,setPending]=useState(false),[tasks,setTasks]=useState([]),[question,setQuestion]=useState(''),[scope,setScope]=useState({}),[retry,setRetry]=useState(null);
   const request=useRef({id:0,controller:null}),draft=useRef({}),history=useRef([]),latest=useRef(null);
@@ -36,4 +36,4 @@ export function GuideSessionProvider({children}) {
   useEffect(()=>()=>{request.current.id++;request.current.controller?.abort();request.current.controller=null;},[]);
   return <Context.Provider value={{messages,drafts,pending,tasks,question,setQuestion,scope,setScope,send,cancel,clear,retry}}>{children}</Context.Provider>;
 }
-export const useGuideSession=()=>useContext(Context);
+

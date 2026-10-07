@@ -1,6 +1,6 @@
 // 预置问答（语料清洗版 · 2026-10）
 // ---------------------------------------------------------------------------
-// 数据源：工作区03_原始资料/数据包资源/QA_15条/*.xlsx（12位数字人，187个原始非空行）
+// 数据源：工作区03_原始资料/数据包资源/QA_15条/*.xlsx（历史问答原稿）
 //         + 同目录下的南京溧水文旅_知识库、知识文档和数据包PDF
 // 清洗原则（数据零造假）：
 //   1) 只保留“节点知识类”问答（山水 / 美食 / 民俗非遗）。
@@ -16,6 +16,7 @@ import { applyQAReview, additionalQA } from './qaReview.js';
 import { foundationNodeQA } from './foundationQA.js';
 import { contentDepthQA, pendingContentQA } from './contentDepthQA.js';
 import { getNode } from './nodes.js';
+import { expansionNodeQA, expansionPendingNodeQA } from './contentExpansionQA.js';
 
 // 保留清洗原稿便于追溯；客户端仅调用下方 approved 条目。
 const originalQA = [
@@ -128,7 +129,7 @@ const originalQA = [
     a: '石臼湖上人家传唱的渔歌，是南京市级非遗（NJⅡ-13，2023 年第五批）。水乡的劳作与生活在歌里传下来，也是当地研学、节庆里常被唱起的调子。' },
 ];
 
-const reviewedQA = [...originalQA.map(applyQAReview), ...additionalQA, ...foundationNodeQA, ...contentDepthQA, ...pendingContentQA];
+const reviewedQA = [...originalQA.map(applyQAReview), ...additionalQA, ...foundationNodeQA, ...contentDepthQA, ...pendingContentQA, ...expansionNodeQA, ...expansionPendingNodeQA];
 // 保留原稿审计线索；用户移除的节点不再进入现行问答/待核列表。
 export const withdrawnQA = reviewedQA.filter((item) => !getNode(item.nodeId));
 export const presetQA = reviewedQA.filter((item) => getNode(item.nodeId));

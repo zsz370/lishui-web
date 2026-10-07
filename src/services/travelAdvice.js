@@ -103,5 +103,13 @@ export async function answerTravelService(serviceId, question, { history = [], p
   }
   if (serviceId === 'accessibility') return reply('accessibility', '带长辈、孩子或轮椅出行，先向目标场所确认入口台阶、电梯、坡道、无障碍卫生间、休息点，以及接驳车是否能使用。住宿同步确认床型、浴室防滑与夜间通行。\n尽量安排同片区活动，减少折返并预留休息。我尚未逐点核实所有设施，请提供具体目的地后，再按这些项目联系场所确认。', { links: [{ label: '一起考虑住宿', url: '/services?service=stay' }] });
   if (serviceId === 'shopping') return reply('shopping', '喜欢乡味，可以比较玉带糕、云片糕等糕点；喜欢小物，可以寻找当地手艺相关文创。\n带回家前看清配料、过敏原、生产日期、保质期和保存条件，鲜果与需冷藏食品按返程时长挑选。不要默认糕点都能常温久放；包装、价格与售后由实际经营方确认，保留凭证。', { links: [{ label: '看看糕点与乡味', url: '/nodes?topic=flavors&group=sweet' }] });
-  return reply('planning', '先告诉我来几天、从哪里出发、是否自驾，以及同行有没有长辈或孩子。\n一天可以先围绕一个片区选1—2处感兴趣的内容；两天一晚先定住宿位置，再衔接两天的活动。天气、开放预约和返程交通要一起核对。你可以把喜欢的地点加入“我的行程”，再按需要查看住宿与交通服务。', { links: [{ label: '我的行程', url: '/itinerary' }, { label: '住宿建议', url: '/services?service=stay' }] });
+  const ctx=extractTripContext({question,history,preferences,serviceId:'planning'},node);
+  const context=[...history.filter(x=>x.role==='user').map(x=>x.content),question].join('；');
+  const duration=[...context.matchAll(/两天一晚|两天|两日|一天|一日/g)].at(-1)?.[0];
+  const days=duration?.startsWith('两')?2:duration?1:null;
+  const transit=ctx.mode==='transit'&&/没有车|无车|公共交通|地铁|高铁/.test(context);
+  const description=days===1?'一天时间可以围绕一个片区，安排少量喜欢的地点，留出吃饭和返程时间。':days===2?'两天一晚，可以先选落脚片区，再把两天的活动和返程衔接起来。':'先选喜欢的片区，把游玩、吃饭和休息放在一起考虑。';
+  const known=ctx.origin?`从${ctx.origin}出发的条件已记下。`:'';
+  const questionBack=!ctx.origin?'你准备从哪里出发？':!days?'准备来几天？':'更想看山水、尝乡味，还是听民俗故事？';
+  return reply('planning',`${known}${description}${transit?'没有车的话，优先比较公共交通可达的去处，再确认最后一段接驳。':''}\n可以从天生桥的河谷、无想山的山林或周园的收藏中选一个主目的地；具体开放和预约在出发前再核对。\n${questionBack}`,{kind:'needs_input',links:[{label:'看看这些地方',url:'/nodes'},{label:'整理我的行程',url:'/itinerary'}]});
 }

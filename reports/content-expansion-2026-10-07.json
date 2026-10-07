@@ -1,0 +1,1770 @@
+{
+  "summary": {
+    "reviewedAt": "2026-10-07",
+    "approvedNodeQA": 102,
+    "approvedServiceQA": 33,
+    "approvedTotal": 135,
+    "addedNodeQA": 48,
+    "addedServiceQA": 18,
+    "addedNodeFacts": 20,
+    "addedNodeGuidance": 28,
+    "addedPending": 10,
+    "themeRoutes": 2,
+    "existingPhotos": 28,
+    "awaitingPhoto": [
+      {
+        "id": "c_ljd",
+        "name": "陆家大龙"
+      },
+      {
+        "id": "c_xz",
+        "name": "虾子灯"
+      },
+      {
+        "id": "c_dsh",
+        "name": "打社火"
+      },
+      {
+        "id": "c_dw",
+        "name": "打五件"
+      }
+    ]
+  },
+  "approved": [
+    {
+      "id": "n_zy:周园主要看哪些建筑与藏品？",
+      "nodeId": "n_zy",
+      "q": "周园主要看哪些建筑与藏品？",
+      "a": "可以围绕徽派建筑、佛教文化，以及石雕、木雕、古床和古典家具来参观。先选自己感兴趣的一类慢慢看，具体展陈和开放范围请向园方确认。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：区情简介",
+          "url": "https://www.njls.gov.cn/zjls/qqjj/"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#n_zy"
+    },
+    {
+      "id": "n_zy:亲子逛周园可以从哪里看起？",
+      "nodeId": "n_zy",
+      "q": "亲子逛周园可以从哪里看起？",
+      "a": "可以从门窗、梁柱和庭院布局看起，再比较石雕、木雕的材质与纹样。按孩子的兴趣少选几类藏品，不触摸展品；讲解和体验活动需提前确认。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：区情简介",
+          "url": "https://www.njls.gov.cn/zjls/qqjj/"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#n_zy"
+    },
+    {
+      "id": "n_dls:东庐山与秦淮源头有什么联系？",
+      "nodeId": "n_dls",
+      "q": "东庐山与秦淮源头有什么联系？",
+      "a": "东庐山是认识秦淮河源头的一条线索，可以把山地环境、观音寺与源头文化联系起来了解。具体寻源点位和可进入的路线，请先向当地确认。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：永阳街道概况",
+          "url": "https://www.njls.gov.cn/zjls/jdgk/yyjd/"
+        },
+        {
+          "label": "溧水区政府：秦淮源头相关提案答复",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/zxsyjschy/202411/t20241107_5003091.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#n_dls"
+    },
+    {
+      "id": "n_dls:参观东庐山观音寺要注意什么？",
+      "nodeId": "n_dls",
+      "q": "参观东庐山观音寺要注意什么？",
+      "a": "尊重寺院习俗，按现场提示参观和拍照。出发前确认入口、开放范围和步行条件；若还想去无想山，先核对两地交通，再安排停留。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：永阳街道概况",
+          "url": "https://www.njls.gov.cn/zjls/jdgk/yyjd/"
+        },
+        {
+          "label": "溧水区政府：秦淮源头相关提案答复",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/zxsyjschy/202411/t20241107_5003091.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#n_dls"
+    },
+    {
+      "id": "n_gx:郭兴庄园适合围绕什么主题游览？",
+      "nodeId": "n_gx",
+      "q": "郭兴庄园适合围绕什么主题游览？",
+      "a": "可以围绕田园景观、粉黛观赏或亲子休闲选择活动。先看当季花况和庄园公告，再决定以赏花拍照还是亲子活动为主。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：郭兴庄园旅游特色",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221128_3767323.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#n_gx"
+    },
+    {
+      "id": "n_gx:郭兴庄园往年的花田照片能代表现在吗？",
+      "nodeId": "n_gx",
+      "q": "郭兴庄园往年的花田照片能代表现在吗？",
+      "a": "不能。花田景象会随季节和养护变化，往年的盛花照片不代表这次出行的花况。先向庄园确认当季情况、可参加项目和开放安排。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：郭兴庄园旅游特色",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221128_3767323.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#n_gx"
+    },
+    {
+      "id": "n_dp:东屏湖可以和哪个邻近地点一起了解？",
+      "nodeId": "n_dp",
+      "q": "东屏湖可以和哪个邻近地点一起了解？",
+      "a": "可以把东屏湖与邻近的大金山国防园联系起来认识，一处看湖景，一处了解国防教育主题。是否串联游览，还要核对实际入口、交通和开放范围。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：自然资源",
+          "url": "https://www.njls.gov.cn/zjls/zrzy/"
+        },
+        {
+          "label": "南京市体育局：大金山与东屏湖",
+          "url": "https://sports.nanjing.gov.cn/ztzl/njtyxfxcj/hwyd/202307/t20230725_3970450.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#n_dp"
+    },
+    {
+      "id": "n_dp:去东屏湖观景前要确认哪些岸线条件？",
+      "nodeId": "n_dp",
+      "q": "去东屏湖观景前要确认哪些岸线条件？",
+      "a": "先确认允许到达的观景入口、岸线开放范围和返程路线，只沿开放区域行走。想垂钓或露营时另问管理方，不能把湖边空地直接当成可用场地。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：自然资源",
+          "url": "https://www.njls.gov.cn/zjls/zrzy/"
+        },
+        {
+          "label": "南京市体育局：大金山与东屏湖",
+          "url": "https://sports.nanjing.gov.cn/ztzl/njtyxfxcj/hwyd/202307/t20230725_3970450.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#n_dp"
+    },
+    {
+      "id": "f_ydg:玉带糕的非遗认定是在保护什么？",
+      "nodeId": "f_ydg",
+      "q": "玉带糕的非遗认定是在保护什么？",
+      "a": "认定的是洪蓝玉带糕制作技艺。它可以帮助你认识地方糕点手艺，但不能代替某件商品的配料、保质期或品质核对。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_ydg"
+    },
+    {
+      "id": "f_ydg:亲子了解玉带糕可以看什么？",
+      "nodeId": "f_ydg",
+      "q": "亲子了解玉带糕可以看什么？",
+      "a": "可以先观察糕点形态，再看包装配料、听店家介绍制作方式。若想动手体验，先确认是否有课程、适龄要求和预约安排。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_ydg"
+    },
+    {
+      "id": "f_szc:手抓鸡和洪蓝乡味怎么搭配成一餐？",
+      "nodeId": "f_szc",
+      "q": "手抓鸡和洪蓝乡味怎么搭配成一餐？",
+      "a": "可以按口味选手抓鸡，再搭配洪蓝牛肉或明觉香菜等小菜。先看实际菜单，问清份量和配料，按同行人数适量点餐。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_szc"
+    },
+    {
+      "id": "f_szc:点手抓鸡前要问清哪些配料？",
+      "nodeId": "f_szc",
+      "q": "点手抓鸡前要问清哪些配料？",
+      "a": "向店家问清鸡肉的调味、蘸料、辣度和份量；有忌口时说明哪些食材不能吃。各店做法不同，别把一家店的配方套给所有店。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_szc"
+    },
+    {
+      "id": "f_nr:洪蓝牛肉是不是非遗美食？",
+      "nodeId": "f_nr",
+      "q": "洪蓝牛肉是不是非遗美食？",
+      "a": "洪蓝牛肉制作技艺列入2023年第五批南京市非遗名录，属于传统技艺。认定对象是制作手艺，点餐时仍要按店家的实际菜单和供应选择。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_nr"
+    },
+    {
+      "id": "f_nr:洪蓝牛肉各店的做法都一样吗？",
+      "nodeId": "f_nr",
+      "q": "洪蓝牛肉各店的做法都一样吗？",
+      "a": "不能按同一种配方理解。点餐时问清实际部位、香料、切配、份量和当天供应，再按自己的口味选择。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_nr"
+    },
+    {
+      "id": "f_xc:明觉香菜是怎样的一道乡味？",
+      "nodeId": "f_xc",
+      "q": "明觉香菜是怎样的一道乡味？",
+      "a": "这里的明觉香菜是一道地方腌制小菜，“明觉香菜制作技艺”列入2023年第五批南京市非遗名录。具体原料、辣度和咸度请看实物或问店家。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水旅游：地方美食介绍（2020）",
+          "url": "https://www.thepaper.cn/newsDetail_forward_10238932"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_xc"
+    },
+    {
+      "id": "f_xc:明觉香菜怎么佐餐、怎么带走？",
+      "nodeId": "f_xc",
+      "q": "明觉香菜怎么佐餐、怎么带走？",
+      "a": "可以用一小碟配粥、配面或搭配其他乡味。带走时核对配料、包装和保存条件，按实际产品要求携带。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水旅游：地方美食介绍（2020）",
+          "url": "https://www.thepaper.cn/newsDetail_forward_10238932"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_xc"
+    },
+    {
+      "id": "f_ypg:云片糕一般怎样辨认？",
+      "nodeId": "f_ypg",
+      "q": "云片糕一般怎样辨认？",
+      "a": "云片糕是一类切成薄片的传统糕点，可以先观察片形、色泽和层叠外观。这是品类介绍，不能据此认定晶桥当地的起源或非遗级别。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "深圳市政府：云片糕类糕点介绍（仅供品类参考）",
+          "url": "https://www.sz.gov.cn/cn/zjsz/szfy/intangible_items/gdsj/content/mpost_8055650.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_ypg"
+    },
+    {
+      "id": "f_ypg:云片糕当伴手礼怎么挑？",
+      "nodeId": "f_ypg",
+      "q": "云片糕当伴手礼怎么挑？",
+      "a": "先看实物和包装，核对厂家、产地、配料、生产日期和保存条件，再结合返程时间选择。不要只凭名称判断产地或给所有产品套同一个保质期。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "深圳市政府：云片糕类糕点介绍（仅供品类参考）",
+          "url": "https://www.sz.gov.cn/cn/zjsz/szfy/intangible_items/gdsj/content/mpost_8055650.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_ypg"
+    },
+    {
+      "id": "f_wf:乌饭为什么是乌黑色的？",
+      "nodeId": "f_wf",
+      "q": "乌饭为什么是乌黑色的？",
+      "a": "乌饭用南烛叶汁浸染糯米，再蒸煮成乌黑色的米饭。想尝一尝时，先向当地商家确认实际配料和当天供应。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：和凤乌饭会（2025报道）",
+          "url": "https://www.njls.gov.cn/jrs/syw/202505/t20250507_5141483.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_wf"
+    },
+    {
+      "id": "f_wf:乌饭会活动和日常售卖是一回事吗？",
+      "nodeId": "f_wf",
+      "q": "乌饭会活动和日常售卖是一回事吗？",
+      "a": "不是同一项安排。乌饭会按当地活动公告举办，日常能否买到则要问具体商家；往年的会期报道不能当作这次活动或平日供应的保证。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：和凤乌饭会（2025报道）",
+          "url": "https://www.njls.gov.cn/jrs/syw/202505/t20250507_5141483.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_wf"
+    },
+    {
+      "id": "f_hm:白马黑莓产品受保护就能去果园采摘吗？",
+      "nodeId": "f_hm",
+      "q": "白马黑莓产品受保护就能去果园采摘吗？",
+      "a": "不能。地理标志说明产品保护范围和要求，不代表某个果园这次对游客开放采摘。先联系具体园区确认成熟果品、预约和计价。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "国家知识产权局：白马黑莓地理标志产品保护公告",
+          "url": "https://www.cnipa.gov.cn/attach/0/20250826010509.pdf"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_hm"
+    },
+    {
+      "id": "f_hm:买黑莓鲜果和加工品分别要看什么？",
+      "nodeId": "f_hm",
+      "q": "买黑莓鲜果和加工品分别要看什么？",
+      "a": "鲜果先核对实际产地和产品标识；果酱、果汁等加工品还要查看配料、保存条件和保质期。黑莓口味不能自动证明符合白马黑莓的保护要求。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "国家知识产权局：白马黑莓地理标志产品保护公告",
+          "url": "https://www.cnipa.gov.cn/attach/0/20250826010509.pdf"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#f_hm"
+    },
+    {
+      "id": "c_cs:蒲塘桥祠山庙会在名录中叫什么？",
+      "nodeId": "c_cs",
+      "q": "蒲塘桥祠山庙会在名录中叫什么？",
+      "a": "名录中使用“南京祠山庙会”这一名称，列为省级民俗项目。蒲塘桥的传统会期可以作为了解习俗的线索，赶会仍需查看当年公告。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：民俗风情",
+          "url": "https://www.njls.gov.cn/zjls/yzls/msfq/"
+        },
+        {
+          "label": "南京市文旅局：非遗项目名录",
+          "url": "https://wlj.nanjing.gov.cn/zwfw/bszlxz/202101/P020210105390071400964.pdf"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_cs"
+    },
+    {
+      "id": "c_cs:去蒲塘桥赶庙会前要核对什么？",
+      "nodeId": "c_cs",
+      "q": "去蒲塘桥赶庙会前要核对什么？",
+      "a": "向主办方核对当年的活动地点、日期、节目和入场安排，再查交通与返程。传统会期不等于所有展演都按同一时间举行。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：民俗风情",
+          "url": "https://www.njls.gov.cn/zjls/yzls/msfq/"
+        },
+        {
+          "label": "南京市文旅局：非遗项目名录",
+          "url": "https://wlj.nanjing.gov.cn/zwfw/bszlxz/202101/P020210105390071400964.pdf"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_cs"
+    },
+    {
+      "id": "c_xsm:西宋马灯为什么看起来像人在骑马？",
+      "nodeId": "c_xsm",
+      "q": "西宋马灯为什么看起来像人在骑马？",
+      "a": "马形道具固定在表演者腰间，随着人的步伐和队列动作呈现“骑马”的形象。观看时可以留意道具与脚步怎样配合。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "溧水区政府：民俗风情",
+          "url": "https://www.njls.gov.cn/zjls/yzls/msfq/"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_xsm"
+    },
+    {
+      "id": "c_xsm:看西宋马灯可以留意哪些动作？",
+      "nodeId": "c_xsm",
+      "q": "看西宋马灯可以留意哪些动作？",
+      "a": "可以留意马形道具、舞者步伐和队伍配合，比较人与道具怎样共同表现骑马形象。具体节目、地点和日期以当次活动安排为准。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "溧水区政府：民俗风情",
+          "url": "https://www.njls.gov.cn/zjls/yzls/msfq/"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_xsm"
+    },
+    {
+      "id": "c_hl:何林坊双龙属于什么非遗类别？",
+      "nodeId": "c_hl",
+      "q": "何林坊双龙属于什么非遗类别？",
+      "a": "何林坊双龙列入2023年第五批南京市非遗名录，类别是传统舞蹈，是溧水地方龙舞项目。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "南京市农业农村局：洪蓝春节民俗活动（2026报道）",
+          "url": "https://nyncj.nanjing.gov.cn/nygzdt/202602/t20260209_5789604.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_hl"
+    },
+    {
+      "id": "c_hl:看何林坊双龙时怎样和其他龙舞比较？",
+      "nodeId": "c_hl",
+      "q": "看何林坊双龙时怎样和其他龙舞比较？",
+      "a": "可以比较龙形道具、队伍动作与配合方式，再结合各自的传承介绍了解。不要把骆山大龙或陆家大龙的尺寸、人数直接套给何林坊双龙。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "南京市农业农村局：洪蓝春节民俗活动（2026报道）",
+          "url": "https://nyncj.nanjing.gov.cn/nygzdt/202602/t20260209_5789604.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_hl"
+    },
+    {
+      "id": "c_ljd:陆家大龙的板龙形制可以套给其他龙舞吗？",
+      "nodeId": "c_ljd",
+      "q": "陆家大龙的板龙形制可以套给其他龙舞吗？",
+      "a": "不能。陆家大龙的资料介绍板龙形制，骆山大龙另有自己的龙身和协同舞动传统。比较时分别看各项目的介绍，别混用尺寸、节数或参与人数。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "中国江苏网：2026春节陆家大龙现场报道",
+          "url": "https://tour.jschina.com.cn/lyzx/202602/t20260223_s699bffa7e4b0263ab066b8f8.shtml"
+        },
+        {
+          "label": "南京市农业农村局：陆家大龙形制报道",
+          "url": "https://nyncj.nanjing.gov.cn/nygzdt/202501/t20250126_5066382.html",
+          "publishedAt": "2025-01-26"
+        },
+        {
+          "label": "中国非遗网：龙舞（骆山大龙）",
+          "url": "https://www.ihchina.cn/project_details/12838",
+          "publishedAt": "2008"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_ljd"
+    },
+    {
+      "id": "c_ljd:看陆家大龙时可以观察哪些动作？",
+      "nodeId": "c_ljd",
+      "q": "看陆家大龙时可以观察哪些动作？",
+      "a": "可以关注长龙怎样完成转向、盘旋，以及舞龙手之间如何配合。具体队形和规模随当次活动而定，想看现场先确认节目安排。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "中国江苏网：2026春节陆家大龙现场报道",
+          "url": "https://tour.jschina.com.cn/lyzx/202602/t20260223_s699bffa7e4b0263ab066b8f8.shtml"
+        },
+        {
+          "label": "南京市农业农村局：陆家大龙形制报道",
+          "url": "https://nyncj.nanjing.gov.cn/nygzdt/202501/t20250126_5066382.html",
+          "publishedAt": "2025-01-26"
+        },
+        {
+          "label": "中国非遗网：龙舞（骆山大龙）",
+          "url": "https://www.ihchina.cn/project_details/12838",
+          "publishedAt": "2008"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_ljd"
+    },
+    {
+      "id": "c_xz:看虾子灯可以先留意什么？",
+      "nodeId": "c_xz",
+      "q": "看虾子灯可以先留意什么？",
+      "a": "可以先观察现场道具、舞步和队伍变化，了解灯舞与身体动作的联系。具体起源和传统队形仍待核，不把别的灯舞故事套过来。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_xz"
+    },
+    {
+      "id": "c_xz:名录里的虾子灯能说明哪些信息？",
+      "nodeId": "c_xz",
+      "q": "名录里的虾子灯能说明哪些信息？",
+      "a": "能确认虾子灯是溧水申报的南京市级传统舞蹈项目，列入2023年第五批正式名录。名录不能直接说明今天在哪里演出，现场观看要另查活动安排。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_xz"
+    },
+    {
+      "id": "c_tdd:跳当当属于哪类地方表演？",
+      "nodeId": "c_tdd",
+      "q": "跳当当属于哪类地方表演？",
+      "a": "跳当当是溧水的传统民间舞蹈，南京市文旅局名录记载其于2009年6月列入省级非遗。可以从动作、节奏和舞台呈现认识它。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市文旅局：非遗项目名录",
+          "url": "https://wlj.nanjing.gov.cn/zwfw/bszlxz/202101/P020210105390071400964.pdf"
+        },
+        {
+          "label": "江苏广电我苏网：2018南京非遗游乐会现场报道",
+          "url": "https://www.ourjiangsu.com/a/20180610/152862066358.shtml"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_tdd"
+    },
+    {
+      "id": "c_tdd:跳当当一定每天都有演出吗？",
+      "nodeId": "c_tdd",
+      "q": "跳当当一定每天都有演出吗？",
+      "a": "不能把曾经参加展演理解为每天都有演出。想现场观看或体验，先问主办方当次节目、场次和参与条件。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市文旅局：非遗项目名录",
+          "url": "https://wlj.nanjing.gov.cn/zwfw/bszlxz/202101/P020210105390071400964.pdf"
+        },
+        {
+          "label": "江苏广电我苏网：2018南京非遗游乐会现场报道",
+          "url": "https://www.ourjiangsu.com/a/20180610/152862066358.shtml"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_tdd"
+    },
+    {
+      "id": "c_dsh:柘塘打社火和其他地方的社火一样吗？",
+      "nodeId": "c_dsh",
+      "q": "柘塘打社火和其他地方的社火一样吗？",
+      "a": "这里介绍的是溧水柘塘一带的传统舞蹈。不同地区的社火形式不宜直接等同，本地故事和表演细节要结合当地介绍了解。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市文旅局：非遗项目名录",
+          "url": "https://wlj.nanjing.gov.cn/zwfw/bszlxz/202101/P020210105390071400964.pdf"
+        },
+        {
+          "label": "溧水区政府：民俗风情",
+          "url": "https://www.njls.gov.cn/zjls/yzls/msfq/"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_dsh"
+    },
+    {
+      "id": "c_dsh:打社火在非遗名录中怎样记载？",
+      "nodeId": "c_dsh",
+      "q": "打社火在非遗名录中怎样记载？",
+      "a": "南京市文旅局名录记载柘塘打社火为省级传统舞蹈项目，列入时间是2009年6月。想看现场时，还需确认当次活动地点与节目。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市文旅局：非遗项目名录",
+          "url": "https://wlj.nanjing.gov.cn/zwfw/bszlxz/202101/P020210105390071400964.pdf"
+        },
+        {
+          "label": "溧水区政府：民俗风情",
+          "url": "https://www.njls.gov.cn/zjls/yzls/msfq/"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_dsh"
+    },
+    {
+      "id": "c_dw:打五件的名字与什么表演形式有关？",
+      "nodeId": "c_dw",
+      "q": "打五件的名字与什么表演形式有关？",
+      "a": "名字关联使用五种打击乐器的表演形式，伴奏与演唱共同表达内容。欣赏时可以同时听打击节奏与唱段。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "南京国家农高区：打五件表演形式",
+          "url": "https://www.njgjngq.com/shengtailvyou/220-cn.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_dw"
+    },
+    {
+      "id": "c_dw:欣赏打五件有哪些要点？",
+      "nodeId": "c_dw",
+      "q": "欣赏打五件有哪些要点？",
+      "a": "可以听不同打击声怎样配合演唱，留意节奏与唱段之间的关系。具体乐器组合、方言内容和节目，结合当次演出或传承人的介绍了解。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "南京国家农高区：打五件表演形式",
+          "url": "https://www.njgjngq.com/shengtailvyou/220-cn.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_dw"
+    },
+    {
+      "id": "c_lh:欣赏溧水剪纸可以看哪些细节？",
+      "nodeId": "c_lh",
+      "q": "欣赏溧水剪纸可以看哪些细节？",
+      "a": "先看轮廓与整体图案，再观察对称、镂空和细小连缀，体会一张纸怎样形成完整造型。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "南京市教育局：溧水非遗剪纸教育活动（2024报道）",
+          "url": "https://edu.nanjing.gov.cn/xwdt/gqdt/202410/t20241008_4779852.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_lh"
+    },
+    {
+      "id": "c_lh:溧水剪纸展览和体验课要分别确认吗？",
+      "nodeId": "c_lh",
+      "q": "溧水剪纸展览和体验课要分别确认吗？",
+      "a": "要分别确认。看展与动手剪纸是不同活动，先问举办方当前有没有课程、适龄要求、时间和报名方式；往年的教育活动报道不代表现在随到随学。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "南京市教育局：溧水非遗剪纸教育活动（2024报道）",
+          "url": "https://edu.nanjing.gov.cn/xwdt/gqdt/202410/t20241008_4779852.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_lh"
+    },
+    {
+      "id": "c_qh:秦淮源头灯会往届在哪里举办过？",
+      "nodeId": "c_qh",
+      "q": "秦淮源头灯会往届在哪里举办过？",
+      "a": "2023年第六届灯会的主会场设在无想水镇。这是往届记录，今后的地点、日期和入场安排要看当年公告。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第六届秦淮源头灯会",
+          "url": "https://www.nanjing.gov.cn/hdjl/xwfbh/xwfbhbzqzghcjxlfbhqwhdjqgl/mtbd/202301/t20230129_3812226.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_qh"
+    },
+    {
+      "id": "c_qh:去看秦淮源头灯会要查哪些安排？",
+      "nodeId": "c_qh",
+      "q": "去看秦淮源头灯会要查哪些安排？",
+      "a": "先查当年的举办地点、活动日期、入场与预约要求，再选想看的灯组或民俗节目。夜游还要核对交通与返程，不套用往届安排。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市政府：2023年第六届秦淮源头灯会",
+          "url": "https://www.nanjing.gov.cn/hdjl/xwfbh/xwfbhbzqzghcjxlfbhqwhdjqgl/mtbd/202301/t20230129_3812226.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#c_qh"
+    },
+    {
+      "id": "s_tj:通济街和海乐城是什么关系？",
+      "nodeId": "s_tj",
+      "q": "通济街和海乐城是什么关系？",
+      "a": "它们都属于溧水城中商圈的游逛线索，官方商圈介绍把通济街、海乐城和永寿坊联系起来。可以结合街巷与商业空间选择停留。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：城区商圈与街区布局",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rddechy/202311/t20231124_4106676.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#s_tj"
+    },
+    {
+      "id": "s_tj:去通济街找乡味要先查什么？",
+      "nodeId": "s_tj",
+      "q": "去通济街找乡味要先查什么？",
+      "a": "先确定想找的店或食物，查询实际位置和营业情况，再安排街巷步行。街区介绍不保证每家店当天都营业，也不指定某家店一定供应某道菜。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：城区商圈与街区布局",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rddechy/202311/t20231124_4106676.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#s_tj"
+    },
+    {
+      "id": "s_hl:海乐城适合安排哪些出行需求？",
+      "nodeId": "s_hl",
+      "q": "海乐城适合安排哪些出行需求？",
+      "a": "可以作为城中商圈购物、就餐和途中休息的候选，也可与通济街游逛衔接。具体店铺、娱乐项目和服务以当天公布的信息为准。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：城区商圈与街区布局",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rddechy/202311/t20231124_4106676.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#s_hl"
+    },
+    {
+      "id": "s_hl:海乐城的同行关怀设施要怎样确认？",
+      "nodeId": "s_hl",
+      "q": "海乐城的同行关怀设施要怎样确认？",
+      "a": "先问需要的店铺是否营业，再确认停车、休息点、母婴设施和无障碍入口的实际位置与可用情况。商业综合体的介绍不能代替逐项设施确认。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：城区商圈与街区布局",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rddechy/202311/t20231124_4106676.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#s_hl"
+    },
+    {
+      "id": "s_wxsz:无想水镇有哪些街区看点？",
+      "nodeId": "s_wxsz",
+      "q": "无想水镇有哪些街区看点？",
+      "a": "可以围绕唐风建筑、城隍文化街区、街巷和沿水空间慢慢逛。白天与夜间的体验不同，实际活动和营业情况需行前核对。",
+      "kind": "fact",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：无想水镇与唐风文化街区",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/dsqjrddychy/202211/t20221124_3764333.html"
+        },
+        {
+          "label": "溧水区政府：城南街区与夜间文旅活动（2024）",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rdschy/202411/t20241125_5017713.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#s_wxsz"
+    },
+    {
+      "id": "s_wxsz:无想水镇夜游能直接按往届灯会安排吗？",
+      "nodeId": "s_wxsz",
+      "q": "无想水镇夜游能直接按往届灯会安排吗？",
+      "a": "不能。普通街区游逛与灯会、演出是不同安排，先看当年的活动公告，再单独核对开放、预约、费用和返程。",
+      "kind": "guidance",
+      "keys": [],
+      "scope": "node",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：无想水镇与唐风文化街区",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/dsqjrddychy/202211/t20221124_3764333.html"
+        },
+        {
+          "label": "溧水区政府：城南街区与夜间文旅活动（2024）",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rdschy/202411/t20241125_5017713.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction",
+      "evidenceRef": "src/data/nodeIntroductions.js#s_wxsz"
+    },
+    {
+      "id": "service:transport:自驾去景区怎样确认停车入口？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "transport",
+      "facilityTopic": "parking",
+      "q": "自驾去景区怎样确认停车入口？",
+      "a": "先查具体景区的停车入口和车辆引导，导航到停车入口后按现场标识驶入；别把游客步行入口当成车行入口。车位和临时交通安排需向景区确认。",
+      "sourceIds": [
+        "civilTourism"
+      ],
+      "sources": [
+        {
+          "label": "文化和旅游部：旅游景区文明引导工作指南",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/qt/202210/t20221017_936555.html",
+          "publishedAt": "2022-10-17"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:transport:景区停车收费应该怎么看？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "transport",
+      "facilityTopic": "parking",
+      "q": "景区停车收费应该怎么看？",
+      "a": "停车前看入口公示的收费方式、车型、计费时段和离场条件；有消费优惠时另问适用范围。没有查到这次停车场的公示时，费用保持待确认。",
+      "sourceIds": [
+        "civilTourism"
+      ],
+      "sources": [
+        {
+          "label": "文化和旅游部：旅游景区文明引导工作指南",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/qt/202210/t20221017_936555.html",
+          "publishedAt": "2022-10-17"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:transport:景区停车场满了能随便停路边吗？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "transport",
+      "facilityTopic": "parking",
+      "q": "景区停车场满了能随便停路边吗？",
+      "a": "按工作人员指引选择允许使用的停车区域，不占用通道或在禁停处停车。临时停车区是否启用要现场确认，必要时调整行程。",
+      "sourceIds": [
+        "civilTourism"
+      ],
+      "sources": [
+        {
+          "label": "文化和旅游部：旅游景区文明引导工作指南",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/qt/202210/t20221017_936555.html",
+          "publishedAt": "2022-10-17"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:accessibility:游览时怎样找附近卫生间？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "toilet",
+      "q": "游览时怎样找附近卫生间？",
+      "a": "先看现场导览牌，也可以在地图中搜索“公共厕所”或“卫生间”，再向工作人员确认入口和是否开放。地图点位只作线索，别据此认定一直可用。",
+      "sourceIds": [
+        "toiletMap",
+        "civilTourism"
+      ],
+      "sources": [
+        {
+          "label": "文化和旅游部：中国全域旅游厕所导航系统报告（2018，地图仅作线索）",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/tjxx/202012/t20201204_906470.html",
+          "publishedAt": "2018-02-26"
+        },
+        {
+          "label": "文化和旅游部：旅游景区文明引导工作指南",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/qt/202210/t20221017_936555.html",
+          "publishedAt": "2022-10-17"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:accessibility:带孩子或长辈找卫生间要问什么？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "toilet",
+      "q": "带孩子或长辈找卫生间要问什么？",
+      "a": "问清最近入口、台阶、是否有第三卫生间，以及是否适合陪同照护。所需设施要逐项确认，不把普通卫生间当成已经具备无障碍或母婴功能。",
+      "sourceIds": [
+        "civilTourism",
+        "motherFacilities"
+      ],
+      "sources": [
+        {
+          "label": "文化和旅游部：旅游景区文明引导工作指南",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/qt/202210/t20221017_936555.html",
+          "publishedAt": "2022-10-17"
+        },
+        {
+          "label": "国家卫生健康委：关于加快推进母婴设施建设的指导意见（核对建议，非场所设施清单）",
+          "url": "https://www.nhc.gov.cn/rkjcyjtfzs/c100148/201611/39dd581fd6f14a82941e62be5b269132.shtml"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:accessibility:地图标了卫生间就一定能用吗？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "toilet",
+      "q": "地图标了卫生间就一定能用吗？",
+      "a": "不一定。到达前确认是否开放、入口在哪；需要无障碍或陪同照护时另问对应设施。若点位临时关闭，请工作人员指引其他可用卫生间。",
+      "sourceIds": [
+        "toiletMap"
+      ],
+      "sources": [
+        {
+          "label": "文化和旅游部：中国全域旅游厕所导航系统报告（2018，地图仅作线索）",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/tjxx/202012/t20201204_906470.html",
+          "publishedAt": "2018-02-26"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:accessibility:带宝宝出游怎样确认母婴室？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "nursing",
+      "q": "带宝宝出游怎样确认母婴室？",
+      "a": "先问具体场所是否有母婴室、在哪一层、怎样进入和是否开放；再确认哺乳座椅、换尿布台及洗手设施是否可用。没有确认前，不默认每个景点都有。",
+      "sourceIds": [
+        "motherFacilities"
+      ],
+      "sources": [
+        {
+          "label": "国家卫生健康委：关于加快推进母婴设施建设的指导意见（核对建议，非场所设施清单）",
+          "url": "https://www.nhc.gov.cn/rkjcyjtfzs/c100148/201611/39dd581fd6f14a82941e62be5b269132.shtml"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:accessibility:母婴室和卫生间能直接当作同一设施吗？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "nursing",
+      "q": "母婴室和卫生间能直接当作同一设施吗？",
+      "a": "先按需求分开问：需要哺乳空间、换尿布台还是陪同孩子如厕，再确认现场对应设施和隐私条件。仅看到卫生间标识，不能认定有母婴室。",
+      "sourceIds": [
+        "motherFacilities"
+      ],
+      "sources": [
+        {
+          "label": "国家卫生健康委：关于加快推进母婴设施建设的指导意见（核对建议，非场所设施清单）",
+          "url": "https://www.nhc.gov.cn/rkjcyjtfzs/c100148/201611/39dd581fd6f14a82941e62be5b269132.shtml"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:accessibility:推婴儿车找母婴室前要确认什么？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "nursing",
+      "q": "推婴儿车找母婴室前要确认什么？",
+      "a": "问清从当前入口到母婴室的路线、楼层、台阶和电梯情况，以及婴儿车能否进入。设施暂不可用时，请工作人员指引合适的照护空间。",
+      "sourceIds": [
+        "motherFacilities",
+        "preparation"
+      ],
+      "sources": [
+        {
+          "label": "国家卫生健康委：关于加快推进母婴设施建设的指导意见（核对建议，非场所设施清单）",
+          "url": "https://www.nhc.gov.cn/rkjcyjtfzs/c100148/201611/39dd581fd6f14a82941e62be5b269132.shtml"
+        },
+        {
+          "label": "文化和旅游部：2026中秋、国庆假期出游提示",
+          "url": "https://www.mct.gov.cn/whzx/whyw/202609/t20260922_967218.htm",
+          "publishedAt": "2026-09-23"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:accessibility:带轮椅出行要提前确认什么？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "accessibility",
+      "q": "带轮椅出行要提前确认什么？",
+      "a": "先问停车或下客点到入口的路线，再逐项确认台阶、坡道、电梯、无障碍卫生间和休息点。还要问这些设施当天是否可用，别仅凭“无障碍”标签决定全程路线。",
+      "sourceIds": [
+        "preparation",
+        "civilTourism"
+      ],
+      "sources": [
+        {
+          "label": "文化和旅游部：2026中秋、国庆假期出游提示",
+          "url": "https://www.mct.gov.cn/whzx/whyw/202609/t20260922_967218.htm",
+          "publishedAt": "2026-09-23"
+        },
+        {
+          "label": "文化和旅游部：旅游景区文明引导工作指南",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/qt/202210/t20221017_936555.html",
+          "publishedAt": "2022-10-17"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:accessibility:有无障碍入口就代表整条游线都适合轮椅吗？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "accessibility",
+      "q": "有无障碍入口就代表整条游线都适合轮椅吗？",
+      "a": "还不能这样判断。入口之后的坡度、台阶、路面、卫生间和返程接驳都要逐项核对，选择已经确认可通行的路线。",
+      "sourceIds": [
+        "preparation"
+      ],
+      "sources": [
+        {
+          "label": "文化和旅游部：2026中秋、国庆假期出游提示",
+          "url": "https://www.mct.gov.cn/whzx/whyw/202609/t20260922_967218.htm",
+          "publishedAt": "2026-09-23"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:accessibility:长辈走累了怎样调整行程？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "accessibility",
+      "q": "长辈走累了怎样调整行程？",
+      "a": "减少地点和跨片区折返，把休息放进安排中；先向场所确认休息点和可用接驳。需要坡道、电梯或轮椅协助时提前说明，按实际体力缩短游线。",
+      "sourceIds": [
+        "preparation",
+        "civilTourism"
+      ],
+      "sources": [
+        {
+          "label": "文化和旅游部：2026中秋、国庆假期出游提示",
+          "url": "https://www.mct.gov.cn/whzx/whyw/202609/t20260922_967218.htm",
+          "publishedAt": "2026-09-23"
+        },
+        {
+          "label": "文化和旅游部：旅游景区文明引导工作指南",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/qt/202210/t20221017_936555.html",
+          "publishedAt": "2022-10-17"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:support:带行李游溧水怎样找寄存点？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "support",
+      "facilityTopic": "luggage",
+      "q": "带行李游溧水怎样找寄存点？",
+      "a": "先向具体游客中心、住宿方或车站询问是否提供寄存，再确认位置、柜型或尺寸限制、收费和取件时间。南京其他区域的寄存服务不能直接当作溧水已有点位。",
+      "sourceIds": [
+        "luggageNanjing"
+      ],
+      "sources": [
+        {
+          "label": "南京市政府：2026南京行李寄存服务报道（不证明溧水点位）",
+          "url": "https://www.nanjing.gov.cn/zt/njjkdzznzzsjbydzyfzxzscl/gzcx/202602/t20260205_5787707.html",
+          "publishedAt": "2026-02-05"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:support:使用寄存服务前要确认哪些取件条件？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "support",
+      "facilityTopic": "luggage",
+      "q": "使用寄存服务前要确认哪些取件条件？",
+      "a": "先问清取件时间、收费、物品限制和超时处理，保留领取凭证或存件记录；证件与贵重物品随身保管。按运营方公布的规则使用。",
+      "sourceIds": [
+        "luggageNanjing",
+        "belongings"
+      ],
+      "sources": [
+        {
+          "label": "南京市政府：2026南京行李寄存服务报道（不证明溧水点位）",
+          "url": "https://www.nanjing.gov.cn/zt/njjkdzznzzsjbydzyfzxzscl/gzcx/202602/t20260205_5787707.html",
+          "publishedAt": "2026-02-05"
+        },
+        {
+          "label": "文化和旅游部：暑期出境旅游提示（仅参考物品保管建议）",
+          "url": "https://www.mct.gov.cn/zxbs/cxts/201907/t20190722_845206.htm",
+          "publishedAt": "2019-07-22"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:support:退房后酒店一定能免费寄存行李吗？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "support",
+      "facilityTopic": "luggage",
+      "q": "退房后酒店一定能免费寄存行李吗？",
+      "a": "不能保证。退房前向住宿方确认是否接收、费用、截止取件时间和物品限制，再安排返程；未确认时不要把免费寄存写进行程。",
+      "sourceIds": [
+        "luggageNanjing",
+        "belongings"
+      ],
+      "sources": [
+        {
+          "label": "南京市政府：2026南京行李寄存服务报道（不证明溧水点位）",
+          "url": "https://www.nanjing.gov.cn/zt/njjkdzznzzsjbydzyfzxzscl/gzcx/202602/t20260205_5787707.html",
+          "publishedAt": "2026-02-05"
+        },
+        {
+          "label": "文化和旅游部：暑期出境旅游提示（仅参考物品保管建议）",
+          "url": "https://www.mct.gov.cn/zxbs/cxts/201907/t20190722_845206.htm",
+          "publishedAt": "2019-07-22"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:etiquette:宠物入园前要确认哪些规定？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "etiquette",
+      "facilityTopic": "pets",
+      "q": "宠物入园前要确认哪些规定？",
+      "a": "分别向景区、住宿方和交通运营方确认是否接收宠物、允许进入的区域、牵引或携带要求。能住宠物友好酒店，不代表景区或交通工具也允许携带。",
+      "sourceIds": [
+        "metroRules",
+        "civilTourism"
+      ],
+      "sources": [
+        {
+          "label": "南京市交通运输局：轨道交通、公共汽车、有轨电车乘客守则（具体交通另行核对）",
+          "url": "https://jtj.nanjing.gov.cn/zwgk/gzk/202310/t20231012_4030065.html"
+        },
+        {
+          "label": "文化和旅游部：旅游景区文明引导工作指南",
+          "url": "https://zwgk.mct.gov.cn/zfxxgkml/qt/202210/t20221017_936555.html",
+          "publishedAt": "2022-10-17"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:etiquette:宠物放进包里就一定能乘车吗？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "etiquette",
+      "facilityTopic": "pets",
+      "q": "宠物放进包里就一定能乘车吗？",
+      "a": "不能只凭放进包里判断。出发前向具体交通运营方确认该种动物的携带规定，再核对景区和住宿要求；没有确认前不要承诺可以乘车。",
+      "sourceIds": [
+        "metroRules"
+      ],
+      "sources": [
+        {
+          "label": "南京市交通运输局：轨道交通、公共汽车、有轨电车乘客守则（具体交通另行核对）",
+          "url": "https://jtj.nanjing.gov.cn/zwgk/gzk/202310/t20231012_4030065.html"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    },
+    {
+      "id": "service:etiquette:导盲犬和普通宠物的出行条件能混用吗？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "etiquette",
+      "facilityTopic": "pets",
+      "q": "导盲犬和普通宠物的出行条件能混用吗？",
+      "a": "不能混用。咨询运营方时说明动物类型和所需协助，分别核对适用规定、材料和进出路线；普通宠物的规则不能直接套给导盲犬。",
+      "sourceIds": [
+        "metroRules"
+      ],
+      "sources": [
+        {
+          "label": "南京市交通运输局：轨道交通、公共汽车、有轨电车乘客守则（具体交通另行核对）",
+          "url": "https://jtj.nanjing.gov.cn/zwgk/gzk/202310/t20231012_4030065.html"
+        }
+      ],
+      "keys": [],
+      "scope": "service",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "reviewBasis": "official_guidance_editorial_checklist"
+    }
+  ],
+  "pending": [
+    {
+      "id": "f_ypg:晶桥云片糕最早起源于哪年？",
+      "nodeId": "f_ypg",
+      "q": "晶桥云片糕最早起源于哪年？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "node",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "缺晶桥地方志、保护单位或可定位历史资料；一般云片糕介绍不能证明地方起源。"
+    },
+    {
+      "id": "c_tj:明觉铁画现在是省级非遗吗？",
+      "nodeId": "c_tj",
+      "q": "明觉铁画现在是省级非遗吗？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "node",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "仍缺省级正式认定文件；既有2008年市级名录不能证明当前是否升级。"
+    },
+    {
+      "id": "c_xz:虾子灯有哪些传统队形？",
+      "nodeId": "c_xz",
+      "q": "虾子灯有哪些传统队形？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "node",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "正式名录仅支持项目身份，缺保护单位或传承资料说明传统队形。"
+    },
+    {
+      "id": "c_syg:石臼渔歌有哪些传统曲目？",
+      "nodeId": "c_syg",
+      "q": "石臼渔歌有哪些传统曲目？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "node",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "缺项目申报材料或保护单位曲目清单，不能把同名创作歌曲当成全部传统曲目。"
+    },
+    {
+      "id": "service:transport:天生桥停车场今天还有车位吗？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "transport",
+      "facilityTopic": "parking",
+      "q": "天生桥停车场今天还有车位吗？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "service",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "缺当日停车场运营或实时车位信息。"
+    },
+    {
+      "id": "service:accessibility:东屏湖观景入口最近的卫生间在哪里？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "toilet",
+      "q": "东屏湖观景入口最近的卫生间在哪里？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "service",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "缺具体入口对应的设施地图和当前开放确认。"
+    },
+    {
+      "id": "service:accessibility:海乐城母婴室具体在哪一层？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "nursing",
+      "q": "海乐城母婴室具体在哪一层？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "service",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "缺商场官方楼层导览和当前设施确认。"
+    },
+    {
+      "id": "service:accessibility:东庐山观音寺有没有全程无台阶路线？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "accessibility",
+      "facilityTopic": "accessibility",
+      "q": "东庐山观音寺有没有全程无台阶路线？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "service",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "缺场所无障碍路线图及管理方确认。"
+    },
+    {
+      "id": "service:support:通济街哪里可以免费寄存行李？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "support",
+      "facilityTopic": "luggage",
+      "q": "通济街哪里可以免费寄存行李？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "service",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "缺溧水具体点位、运营时间和收费公示。"
+    },
+    {
+      "id": "service:etiquette:郭兴庄园现在允许带宠物入园吗？",
+      "expertId": "01_huaiyuanjie",
+      "serviceId": "etiquette",
+      "facilityTopic": "pets",
+      "q": "郭兴庄园现在允许带宠物入园吗？",
+      "a": "",
+      "keys": [],
+      "sources": [],
+      "sourceIds": [],
+      "scope": "service",
+      "kind": "fact",
+      "status": "pending",
+      "reviewedAt": "2026-10-07",
+      "reason": "缺庄园当前宠物入园规定。"
+    }
+  ],
+  "themeRoutes": [
+    {
+      "id": "family-learning",
+      "name": "亲子山湖研学一日",
+      "goal": "围绕一个学习主题看展，再在开放岸线认识山湖环境",
+      "description": "先在大金山国防园选一个展馆主题，再按体力和天气决定是否到东屏湖观景。两处之间的入口与交通需另查。",
+      "nodeIds": [
+        "n_djs",
+        "n_dp"
+      ],
+      "stopNotes": {
+        "n_djs": "先选国防或生命安全等学习主题，和孩子带着一个问题看展。训练体验另问适龄、预约与开放条件。",
+        "n_dp": "在确认开放的岸线观察湖面与远岸，也可以聊聊刚才的参观收获；不默认可露营、垂钓或下水。"
+      },
+      "unknowns": "先确认展馆开放、活动适龄条件、岸线入口、交通和卫生间；遇雨或体力不足可取消湖边停留。",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "南京市体育局：大金山与东屏湖",
+          "url": "https://sports.nanjing.gov.cn/ztzl/njtyxfxcj/hwyd/202307/t20230725_3970450.html"
+        },
+        {
+          "label": "溧水区政府：自然资源",
+          "url": "https://www.njls.gov.cn/zjls/zrzy/"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction_editorial_route"
+    },
+    {
+      "id": "senior-city",
+      "name": "银发城中慢游一日",
+      "goal": "少赶路，按体力逛一段街巷、选一餐乡味",
+      "description": "从通济街看城区日常，再把海乐城作为就餐、购物或休息的候选。少选地点，步行条件和休息设施先问清。",
+      "nodeIds": [
+        "s_tj",
+        "s_hl"
+      ],
+      "stopNotes": {
+        "s_tj": "先选想逛的街段或店铺，核对营业和步行路况；疲劳时减少停留，不预设全程无台阶。",
+        "s_hl": "按需求选就餐或休息，提前确认入口、电梯、卫生间和休息点；需要轮椅协助时逐项核对。"
+      },
+      "unknowns": "实际店铺、入口之间的交通、台阶、电梯、座椅和无障碍卫生间尚需向场所确认。",
+      "kind": "guidance",
+      "status": "approved",
+      "reviewedAt": "2026-10-07",
+      "sources": [
+        {
+          "label": "溧水区政府：城区商圈与街区布局",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rddechy/202311/t20231124_4106676.html"
+        }
+      ],
+      "reviewBasis": "existing_reviewed_introduction_editorial_route"
+    }
+  ]
+}

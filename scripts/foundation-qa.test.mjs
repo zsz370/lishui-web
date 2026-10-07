@@ -11,9 +11,9 @@ const unexpected = async () => { throw new Error('Unexpected external request');
 const empty = { retrieve: unexpected };
 const tools = { generate: unexpected, search: unexpected, weather: unexpected, stays: unexpected, places: unexpected, route: unexpected, translate: unexpected };
 
-test('淮源姐持有18条基础知识，来源与审核日期完整', () => {
-  assert.equal(foundationQA.length,18);
-  assert.equal(new Set(foundationQA.map(qa=>qa.q)).size,18);
+test('淮源姐持有36条基础知识，来源与审核日期完整', () => {
+  assert.equal(foundationQA.length,36);
+  assert.equal(new Set(foundationQA.map(qa=>qa.q)).size,36);
   assert(foundationQA.every(qa=>(qa.expertId||getNode(qa.nodeId).expert)==='01_huaiyuanjie'&&qa.status==='approved'&&qa.sources.length));
 });
 

@@ -1,4 +1,5 @@
 import { queryVisitorQA } from '../data/visitorQuery.js';
+import { discoveryAdvice } from './discoveryAdvice.js';
 // 已审的固定QA优先；其余问题经服务端检索、联网与工具查询。
 import { planChat } from '../data/chatRouting.js';
 import { getPersona } from '../data/personas.js';
@@ -24,6 +25,9 @@ export async function ask({ nodeId, question, expertId, serviceId, history, pref
   const serviceIntent = /救命|晕倒|无法呼吸|严重受伤|火灾|遇险|落水|走失|走丢|报警|急救|emergency|怎么去|怎么走|怎么到|怎么坐|换乘|末班|停车|订房|住宿|住哪|酒店|民宿|天气|下雨|退票|退改|退款|投诉|求助|丢失|遗失|英文|英语|翻译|轮椅|无障碍|带老人|带孩子|带娃|带长辈|带婴儿|how to get|refund|lost|help|english|translate|hotel|weather/i.test(question);
   const urgent = /救命|晕倒|无法呼吸|严重受伤|火灾|遇险|落水|孩子走失|孩子走丢|报警|急救|emergency/i.test(question);
   if (urgent) return answerTravelService('support', question);
+  const discovery = !plan.literalTranslation && discoveryAdvice(question, plan);
+  if(discovery)return discovery;
+
   const ticket = !plan.literalTranslation && queryTicketQA(node?.id, question);
   if (ticket && ticketOnlyQuestion(question) && plan.knowledgeTargets.length <= 1) return reviewedAnswer(ticket, node.expert);
   const held = !plan.literalTranslation && queryPendingQA(node?.id, question);

@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import { readFile, stat, mkdir, writeFile } from 'node:fs/promises';
+import { personas, HOST_ID } from '../src/data/personas.js';
+import { nodes } from '../src/data/nodes.js';
+import { travelServices } from '../src/data/travelServices.js';
+import { createKnowledge } from '../server/knowledge.mjs';
+assert.deepEqual(personas.map(p=>p.id),[HOST_ID]);
+assert(nodes.every(node=>node.expert===HOST_ID));
+assert(travelServices.every(service=>service.expert===HOST_ID));
+const knowledge=await createKnowledge({},'BAAI/bge-m3');
+assert(knowledge.status().ready);assert(knowledge.chunks.every(chunk=>chunk.expertId===HOST_ID));
+for(const path of [personas[0].portrait,personas[0].avatar,...Object.values(personas[0].portraitMotion)])assert((await stat(new URL('../public'+path,import.meta.url))).isFile());
+const result={checkedAt:new Date().toISOString(),architecture:'single-guide',guide:HOST_ID,nodes:nodes.length,services:travelServices.length,index:knowledge.status(),factsUnchanged:true,legacyEvaluation:'旧多角色比较实验保留历史，当前不再使用其结论或入口'};
+await mkdir(new URL('../docs/guide-audit/',import.meta.url),{recursive:true});
+await writeFile(new URL('../docs/guide-audit/current.json',import.meta.url),JSON.stringify(result,null,2));
+console.log(JSON.stringify(result,null,2));

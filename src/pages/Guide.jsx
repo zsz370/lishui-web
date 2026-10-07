@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { X, MapTrifold, BookOpen, CloudSun } from '@phosphor-icons/react';
 import ChatPanel from '../components/ChatPanel.jsx';
-import { useGuideSession } from '../data/guideSession.jsx';
+import { useGuideSession } from '../data/guideSessionContext.js';
 import { getNode } from '../data/nodes.js';
 import { getTravelService } from '../data/travelServices.js';
 import { useItinerary } from '../data/store.jsx';

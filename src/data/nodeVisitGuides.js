@@ -1,7 +1,14 @@
 import { queryQA } from './presetQA.js';
+import { expansionNodeQA } from './contentExpansionQA.js';
+
+const expansionVisitQuestions = expansionNodeQA.reduce((result, qa) => {
+  (result[qa.nodeId] ||= []).push([qa.kind === 'guidance' ? '游览建议' : '认识风物', qa.q]);
+  return result;
+}, {});
 
 // 每一项指向实际获审正文；当前运营数据另行确认。
 export const visitGuideQuestions = {
+  ...expansionVisitQuestions,
   n_tsq: [
     ['文化看点', '天生桥是天然的还是人工的？'],
     ['漕运背景', '胭脂河开凿与漕运有什么关系？'],
@@ -36,6 +43,7 @@ export const visitGuideQuestions = {
 };
 
 export const visitGuideUnknowns = {
+  ...Object.fromEntries(Object.keys(expansionVisitQuestions).map(id => [id, '出行日开放、实际入口、活动与体验安排、设施和费用仍需向场所或主办方确认；历史介绍不能替代当前公告。'])),
   n_tsq: '已有2026-10-05核对的门票及套票参考价；出行日售价、优惠范围、停止入园、游船班次与适龄要求尚未确认。先在行程页选择实际入口，再查逐段交通；地图估时不替代景区运营公告。',
   n_wx: '山名按地方流传故事介绍，尚未核得所据原始史料。已有2026-10-05核对的天池10元/优待5元参考；出行日开放区域、优惠资格、步道强度和接驳安排未确认，2025公交资料需重新核对。',
   n_fjb: '出行日花况、可采果品、具体园区入口、预约、价格及适龄条件未确认。农业采收报道不代表游客可入园，交通在行程页按所选园区查询。',
@@ -45,7 +53,7 @@ export const visitGuideUnknowns = {
 export function getVisitGuide(nodeId) {
   if (!visitGuideQuestions[nodeId]) return null;
   return {
-    checkedAt: ['n_wx', 'n_tsq'].includes(nodeId) ? '2026-10-05' : '2026-10-04', unknowns: visitGuideUnknowns[nodeId],
+    checkedAt: expansionVisitQuestions[nodeId] ? '2026-10-07' : ['n_wx', 'n_tsq'].includes(nodeId) ? '2026-10-05' : '2026-10-04', unknowns: visitGuideUnknowns[nodeId],
     items: visitGuideQuestions[nodeId].map(([label, question]) => ({ label, question, qa: queryQA(nodeId, question) })),
   };
 }

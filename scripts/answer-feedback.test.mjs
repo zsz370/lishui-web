@@ -17,8 +17,8 @@ const knowledge={ chunks:[], status:()=>({ready:true,chunks:1}), retrieve:async(
 const input={nodeId:'n_tsq',question:'请讲讲天生桥的开河运输关系'};
 async function listen(t,server) { server.listen(0,'127.0.0.1');await once(server,'listening');t.after(()=>{server.closeAllConnections();server.close();});return `http://127.0.0.1:${server.address().port}`; }
 
-test('69条游客文案覆盖，吃法不夹非遗元数据，传说和票价边界保留',()=>{
-  const all=[...approvedQA,...approvedServiceQA];assert.equal(all.length,69);
+test('游客文案覆盖新增语料，吃法不夹非遗元数据，传说和票价边界保留',()=>{
+  const all=[...approvedQA,...approvedServiceQA];assert(all.length>=100);
   assert.deepEqual(new Set(Object.keys(visitorAnswerCopy)),new Set(all.map((qa)=>qa.q)));
   for(const qa of all) {
     const copy=visitorAnswer(qa);assert(copy.trim(),qa.q);

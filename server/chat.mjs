@@ -1,4 +1,5 @@
 import { queryVisitorQA } from '../src/data/visitorQuery.js';
+import { discoveryAdvice } from '../src/services/discoveryAdvice.js';
 import { nodes, getNode } from '../src/data/nodes.js';
 import { getPersona, HOST_ID, personas } from '../src/data/personas.js';
 import { answerTravelService } from '../src/services/travelAdvice.js';
@@ -47,6 +48,8 @@ export function createChat(providers,knowledge) {
     const foundation=queryServiceQA(question);
     if(foundation&&!disableKnowledge) return {...reviewedAnswer(foundation),speaker:getPersona(HOST_ID)};
     const {node,expertId,services,knowledgeTargets,literalTranslation}=planChat(input);
+    const discovery=!literalTranslation&&!disableKnowledge&&discoveryAdvice(question,{mentioned:planChat(input).mentioned});
+    if(discovery)return discovery;
     const ticket=!literalTranslation && !disableKnowledge && queryTicketQA(node?.id,question);
     if(ticket && ticketOnlyQuestion(question) && knowledgeTargets.length<=1) return {...reviewedAnswer(ticket,node.expert),speaker:getPersona(HOST_ID)};
     // Complete reviewed questions use the same answer as the client. Variants
@@ -59,6 +62,7 @@ export function createChat(providers,knowledge) {
     const held=!literalTranslation && queryPendingQA(node?.id,question);
     if(held) return reply(getNode(held.nodeId).expert,`这个问题的具体结论尚未核准。${held.reason} 可先查看已审的地方文化介绍，出行条件请向景区或主办方确认。`,{kind:'unavailable',source:'资料待核，未作为事实回答'});
     const ctx=extractContext(input,node), trace=[], results=[];
+    if(services.length===1&&services[0]==='planning'&&!knowledgeTargets.length) return answerTravelService('planning',question,{history:input.history,preferences:input.preferences,node});
     const task=async(id,agentId,tools,work,dependsOn=[])=>{
       checkCancelled();
       const entry={taskId:id,agentId:agentId,status:'running',tools,dependsOn,startedAt:new Date().toISOString()};trace.push(entry);progress(entry);
@@ -172,9 +176,9 @@ export function createChat(providers,knowledge) {
       const translated=await providers.translate(text,ctx.to);
       return serviceReply('etiquette',translated.content,{kind:'translation',source:'百度翻译',sourceUrl:'https://fanyi.baidu.com/',translationOf:combined?'guide_answer':'user_text'});
     },combined?trace.map((entry)=>entry.taskId):[]);
-    const parts=summary?[summary,...results.filter((result)=>result!==summary)]:results;
+    const parts=summary?[summary,...results.filter((result)=>result!==summary&&!['rag','preset'].includes(result.kind))]:results;
     const body=parts.length===1?parts[0].content:parts.map((part)=>part.content).join('\n\n');
-    const sources=sourcesOf(parts.map((part)=>({...part,sources:part.sources||(part.sourceUrl?[{label:part.source||'查询来源',url:part.sourceUrl}]:[])})));
+    const sources=sourcesOf(results.map((part)=>({...part,sources:part.sources||(part.sourceUrl?[{label:part.source||'查询来源',url:part.sourceUrl}]:[])})));
     const links=[...new Map(parts.flatMap((part)=>part.links||[]).map((link)=>[link.url,link])).values()];
     const answer={...(parts.length===1?parts[0]:{}),...reply(HOST_ID,body||'可以告诉我想了解的地方或出行需求。',{kind:parts.some((part)=>part.kind==='unavailable')?'unavailable':parts.length===1?parts[0].kind:'guide',serviceId:services[0],sources,links,source:sources.length?'本次答复的参考资料':parts[0]?.source,sourceUrl:sources[0]?.url,operations:{trace,context:{...ctx,translationText:undefined},guide:HOST_ID}})};
     return {...answer,replies:[answer]};

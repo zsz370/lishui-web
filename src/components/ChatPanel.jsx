@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { PaperPlaneRight, SpeakerHigh, Stop, ArrowClockwise } from '@phosphor-icons/react';
 import { host } from '../data/personas.js';
-import { useGuideSession } from '../data/guideSession.jsx';
+import { useGuideSession } from '../data/guideSessionContext.js';
 import { taskLabel, planChat } from '../data/chatRouting.js';
 import { createAnswerSpeech } from '../services/answerSpeech.js';
 import GuidePortrait from './GuidePortrait.jsx';
@@ -36,7 +36,6 @@ function Message({message:m,speech,onPlay,onStop,pending}) {
   {m.isDraft&&!m.draftComplete&&<small className="guide-stream-state">正在回答…</small>}
   {m.incomplete&&<p className="guide-stream-state">答复未完成，请重试后参考完整结果。</p>}
   {!m.isDraft&&!m.incomplete&&m.role!=='host'&&<div className="guide-answer-actions"><button type="button" disabled={pending&&!active} onClick={active?onStop:onPlay}>{active?<Stop size={16}/>:<SpeakerHigh size={16}/>} {active?'停止朗读':'朗读答复'}</button>{speech?.status==='error'&&<small role="status">{speech.error}</small>}</div>}
-  {!m.incomplete&&(m.sources?.length>0||m.source)&&<details className="guide-sources"><summary>查看答复出处</summary>{m.sources?.length?m.sources.map(s=><a key={s.url} href={s.url} target="_blank" rel="noreferrer">{s.label}</a>):m.sourceUrl?<a href={m.sourceUrl} target="_blank" rel="noreferrer">{m.source}</a>:<p>{m.source}</p>}</details>}
   {!m.isDraft&&!m.incomplete&&m.links?.length>0&&<div className="guide-answer-links">{m.links.filter(l=>!m.sources?.some(s=>s.url===l.url)).map(l=>l.url.startsWith('/')?<Link key={l.url} to={l.url}>{l.label}</Link>:<a key={l.url} href={l.url} target="_blank" rel="noreferrer">{l.label}</a>)}</div>}
  </article>;
 }

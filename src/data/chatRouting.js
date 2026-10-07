@@ -3,7 +3,7 @@ import { HOST_ID } from './personas.js';
 import { routeServices } from '../services/travelAdvice.js';
 
 export const translationIntent = /英文|英语|翻译|双语|english|translate|日语|韩语|法语/i;
-const aliases = { f_ydg: ['玉带糕'], f_ypg: ['云片糕'] };
+const aliases = { f_ydg: ['玉带糕'], f_ypg: ['云片糕'], f_szc: ['手抓鸡'], c_tj: ['明觉铁画'] };
 const namesOf = (node) => [...node.name.split(/[·／/]/), ...(aliases[node.id] || [])].filter((name) => name.length > 1);
 export function focusKnowledgeQuestion(question, target, targets) {
   if (targets.length < 2) return question;
@@ -32,8 +32,9 @@ export function planChat(input) {
     services = ['stay', ...services.filter((id) => !['stay', 'transport', 'accessibility'].includes(id))];
   }
   if (!literalTranslation && /行程|安排|两天一晚/.test(question) && !services.includes('planning')) services.push('planning');
+  if(services.includes('planning') && /自驾|没有车|无车|公共交通/.test(question) && !/怎么去|怎么走|怎么到|换乘|末班|导航|路线|交通/.test(question)) services=services.filter(id=>id!=='transport');
   if (translationIntent.test(question) && !services.includes('etiquette')) services.push('etiquette');
-  const needKnowledge = !literalTranslation && (!services.length || services.includes('planning') || /门票|票价|套票|历史|非遗|童谣|方言|糕|故事|研学|龙舞|节庆|游览|游玩|看点|介绍|参观/.test(question));
+  const needKnowledge = !literalTranslation && (!services.length || (services.includes('planning') && Boolean(node)) || /门票|票价|套票|历史|非遗|童谣|方言|糕|故事|研学|龙舞|节庆|游览|游玩|看点|介绍|参观/.test(question));
   const knowledgeTargets = !needKnowledge ? [] : mentioned.length ? mentioned.slice(0, 3).map((item) => ({ node: item, expertId: HOST_ID })) : [{ node, expertId }];
   return { node, expertId, services, knowledgeTargets, literalTranslation, mentioned };
 }

@@ -7,6 +7,7 @@ import { topics } from '../src/data/collections.js';
 import { presetQA, approvedQA, withdrawnQA, queryQA } from '../src/data/presetQA.js';
 import { normalizePlan, calculatePlan, createStop } from '../src/data/itinerary.js';
 import { validateChat } from '../server/chat.mjs';
+import { expansionNodeQA, expansionPendingNodeQA } from '../src/data/contentExpansionQA.js';
 
 const removed = ['f_yt', 'f_le', 'f_pz', 's_wd'];
 test('用户撤下条目不会出现在目录、栏目或现行问答，旧API请求也不能继续推荐', () => {
@@ -31,12 +32,14 @@ test('旧收藏剔除撤下地点，保留有效地点与用户条件；不把�
   assert.doesNotThrow(() => calculatePlan(plan));
 });
 test('撤下待核不充作审核通过，修订与新增单独记入已审数，童谣仍隔离', () => {
-  assert.equal(approvedQA.length, 54);
+  assert.equal(approvedQA.length, 54 + expansionNodeQA.length);
+  const addedIds = new Set(expansionNodeQA.map(item => item.id));
+  assert.equal(approvedQA.filter(item => !addedIds.has(item.id)).length, 54);
   assert.equal(withdrawnQA.length, 2);
   assert(withdrawnQA.every((item) => item.status === 'pending'));
   const pending = presetQA.filter((item) => item.status === 'pending');
-  assert.equal(pending.length, 1);
-  assert.equal(pending[0].q, '来首溧水童谣？');
+  assert.equal(pending.length, 1 + expansionPendingNodeQA.length);
+  assert(pending.some(item => item.q === '来首溧水童谣？'));
   for (const item of pending) assert.equal(queryQA(item.nodeId, item.q), null);
 });
 test('图鉴每项正文出处可用，28项配图实际存在，4项独立文字页可找到', async () => {

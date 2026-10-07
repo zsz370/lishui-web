@@ -2,6 +2,7 @@
 // 不证明具体场所已有设施、库存、开放项目或当前价格。
 import { knowledgeSources } from './qaReview.js';
 import { serviceSources } from './travelServices.js';
+import { expansionServiceQA, expansionPendingServiceQA } from './contentExpansionQA.js';
 
 export const foundationSources = {
   preparation: { label: '文化和旅游部：2026中秋、国庆假期出游提示', url: 'https://www.mct.gov.cn/whzx/whyw/202609/t20260922_967218.htm', publishedAt: '2026-09-23' },
@@ -42,10 +43,11 @@ export const foundationQA = [
   serviceQA('01_huaiyuanjie', 'etiquette', '参观寺庙和展馆有什么礼仪？', '尊重现场和宗教习俗，保持秩序，衣着与行为遵守场所要求。留意禁烟、禁食、拍照与闪光灯规定，不随意触摸文物或展品。', ['etiquette']),
   serviceQA('01_huaiyuanjie', 'etiquette', '拍摄居民或表演者前要注意什么？', '先征得对方同意，不强行合影，不堵住公共通道；有禁止拍照标志的地方不拍摄。具体活动另按主办方现场规则执行。', ['etiquette']),
   serviceQA('01_huaiyuanjie', 'etiquette', '字体能调大吗？', '如果在Windows版Microsoft Edge浏览网页，可以按Ctrl与加号放大，Ctrl与减号缩小，Ctrl与0恢复。这里说明的是浏览器缩放；当前网页没有原稿所说的小程序大字版或导览屏设置。', ['zoom']),
-].map((item) => ({ ...item, id: `${item.serviceId ? `service:${item.serviceId}` : item.nodeId}:${item.q}`, status: 'approved', reviewedAt: '2026-10-04', sources: item.sourceIds.map((id) => foundationSources[id]) }));
+].map((item) => ({ ...item, id: `${item.serviceId ? `service:${item.serviceId}` : item.nodeId}:${item.q}`, status: 'approved', reviewedAt: '2026-10-04', sources: item.sourceIds.map((id) => foundationSources[id]) })).concat(expansionServiceQA);
 
 export const approvedServiceQA = foundationQA.filter((qa) => qa.scope === 'service');
 export const foundationNodeQA = foundationQA.filter((qa) => qa.scope === 'node');
+export const pendingServiceQA = expansionPendingServiceQA;
 // Only exact, self-contained foundational questions bypass live tools. A follow-up,
 // new dates, budget or combined intent always continues through the service router.
 const normalize = (text) => String(text || '').toLowerCase().replace(/[\s，,。.!！?？]/g, '');

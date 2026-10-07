@@ -3,13 +3,12 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "2026 数媒竞赛 · 溧水文旅数字人矩阵 Web 产品化（MVP 骨架）",
+  "description": "遇见美溧：淮源姐单智能体文旅导览、资料问答与行程工具",
   "scripts": {
     "dev:api": "node --env-file=config/integrations.env.local server/index.mjs",
     "rag:index": "node --env-file=config/integrations.env.local scripts/build-rag-index.mjs",
     "test:agents": "node --test scripts/agents.test.mjs",
     "check:integrations": "node --env-file=config/integrations.env.local scripts/check-integrations.mjs --live",
-    "audit:agents": "node scripts/audit-agents.mjs",
     "test:qa": "node --test scripts/audit-qa.test.mjs",
     "test:foundation": "node --test scripts/foundation-qa.test.mjs",
     "test:itinerary": "node --test scripts/itinerary.test.mjs",
@@ -19,7 +18,6 @@
     "test:routing": "node --test scripts/routing-stream.test.mjs",
     "test:speech": "node --test scripts/answer-speech.test.mjs",
     "check:routing": "node --env-file=config/integrations.env.local scripts/check-routing-live.mjs",
-    "eval:rag": "node --env-file=config/integrations.env.local scripts/evaluate-rag.mjs --repeat=3",
     "eval:human:prepare": "node scripts/prepare-human-review.mjs",
     "test:curation": "node --test scripts/content-curation.test.mjs scripts/review-score.test.mjs",
     "check:content": "node --env-file=config/integrations.env.local scripts/check-content-live.mjs",
@@ -32,7 +30,9 @@
     "check:introductions": "node scripts/check-node-introductions.mjs",
     "prebuild": "npm run check:introductions",
     "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "audit:guide": "node scripts/audit-guide.mjs",
+    "test:guide": "node --test scripts/single-guide.test.mjs"
   },
   "dependencies": {
     "@fly-ai/flyai-cli": "1.0.16",

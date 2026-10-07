@@ -1,4 +1,5 @@
 import { getNode } from './nodes.js';
+import { themeRoutes } from './themeRoutes.js';
 
 export const PLAN_KEY = 'lishui-itinerary-v2';
 export const LEGACY_PLAN_KEY = 'lishui-itinerary';
@@ -147,8 +148,10 @@ export function calculatePlan(plan, now = Date.now()) {
 }
 export function scenePlan(scene, previous = emptyPlan()) {
   // Demo designs retain the user's constraints. No date, party size or price is invented.
-  const next = { ...previous, routes: {}, goal: previous.goal || '看一处风景，尝一点乡味', mode: previous.mode || 'transit', weatherCondition: scene === 'rain' ? 'rain' : '', stops: [] };
-  next.stops = (scene === 'rain' ? ['n_zy', 's_hl'] : scene === 'food' ? ['n_wx', 's_tj'] : ['n_tsq', 's_tj']).map(createStop);
+  const theme = themeRoutes.find(route => route.id === scene);
+  const goal = theme && themeRoutes.some(route => route.goal === previous.goal) ? '' : previous.goal;
+  const next = { ...previous, routes: {}, goal: goal || theme?.goal || '看一处风景，尝一点乡味', mode: previous.mode || 'transit', weatherCondition: scene === 'rain' ? 'rain' : '', stops: [] };
+  next.stops = (theme?.nodeIds || (scene === 'rain' ? ['n_zy', 's_hl'] : scene === 'food' ? ['n_wx', 's_tj'] : ['n_tsq', 's_tj'])).map(id => ({ ...createStop(id), note: theme ? `${theme.stopNotes[id]} ${theme.unknowns}` : '' }));
   return next;
 }
 export function planStorageNote(savedLocally) {

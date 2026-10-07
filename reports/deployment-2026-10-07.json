@@ -1,0 +1,60 @@
+{
+  "release": "20261007-content-40921c0c1a",
+  "backup": "/var/backups/lishui-guide/20261007-content-40921c0c1a",
+  "ready": {
+    "ready": true,
+    "index": {
+      "ready": true,
+      "chunks": 135,
+      "dimensions": 1024,
+      "model": "BAAI/bge-m3",
+      "hash": "2815a0885614d82ee1147934e38e8f9d9bfa702b7d155cab05e4e21e135263d1",
+      "builtAt": "2026-10-07T02:54:16.747Z"
+    },
+    "llm": {
+      "provider": "SiliconFlow",
+      "model": "Qwen/Qwen3.5-4B",
+      "configured": true
+    },
+    "tools": {
+      "webSearch": true,
+      "weather": true,
+      "map": true,
+      "translation": true,
+      "stays": true
+    }
+  },
+  "smoke": [
+    {
+      "question": "周园主要看哪些建筑与藏品？",
+      "kind": "preset",
+      "contentMatched": true
+    },
+    {
+      "question": "手抓鸡和洪蓝乡味怎么搭配成一餐？",
+      "kind": "preset",
+      "contentMatched": true
+    },
+    {
+      "question": "打五件的名字与什么表演形式有关？",
+      "kind": "preset",
+      "contentMatched": true
+    },
+    {
+      "question": "自驾去景区怎样确认停车入口？",
+      "kind": "preset",
+      "contentMatched": true
+    },
+    {
+      "question": "导盲犬和普通宠物的出行条件能混用吗？",
+      "kind": "preset",
+      "contentMatched": true
+    }
+  ],
+  "nginxConfigurationsUnchanged": true,
+  "cyberFileHashesUnchanged": true,
+  "cyberFilesChecked": 532,
+  "cyberProcessesUnchanged": true,
+  "protectedPort3000Unchanged": true,
+  "staticFilesChecked": 73
+}
