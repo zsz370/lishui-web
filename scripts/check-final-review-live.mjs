@@ -52,11 +52,11 @@ await check({ question: '想订住宿', preferences: { checkInDate: '2026-10-07'
 });
 await check({ question: '预算改成300元以内，改乘公共交通', history: [{ role: 'user', content: '想订600元住宿，自驾' }] }, output => {
   assert.equal(output.kind, 'needs_input'); assert.match(output.content, /300元/);
-  assert(output.collaboration.trace.some(task => task.taskId === 'stay'));
-  assert(!output.collaboration.trace.some(task => task.taskId === 'transport'));
+  assert(output.operations.trace.some(task => task.taskId === 'stay' && task.agentId === 'expert_stay'));
+  assert(!output.operations.trace.some(task => task.taskId === 'transport'));
 });
 await check({ question: '从南京南站出发，怎么去最方便？' }, output => {
-  assert.equal(output.kind, 'needs_input'); assert.match(output.content, /出发地已记下.*南京南站.*你想去哪个目的地/s);
+  assert.equal(output.kind, 'needs_input'); assert.match(output.content, /出发地已记下.*南京南站.*想去哪个目的地/s);
 });
 await check({ question: '那门票多少钱？', history: [{ role: 'user', content: '我想去无想山' }] }, output => assert.match(output.content, /天池.*10元/));
 await check({ question: '周园老人票多少钱？', history: [{ role: 'user', content: '我想去无想山' }] }, output => {

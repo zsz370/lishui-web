@@ -1,6 +1,6 @@
 import { queryVisitorQA } from '../data/visitorQuery.js';
 import { discoveryAdvice } from './discoveryAdvice.js';
-// 已审的固定QA优先；其余问题经服务端检索、联网与工具查询。
+// 在线统一走服务端 SSE；离线只提供已审固定问答与明确的离线说明。
 import { planChat } from '../data/chatRouting.js';
 import { getPersona } from '../data/personas.js';
 import { queryQA, queryPendingQA } from '../data/presetQA.js';
@@ -10,6 +10,9 @@ import { apiChatStream, backendEnabled } from './api.js';
 import { queryServiceQA } from '../data/foundationQA.js';
 import { reviewedAnswer } from './reviewedAnswer.js';
 import { queryTicketQA, ticketOnlyQuestion } from '../data/ticketReference.js';
+import { enhanceGuideReply, guideFallback } from './guideSuggestions.js';
+import { casualReply, conversationIntent, casualFallback } from './casualConversation.js';
+import { isItineraryRecommendation, prepareRecommendation, recommendationReply } from './itineraryRecommendation.js';
 
 export async function ask({ nodeId, question, expertId, serviceId, history, preferences, signal, onProgress, onAnswer }) {
   signal?.throwIfAborted();
@@ -25,6 +28,13 @@ export async function ask({ nodeId, question, expertId, serviceId, history, pref
   const serviceIntent = /救命|晕倒|无法呼吸|严重受伤|火灾|遇险|落水|走失|走丢|报警|急救|emergency|怎么去|怎么走|怎么到|怎么坐|换乘|末班|停车|订房|住宿|住哪|酒店|民宿|天气|下雨|退票|退改|退款|投诉|求助|丢失|遗失|英文|英语|翻译|轮椅|无障碍|带老人|带孩子|带娃|带长辈|带婴儿|how to get|refund|lost|help|english|translate|hotel|weather/i.test(question);
   const urgent = /救命|晕倒|无法呼吸|严重受伤|火灾|遇险|落水|孩子走失|孩子走丢|报警|急救|emergency/i.test(question);
   if (urgent) return answerTravelService('support', question);
+  if (backendEnabled) {
+    return enhanceGuideReply(await apiChatStream({ nodeId: node?.id, question, expertId,
+      serviceId: mentioned ? undefined : serviceId, preferences,
+      history: (history || []).filter((message) => !message.incomplete && ['user', 'expert', 'assistant'].includes(message.role)).slice(-6).map(({ role, content }) => ({ role, content: content.slice(0, 4000) })),
+    }, { signal, onProgress, onAnswer }),node?.id);
+  }
+  if (isItineraryRecommendation({question, nodeId, serviceId, history, preferences})) return recommendationReply(prepareRecommendation({question, nodeId, serviceId, history, preferences}));
   const discovery = !plan.literalTranslation && discoveryAdvice(question, plan);
   if(discovery)return discovery;
 
@@ -41,22 +51,14 @@ export async function ask({ nodeId, question, expertId, serviceId, history, pref
   const friendly = !plan.literalTranslation && !requested.length && plan.knowledgeTargets.length <= 1 && queryVisitorQA(node?.id, question);
   if (friendly) return reviewedAnswer(friendly, persona.id);
   const exact = hit && hit.q.replace(/[\s，。？?!！]/g, '') === question.replace(/[\s，。？?!！]/g, '');
-  if (backendEnabled && (!exact || serviceIntent || plan.knowledgeTargets.length > 1)) {
-    return apiChatStream({ nodeId: node?.id, question, expertId,
-      serviceId: mentioned ? undefined : serviceId, preferences,
-      history: (history || []).filter((message) => !message.incomplete && ['user', 'expert'].includes(message.role)).slice(-6).map(({ role, content }) => ({ role, content: content.slice(0, 4000) })),
-    }, { signal, onProgress, onAnswer });
-  }
+  if (exact && !serviceIntent) return { ...reviewedAnswer(hit, persona.id), suggest: ['怎么去最方便？', '如何安排行程？'] };
+  const casual=casualReply(question,history,{nodeId,serviceId});
+  if(casual)return casual;
+  if(conversationIntent(question,history,{nodeId,serviceId}))return casualFallback();
   if (requested.length && (!hit || serviceIntent)) {
     const replies = await Promise.all(requested.map((id) => answerTravelService(id, question, { history, preferences, node })));
     return { ...replies[0], speaker:getPersona('01_huaiyuanjie'), content:replies.map(reply=>reply.content).join('\n\n'), replies:[{...replies[0],content:replies.map(reply=>reply.content).join('\n\n')}], serviceId:requested[0] };
   }
   if (exact) return { ...reviewedAnswer(hit, persona.id), suggest: ['怎么去最方便？', '如何安排行程？'] };
-  return {
-    kind: 'fallback',
-    speaker: persona,
-    content: `关于“${question}”，我目前没有找到足够可靠的资料。你可以换个问法，或先阅读这个主题的介绍。`,
-    source: null,
-    suggest: ['试试"什么时候去最好？"', '试试"怎么过去？"'],
-  };
+  return guideFallback(question,node?.id);
 }

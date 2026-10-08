@@ -1,0 +1,22 @@
+{
+  "changedExistingFiles": [
+    "src/App.jsx",
+    "src/main.jsx",
+    "src/components/DesignReviewBar.jsx",
+    "src/components/Layout.jsx",
+    "src/data/agentPersona.js",
+    "src/data/guideSession.jsx",
+    "src/data/store.jsx",
+    "src/pages/Itinerary.jsx",
+    "src/services/chat.js",
+    "server/chat.mjs",
+    "server/index.mjs",
+    "README.md"
+  ],
+  "existingCssUnchanged": true,
+  "homeAndMediaUnchanged": true,
+  "reviewedQaUnchanged": true,
+  "coreUnchanged": true,
+  "existingChatGuardsUnchanged": true,
+  "secretMatches": 0
+}

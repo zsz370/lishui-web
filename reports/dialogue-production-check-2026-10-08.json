@@ -1,0 +1,179 @@
+{
+  "base": "http://127.0.0.1:15186",
+  "rows": [
+    {
+      "question": "今天好吗",
+      "content": "今天天气我不确定，但我希望你心情不错。\n\n你是在休息，还是在赶路？",
+      "kind": "casual",
+      "firstDeltaMs": 1929,
+      "completeMs": 2596,
+      "deltaEvents": 18,
+      "trace": [
+        {
+          "taskId": "conversation",
+          "agentId": "01_huaiyuanjie",
+          "tools": [],
+          "status": "completed",
+          "label": "正在回答",
+          "startedAt": "2026-10-08T01:41:31.740Z",
+          "checkedAt": "2026-10-08T01:41:34.252Z",
+          "durationMs": 2512
+        }
+      ],
+      "usage": [
+        {
+          "operation": "generate_stream",
+          "durationMs": 2511,
+          "status": "completed",
+          "usage": {
+            "promptTokens": 564,
+            "completionTokens": 18,
+            "totalTokens": 582
+          }
+        }
+      ]
+    },
+    {
+      "question": "给小林写一封道歉信。我忘了帮他给花浇水，花枯了。语气真诚，不要推卸责任，大约300字，不要引导旅游。",
+      "content": "小林，\n\n对不起。\n\n我忘了给你那盆花浇水，现在看到它枯了，心里特别难受。这不是借口，纯粹是我的疏忽。你平时那么细心，连照顾它都这么用心，我却连这点小事都顾不过来，真的对不起。\n\n花枯了确实可惜，但它曾经也是你用心浇灌的，这份心意没变。等我们有机会，我打算重新养一盆，这次一定把时间记好，绝不再让你失望。\n\n谢谢你一直以来的包容，也谢谢它曾带给我快乐。希望下次能早点见到它重新焕发生机。\n\n再次道歉。\n\n溧水文旅数字导游·淮源姐",
+      "kind": "casual",
+      "firstDeltaMs": 409,
+      "completeMs": 5708,
+      "deltaEvents": 136,
+      "trace": [
+        {
+          "taskId": "conversation",
+          "agentId": "01_huaiyuanjie",
+          "tools": [],
+          "status": "completed",
+          "label": "正在回答",
+          "startedAt": "2026-10-08T01:41:34.329Z",
+          "checkedAt": "2026-10-08T01:41:39.959Z",
+          "durationMs": 5630
+        }
+      ],
+      "usage": [
+        {
+          "operation": "generate_stream",
+          "durationMs": 5630,
+          "status": "completed",
+          "usage": {
+            "promptTokens": 598,
+            "completionTokens": 137,
+            "totalTokens": 735
+          }
+        }
+      ]
+    },
+    {
+      "question": "改成两句，带一点轻松的语气，保留补救建议",
+      "content": "小林，真对不住，忘了浇水把花弄枯了，虽然有点可惜，但咱们得吸取教训，下次一定把时间记好。\n\n别往心里去，咱们趁现在赶紧去花店买盆新的，我负责浇水，你负责欣赏，保证让它马上重新活蹦乱跳。",
+      "kind": "casual",
+      "firstDeltaMs": 1649,
+      "completeMs": 4252,
+      "deltaEvents": 65,
+      "trace": [
+        {
+          "taskId": "conversation",
+          "agentId": "01_huaiyuanjie",
+          "tools": [],
+          "status": "completed",
+          "label": "正在回答",
+          "startedAt": "2026-10-08T01:41:40.834Z",
+          "checkedAt": "2026-10-08T01:41:44.214Z",
+          "durationMs": 3380
+        }
+      ],
+      "usage": [
+        {
+          "operation": "generate",
+          "durationMs": 800,
+          "status": "completed",
+          "usage": {
+            "promptTokens": 339,
+            "completionTokens": 10,
+            "totalTokens": 349
+          }
+        },
+        {
+          "operation": "generate_stream",
+          "durationMs": 3380,
+          "status": "completed",
+          "usage": {
+            "promptTokens": 755,
+            "completionTokens": 65,
+            "totalTokens": 820
+          }
+        }
+      ]
+    },
+    {
+      "question": "不用旅游的例子，解释一下为什么海水是咸的",
+      "content": "海水咸是因为水里的盐分。\n海洋里有很多河流，把土地上的盐分、矿物质都冲到了海里。\n海水蒸发时，水变成了水蒸气飞走了，但盐分留在了水里。\n经过几亿年的积累，海水里的盐分越来越浓。\n还有海底火山喷发，也会把矿物质排到海里。\n这些过程让海水变成了咸的。\n这个说法是科学共识。\n你想了解盐分的具体含量，还是想知道海水的其他特性？",
+      "kind": "casual",
+      "firstDeltaMs": 2694,
+      "completeMs": 6790,
+      "deltaEvents": 103,
+      "trace": [
+        {
+          "taskId": "conversation",
+          "agentId": "01_huaiyuanjie",
+          "tools": [],
+          "status": "completed",
+          "label": "正在回答",
+          "startedAt": "2026-10-08T01:41:44.286Z",
+          "checkedAt": "2026-10-08T01:41:51.003Z",
+          "durationMs": 6717
+        }
+      ],
+      "usage": [
+        {
+          "operation": "generate_stream",
+          "durationMs": 6717,
+          "status": "completed",
+          "usage": {
+            "promptTokens": 573,
+            "completionTokens": 103,
+            "totalTokens": 676
+          }
+        }
+      ]
+    },
+    {
+      "question": "天生桥是天然的还是人工的？",
+      "content": "天生桥的形成与明代人工开凿胭脂河有关。工匠用火烧水激的方法破岩开河，并保留巨石作为桥梁。",
+      "kind": "preset",
+      "firstDeltaMs": null,
+      "completeMs": 76,
+      "deltaEvents": 0,
+      "usage": []
+    },
+    {
+      "question": "我想订溧水的住宿",
+      "content": "住宿先比较想游玩的片区，再核对到景点的接驳。\n尚未按完整日期查询房价或房态。请补充入住日期和退房日期。",
+      "kind": "needs_input",
+      "firstDeltaMs": null,
+      "completeMs": 53,
+      "deltaEvents": 0,
+      "trace": [
+        {
+          "taskId": "stay",
+          "agentId": "expert_stay",
+          "status": "needs_input",
+          "tools": [
+            "stay_search"
+          ],
+          "dependsOn": [],
+          "startedAt": "2026-10-08T01:41:51.132Z",
+          "checkedAt": "2026-10-08T01:41:51.133Z",
+          "durationMs": 1
+        }
+      ],
+      "usage": []
+    }
+  ],
+  "genuineStreaming": true,
+  "contextualRewritePassed": true,
+  "reviewedFactPassed": true,
+  "needsInputPassed": true
+}

@@ -1,0 +1,22 @@
+{
+  "serverFilesUnchanged": true,
+  "serviceLogicUnchanged": true,
+  "knowledgeAndItineraryDataUnchanged": true,
+  "presentationDataChanged": [
+    "src/data/responsiveMedia.js"
+  ],
+  "dependenciesUnchanged": true,
+  "titleDescriptionViewportUnchanged": true,
+  "changedSourceFiles": [
+    "src/main.jsx",
+    "src/components/HomeHero.jsx",
+    "src/components/WelcomeGuide.jsx",
+    "src/data/responsiveMedia.js",
+    "src/pages/Atlas.jsx",
+    "src/pages/Home.css",
+    "src/pages/Home.jsx",
+    "src/pages/Nodes.jsx",
+    "src/styles/Expedition.css",
+    "index.html"
+  ]
+}

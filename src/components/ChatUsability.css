@@ -1,0 +1,40 @@
+.guide-resume { display:flex; align-items:center; flex-wrap:wrap; gap:12px 18px; padding:18px; margin-bottom:22px; border:1px solid #cad4c2; border-radius:12px; background:#edf0e6; }
+.guide-resume>div { flex:1; min-width:210px; }
+.guide-resume strong { font-size:17px; }
+.guide-resume p { color:#52664f; font-size:14px; line-height:1.8; margin-top:6px; }
+.guide-resume button { min-height:44px; padding:8px 12px; border-radius:8px; border:1px solid #879c7d; }
+.guide-resume button:first-of-type { background:#284736; color:#fffdf8; }
+.guide-dialogue-top button,.guide-answer-actions button,.guide-query-state button,.guide-retry button,.guide-context button { min-height:44px; min-width:44px; }
+.guide-dialogue-top,.guide-message-author,.guide-presence small,.guide-answer-actions small,.guide-query-state,.guide-stream-state,.guide-input-note { color:#52664f; }
+.guide-answer-actions button,.guide-retry button { color:#284736; }
+.guide-composer textarea::placeholder { color:#52664f; }
+.guide-answer-links a { display:inline-flex; align-items:center; min-height:44px; }
+.guide-choice-groups { display:grid; gap:18px; margin-top:18px; }
+.guide-choice-group { min-width:0; border:0; }
+.guide-choice-group legend { font-size:15px; line-height:1.85; margin-bottom:8px; }
+.guide-choice-group>div,.guide-follow-up { display:flex; flex-wrap:wrap; gap:8px; }
+.guide-choice-group button,.guide-follow-up button { min-height:44px; padding:9px 13px; border:1px solid #879c7d; border-radius:8px; background:#edf0e6; font-size:14px; color:#284736; }
+.guide-choice-group form { display:flex; align-items:end; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.guide-choice-group label { display:grid; gap:6px; font-size:13px; color:#52664f; }
+.guide-choice-group input { width:170px; min-height:44px; border:1px solid #879c7d; border-radius:8px; padding:8px; color:#284736; background:#fffdf8; }
+.guide-choice-group button:disabled,.guide-related-topics button:disabled,.guide-follow-up button:disabled { opacity:.5; }
+.guide-related-topics { display:grid; gap:14px; margin-top:18px; }
+.guide-related-topics section { padding:15px; border:1px solid #cad4c2; border-radius:8px; background:#edf0e6; }
+.guide-related-topics h3 { font-size:17px; font-weight:600; margin-bottom:6px; }
+.guide-related-topics h3 a { display:inline-flex; align-items:center; min-height:44px; }
+.guide-related-topics button { display:block; text-align:left; font-size:14px; line-height:1.8; min-height:44px; text-decoration:underline; color:#284736; }
+.guide-follow-up { margin-top:12px; }
+.guide-new-content { min-height:44px; margin:0 22px 10px; border:1px solid #879c7d; border-radius:8px; color:#284736; background:#edf0e6; font-size:14px; }
+.guide-dialogue-messages { overscroll-behavior:contain; overflow-anchor:none; }
+@media(max-width:767px) {
+  .guide-dialogue { height:min(660px,calc(100dvh - 155px)); min-height:400px; }
+  .guide-dialogue-messages { min-height:0; max-height:none; padding:20px 17px; }
+  .guide-composer { flex-shrink:0; margin:0 12px; }
+  .guide-input-note { flex-shrink:0; padding-inline:14px; }
+  .guide-dialogue-top { flex-shrink:0; padding-inline:15px; }
+  .guide-retry { flex-shrink:0; padding:0 14px; }
+  .guide-conversation.is-keyboard-open .guide-dialogue { position:fixed; z-index:35; left:12px; right:12px; top:calc(var(--chat-viewport-top) + 8px); height:calc(var(--chat-visible-height) - 16px); min-height:0; border-radius:12px; }
+  .guide-conversation.is-keyboard-open .guide-input-note { display:none; }
+  .guide-conversation.is-keyboard-open .guide-composer { margin-bottom:10px; }
+  body.chat-keyboard-open .mobile-tabbar { display:none; }
+}

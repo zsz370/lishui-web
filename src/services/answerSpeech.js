@@ -1,3 +1,4 @@
+import { guideSpeechActivity } from './guideSpeechActivity.js';
 // The browser supplies a local Chinese voice. Answer text never goes to a TTS endpoint.
 export function splitSpeechText(text, limit = 180) {
   const chunks = [];
@@ -19,11 +20,15 @@ export function createAnswerSpeech({
   onState = () => {},
   schedule = setTimeout,
   unschedule = clearTimeout,
+  activity = guideSpeechActivity,
 } = {}) {
+  const speechOwner = Symbol('answer-speech');
   let generation = 0, timer, removeVoiceListener, ownsSpeech = false, disposed = false;
   let state = { status: 'idle', messageId: null, fragment: '', voiceName: '', error: '' };
   const publish = (changes) => {
     state = { ...state, ...changes };
+    if (changes.status === 'playing') activity.set(speechOwner, true);
+    else if (changes.status && changes.status !== 'starting') activity.set(speechOwner, false);
     if (!disposed) onState(state);
   };
   const clearWaiting = () => {
@@ -34,6 +39,7 @@ export function createAnswerSpeech({
   };
   const cancel = (notify = true) => {
     generation++;
+    activity.set(speechOwner, false);
     clearWaiting();
     if (ownsSpeech) { ownsSpeech = false; synthesis.cancel(); }
     if (notify && ['starting', 'playing'].includes(state.status)) publish({ status: 'stopped', fragment: '' });

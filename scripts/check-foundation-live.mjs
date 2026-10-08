@@ -39,7 +39,7 @@ for(const item of requests){
     const response=await fetch('http://127.0.0.1:8787/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(item.input),signal:AbortSignal.timeout(55000)});
     const data=await response.json();
     assert.equal(response.status,200);assert.equal(data.kind,item.kind);assert.equal(data.speaker.id,item.expertId);
-    if(['literal_translation','missing_dates_in_card'].includes(item.id))assert(!data.collaboration.trace.some((task)=>task.taskId==='knowledge'));
+    if(['literal_translation','missing_dates_in_card'].includes(item.id))assert(!data.operations.trace.some((task)=>task.taskId==='knowledge'));
     if(item.kind==='preset')assert(data.sources.length&&data.reviewedAt==='2026-10-04');
     if(item.kind==='rag')assert(data.sources.length&&data.retrieval.approvedChunks>0);
     http.push({id:item.id,status:'passed',durationMs:Date.now()-started,input:item.input,kind:data.kind,speaker:data.speaker.name,content:data.content,sources:data.sources,trace:data.collaboration?.trace});

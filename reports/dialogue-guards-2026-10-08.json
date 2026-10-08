@@ -1,0 +1,24 @@
+{
+  "changedExistingFiles": [
+    "src/components/ChatPanel.jsx",
+    "src/data/agentPersona.js",
+    "src/services/casualConversation.js",
+    "src/services/chat.js",
+    "src/services/guideCollaboration.js",
+    "server/chat.mjs",
+    "server/conversation.mjs",
+    "server/providers.mjs",
+    "scripts/agents.test.mjs",
+    "scripts/conversation.test.mjs",
+    "README.md"
+  ],
+  "existingCssUnchanged": true,
+  "homeAndMediaUnchanged": true,
+  "reviewedQaUnchanged": true,
+  "indexHashUnchanged": true,
+  "coreUnchanged": true,
+  "existingChatGuardsUnchanged": true,
+  "apiValidationUnchanged": true,
+  "accountsUnchanged": true,
+  "secretMatches": 0
+}

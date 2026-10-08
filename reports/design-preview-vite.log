@@ -1,0 +1,54 @@
+
+  VITE v6.4.3  ready in 355 ms
+
+  ➜  Local:   http://127.0.0.1:5173/
+  ➜  press h + enter to show help
+20:27:02 [vite] (client) hmr update /src/pages/Home.jsx, /src/index.css
+20:27:02 [vite] (client) hmr update /src/components/HomeHero.jsx, /src/index.css
+20:29:04 [vite] (client) hmr update /src/App.jsx, /src/index.css
+20:29:54 [vite] (client) page reload .web_review/design-study-build/index.html
+20:29:54 [vite] (client) page reload .web_review/design-study-build/nodes/index.html
+20:31:30 [vite] (client) hmr update /src/pages/DesignPreview.jsx, /src/index.css
+20:31:30 [vite] (client) hmr update /src/pages/DesignPreview.css
+20:44:05 [vite] (client) hmr update /src/components/Layout.jsx, /src/index.css
+20:44:05 [vite] (client) hmr update /src/pages/Home.jsx, /src/index.css
+20:44:05 [vite] (client) hmr update /src/App.jsx, /src/index.css
+20:44:05 [vite] (client) hmr update /src/App.jsx, /src/index.css
+20:44:05 [vite] (client) hmr update /src/pages/DesignPreview.jsx, /src/index.css
+20:48:35 [vite] (client) hmr update /src/components/Layout.jsx, /src/index.css
+20:50:01 [vite] (client) hmr update /src/pages/Guide.jsx, /src/index.css
+20:50:01 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+20:51:15 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+20:52:23 [vite] (client) hmr update /src/data/designReview.jsx, /src/index.css
+20:52:23 [vite] (client) hmr update /src/components/DesignReviewBar.jsx, /src/index.css
+20:52:23 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+20:52:24 [vite] (client) hmr invalidate /src/data/designReview.jsx Could not Fast Refresh ("useDesignReview" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+20:52:24 [vite] (client) hmr update /src/components/Layout.jsx, /src/index.css, /src/pages/Home.jsx, /src/App.jsx, /src/components/DesignReviewBar.jsx, /src/pages/Guide.jsx
+20:52:30 [vite] (client) page reload .web_review/whole-site-design-build/index.html
+20:52:31 [vite] (client) page reload .web_review/whole-site-design-build/nodes/index.html
+20:53:35 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+20:54:50 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+20:56:27 [vite] (client) hmr update /src/pages/Itinerary.jsx, /src/index.css
+20:56:27 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+20:56:28 [vite] (client) hmr update /src/pages/Itinerary.jsx, /src/index.css
+20:57:50 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+21:01:38 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+21:01:43 [vite] (client) page reload .web_review/whole-site-design-build/index.html
+21:01:43 [vite] (client) page reload .web_review/whole-site-design-build/nodes/index.html
+21:01:43 [vite] (client) page reload .web_review/whole-site-design-build/index.html
+21:01:43 [vite] (client) page reload .web_review/whole-site-design-build/nodes/index.html
+21:09:15 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+21:15:35 [vite] (client) hmr update /src/data/designReview.jsx, /src/index.css
+21:15:35 [vite] (client) page reload src/main.jsx
+21:15:35 [vite] (client) hmr update /src/styles/WholeSiteDesign.css
+21:15:35 [vite] (client) hmr invalidate /src/data/designReview.jsx Could not Fast Refresh ("useDesignReview" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+21:15:35 [vite] (client) hmr update /src/components/Layout.jsx, /src/index.css, /src/pages/Home.jsx, /src/App.jsx, /src/components/DesignReviewBar.jsx, /src/pages/Guide.jsx, /src/components/ReviewDisclosure.jsx
+21:16:16 [vite] (client) page reload .web_review/whole-ui-release/dist/index.html
+21:16:16 [vite] (client) page reload .web_review/whole-ui-release/dist/nodes/index.html
+22:00:28 [vite] (client) hmr update /src/data/designReview.jsx, /src/index.css
+22:00:28 [vite] (client) hmr update /src/components/Layout.jsx, /src/index.css
+22:00:28 [vite] (client) hmr update /src/components/DesignReviewBar.jsx, /src/index.css
+22:00:29 [vite] (client) hmr invalidate /src/data/designReview.jsx Could not Fast Refresh ("useDesignReview" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+22:00:29 [vite] (client) hmr update /src/components/Layout.jsx, /src/index.css, /src/pages/Home.jsx, /src/App.jsx, /src/components/DesignReviewBar.jsx, /src/pages/Guide.jsx, /src/components/ReviewDisclosure.jsx
+22:00:52 [vite] (client) page reload .web_review/toolbar-fix/dist/index.html
+22:00:52 [vite] (client) page reload .web_review/toolbar-fix/dist/nodes/index.html

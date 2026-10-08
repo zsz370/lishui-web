@@ -11,11 +11,11 @@ import { getTravelService } from '../src/data/travelServices.js';
 import { themeRoutes } from '../src/data/themeRoutes.js';
 import { emptyPlan, scenePlan } from '../src/data/itinerary.js';
 
-test('新增问答覆盖四类24个节点，每个两项，来源完整且游客正文无审核元数据', () => {
-  assert.equal(expansionNodeQA.length, 48);
-  assert.equal(new Set(expansionNodeQA.map(qa => qa.nodeId)).size, 24);
+test('新增问答覆盖四类21个当前节点，每个两项，来源完整且游客正文无审核元数据', () => {
+  assert.equal(expansionNodeQA.length, 42);
+  assert.equal(new Set(expansionNodeQA.map(qa => qa.nodeId)).size, 21);
   assert.deepEqual(new Set(expansionNodeQA.map(qa => getNode(qa.nodeId).cat)), new Set(['山水', '美食', '民俗', '街区']));
-  assert.equal(approvedQA.length + approvedServiceQA.length, 135);
+  assert.equal(approvedQA.length + approvedServiceQA.length, 127);
   for (const nodeId of new Set(expansionNodeQA.map(qa => qa.nodeId))) {
     const added = expansionNodeQA.filter(qa => qa.nodeId === nodeId);
     assert.equal(added.length, 2);

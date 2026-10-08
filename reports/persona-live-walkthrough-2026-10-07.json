@@ -1,0 +1,784 @@
+{
+  "question": "周末两天、两个人、想看骆山大龙",
+  "fixture": false,
+  "events": [
+    {
+      "taskId": "weather",
+      "agentId": "expert_weather",
+      "status": "running",
+      "tools": [
+        "weather_forecast"
+      ],
+      "dependsOn": [],
+      "startedAt": "2026-10-07T11:53:02.775Z",
+      "label": "查询天气"
+    },
+    {
+      "taskId": "stay",
+      "agentId": "expert_stay",
+      "status": "running",
+      "tools": [
+        "stay_search"
+      ],
+      "dependsOn": [],
+      "startedAt": "2026-10-07T11:53:02.805Z",
+      "label": "查询住宿"
+    },
+    {
+      "taskId": "knowledge",
+      "agentId": "expert_culture",
+      "status": "running",
+      "tools": [
+        "knowledge_retrieval",
+        "web_search"
+      ],
+      "dependsOn": [],
+      "startedAt": "2026-10-07T11:53:02.805Z",
+      "label": "查阅地方资料"
+    },
+    {
+      "taskId": "stay",
+      "agentId": "expert_stay",
+      "status": "needs_input",
+      "tools": [
+        "stay_search"
+      ],
+      "dependsOn": [],
+      "startedAt": "2026-10-07T11:53:02.805Z",
+      "checkedAt": "2026-10-07T11:53:02.807Z",
+      "durationMs": 2,
+      "label": "查询住宿"
+    },
+    {
+      "taskId": "weather",
+      "agentId": "expert_weather",
+      "status": "completed",
+      "tools": [
+        "weather_forecast"
+      ],
+      "dependsOn": [],
+      "startedAt": "2026-10-07T11:53:02.775Z",
+      "checkedAt": "2026-10-07T11:53:03.087Z",
+      "durationMs": 312,
+      "label": "查询天气"
+    },
+    {
+      "taskId": "knowledge",
+      "agentId": "expert_culture",
+      "status": "completed",
+      "tools": [
+        "knowledge_retrieval",
+        "web_search"
+      ],
+      "dependsOn": [],
+      "startedAt": "2026-10-07T11:53:02.805Z",
+      "checkedAt": "2026-10-07T11:53:09.418Z",
+      "durationMs": 6613,
+      "label": "查阅地方资料"
+    },
+    {
+      "taskId": "transport",
+      "agentId": "expert_route",
+      "status": "running",
+      "tools": [
+        "map_search",
+        "route_plan"
+      ],
+      "dependsOn": [
+        "stay"
+      ],
+      "startedAt": "2026-10-07T11:53:09.418Z",
+      "label": "查询交通"
+    },
+    {
+      "taskId": "transport",
+      "agentId": "expert_route",
+      "status": "completed",
+      "tools": [
+        "map_search",
+        "route_plan"
+      ],
+      "dependsOn": [
+        "stay"
+      ],
+      "startedAt": "2026-10-07T11:53:09.418Z",
+      "checkedAt": "2026-10-07T11:53:09.588Z",
+      "durationMs": 170,
+      "label": "查询交通"
+    },
+    {
+      "taskId": "planning_summary",
+      "agentId": "expert_planning",
+      "status": "running",
+      "tools": [
+        "synthesis"
+      ],
+      "dependsOn": [
+        "weather",
+        "stay",
+        "knowledge",
+        "transport"
+      ],
+      "startedAt": "2026-10-07T11:53:09.588Z",
+      "label": "整理行程建议"
+    },
+    {
+      "taskId": "planning_summary",
+      "agentId": "expert_planning",
+      "status": "completed",
+      "tools": [
+        "synthesis"
+      ],
+      "dependsOn": [
+        "weather",
+        "stay",
+        "knowledge",
+        "transport"
+      ],
+      "startedAt": "2026-10-07T11:53:09.588Z",
+      "checkedAt": "2026-10-07T11:53:39.593Z",
+      "durationMs": 30005,
+      "label": "整理行程建议"
+    }
+  ],
+  "result": {
+    "kind": "guide",
+    "speaker": {
+      "id": "01_huaiyuanjie",
+      "name": "淮源姐",
+      "category": "guide",
+      "color": "#325b46",
+      "domain": "你的溧水旅行向导",
+      "tagline": "山水、乡味、乡里故事，陪你慢慢认识溧水。",
+      "intro": "想看山水、尝乡味，还是安排吃住行？我可以陪你查资料、查天气和路线，再把行程理清楚。拿不准的地方，会告诉你还缺什么。",
+      "destination": "/guide",
+      "action": "和淮源姐聊聊",
+      "transparent": true,
+      "portrait": "/assets/personas/transparent/01_huaiyuanjie-poster.webp",
+      "avatar": "/assets/personas/transparent/01_huaiyuanjie-avatar.webp",
+      "motionPoster": "/assets/personas/transparent/01_huaiyuanjie-poster.webp",
+      "portraitMotion": {
+        "idle": "/assets/personas/transparent/01_huaiyuanjie-idle.webm",
+        "speaking": "/assets/personas/transparent/01_huaiyuanjie-speaking.webm"
+      }
+    },
+    "content": "第一天：围绕想了解的地方安排，先核对开放与当期活动。\n第二天：留出休息与返程时间。\n待核：这是一份两天草案，不保证有演出。下面列出了还缺的条件，补齐后再查。住宿以平台确认结果为准，活动以主办方当期公告为准。\n\n已记下：围绕骆山大龙。\n如果公共交通出行，先比较城区或地铁周边，再核对到景点的接驳；如果自驾、希望安静些，可比较山居或乡村住宿，确认停车与夜间通行。\n目前没有按完整日期查询房价或房态。你方便补充入住日期和退房日期吗？\n\n你还没指定完整地点或日期，先参考上下文地点今天预报；如果是另一处或另一天，告诉我再调整。\n溧水城区 2026-10-07：晴，14.78—25.2℃，降水概率0%。\n按体感增减衣物，户外行程同时留意现场天气。\n查询时间：2026/10/7 19:53:03（北京时间）。城区网格预报不能代替山间、湖边现场判断。\n\n目的地候选：骆山\n溧水区。导航前请核对正式入口。\n请补充出发地点，再查询完整路线。\n路线是查询时的参考；末班车、实时班次和现场接驳需向运营方确认。",
+    "serviceId": "planning",
+    "sources": [
+      {
+        "label": "和风天气",
+        "url": "https://developer.qweather.com/attribution.html"
+      },
+      {
+        "label": "中国非遗网：龙舞（骆山大龙）",
+        "url": "https://www.ihchina.cn/project_details/12838",
+        "publishedAt": "2008"
+      },
+      {
+        "label": "南京市人大：骆山大龙文化展示馆建设报道（2025）",
+        "url": "https://rd.nanjing.gov.cn/dbfc/202505/t20250520_5565756.html",
+        "publishedAt": "2025-05-20"
+      },
+      {
+        "label": "高德地图",
+        "url": "https://www.amap.com/"
+      }
+    ],
+    "links": [
+      {
+        "label": "在地图查看骆山",
+        "url": "https://uri.amap.com/marker?position=118.977352%2C31.441415&name=%E9%AA%86%E5%B1%B1"
+      }
+    ],
+    "choiceGroups": [
+      {
+        "id": "stay-date",
+        "prompt": "哪天入住？也可以另填日期。",
+        "custom": "stay-date",
+        "choices": [
+          {
+            "label": "明天住一晚",
+            "question": "明天入住，住一晚",
+            "preferences": {
+              "checkInDate": "2026-10-08",
+              "checkOutDate": "2026-10-09"
+            },
+            "planPatch": {}
+          },
+          {
+            "label": "后天住一晚",
+            "question": "后天入住，住一晚",
+            "preferences": {
+              "checkInDate": "2026-10-09",
+              "checkOutDate": "2026-10-10"
+            },
+            "planPatch": {}
+          }
+        ]
+      },
+      {
+        "id": "stay-budget",
+        "prompt": "每晚预算多少？这里只选预算，还不是报价。",
+        "custom": "stay-budget",
+        "choices": [
+          {
+            "label": "300元以内",
+            "question": "住宿每晚300元以内",
+            "preferences": {
+              "budget": "300"
+            },
+            "planPatch": {}
+          },
+          {
+            "label": "600元以内",
+            "question": "住宿每晚600元以内",
+            "preferences": {
+              "budget": "600"
+            },
+            "planPatch": {}
+          }
+        ]
+      },
+      {
+        "id": "origin",
+        "prompt": "从哪里出发？",
+        "choices": [
+          {
+            "label": "南京南站",
+            "question": "从南京南站出发，继续安排行程",
+            "preferences": {
+              "origin": "南京南站"
+            },
+            "planPatch": {
+              "origin": {
+                "query": "南京南站",
+                "city": "",
+                "place": null
+              }
+            }
+          },
+          {
+            "label": "南京市区",
+            "question": "从南京市区出发，继续安排行程",
+            "preferences": {
+              "origin": "南京市区"
+            },
+            "planPatch": {
+              "origin": {
+                "query": "南京市区",
+                "city": "",
+                "place": null
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "collaboration": {
+      "experts": [
+        {
+          "taskId": "weather",
+          "agentId": "expert_weather",
+          "status": "completed",
+          "tools": [
+            "weather_forecast"
+          ],
+          "dependsOn": []
+        },
+        {
+          "taskId": "stay",
+          "agentId": "expert_stay",
+          "status": "needs_input",
+          "tools": [
+            "stay_search"
+          ],
+          "dependsOn": []
+        },
+        {
+          "taskId": "knowledge",
+          "agentId": "expert_culture",
+          "status": "completed",
+          "tools": [
+            "knowledge_retrieval",
+            "web_search"
+          ],
+          "dependsOn": []
+        },
+        {
+          "taskId": "transport",
+          "agentId": "expert_route",
+          "status": "completed",
+          "tools": [
+            "map_search",
+            "route_plan"
+          ],
+          "dependsOn": [
+            "stay"
+          ]
+        },
+        {
+          "taskId": "planning_summary",
+          "agentId": "expert_planning",
+          "status": "completed",
+          "tools": [
+            "synthesis"
+          ],
+          "dependsOn": [
+            "weather",
+            "stay",
+            "knowledge",
+            "transport"
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "id": "realtime",
+          "title": "实时工具",
+          "sources": [
+            {
+              "label": "和风天气",
+              "url": "https://developer.qweather.com/attribution.html"
+            },
+            {
+              "label": "高德地图",
+              "url": "https://www.amap.com/"
+            }
+          ],
+          "note": "实际查到的是默认当天预报；出行日期待补，不能当作周末预报。",
+          "notes": [
+            "实际查到的是默认当天预报；出行日期待补，不能当作周末预报。",
+            "本次只定位目的地；还缺出发地，未取得完整路线。"
+          ]
+        },
+        {
+          "id": "reviewed",
+          "title": "已审知识检索",
+          "sources": [
+            {
+              "label": "中国非遗网：龙舞（骆山大龙）",
+              "url": "https://www.ihchina.cn/project_details/12838",
+              "publishedAt": "2008"
+            },
+            {
+              "label": "南京市人大：骆山大龙文化展示馆建设报道（2025）",
+              "url": "https://rd.nanjing.gov.cn/dbfc/202505/t20250520_5565756.html",
+              "publishedAt": "2025-05-20"
+            }
+          ],
+          "note": "来自项目已审资料；时效信息仍需核对出行日安排。",
+          "notes": [
+            "来自项目已审资料；时效信息仍需核对出行日安排。"
+          ]
+        }
+      ]
+    },
+    "source": "本次答复的参考资料",
+    "sourceUrl": "https://developer.qweather.com/attribution.html",
+    "operations": {
+      "trace": [
+        {
+          "taskId": "weather",
+          "agentId": "expert_weather",
+          "status": "completed",
+          "tools": [
+            "weather_forecast"
+          ],
+          "dependsOn": [],
+          "startedAt": "2026-10-07T11:53:02.775Z",
+          "checkedAt": "2026-10-07T11:53:03.087Z",
+          "durationMs": 312
+        },
+        {
+          "taskId": "stay",
+          "agentId": "expert_stay",
+          "status": "needs_input",
+          "tools": [
+            "stay_search"
+          ],
+          "dependsOn": [],
+          "startedAt": "2026-10-07T11:53:02.805Z",
+          "checkedAt": "2026-10-07T11:53:02.807Z",
+          "durationMs": 2
+        },
+        {
+          "taskId": "knowledge",
+          "agentId": "expert_culture",
+          "status": "completed",
+          "tools": [
+            "knowledge_retrieval",
+            "web_search"
+          ],
+          "dependsOn": [],
+          "startedAt": "2026-10-07T11:53:02.805Z",
+          "checkedAt": "2026-10-07T11:53:09.418Z",
+          "durationMs": 6613
+        },
+        {
+          "taskId": "transport",
+          "agentId": "expert_route",
+          "status": "completed",
+          "tools": [
+            "map_search",
+            "route_plan"
+          ],
+          "dependsOn": [
+            "stay"
+          ],
+          "startedAt": "2026-10-07T11:53:09.418Z",
+          "checkedAt": "2026-10-07T11:53:09.588Z",
+          "durationMs": 170
+        },
+        {
+          "taskId": "planning_summary",
+          "agentId": "expert_planning",
+          "status": "completed",
+          "tools": [
+            "synthesis"
+          ],
+          "dependsOn": [
+            "weather",
+            "stay",
+            "knowledge",
+            "transport"
+          ],
+          "startedAt": "2026-10-07T11:53:09.588Z",
+          "checkedAt": "2026-10-07T11:53:39.593Z",
+          "durationMs": 30005
+        }
+      ],
+      "context": {
+        "destination": "骆山大龙",
+        "weatherDate": "2026-10-07",
+        "weatherDateAssumed": true,
+        "location": "lishui",
+        "locationAssumed": false,
+        "mode": "transit",
+        "to": "en",
+        "companions": "general"
+      },
+      "guide": "01_huaiyuanjie"
+    },
+    "replies": [
+      {
+        "kind": "guide",
+        "speaker": {
+          "id": "01_huaiyuanjie",
+          "name": "淮源姐",
+          "category": "guide",
+          "color": "#325b46",
+          "domain": "你的溧水旅行向导",
+          "tagline": "山水、乡味、乡里故事，陪你慢慢认识溧水。",
+          "intro": "想看山水、尝乡味，还是安排吃住行？我可以陪你查资料、查天气和路线，再把行程理清楚。拿不准的地方，会告诉你还缺什么。",
+          "destination": "/guide",
+          "action": "和淮源姐聊聊",
+          "transparent": true,
+          "portrait": "/assets/personas/transparent/01_huaiyuanjie-poster.webp",
+          "avatar": "/assets/personas/transparent/01_huaiyuanjie-avatar.webp",
+          "motionPoster": "/assets/personas/transparent/01_huaiyuanjie-poster.webp",
+          "portraitMotion": {
+            "idle": "/assets/personas/transparent/01_huaiyuanjie-idle.webm",
+            "speaking": "/assets/personas/transparent/01_huaiyuanjie-speaking.webm"
+          }
+        },
+        "content": "第一天：围绕想了解的地方安排，先核对开放与当期活动。\n第二天：留出休息与返程时间。\n待核：这是一份两天草案，不保证有演出。下面列出了还缺的条件，补齐后再查。住宿以平台确认结果为准，活动以主办方当期公告为准。\n\n已记下：围绕骆山大龙。\n如果公共交通出行，先比较城区或地铁周边，再核对到景点的接驳；如果自驾、希望安静些，可比较山居或乡村住宿，确认停车与夜间通行。\n目前没有按完整日期查询房价或房态。你方便补充入住日期和退房日期吗？\n\n你还没指定完整地点或日期，先参考上下文地点今天预报；如果是另一处或另一天，告诉我再调整。\n溧水城区 2026-10-07：晴，14.78—25.2℃，降水概率0%。\n按体感增减衣物，户外行程同时留意现场天气。\n查询时间：2026/10/7 19:53:03（北京时间）。城区网格预报不能代替山间、湖边现场判断。\n\n目的地候选：骆山\n溧水区。导航前请核对正式入口。\n请补充出发地点，再查询完整路线。\n路线是查询时的参考；末班车、实时班次和现场接驳需向运营方确认。",
+        "serviceId": "planning",
+        "sources": [
+          {
+            "label": "和风天气",
+            "url": "https://developer.qweather.com/attribution.html"
+          },
+          {
+            "label": "中国非遗网：龙舞（骆山大龙）",
+            "url": "https://www.ihchina.cn/project_details/12838",
+            "publishedAt": "2008"
+          },
+          {
+            "label": "南京市人大：骆山大龙文化展示馆建设报道（2025）",
+            "url": "https://rd.nanjing.gov.cn/dbfc/202505/t20250520_5565756.html",
+            "publishedAt": "2025-05-20"
+          },
+          {
+            "label": "高德地图",
+            "url": "https://www.amap.com/"
+          }
+        ],
+        "links": [
+          {
+            "label": "在地图查看骆山",
+            "url": "https://uri.amap.com/marker?position=118.977352%2C31.441415&name=%E9%AA%86%E5%B1%B1"
+          }
+        ],
+        "choiceGroups": [
+          {
+            "id": "stay-date",
+            "prompt": "哪天入住？也可以另填日期。",
+            "custom": "stay-date",
+            "choices": [
+              {
+                "label": "明天住一晚",
+                "question": "明天入住，住一晚",
+                "preferences": {
+                  "checkInDate": "2026-10-08",
+                  "checkOutDate": "2026-10-09"
+                },
+                "planPatch": {}
+              },
+              {
+                "label": "后天住一晚",
+                "question": "后天入住，住一晚",
+                "preferences": {
+                  "checkInDate": "2026-10-09",
+                  "checkOutDate": "2026-10-10"
+                },
+                "planPatch": {}
+              }
+            ]
+          },
+          {
+            "id": "stay-budget",
+            "prompt": "每晚预算多少？这里只选预算，还不是报价。",
+            "custom": "stay-budget",
+            "choices": [
+              {
+                "label": "300元以内",
+                "question": "住宿每晚300元以内",
+                "preferences": {
+                  "budget": "300"
+                },
+                "planPatch": {}
+              },
+              {
+                "label": "600元以内",
+                "question": "住宿每晚600元以内",
+                "preferences": {
+                  "budget": "600"
+                },
+                "planPatch": {}
+              }
+            ]
+          },
+          {
+            "id": "origin",
+            "prompt": "从哪里出发？",
+            "choices": [
+              {
+                "label": "南京南站",
+                "question": "从南京南站出发，继续安排行程",
+                "preferences": {
+                  "origin": "南京南站"
+                },
+                "planPatch": {
+                  "origin": {
+                    "query": "南京南站",
+                    "city": "",
+                    "place": null
+                  }
+                }
+              },
+              {
+                "label": "南京市区",
+                "question": "从南京市区出发，继续安排行程",
+                "preferences": {
+                  "origin": "南京市区"
+                },
+                "planPatch": {
+                  "origin": {
+                    "query": "南京市区",
+                    "city": "",
+                    "place": null
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "collaboration": {
+          "experts": [
+            {
+              "taskId": "weather",
+              "agentId": "expert_weather",
+              "status": "completed",
+              "tools": [
+                "weather_forecast"
+              ],
+              "dependsOn": []
+            },
+            {
+              "taskId": "stay",
+              "agentId": "expert_stay",
+              "status": "needs_input",
+              "tools": [
+                "stay_search"
+              ],
+              "dependsOn": []
+            },
+            {
+              "taskId": "knowledge",
+              "agentId": "expert_culture",
+              "status": "completed",
+              "tools": [
+                "knowledge_retrieval",
+                "web_search"
+              ],
+              "dependsOn": []
+            },
+            {
+              "taskId": "transport",
+              "agentId": "expert_route",
+              "status": "completed",
+              "tools": [
+                "map_search",
+                "route_plan"
+              ],
+              "dependsOn": [
+                "stay"
+              ]
+            },
+            {
+              "taskId": "planning_summary",
+              "agentId": "expert_planning",
+              "status": "completed",
+              "tools": [
+                "synthesis"
+              ],
+              "dependsOn": [
+                "weather",
+                "stay",
+                "knowledge",
+                "transport"
+              ]
+            }
+          ],
+          "groups": [
+            {
+              "id": "realtime",
+              "title": "实时工具",
+              "sources": [
+                {
+                  "label": "和风天气",
+                  "url": "https://developer.qweather.com/attribution.html"
+                },
+                {
+                  "label": "高德地图",
+                  "url": "https://www.amap.com/"
+                }
+              ],
+              "note": "实际查到的是默认当天预报；出行日期待补，不能当作周末预报。",
+              "notes": [
+                "实际查到的是默认当天预报；出行日期待补，不能当作周末预报。",
+                "本次只定位目的地；还缺出发地，未取得完整路线。"
+              ]
+            },
+            {
+              "id": "reviewed",
+              "title": "已审知识检索",
+              "sources": [
+                {
+                  "label": "中国非遗网：龙舞（骆山大龙）",
+                  "url": "https://www.ihchina.cn/project_details/12838",
+                  "publishedAt": "2008"
+                },
+                {
+                  "label": "南京市人大：骆山大龙文化展示馆建设报道（2025）",
+                  "url": "https://rd.nanjing.gov.cn/dbfc/202505/t20250520_5565756.html",
+                  "publishedAt": "2025-05-20"
+                }
+              ],
+              "note": "来自项目已审资料；时效信息仍需核对出行日安排。",
+              "notes": [
+                "来自项目已审资料；时效信息仍需核对出行日安排。"
+              ]
+            }
+          ]
+        },
+        "source": "本次答复的参考资料",
+        "sourceUrl": "https://developer.qweather.com/attribution.html",
+        "operations": {
+          "trace": [
+            {
+              "taskId": "weather",
+              "agentId": "expert_weather",
+              "status": "completed",
+              "tools": [
+                "weather_forecast"
+              ],
+              "dependsOn": [],
+              "startedAt": "2026-10-07T11:53:02.775Z",
+              "checkedAt": "2026-10-07T11:53:03.087Z",
+              "durationMs": 312
+            },
+            {
+              "taskId": "stay",
+              "agentId": "expert_stay",
+              "status": "needs_input",
+              "tools": [
+                "stay_search"
+              ],
+              "dependsOn": [],
+              "startedAt": "2026-10-07T11:53:02.805Z",
+              "checkedAt": "2026-10-07T11:53:02.807Z",
+              "durationMs": 2
+            },
+            {
+              "taskId": "knowledge",
+              "agentId": "expert_culture",
+              "status": "completed",
+              "tools": [
+                "knowledge_retrieval",
+                "web_search"
+              ],
+              "dependsOn": [],
+              "startedAt": "2026-10-07T11:53:02.805Z",
+              "checkedAt": "2026-10-07T11:53:09.418Z",
+              "durationMs": 6613
+            },
+            {
+              "taskId": "transport",
+              "agentId": "expert_route",
+              "status": "completed",
+              "tools": [
+                "map_search",
+                "route_plan"
+              ],
+              "dependsOn": [
+                "stay"
+              ],
+              "startedAt": "2026-10-07T11:53:09.418Z",
+              "checkedAt": "2026-10-07T11:53:09.588Z",
+              "durationMs": 170
+            },
+            {
+              "taskId": "planning_summary",
+              "agentId": "expert_planning",
+              "status": "completed",
+              "tools": [
+                "synthesis"
+              ],
+              "dependsOn": [
+                "weather",
+                "stay",
+                "knowledge",
+                "transport"
+              ],
+              "startedAt": "2026-10-07T11:53:09.588Z",
+              "checkedAt": "2026-10-07T11:53:39.593Z",
+              "durationMs": 30005
+            }
+          ],
+          "context": {
+            "destination": "骆山大龙",
+            "weatherDate": "2026-10-07",
+            "weatherDateAssumed": true,
+            "location": "lishui",
+            "locationAssumed": false,
+            "mode": "transit",
+            "to": "en",
+            "companions": "general"
+          },
+          "guide": "01_huaiyuanjie"
+        }
+      }
+    ]
+  }
+}

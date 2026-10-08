@@ -32,6 +32,10 @@ export function planChat(input) {
     services = ['stay', ...services.filter((id) => !['stay', 'transport', 'accessibility'].includes(id))];
   }
   if (!literalTranslation && /行程|安排|两天一晚/.test(question) && !services.includes('planning')) services.push('planning');
+  // 明确的跨日地点旅行同时检查天气、住宿和交通；“周末”不会被补成具体日期。
+  if (!literalTranslation && node && /两天|两日|两天一晚|[2-9]天|[2-9]日/.test(question) && services.includes('planning')) {
+    services = [...new Set([...services, 'weather', 'stay', 'transport'])];
+  }
   if(services.includes('planning') && /自驾|没有车|无车|公共交通/.test(question) && !/怎么去|怎么走|怎么到|换乘|末班|导航|路线|交通/.test(question)) services=services.filter(id=>id!=='transport');
   if (translationIntent.test(question) && !services.includes('etiquette')) services.push('etiquette');
   const needKnowledge = !literalTranslation && (!services.length || (services.includes('planning') && Boolean(node)) || /门票|票价|套票|历史|非遗|童谣|方言|糕|故事|研学|龙舞|节庆|游览|游玩|看点|介绍|参观/.test(question));
@@ -43,5 +47,6 @@ export const taskLabels = {
   knowledge: '查阅地方资料', weather: '查询天气', stay: '查询住宿', transport: '查询交通',
   etiquette: '整理礼仪与译文', accessibility: '核对同行需求', shopping: '整理伴手礼建议',
   planning: '梳理行程条件', support: '整理求助指引', coordinator: '汇总出行安排',
+  planning_summary: '整理行程建议',
 };
 export const taskLabel = (id) => id.startsWith('dispatch:') ? '处理出行需求' : id.startsWith('knowledge:') ? taskLabels.knowledge : taskLabels[id] || '处理问题';

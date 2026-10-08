@@ -7,9 +7,13 @@ import { createKnowledge } from './knowledge.mjs';
 import { createChat, validateChat } from './chat.mjs';
 import { agentPlans } from '../config/agent-system.plan.js';
 import { personas } from '../src/data/personas.js';
+import { accountConfig } from './accounts-config.mjs';
+import { createSupabaseAccounts } from './supabase-accounts.mjs';
+import { createAccountApi } from './account-api.mjs';
 
-export function createApi({config,providers,knowledge,log=console.log}) {
+export function createApi({config,providers,knowledge,accounts,log=console.log}) {
   const limits=new Map(); let inflight=0;
+  const handleAccount=createAccountApi(accounts||{configured:false,secure:true},config);
   const readiness=()=>({ready:knowledge.status().ready&&!!config.llm.key,index:knowledge.status(),llm:{provider:'SiliconFlow',model:config.llm.model,configured:!!config.llm.key},tools:{webSearch:!!config.bocha.key,weather:!!config.weather.key&&!!config.weather.host,map:!!config.amapKey,translation:!!config.baidu.appId&&!!config.baidu.secret,stays:!!config.stay.key}});
   return createServer(async(req,res)=>{
     const requestId=randomUUID(),started=Date.now();res.setHeader('X-Request-Id',requestId);res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');
@@ -25,6 +29,7 @@ export function createApi({config,providers,knowledge,log=console.log}) {
       if(origin){res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');}
       const url=new URL(req.url,'http://127.0.0.1');
       if(req.method==='OPTIONS'){res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS');res.setHeader('Access-Control-Allow-Headers','Content-Type');return send(204,{});}
+      if(await handleAccount(req,res,url))return;
       if(req.method==='GET'&&url.pathname==='/health') return send(200,{status:'ok'});
       if(req.method==='GET'&&url.pathname==='/ready'){const status=readiness();return send(status.ready?200:503,status);}
       if(req.method==='GET'&&['/api/guide','/api/agents'].includes(url.pathname)) return send(200,{agents:agentPlans.map((agent)=>({...agent,...personas.find((persona)=>persona.id===agent.id),tools:['knowledge_retrieval',...agent.tools],approvedQA:knowledge.chunks.filter((chunk)=>chunk.expertId===agent.id).length})),architecture:'single-guide',status:readiness()});
@@ -75,7 +80,8 @@ export function createApi({config,providers,knowledge,log=console.log}) {
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){
   const config=getConfig(),providers=createProviders(config),knowledge=await createKnowledge(providers,config.embedding.model);
-  const server=createApi({config,providers,knowledge});
+  const accounts=createSupabaseAccounts(accountConfig());
+  const server=createApi({config,providers,knowledge,accounts});
   server.requestTimeout=10000;server.headersTimeout=10000;
   server.listen(config.port,config.host,()=>console.log(`文旅 API 已启动：http://${config.host}:${config.port}；索引${knowledge.status().ready?'可用':'未就绪'}`));
   for(const signal of ['SIGTERM','SIGINT']) process.on(signal,()=>{server.close(()=>process.exit(0));setTimeout(()=>process.exit(0),6000).unref();});

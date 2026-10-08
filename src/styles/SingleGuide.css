@@ -64,7 +64,6 @@
 .guide-presence h2 {font-size:25px;font-weight:500;margin:14px 0 7px;}
 .guide-presence p {font-size:14px;color:#4c6852;}
 .guide-presence small {display:block;font-size:12px;color:#687d6d;margin-top:14px;}
-.portrait-motion-toggle {background:#ffffffd9;border:1px solid #b9c8b2;border-radius:6px;font-size:11px;padding:6px 10px;position:absolute;bottom:4px;left:50%;transform:translateX(-50%);}
 .guide-dialogue {display:flex;flex-direction:column;min-width:0;min-height:590px;border:1px solid #d6dfd1;border-radius:18px;background:#fffdf8;overflow:hidden;}
 .guide-dialogue-top {display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #e6ebdf;padding:12px 22px;font-size:14px;color:#546d59;}
 .guide-dialogue-top button {font-size:13px;min-height:40px;color:#244c38;}

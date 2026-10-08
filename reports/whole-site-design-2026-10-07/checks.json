@@ -1,0 +1,150 @@
+{
+  "desktop": [
+    {
+      "page": "discovery",
+      "heading": "探索溧水",
+      "modern": true,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "detail",
+      "heading": "天生桥·胭脂河",
+      "modern": true,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "atlas",
+      "heading": "溧水风物图鉴",
+      "modern": true,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "itinerary",
+      "heading": "我的溧水行程",
+      "modern": true,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "services",
+      "heading": "旅途服务",
+      "modern": true,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "culture",
+      "heading": "一条大龙，三点认识。",
+      "modern": true,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "about",
+      "heading": "把风景慢慢看，把故事慢慢听。",
+      "modern": true,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "guide",
+      "composerVisible": true,
+      "heading": "这一程，和淮源姐聊聊。",
+      "modern": true,
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "home",
+      "heading": "山水之间，遇见美溧。",
+      "modern": true,
+      "overflow": false,
+      "width": 1280
+    }
+  ],
+  "mobile": [
+    {
+      "page": "discovery",
+      "heading": "探索溧水",
+      "modern": true,
+      "overflow": false,
+      "toolbarCount": 0,
+      "width": 389
+    },
+    {
+      "page": "detail",
+      "heading": "天生桥·胭脂河",
+      "modern": true,
+      "overflow": false,
+      "toolbarCount": 0,
+      "width": 389
+    },
+    {
+      "page": "atlas",
+      "heading": "溧水风物图鉴",
+      "modern": true,
+      "overflow": false,
+      "toolbarCount": 0,
+      "width": 389
+    },
+    {
+      "page": "itinerary",
+      "heading": "我的溧水行程",
+      "modern": true,
+      "overflow": false,
+      "toolbarCount": 0,
+      "width": 389
+    },
+    {
+      "page": "services",
+      "heading": "旅途服务",
+      "modern": true,
+      "overflow": false,
+      "toolbarCount": 0,
+      "width": 389
+    },
+    {
+      "page": "culture",
+      "heading": "一条大龙，三点认识。",
+      "modern": true,
+      "overflow": false,
+      "toolbarCount": 0,
+      "width": 389
+    },
+    {
+      "page": "about",
+      "heading": "把风景慢慢看，把故事慢慢听。",
+      "modern": true,
+      "overflow": false,
+      "toolbarCount": 0,
+      "width": 389
+    },
+    {
+      "page": "home",
+      "heading": "山水之间，遇见美溧。",
+      "modern": true,
+      "overflow": false,
+      "width": 389
+    },
+    {
+      "page": "guide",
+      "composerVisible": true,
+      "heading": "这一程，和淮源姐聊聊。",
+      "modern": true,
+      "overflow": false,
+      "width": 389
+    }
+  ],
+  "checks": {
+    "search": true,
+    "emptySearch": true,
+    "atlasToDetail": true,
+    "optionalThemeChoices": 5,
+    "cultureFeedback": true,
+    "originalModePersists": true,
+    "productionThemeDisabled": true
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "release": "20261007-whole-ui-9e04784d41",
+  "backup": "/var/backups/lishui-guide/20261007-whole-ui-9e04784d41",
+  "target": "lsguide.cn",
+  "frontendOnly": true,
+  "deployed": true,
+  "staticFilesVerified": 87,
+  "routes": {
+    "/": 200,
+    "/guide": 200,
+    "/nodes": 200,
+    "/nodes/n_tsq": 200,
+    "/atlas": 200,
+    "/itinerary": 200,
+    "/services": 200,
+    "/culture/dragon": 200,
+    "/about": 200
+  },
+  "sensitivePaths": {
+    "/.env": {
+      "status": 403,
+      "privateFileExposed": false
+    },
+    "/.git/config": {
+      "status": 403,
+      "privateFileExposed": false
+    },
+    "/config/integrations.env.local": {
+      "status": 200,
+      "privateFileExposed": false
+    },
+    "/server/core.mjs": {
+      "status": 200,
+      "privateFileExposed": false
+    }
+  },
+  "ready": {
+    "ready": true,
+    "index": {
+      "ready": true,
+      "chunks": 127,
+      "dimensions": 1024,
+      "model": "BAAI/bge-m3",
+      "hash": "50eb0894f9da306ac52fb72e64a1b476b8f92a2160a0a347b4afc4aa715f1b38",
+      "builtAt": "2026-10-07T07:45:45.044Z"
+    },
+    "llm": {
+      "provider": "SiliconFlow",
+      "model": "Qwen/Qwen3.5-4B",
+      "configured": true
+    },
+    "tools": {
+      "webSearch": true,
+      "weather": true,
+      "map": true,
+      "translation": true,
+      "stays": true
+    }
+  },
+  "nginxConfigurationsUnchanged": true,
+  "cyberFilesUnchanged": true,
+  "cyberFilesChecked": 536,
+  "cyberProcessUnchanged": true,
+  "apiFilesUnchanged": true,
+  "apiFilesChecked": 9,
+  "apiProcessUnchanged": true,
+  "nginxReloaded": false,
+  "indexSha256": "9e04784d41c8748d145b7a70bd066f245e08ab5216ff11a37a2ae8e8530434b5",
+  "previousHashedAssetsRetained": true,
+  "publicCredentialMatches": 0,
+  "finalIntegrityVerified": true,
+  "nginxFilesChecked": 14,
+  "extraTools": {
+    "南京南站": {
+      "status": 200,
+      "exactMatch": true
+    },
+    "溧水站": {
+      "status": 200,
+      "exactMatch": true
+    },
+    "route": {
+      "status": 200,
+      "paths": 1,
+      "validDistance": true,
+      "error": null
+    },
+    "stays": {
+      "status": 200,
+      "keys": [
+        "provider",
+        "checkedAt",
+        "query",
+        "scope",
+        "hotels",
+        "diagnostics"
+      ],
+      "hotelCount": 5,
+      "error": null,
+      "readOnlySearch": true
+    }
+  },
+  "smokeBefore": {
+    "coreChecks": {
+      "singleGuide": true,
+      "reviewedAnswers": 2,
+      "missingStayConditions": true,
+      "streaming": true,
+      "untrustedOriginBlocked": true,
+      "unknownGuideBlocked": true
+    },
+    "tools": {
+      "weather": {
+        "status": 200,
+        "keys": [
+          "provider",
+          "sourceUrl",
+          "location",
+          "fetchedAt",
+          "modelTime",
+          "current",
+          "days",
+          "diagnostics"
+        ],
+        "error": null
+      },
+      "places": {
+        "status": 200,
+        "keys": [
+          "provider",
+          "checkedAt",
+          "places",
+          "diagnostics"
+        ],
+        "error": null
+      },
+      "translation": {
+        "status": 200,
+        "keys": [
+          "provider",
+          "from",
+          "to",
+          "content",
+          "diagnostics"
+        ],
+        "error": null
+      }
+    },
+    "public": {
+      "https://lsguide.cn/": {
+        "status": 525,
+        "server": "cloudflare",
+        "cfRay": "a46d4d2bac01402a-LAX"
+      },
+      "https://cyberemotionlab.cn/": {
+        "status": 403,
+        "server": "cloudflare",
+        "cfRay": "a46d4d46f81a502d-LAX"
+      }
+    }
+  },
+  "smokeAfter": {
+    "coreChecks": {
+      "singleGuide": true,
+      "reviewedAnswers": 2,
+      "missingStayConditions": true,
+      "streaming": true,
+      "untrustedOriginBlocked": true,
+      "unknownGuideBlocked": true
+    },
+    "tools": {
+      "weather": {
+        "status": 200,
+        "keys": [
+          "provider",
+          "sourceUrl",
+          "location",
+          "fetchedAt",
+          "modelTime",
+          "current",
+          "days",
+          "diagnostics"
+        ],
+        "error": null
+      },
+      "places": {
+        "status": 200,
+        "keys": [
+          "provider",
+          "checkedAt",
+          "places",
+          "diagnostics"
+        ],
+        "error": null
+      },
+      "translation": {
+        "status": 200,
+        "keys": [
+          "provider",
+          "from",
+          "to",
+          "content",
+          "diagnostics"
+        ],
+        "error": null
+      }
+    },
+    "public": {
+      "https://lsguide.cn/": {
+        "status": 525,
+        "server": "cloudflare",
+        "cfRay": "a46d58956efb7407-LAX"
+      },
+      "https://cyberemotionlab.cn/": {
+        "status": 403,
+        "server": "cloudflare",
+        "cfRay": "a46d58a6fb382360-LAX"
+      }
+    }
+  },
+  "browserChecks": {
+    "sourceHomepageModern": true,
+    "devComparisonToolsAbsent": true,
+    "existingItineraryReadable": true,
+    "freshOriginAddAndRemove": true,
+    "itineraryPNG": [
+      750,
+      1500
+    ],
+    "reviewedChatAnswer": true,
+    "atlasSearch": true
+  },
+  "localRegressionTests": 145,
+  "cloudflare525NotHandled": true
+}

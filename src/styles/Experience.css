@@ -33,7 +33,8 @@ button:disabled { cursor: default; }
 .experience-photo.is-ready img { opacity: 1; }
 .photo-loading { position: absolute; inset: 0; background: linear-gradient(110deg, #e7ebdf, #f3f4ed 45%, #e7ebdf); }
 .photo-fallback { height: 100%; min-height: 160px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; background: #e9eddf; color: #8a957b; font-size: 11px; text-align: center; padding: 20px; }
-.guide-avatar { display: block; flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; border: 3px solid #fffdf8; background: #e7ebdf; overflow: hidden; }
+.guide-avatar { position: relative; display: block; flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; border: 3px solid #fffdf8; background: #e7ebdf; overflow: hidden; }
+.guide-avatar > .guide-media { position: absolute; left: -85%; top: -31%; width: 270%; height: 405%; display: block; }
 .guide-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .guide-avatar > span { display: grid; place-items: center; height: 100%; font-size: 18px; color: #63774e; }
 .guide-portrait { min-width: 0; overflow: hidden; }

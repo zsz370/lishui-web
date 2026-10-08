@@ -1,0 +1,47 @@
+{
+  "release": "20261007-visual-6b98fabe2c",
+  "backup": "/var/backups/lishui-guide/20261007-visual-6b98fabe2c",
+  "staticFilesChecked": 84,
+  "previousHashedAssetsRetained": 133,
+  "originHTTP": {
+    "/": 200,
+    "/nodes": 200,
+    "/nodes/n_dls": 200,
+    "/guide": 200,
+    "/atlas": 200,
+    "/nodes/c_ljd.jpg": 200,
+    "/itinerary": 200,
+    "/robots.txt": 200,
+    "/assets/display/hero-lakeside-640.webp": 200,
+    "/assets/personas/transparent/01_huaiyuanjie-poster.webp": 200
+  },
+  "ready": {
+    "ready": true,
+    "index": {
+      "ready": true,
+      "chunks": 127,
+      "dimensions": 1024,
+      "model": "BAAI/bge-m3",
+      "hash": "50eb0894f9da306ac52fb72e64a1b476b8f92a2160a0a347b4afc4aa715f1b38",
+      "builtAt": "2026-10-07T07:45:45.044Z"
+    },
+    "llm": {
+      "provider": "SiliconFlow",
+      "model": "Qwen/Qwen3.5-4B",
+      "configured": true
+    },
+    "tools": {
+      "webSearch": true,
+      "weather": true,
+      "map": true,
+      "translation": true,
+      "stays": true
+    }
+  },
+  "nginxUnchanged": true,
+  "cyberFilesUnchanged": true,
+  "cyberFilesChecked": 532,
+  "cyberProcessesUnchanged": true,
+  "port3000Unchanged": true,
+  "apiServiceUnchanged": true
+}

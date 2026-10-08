@@ -46,9 +46,9 @@ test('纯翻译中的票价名词不触发票务查询',async()=>{
   assert.equal(text,'周园门票多少钱？');assert.equal(result.kind,'translation');
 });
 
-test('缺日期先给分情形建议和已知预算，仅追问缺少的日期，不调用住宿供应商',async()=>{
+test('缺日期保留已知预算并给接驳核对建议，只追问缺项，不调用住宿供应商',async()=>{
   const result=await noTools()(validateChat({question:'想订住宿，预算300元以内'}));
-  assert.equal(result.kind,'needs_input');assert.match(result.content,/300元.*公共交通.*自驾.*入住日期和退房日期/s);
+  assert.equal(result.kind,'needs_input');assert.match(result.content,/300元.*接驳.*入住日期和退房日期/s);
   const known=await noTools()(validateChat({question:'想订住宿',preferences:{checkInDate:addDays(today(),2)}}));
   assert.match(known.content,/入住/);assert.match(known.content,/补充退房日期/);assert.doesNotMatch(known.content,/补充入住日期/);
 });
@@ -62,11 +62,12 @@ test('继承用户的日期与住宿意图，预算修订后查询完整条件�
   assert.match(result.content,/300元/);assert.doesNotMatch(result.content,/补充.*日期|上海|900/);
 });
 
-test('沿用出发地和地点、遵守新交通方式；缺目的地先讲比较条件，地图不乱猜',async()=>{
+test('沿用出发地和地点、遵守新交通方式；缺目的地说明无法给完整路线，地图不乱猜',async()=>{
   const ctx=extractContext(validateChat({question:'改成公共交通怎么去？',history:[{role:'user',content:'从南京南站自驾去无想山？'}]}),planChat({question:'改成公共交通怎么去？',nodeId:'n_wx'}).node);
   assert.equal(ctx.origin,'南京南站');assert.equal(ctx.destination,'无想山');assert.equal(ctx.mode,'transit');
   const result=await noTools()(validateChat({question:'从南京南站出发，怎么去最方便？'}));
-  assert.match(result.content,/出发地已记下.*南京南站.*自驾.*公共交通.*目的地/s);assert.equal(result.kind,'needs_input');
+  assert.match(result.content,/出发地已记下.*南京南站.*暂不能给完整路线.*目的地/s);assert.equal(result.kind,'needs_input');
+  assert(!result.choiceGroups.some(group=>group.id==='origin'));
 });
 
 test('离线住宿沿用日期和修订预算、交通方式，避免重复追问已经给出的日期',async()=>{

@@ -1,0 +1,13 @@
+{
+  "lighthouseVersion": "13.5.0",
+  "url": "http://127.0.0.1:15174/",
+  "fetchTime": "2026-10-07T03:30:10.252Z",
+  "mode": "mobile",
+  "performance": 89.0,
+  "accessibility": 100,
+  "bestPractices": 100,
+  "seo": 100,
+  "lcpMs": 3627.5008499999994,
+  "cls": 0,
+  "tbtMs": 21.5
+}

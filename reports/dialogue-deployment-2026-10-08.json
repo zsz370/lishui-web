@@ -1,0 +1,71 @@
+{
+  "release": "20261008-dialogue-1d76cfb6d9",
+  "backup": "/var/backups/lishui-guide/20261008-dialogue-1d76cfb6d9",
+  "staticFilesChecked": 85,
+  "previousHashedAssetsRetained": 248,
+  "originHTTP": {
+    "/": 200,
+    "/guide": 200,
+    "/login": 200,
+    "/about": 200,
+    "/nodes": 200,
+    "/nodes/c_ljd": 200,
+    "/itinerary": 200,
+    "/robots.txt": 200,
+    "/nodes/c_ljd.jpg": 200,
+    "/assets/personas/transparent/01_huaiyuanjie-idle.webm": 200,
+    "/assets/personas/transparent/01_huaiyuanjie-speaking.webm": 200
+  },
+  "ready": {
+    "ready": true,
+    "index": {
+      "ready": true,
+      "chunks": 127,
+      "dimensions": 1024,
+      "model": "BAAI/bge-m3",
+      "hash": "50eb0894f9da306ac52fb72e64a1b476b8f92a2160a0a347b4afc4aa715f1b38",
+      "builtAt": "2026-10-07T07:45:45.044Z"
+    },
+    "llm": {
+      "provider": "SiliconFlow",
+      "model": "Qwen/Qwen3.5-4B",
+      "configured": true
+    },
+    "tools": {
+      "webSearch": true,
+      "weather": true,
+      "map": true,
+      "translation": true,
+      "stays": true
+    }
+  },
+  "needsInputGroups": [
+    "stay-date",
+    "companions",
+    "stay-budget"
+  ],
+  "nginxUnchanged": true,
+  "cyberFilesUnchanged": true,
+  "cyberFilesChecked": 532,
+  "cyberProcessesUnchanged": true,
+  "port3000Unchanged": true,
+  "coreValidationUnchanged": true,
+  "apiUpdated": true,
+  "expertStaySmokePassed": true,
+  "accountConfigured": true,
+  "openConversationCoveredByTests": true,
+  "refreshTokensIssued": false,
+  "uniquePublicGuidePassed": true,
+  "indexHashUnchanged": true,
+  "previousAPI": {
+    "MainPID": "2357625",
+    "WorkingDirectory": "/home/zhangpanhh/apps/lishui-web/releases/20261008-accounts-bb05445c7a",
+    "ActiveState": "active"
+  },
+  "currentAPI": {
+    "MainPID": "2358937",
+    "WorkingDirectory": "/home/zhangpanhh/apps/lishui-web/releases/20261008-dialogue-1d76cfb6d9",
+    "ActiveState": "active"
+  },
+  "secretMatches": 0
+}

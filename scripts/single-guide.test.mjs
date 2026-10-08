@@ -5,7 +5,7 @@ import { personas, HOST_ID, getPersona } from '../src/data/personas.js';
 import { nodes } from '../src/data/nodes.js';
 import { topics } from '../src/data/collections.js';
 import { travelServices } from '../src/data/travelServices.js';
-import { agentPlans } from '../config/agent-system.plan.js';
+import { agentPlans, departmentPlans, expertForTask } from '../config/agent-system.plan.js';
 import { createChat, validateChat } from '../server/chat.mjs';
 import { corpusHash, vectorText } from '../server/knowledge.mjs';
 import { queryVisitorQA } from '../src/data/visitorQuery.js';
@@ -16,6 +16,7 @@ test('唯一角色注册，全部风物和服务由淮源姐负责，旧角色�
   assert.deepEqual(personas.map(x=>x.id),[HOST_ID]);assert.deepEqual(agentPlans.map(x=>x.id),[HOST_ID]);
   assert(nodes.every(x=>x.expert===HOST_ID));assert(travelServices.every(x=>x.expert===HOST_ID));assert(topics.every(x=>x.groups.every(g=>g.expert===HOST_ID)));
   assert.equal(getPersona('04_dalonggu'),undefined);assert.throws(()=>validateChat({question:'你好',expertId:'04_dalonggu'}));
+  for(const expert of departmentPlans) assert.throws(()=>validateChat({question:'你好',expertId:expert.id}));
 });
 
 test('扩展知识统一归属、向量与事实对应、童谣未被放行',async()=>{
@@ -43,19 +44,19 @@ test('常见吃法、非遗级别与地名变体直接复用已有证据，不�
   assert.equal(queryVisitorQA('n_tsq','人工讲解多少钱？'),null);
 });
 
-test('一个答复合并工具结果和来源，部分失败不丢失已查项目，也不声称协作',async()=>{
+test('一个导游答复合并工具结果，后台专家失败不丢失其他已查项目',async()=>{
   const chat=createChat({weather:async()=>{throw Error('offline');}},{retrieve:async()=>[]});
   const result=await chat(validateChat({question:'溧水今天天气和退票怎么处理？'}));
-  assert.equal(result.replies.length,1);assert.equal(result.speaker.id,HOST_ID);assert.equal(result.collaboration,undefined);
-  assert(result.operations.trace.every(t=>t.agentId===HOST_ID));assert(result.operations.trace.some(t=>t.taskId==='weather'&&t.status==='failed'));assert(result.operations.trace.some(t=>t.taskId==='support'&&t.status==='completed'));
-  assert.match(result.content,/订单|退改/);assert.match(result.content,/未完成/);
+  assert.equal(result.replies.length,1);assert.equal(result.speaker.id,HOST_ID);assert.equal(result.collaboration.experts[0].agentId,'expert_weather');assert.deepEqual(result.collaboration.groups,[]);
+  assert(result.operations.trace.every(t=>t.agentId===expertForTask(t.taskId)));assert(result.operations.trace.some(t=>t.taskId==='weather'&&t.status==='failed'));assert(result.operations.trace.some(t=>t.taskId==='support'&&t.status==='completed'));
+  assert.match(result.content,/订单|退改/);assert.match(result.content,/未完成|没完成/);
 });
 
-test('宽泛行程问题先给有用概况，只追问缺项，新天数和交通优先',async()=>{
+test('宽泛行程先完成知识库路线推荐，新天数和交通优先，不要求先指定景点',async()=>{
   const unexpected=async()=>{throw Error('宽泛行程不应先检索不相关事实');};
   const chat=createChat({generate:unexpected},{retrieve:unexpected});
   const first=await chat(validateChat({question:'只有一天，没有车，怎么安排？'}));
-  assert.match(first.content,/一天时间.*没有车/s);assert.match(first.content,/从哪里出发/);assert.doesNotMatch(first.content,/先告诉我来几天/);
+  assert.equal(first.kind,'planning');assert.equal(first.recommendedPlan.days,1);assert.match(first.content,/上午｜通济街/);assert.match(first.content,/午间｜海乐城/);assert.doesNotMatch(first.content,/从哪里出发|先告诉我来几天|待核|不能安排/);
   const next=await chat(validateChat({question:'改成一天，自驾出行',history:[{role:'user',content:'两天，没有车，怎么安排？'}]}));
-  assert.match(next.content,/一天时间/);assert.doesNotMatch(next.content,/两天一晚|没有车的话/);
+  assert.equal(next.recommendedPlan.days,1);assert.match(next.content,/上午｜天生桥/);assert.doesNotMatch(next.content,/两天一晚|没有车的话/);
 });

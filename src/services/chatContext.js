@@ -23,7 +23,7 @@ export function extractTripContext(input, node, { today = todayInShanghai(), add
       const start = message.match(/(?:从|出发地(?:是|为|改为|改成|：|:)?)([^，,。？?；]{2,25}?)(?:出发|[，,。？?；]|$)/);
       if (start) origin = start[1].trim();
     }
-    const budget = message.match(/(?:预算|每晚)?\s*(\d{1,5})\s*(?:元|块)/g)?.at(-1)?.match(/\d+/)?.[0];
+    const budget = /总预算|行程预算/.test(message) && !/每晚|住宿预算|酒店预算/.test(message) ? undefined : message.match(/(?:预算|每晚)?\s*(\d{1,5})\s*(?:元|块)/g)?.at(-1)?.match(/\d+/)?.[0];
     if (budget) maxPrice = Number(budget);
     if (/公共交通|地铁|公交|无车|没有车/.test(message)) mode = 'transit';
     else if (/自驾|开车/.test(message)) mode = 'driving';
@@ -47,9 +47,9 @@ export function extractTripContext(input, node, { today = todayInShanghai(), add
 export function stayOverview(ctx) {
   const remembered = [ctx.checkInDate && `${ctx.checkInDate}入住`, ctx.checkOutDate && `${ctx.checkOutDate}退房`, ctx.maxPrice && `每晚${ctx.maxPrice}元以内`, ctx.destination && `围绕${ctx.destination}`].filter(Boolean);
   const missing = [!ctx.checkInDate && '入住日期', !ctx.checkOutDate && '退房日期'].filter(Boolean);
-  return `${remembered.length ? `已记下：${remembered.join('，')}。\n` : '可以先把住宿方向挑出来。\n'}如果公共交通出行，先比较城区或地铁周边，再核对到景点的接驳；如果自驾、希望安静些，可比较山居或乡村住宿，确认停车与夜间通行。${ctx.companions === 'family' ? '带孩子时留意床型、早餐和入住人数。' : ctx.companions === 'seniors' ? '带长辈或轮椅时先确认电梯、入口台阶和浴室条件。' : ''}\n目前没有按完整日期查询房价或房态。${missing.length ? `你方便补充${missing.join('和')}吗？` : '要不要按这些条件继续查住宿？'}`;
+  return `${remembered.length ? `已记下：${remembered.join('，')}。\n` : ''}住宿先比较想游玩的片区，再核对到景点的接驳。${ctx.companions === 'family' ? '带孩子时核对床型、早餐和入住人数。' : ctx.companions === 'seniors' ? '带长辈或轮椅时确认电梯、台阶和浴室条件。' : ''}\n尚未按完整日期查询房价或房态。${missing.length ? `请补充${missing.join('和')}。` : '按这些条件继续查住宿吗？'}`;
 }
 
 export function transportOverview(ctx) {
-  return `${ctx.origin ? `出发地已记下：${ctx.origin}。` : ''}${ctx.destination ? `目的地已记下：${ctx.destination}。` : ''}\n如果自驾，重点确认正式入口、停车和返程；如果公共交通，先比较到溧水的高铁或地铁，再核对最后一段接驳；步行适合确认距离和道路后安排。还没确定两端地点，暂不报具体车次、时间或费用。\n${!ctx.destination && !ctx.origin ? '你想去哪个地点，从哪里出发呢？' : !ctx.destination ? '你想去哪个目的地呢？' : '你准备从哪里出发呢？'}`;
+  return `${ctx.origin ? `出发地已记下：${ctx.origin}。` : ''}${ctx.destination ? `目的地已记下：${ctx.destination}。` : ''}\n两端地点还没齐，暂不能给完整路线、班次或费用。\n${!ctx.destination && !ctx.origin ? '想去哪里，从哪里出发？' : !ctx.destination ? '想去哪个目的地？' : '从哪里出发？'}`;
 }

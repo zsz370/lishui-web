@@ -1,0 +1,28 @@
+{
+  "changedExistingFiles": [
+    "src/components/ChatPanel.jsx",
+    "src/components/GuideCollaboration.jsx",
+    "src/services/chat.js",
+    "server/chat.mjs",
+    "scripts/foundation-qa.test.mjs",
+    "scripts/single-guide.test.mjs",
+    "README.md"
+  ],
+  "newImplementationFiles": [
+    "src/services/itineraryRecommendation.js",
+    "server/recommendation.mjs",
+    "scripts/recommendation.test.mjs"
+  ],
+  "existingCssUnchanged": true,
+  "homeAndMediaUnchanged": true,
+  "staticCssAndMediaHashesChecked": 60,
+  "reviewedQaUnchanged": true,
+  "nodeIntroductionsUnchanged": true,
+  "indexHashUnchanged": true,
+  "coreUnchanged": true,
+  "existingChatGuardsUnchanged": true,
+  "apiValidationUnchanged": true,
+  "accountsUnchanged": true,
+  "dependenciesUnchanged": true,
+  "secretMatches": 0
+}

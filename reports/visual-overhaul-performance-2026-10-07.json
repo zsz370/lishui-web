@@ -1,0 +1,25 @@
+{
+  "lighthouseVersion": "13.5.0",
+  "fetchTime": "2026-10-07T09:08:48.751Z",
+  "formFactor": "mobile",
+  "throttlingMethod": "simulate",
+  "throttling": {
+    "rttMs": 150,
+    "throughputKbps": 1638.4,
+    "requestLatencyMs": 562.5,
+    "downloadThroughputKbps": 1474.5600000000002,
+    "uploadThroughputKbps": 675,
+    "cpuSlowdownMultiplier": 4
+  },
+  "scores": {
+    "performance": 83.0,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "lcpMs": 4440.775,
+  "cls": 0,
+  "tbtMs": 2,
+  "visibleNameMatchesAccessibleName": true,
+  "limitations": "Mobile Lighthouse simulation on localhost, not real-user or public-domain measurements. LCP remains above 2.5 seconds."
+}

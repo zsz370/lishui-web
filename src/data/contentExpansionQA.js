@@ -1,5 +1,6 @@
 // 2026-10-07 内容补强：节点事实复用已审简介，服务项为官方指引支持的行前核对建议。
 // approved 不证明具体场所当前已有设施；缺少依据的事实仅登记为 pending。
+import { getNode } from './nodes.js';
 import { nodeIntroductions } from './nodeIntroductions.js';
 import { knowledgeSources } from './qaReview.js';
 
@@ -88,7 +89,7 @@ const nodeRows = [
   ["s_wxsz","无想水镇有哪些街区看点？","可以围绕唐风建筑、城隍文化街区、街巷和沿水空间慢慢逛。白天与夜间的体验不同，实际活动和营业情况需行前核对。","fact"],
   ["s_wxsz","无想水镇夜游能直接按往届灯会安排吗？","不能。普通街区游逛与灯会、演出是不同安排，先看当年的活动公告，再单独核对开放、预约、费用和返程。","guidance"]
 ];
-export const expansionNodeQA = nodeRows.map(([nodeId, q, a, kind]) => ({
+export const expansionNodeQA = nodeRows.filter(([nodeId]) => getNode(nodeId)).map(([nodeId, q, a, kind]) => ({
   id: `${nodeId}:${q}`, nodeId, q, a, kind, keys: [], scope: 'node',
   status: 'approved', reviewedAt: '2026-10-07',
   sources: nodeId === 'c_ljd' ? [...nodeIntroductions[nodeId].sources, knowledgeSources.boardDragon, knowledgeSources.dragon] : nodeIntroductions[nodeId].sources,
@@ -127,7 +128,7 @@ const pendingNodeRows = [
   ['c_xz', '虾子灯有哪些传统队形？', '正式名录仅支持项目身份，缺保护单位或传承资料说明传统队形。'],
   ['c_syg', '石臼渔歌有哪些传统曲目？', '缺项目申报材料或保护单位曲目清单，不能把同名创作歌曲当成全部传统曲目。'],
 ];
-export const expansionPendingNodeQA = pendingNodeRows.map(([nodeId, q, reason]) => ({
+export const expansionPendingNodeQA = pendingNodeRows.filter(([nodeId]) => getNode(nodeId)).map(([nodeId, q, reason]) => ({
   id: `${nodeId}:${q}`, nodeId, q, a: '', keys: [], sources: [], sourceIds: [], scope: 'node',
   kind: 'fact', status: 'pending', reviewedAt: '2026-10-07', reason,
 }));

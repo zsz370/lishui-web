@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-07",
+  "reviewOrigin": "http://127.0.0.1:15180",
+  "fixture": "Current dist; actual API validation and SSE; empty retrieval; disabled external suppliers; explicit test-only next-request 503",
+  "checks": {
+    "fallbackReviewedTopicQuestions": true,
+    "needsInputDatePeopleBudgetOptions": true,
+    "localConditionsAndDraftSurviveReload": true,
+    "resumeFocus": "huaiyuan-question",
+    "retryBodyExactlyMatchesFailedRequestAfterContextChange": true,
+    "scrollAcrossRoutes": {"before": 95.33333587646484, "after": 95.33333587646484},
+    "routeFocus": "h1",
+    "mobileViewportWidth": 390,
+    "mobileHorizontalOverflow": false,
+    "simulatedKeyboard": {"visibleHeight": 420, "dialogueTop": 8, "dialogueBottom": 412, "composerBottom": 401.3333358764648, "mobileNavigationHidden": true},
+    "chatButtonsUnder44px": 0,
+    "actualSpeech": ["idle.webm while starting", "speaking.webm during playback", "idle.webm after natural end"],
+    "shapePauseButtons": 0,
+    "avatarVideosPlaying": true,
+    "videoPictureInPictureDisabledAttribute": true,
+    "pointerOnHeroNoPictureInPictureOverlay": true,
+    "homeAutoCarouselObserved": ["湖畔暮色", "天生桥"],
+    "userLujiaPhotoLoadedNaturalWidth": 1260
+  },
+  "limitations": ["No physical iOS/Android soft keyboard test", "No comprehensive screen reader audit", "Browser/user settings can override picture-in-picture disable requests", "No live external supplier inventory or pricing validation"],
+  "reviewFixtureClosed": true,
+  "userPreviewReloaded": "http://127.0.0.1:15174/"
+}

@@ -6,6 +6,7 @@ import { cosine } from '../server/knowledge.mjs';
 import { createChat, validateChat, extractContext } from '../server/chat.mjs';
 import { createApi } from '../server/index.mjs';
 import { request } from 'node:http';
+import { expertForTask } from '../config/agent-system.plan.js';
 const config=getConfig({});
 const chunk={id:'test',expertId:'01_huaiyuanjie',nodeId:'n_tsq',question:'人工开河关系',answer:'天生桥的形成与人工开河工程有关。',score:0.9,kind:'fact',sources:[{label:'审核来源',url:'https://www.nju.edu.cn/info/3191/218951.htm'}]};
 const knowledge={chunks:[chunk],retrieve:async()=>[chunk],status:()=>({ready:true,chunks:1})};
@@ -31,7 +32,7 @@ test('跨板块按依赖执行，部分天气失败仍能查住宿、地图并�
   const calls=[];
   const providers={...defaults,weather:async()=>{calls.push('weather');throw new AppError('UPSTREAM_FAILED','failed',502);},stays:async()=>{calls.push('stay');return {checkedAt:new Date().toISOString(),provider:'飞猪',hotels:[{name:'测试酒店',address:'测试地址',price:'¥200',url:'https://example.org/hotel'}]};},places:async(name)=>{calls.push('map');return {places:[{name,address:'测试地址',location:'119.02,31.65',url:'https://www.amap.com/'}]};},generate:async()=>{calls.push('summary');return '先确认入口与住宿条件，天气查询未完成。';},translate:async(text)=>{calls.push('translation');assert.match(text,/天气查询未完成/);return {content:'Confirm the hotel.'};}};
   const result=await createChat(providers,{...knowledge,retrieve:async()=>[]})(validateChat({question:'明天两天一晚，查天气和300元内酒店、住宿交通，给英文行程'}));
-  assert.equal(result.replies.length,1);assert.equal(result.speaker.id,'01_huaiyuanjie');assert.equal(result.kind,'unavailable');assert.equal(result.collaboration,undefined);assert.ok(calls.indexOf('map')>calls.indexOf('stay'));assert.ok(calls.indexOf('translation')>calls.indexOf('summary'));assert.equal(result.operations.trace.find((task)=>task.taskId==='weather').status,'failed');assert.ok(result.operations.trace.every(task=>task.agentId==='01_huaiyuanjie'));assert.match(result.content,/¥200/);
+  assert.equal(result.replies.length,1);assert.equal(result.speaker.id,'01_huaiyuanjie');assert.equal(result.kind,'unavailable');assert.equal(result.collaboration.experts.length,5);assert.ok(calls.indexOf('map')>calls.indexOf('stay'));assert.ok(calls.indexOf('translation')>calls.indexOf('summary'));assert.equal(result.operations.trace.find((task)=>task.taskId==='weather').status,'failed');assert.ok(result.operations.trace.every(task=>task.agentId===expertForTask(task.taskId==='etiquette'?'translation':task.taskId)));assert.match(result.content,/¥200/);
 });
 test('住宿没有日期时不触发供应商；新日期优先于历史，紧急求助直接答复',async()=>{
   const result=await createChat(defaults,knowledge)(validateChat({question:'找300元以内的酒店'}));assert.equal(result.kind,'needs_input');const ctx=extractContext(validateChat({question:'明天住一晚酒店',history:[{role:'user',content:'2026-10-10至2026-10-12入住'}]}));assert.equal(ctx.checkInDate,addDays(today(),1));assert.equal(ctx.checkOutDate,addDays(today(),2));const urgent=await createChat({},knowledge)(validateChat({question:'孩子走失，急救'}));assert.match(urgent.content,/110/);
@@ -52,7 +53,7 @@ test('票价搜索摘要有差异时不生成现行价格结论，旅行目的�
 });
 test('网络分片中的中文问题完整解码后再路由',async()=>{
   let captured;
-  const server=createApi({config,providers:defaults,knowledge:{...knowledge,retrieve:async(question)=>{captured=question;return[];}},log:()=>{}});
+  const server=createApi({config,providers:{...defaults,generateStream:async(messages)=>{captured=messages.at(-1).content;return '收到中文问题。';}},knowledge:{...knowledge,retrieve:noNetwork},log:()=>{}});
   await new Promise((resolve)=>server.listen(0,'127.0.0.1',resolve));
   try {
     const body=Buffer.from(JSON.stringify({question:'中国甲'}));const split=body.indexOf(Buffer.from('中'))+1;

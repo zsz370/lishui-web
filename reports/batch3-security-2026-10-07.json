@@ -1,0 +1,11 @@
+{
+  "coreUnchanged": true,
+  "validateChatUnchanged": true,
+  "injectionDefenseUnchanged": true,
+  "numbersAndCitationsValidationUnchanged": true,
+  "legendBoundaryUnchanged": true,
+  "changedServerFiles": [
+    "server/chat.mjs"
+  ],
+  "scope": "仅needs_input文案和选项，及合并回复的选项字段"
+}

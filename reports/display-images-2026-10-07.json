@@ -1,0 +1,122 @@
+[
+  {
+    "source": "assets/images/hero-lakeside.webp",
+    "sourceSha256": "05a52a67fa509c5cabb204f87f9abad6db4eea038620118c2fe74248ca3b9940",
+    "output": "assets/display/hero-lakeside-640.webp",
+    "dimensions": [
+      640,
+      427
+    ],
+    "bytes": 39154
+  },
+  {
+    "source": "assets/images/hero-lakeside.webp",
+    "sourceSha256": "05a52a67fa509c5cabb204f87f9abad6db4eea038620118c2fe74248ca3b9940",
+    "output": "assets/display/hero-lakeside-960.webp",
+    "dimensions": [
+      960,
+      640
+    ],
+    "bytes": 75976
+  },
+  {
+    "source": "assets/images/hero-wuxiang.webp",
+    "sourceSha256": "38e3c1b60482857c2562319e592582462e744020bd521c74d60e7372ac159546",
+    "output": "assets/display/hero-wuxiang-640.webp",
+    "dimensions": [
+      640,
+      360
+    ],
+    "bytes": 60352
+  },
+  {
+    "source": "assets/images/hero-wuxiang.webp",
+    "sourceSha256": "38e3c1b60482857c2562319e592582462e744020bd521c74d60e7372ac159546",
+    "output": "assets/display/hero-wuxiang-960.webp",
+    "dimensions": [
+      960,
+      540
+    ],
+    "bytes": 142506
+  },
+  {
+    "source": "assets/images/hero-tianshengqiao.webp",
+    "sourceSha256": "2bc0de43a3781d38a0ffc79001a000ce1391f845531a4632229598702e30ea81",
+    "output": "assets/display/hero-tianshengqiao-640.webp",
+    "dimensions": [
+      640,
+      479
+    ],
+    "bytes": 118088
+  },
+  {
+    "source": "assets/images/hero-tianshengqiao.webp",
+    "sourceSha256": "2bc0de43a3781d38a0ffc79001a000ce1391f845531a4632229598702e30ea81",
+    "output": "assets/display/hero-tianshengqiao-960.webp",
+    "dimensions": [
+      960,
+      718
+    ],
+    "bytes": 222312
+  },
+  {
+    "source": "nodes/n_tsq.jpg",
+    "sourceSha256": "cae841e58626bca2dca3b3d5a7ca9a96cafe1818059c53b03fe93ff70f36cb96",
+    "output": "assets/display/node-tianshengqiao-640.webp",
+    "dimensions": [
+      640,
+      478
+    ],
+    "bytes": 117122
+  },
+  {
+    "source": "nodes/n_tsq.jpg",
+    "sourceSha256": "cae841e58626bca2dca3b3d5a7ca9a96cafe1818059c53b03fe93ff70f36cb96",
+    "output": "assets/display/node-tianshengqiao-960.webp",
+    "dimensions": [
+      960,
+      718
+    ],
+    "bytes": 219666
+  },
+  {
+    "source": "nodes/n_wx.jpg",
+    "sourceSha256": "75ee1d38245589eff1c27ef9676893c9542a9a188de4e155b1e5ee2bbb290247",
+    "output": "assets/display/node-wuxiang-640.webp",
+    "dimensions": [
+      640,
+      360
+    ],
+    "bytes": 59486
+  },
+  {
+    "source": "nodes/n_wx.jpg",
+    "sourceSha256": "75ee1d38245589eff1c27ef9676893c9542a9a188de4e155b1e5ee2bbb290247",
+    "output": "assets/display/node-wuxiang-960.webp",
+    "dimensions": [
+      960,
+      540
+    ],
+    "bytes": 136308
+  },
+  {
+    "source": "assets/catalog/culture-luoshan-dragon.png",
+    "sourceSha256": "551268ffbb3369918e126eb6390243b1d5ad5719f493607cc39b51fcbf1f99a5",
+    "output": "assets/display/culture-dragon-640.webp",
+    "dimensions": [
+      640,
+      360
+    ],
+    "bytes": 53042
+  },
+  {
+    "source": "assets/catalog/culture-luoshan-dragon.png",
+    "sourceSha256": "551268ffbb3369918e126eb6390243b1d5ad5719f493607cc39b51fcbf1f99a5",
+    "output": "assets/display/culture-dragon-960.webp",
+    "dimensions": [
+      800,
+      450
+    ],
+    "bytes": 77798
+  }
+]

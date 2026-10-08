@@ -1,0 +1,158 @@
+/* 原品牌固定浅色；以照片、烟火棕和湖绿区分内容用途。
+   层级仍沿用：正文0、页头30、键盘聊天35、手机导航40、跳转50。 */
+:root { --travel-ink:#284736; --travel-muted:#52664f; --travel-paper:#f6f3ec; --travel-line:#d4d6c8; --travel-fire:#7d5735; --travel-warm:#eee4d5; color-scheme:light; }
+body { color:var(--travel-ink); background:var(--travel-paper); font-family:'Microsoft YaHei','PingFang SC','Noto Sans SC',system-ui,sans-serif; }
+.app-shell .app-main { max-width:1320px; padding:25px 32px 46px; }
+.app-shell .app-header-inner { max-width:1320px; min-height:72px; padding:10px 32px; }
+.app-shell .app-header { background:#fffdf8; border-color:var(--travel-line); }
+.app-shell .app-brand { min-height:44px; }
+.app-shell .desktop-nav { gap:15px; }
+.app-shell .desktop-nav a { min-height:44px; padding:10px 4px; border-radius:0; border-bottom:2px solid transparent; }
+.app-shell .desktop-nav a.is-active { background:transparent; color:#284736; border-color:#a6784b; }
+.app-shell .desktop-nav a:hover { background:transparent; border-color:#879c7d; }
+.app-shell .nav-count,.app-shell .tabbar-count { background:#7d5735; color:#fffdf8; }
+.app-shell .experience-button { min-height:46px; font-size:14px; border-radius:4px; padding:11px 18px; background:#284736; border-color:#284736; color:#fffdf8; }
+.app-shell .experience-button:hover { background:#405b43; }
+.app-shell .experience-button:disabled { background:#e2e7dc; color:#52664f; border-color:#d4d6c8; }
+.app-shell .culture-experience .experience-button,.app-shell .single-guide-entry .experience-button { background:#7d5735; border-color:#7d5735; }
+.app-shell .culture-experience .experience-button:hover,.app-shell .single-guide-entry .experience-button:hover { background:#65472d; }
+.app-shell :is(.section-heading h2,.explore-heading h1,.itinerary-heading h1,.atlas-heading h1,.detail-story h1,.single-guide-heading h1) { font-family:inherit; font-weight:600; letter-spacing:-.025em; }
+.app-shell :is(.explore-heading h1,.itinerary-heading h1,.atlas-heading h1,.single-guide-heading h1) { font-size:36px; line-height:1.5; }
+.app-shell :is(button,summary,select) { min-height:44px; }
+.app-shell :is(input,textarea,select):not([type=checkbox]):not([type=radio]) { color:#284736; }
+.app-shell :is(input,textarea)::placeholder { color:#52664f; }
+.app-shell :is(a,button,input,textarea,select,summary):focus-visible { outline:3px solid #7d5735; outline-offset:4px; }
+.app-shell :is(.section-overline,.section-heading>p,.explore-heading h1+p,.itinerary-heading h1+p,.atlas-heading p:last-child) { color:#52664f; }
+.app-shell .section-overline { letter-spacing:0; font-size:13px; }
+.app-shell .explore-heading { margin:7px 0 29px; }
+.app-shell .explore-heading h1+p { font-size:16px; line-height:1.85; }
+.app-shell .explore-search { background:#fffdf8; border:1px solid #a8b4a0; border-radius:4px; min-height:50px; }
+.app-shell .explore-topic-tabs { gap:24px; border-bottom:1px solid var(--travel-line); padding-bottom:0; margin-bottom:28px; }
+.app-shell .explore-topic-tabs a { border:0; border-bottom:3px solid transparent; border-radius:0; background:transparent; color:#52664f; padding:10px 0; min-height:50px; font-size:15px; }
+.app-shell .explore-topic-tabs a.is-selected { background:transparent; border-color:#a6784b; color:#7d5735; }
+.app-shell .topic-overview { grid-template-columns:repeat(12,minmax(0,1fr)); gap:28px; align-items:stretch; }
+.app-shell .topic-cover { display:flex; flex-direction:column; position:static; grid-column:span 3; height:auto; border-radius:0; color:#284736; overflow:visible; }
+.app-shell .topic-cover::after { display:none; }
+.app-shell .topic-cover>.experience-photo { height:200px; flex:none; border-radius:7px; }
+.app-shell .topic-cover-0 { grid-column:span 6; grid-row:span 2; }
+.app-shell .topic-cover-0>.experience-photo { height:auto; min-height:410px; flex:1; }
+.app-shell .topic-cover-1 { grid-column:span 6; }
+.app-shell .topic-cover-copy { position:static; padding:15px 0 0; }
+.app-shell .topic-cover-copy>p { display:none; }
+.app-shell .topic-cover-copy h2 { font-family:inherit; font-size:25px; font-weight:600; margin:0 0 6px; }
+.app-shell .topic-cover-0 h2 { font-size:30px; }
+.app-shell .topic-cover-copy>span:not(.topic-cover-action) { color:#52664f; font-size:14px; line-height:1.85; }
+.app-shell .topic-cover-action { min-height:44px; margin-top:5px; font-size:13px; color:#7d5735; }
+.app-shell .explore-soft-note { padding:25px 0; color:#52664f; }
+.app-shell .collection-feature { border:0; border-radius:0; background:transparent; gap:35px; grid-template-columns:1.15fr 1fr; }
+.app-shell .collection-cover { min-height:420px; overflow:hidden; border-radius:8px; }
+.app-shell .collection-cover-label { display:none; }
+.app-shell .collection-intro { padding:24px 0; }
+.app-shell .collection-intro h2 { font-family:inherit; font-size:31px; font-weight:600; }
+.app-shell .collection-intro>p:not(.section-overline) { font-size:16px; color:#52664f; line-height:1.9; }
+.app-shell .collection-group-tabs a { border-radius:4px; }
+.app-shell .collection-guide { background:#eee4d5; border:0; border-radius:5px; }
+.app-shell .destination-directory { border-top:1px solid var(--travel-line); }
+.app-shell .destination-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:35px 27px; }
+.app-shell .destination-grid .experience-photo { height:250px; border-radius:7px; }
+.app-shell .destination-grid h3 { font-size:22px; margin-top:14px; }
+.app-shell .destination-grid article>a>span:not(.experience-photo) { color:#7d5735; }
+.app-shell .directory-more,.app-shell .explore-more { border-radius:4px; color:#284736; min-height:46px; }
+.app-shell .search-result-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 34px; }
+.app-shell .search-result-list>a { display:grid; grid-template-columns:104px minmax(0,1fr) 18px; gap:10px 18px; align-items:start; padding:20px 0; background:none; border:0; border-top:1px solid var(--travel-line); border-radius:0; }
+.app-shell .search-result-list>a>.experience-photo { grid-column:1; grid-row:1/3; height:125px; border-radius:4px; }
+.app-shell .search-result-list .result-category { grid-column:2; grid-row:1; color:#7d5735; width:fit-content; padding:0; font-size:12px; background:transparent; }
+.app-shell .search-result-list>a>div { grid-column:2; grid-row:2; min-width:0; }
+.app-shell .search-result-list>a>svg { grid-column:3; grid-row:1/3; align-self:center; }
+.app-shell .search-result-list h3 { font-size:21px; font-weight:600; }
+.app-shell .search-result-list p { font-size:14px; line-height:1.85; color:#52664f; margin-top:7px; }
+.app-shell .detail-layout { grid-template-columns:minmax(0,1fr) 280px; gap:40px; }
+.app-shell .detail-story { display:block; border:0; border-radius:0; background:none; }
+.app-shell .detail-photo { height:430px; overflow:hidden; border-radius:8px; }
+.app-shell .detail-story-copy { padding:29px 0; }
+.app-shell .detail-story h1 { font-size:36px; line-height:1.5; }
+.app-shell .detail-description { color:#405543; font-size:17px; line-height:1.95; max-width:72ch; }
+.app-shell .detail-chat { position:sticky; top:98px; }
+.app-shell .detail-chat .single-guide-entry { display:block; margin:0; padding:24px; }
+.app-shell .detail-chat .single-guide-entry>.guide-avatar { display:block; width:58px; height:58px; margin-bottom:18px; }
+.app-shell .detail-chat .single-guide-entry h2 { font-size:23px; }
+.app-shell .detail-chat .single-guide-entry>.experience-button { margin-top:22px; width:100%; }
+.app-shell .detail-sources { border-top:1px solid var(--travel-line); padding-top:17px; }
+.app-shell .single-guide-entry { border:0; border-radius:6px; background:#eee4d5; }
+.app-shell .single-guide-entry p { color:#5f503f; }
+.app-shell .single-guide-entry h2 { font-family:inherit; font-size:24px; font-weight:600; }
+.app-shell .travel-shortcuts { padding:24px 0; border-radius:0; background:transparent; border-top:1px solid var(--travel-line); }
+.app-shell .travel-shortcuts .section-overline { display:none; }
+.app-shell .travel-shortcuts .section-heading h2 { font-family:inherit; font-size:26px; font-weight:600; }
+.app-shell .travel-shortcut-links { gap:18px; }
+.app-shell .travel-shortcut-links a { font-size:14px; min-height:54px; border-radius:4px; padding:14px 17px; background:#e5eadd; color:#405543; }
+.app-shell .travel-shortcut-links a:nth-child(2) { background:#eee4d5; color:#5f503f; }
+.app-shell .atlas-page { max-width:none; }
+.app-shell .atlas-heading { margin:7px 0 26px; }
+.app-shell .atlas-tools nav button { border:0; border-bottom:3px solid transparent; border-radius:0; background:none; color:#52664f; padding:10px 12px; }
+.app-shell .atlas-tools nav button[aria-pressed=true] { border-color:#a6784b; color:#7d5735; background:transparent; }
+.app-shell .atlas-reader { grid-template-columns:1.3fr 1fr; min-height:480px; border:1px solid var(--travel-line); border-radius:5px; background:#fffdf8; box-shadow:none; }
+.app-shell .atlas-figure { background:#e5eadd; }
+.app-shell .atlas-figure>.experience-photo { min-height:420px; }
+.app-shell .atlas-figure figcaption { color:#52664f; }
+.app-shell .atlas-copy { padding:36px 35px; border-left:1px solid #d4d6c8; }
+.app-shell .atlas-copy h2 { font-family:inherit; font-size:32px; font-weight:600; line-height:1.5; }
+.app-shell .atlas-summary { color:#405543; font-size:16px; line-height:1.9; }
+.app-shell .atlas-note { color:#6b5038; background:#eee4d5; padding:10px 12px; border-radius:3px; }
+.app-shell .atlas-pagination button { border-radius:4px; }
+.app-shell .journey-thread { border-top:0; padding:7px 0; margin:16px 0; }
+.app-shell .journey-thread a { min-height:44px; font-size:13px; }
+.app-shell .journey-thread a>span { display:none; }
+.app-shell .atlas-directory { border-bottom:0; }
+.app-shell .atlas-directory ol { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px 25px; padding:15px 0 22px; }
+.app-shell .atlas-directory button { display:grid; grid-template-columns:72px minmax(0,1fr); align-items:center; gap:15px; border:0; padding:8px; background:#fffdf8; border-radius:4px; min-height:90px; }
+.app-shell .atlas-directory .experience-photo { height:72px; border-radius:3px; }
+.app-shell .atlas-directory .atlas-index-caption { font-size:15px; color:#284736; margin:0; line-height:1.6; }
+.app-shell .atlas-index-caption small { display:block; color:#7d5735; font-size:12px; margin-bottom:5px; }
+.app-shell .atlas-directory button[aria-current=page] { outline:2px solid #7d5735; outline-offset:-2px; background:#eee4d5; }
+.app-shell .guide-dialogue { border-radius:7px; background:#fffdf8; border-color:#d4d6c8; }
+.app-shell .guide-presence { background:none; }
+.app-shell .guide-presence h2 { font-family:inherit; font-weight:600; }
+.app-shell .guide-resume { background:#eee4d5; border-color:#c6b294; border-radius:5px; }
+.app-shell .guide-user-message { border-radius:7px 7px 2px 7px; }
+.app-shell .guide-composer { border-radius:5px; }
+.app-shell .plan-basics,.app-shell .plan-stops,.app-shell .plan-review { border-radius:6px; }
+.app-shell .plan-scene-choice { border-radius:4px; }
+.app-shell .service-menu a { border-radius:4px; font-size:14px; }
+.app-shell .service-information { border-radius:6px; background:#fffdf8; }
+.app-shell .service-guide-heading h2 { font-family:inherit; font-weight:600; }
+.app-shell .service-boundary-note,.app-shell .service-source-note { color:#52664f; font-size:12px; }
+.app-shell .app-footer { padding:28px max(32px,calc((100vw - 1256px)/2)); }
+@media(max-width:1100px) {
+ .app-shell .desktop-nav { gap:11px; } .app-shell .app-header-inner { gap:16px; }
+ .app-shell .topic-overview { gap:23px; } .app-shell .topic-cover-0>.experience-photo { min-height:390px; }
+ .app-shell .detail-layout { grid-template-columns:minmax(0,1fr) 245px; gap:28px; } .app-shell .detail-photo { height:370px; }
+ .app-shell .destination-grid .experience-photo { height:210px; } .app-shell .atlas-copy { padding:28px; }
+}
+@media(max-width:767px) {
+ .app-shell .app-main { padding:19px 18px 30px; } .app-shell .app-header-inner { min-height:64px; padding:10px 18px; }
+ .app-shell :is(.explore-heading h1,.itinerary-heading h1,.atlas-heading h1,.single-guide-heading h1) { font-size:28px; }
+ .app-shell .explore-heading { margin:0 0 23px; } .app-shell .explore-heading h1+p { font-size:14px; }
+ .app-shell .explore-topic-tabs { gap:21px; overflow-x:auto; } .app-shell .explore-topic-tabs a { flex-shrink:0; font-size:14px; }
+ .app-shell .topic-overview { grid-template-columns:1fr; gap:29px; }
+ .app-shell .topic-cover,.app-shell .topic-cover-0,.app-shell .topic-cover-1 { grid-column:auto; grid-row:auto; height:auto; }
+ .app-shell .topic-cover>.experience-photo,.app-shell .topic-cover-0>.experience-photo { height:245px; min-height:0; flex:none; }
+ .app-shell .topic-cover-copy h2,.app-shell .topic-cover-0 h2 { font-size:24px; }
+ .app-shell .topic-cover-copy>span:not(.topic-cover-action) { font-size:14px; }
+ .app-shell .collection-feature { grid-template-columns:1fr; gap:10px; } .app-shell .collection-cover { min-height:0; height:235px; aspect-ratio:auto; }
+ .app-shell .collection-intro { padding:17px 0; } .app-shell .collection-intro h2 { font-size:26px; } .app-shell .collection-intro>p:not(.section-overline) { font-size:14px; }
+ .app-shell .destination-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:27px 16px; } .app-shell .destination-grid .experience-photo { height:155px; } .app-shell .destination-grid h3 { font-size:18px; }
+ .app-shell .search-result-list { grid-template-columns:1fr; gap:15px; } .app-shell .search-result-list>a { grid-template-columns:89px minmax(0,1fr) 16px; gap:8px 14px; padding-top:17px; }
+ .app-shell .search-result-list>a>.experience-photo { height:120px; } .app-shell .search-result-list h3 { font-size:20px; } .app-shell .search-result-list p { font-size:13px; }
+ .app-shell .detail-layout { grid-template-columns:1fr; gap:12px; } .app-shell .detail-photo { height:260px; } .app-shell .detail-story-copy { padding:23px 0; } .app-shell .detail-story h1 { font-size:29px; } .app-shell .detail-description { font-size:15px; }
+ .app-shell .detail-chat { position:static; } .app-shell .detail-chat .single-guide-entry { padding:22px; } .app-shell .detail-chat .single-guide-entry>.guide-avatar { display:none; } .app-shell .detail-chat .single-guide-entry>.experience-button { width:fit-content; margin-top:18px; }
+ .app-shell .single-guide-entry h2 { font-size:22px; } .app-shell .travel-shortcuts .section-heading { display:block; } .app-shell .travel-shortcuts .section-heading h2 { font-size:23px; }
+ .app-shell .travel-shortcut-links { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .app-shell .travel-shortcut-links a { font-size:13px; padding:13px; gap:8px; }
+ .app-shell .atlas-reader { grid-template-columns:1fr; } .app-shell .atlas-figure>.experience-photo { min-height:260px; height:270px; flex:none; } .app-shell .atlas-copy { padding:24px 22px; border-left:0; } .app-shell .atlas-copy h2 { font-size:27px; } .app-shell .atlas-summary { font-size:15px; }
+ .app-shell .journey-thread>div { display:none; }
+ .app-shell .atlas-directory ol { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .app-shell .atlas-directory button { grid-template-columns:49px minmax(0,1fr); gap:9px; padding:7px; }
+ .app-shell .atlas-directory .experience-photo { height:60px; } .app-shell .atlas-directory .atlas-index-caption { font-size:13px; }
+ .app-shell .app-footer { padding:26px 18px 105px; }
+}
+@media(max-width:360px) { .app-shell .app-main { padding-inline:16px; } .app-shell .destination-grid,.app-shell .atlas-directory ol { grid-template-columns:1fr; } .app-shell .destination-grid .experience-photo { height:205px; } }
+@media(prefers-reduced-motion:reduce) { .app-shell *, .app-shell *::before, .app-shell *::after { transition:none!important; animation:none!important; scroll-behavior:auto!important; } }

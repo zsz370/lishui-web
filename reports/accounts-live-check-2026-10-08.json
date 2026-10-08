@@ -1,0 +1,19 @@
+{
+  "projectRef": "fxqkollpvywpnxtjnfqh",
+  "emailAutoconfirm": true,
+  "signupDirectLogin": true,
+  "loginAfterLogout": true,
+  "savedAcrossSessions": true,
+  "foreignRead404": true,
+  "foreignTrash404": true,
+  "update": true,
+  "conflict409": true,
+  "trashRestore": true,
+  "refreshCookieIssued": false,
+  "qaUserIds": [
+    "97cfd739-5dd1-4a9a-b244-4454c1b6453e",
+    "f22bd580-2260-40f6-841f-2945eb31050d"
+  ],
+  "testCardId": "a3445240-2188-4c4f-89cc-561d888e760c",
+  "temporaryAccountsRetainedForBrowserQA": true
+}

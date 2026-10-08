@@ -4,6 +4,8 @@ import Photo from '../components/Photo.jsx';
 import GuideAvatar from '../components/GuideAvatar.jsx';
 import { getPersona, guideUrl } from '../data/personas.js';
 import { ticketQA } from '../data/ticketReference.js';
+import { departmentPlans, collaborationPlan } from '../../config/agent-system.plan.js';
+import '../components/GuideCollaboration.css';
 
 const steps = [
   { icon: Compass, title: '先选一种喜欢的逛法', text: '从山水、美食、乡里故事或慢游出发，每个栏目都为你整理了几个容易上手的主题。' },
@@ -18,6 +20,7 @@ export default function About() {
       return <li key={step.title}><span className="about-step-number">0{index + 1}</span><Icon size={24} weight="light" aria-hidden="true" /><div><h3>{step.title}</h3><p>{step.text}</p></div></li>;
     })}</ol></section>
     <section className="about-kind-note"><h2>出发前的一点小提醒</h2><p>天气、开放时间、交通与票价可能变化，出发前请留意景区及有关部门的最新公告。地方传说作为故事欣赏，具体历史与项目级别以正式资料为准。</p></section>
+    <section className="about-experts" aria-labelledby="expert-team"><h2 id="expert-team">幕后协作团队</h2><p>{collaborationPlan.description}对外始终由淮源姐统一回答，专家不单独接待游客，也没有独立角色形象。</p><dl>{departmentPlans.map(expert=><div key={expert.id}><dt>{expert.name}</dt><dd>{expert.intro}</dd></div>)}</dl><p>已审固定问答直接复用审核内容。动态整理为 AI 辅助生成，行程建议需确认；答案下可查看已审知识、实时工具和联网待核来源。查询失败和缺少条件会单独标记。</p></section>
     <section className="about-kind-note" aria-labelledby="ticket-reference"><h2 id="ticket-reference">门票参考与核对范围</h2><p>下列参考价由项目负责人于2026年10月5日提供并确认优惠范围，供比较游览方案；未连接实时售票接口，出行日价格、票种和证件条件请向景区确认。</p>{ticketQA.map((qa) => <details key={qa.id}><summary>{qa.q}</summary><p>{qa.a}</p></details>)}</section>
     <section className="about-kind-note" aria-labelledby="data-use"><h2 id="data-use">提问与行程怎样保存</h2><p>已审固定问答可在页面直接回答。需要检索或实时查询时，问题、最近最多6条对话和已填写的出行条件会发送给本站后端，再按需求调用相关服务。本站后端不建立对话数据库；对话只保留在本次浏览器页面内存中，切换站内页面可以继续；点击“新对话”、刷新或关闭页面后结束，不自动存入浏览器持久存储。</p><p>浏览器允许保存时，行程保存在当前浏览器，刷新后可继续编辑；存储受限时，页面会提示在离开前复制文字或保存图片。到<Link to="/itinerary">我的行程</Link>点击“清空行程”，可清除已填出行条件与地点；这不会清除已经发送给外部服务的数据。</p><details><summary>查看查询服务与临时记录</summary><p>地方检索与答复整理使用硅基流动；联网资料使用博查；天气使用和风天气；地点及路线使用高德地图；住宿条件使用飞猪；译文使用百度翻译。模型可收到问题与相关证据，其他服务仅收到相应的查询词、地点、日期预算或待译文字。未配置或失败的服务会显示未完成。</p><p>后端内存最多缓存100个检索问题及其向量，随进程重启清除。应用日志记录请求编号、接口、耗时、状态和取消情况，不写入问题正文。服务器日志按日轮转：应用日志保留7份归档，访问日志保留14份归档，当天记录仍可能存在。Cloudflare及其他服务的留存以各自政策为准，本页不承诺第三方记录已被删除。请尽量用出行需求提问，无需填写身份证或账户密码。</p></details></section>
 

@@ -1,5 +1,6 @@
 import { memo, useEffect, useRef, useState } from 'react';
 import GuideMedia from './GuideMedia.jsx';
+import { guideSpeechActivity } from '../services/guideSpeechActivity.js';
 
 const lines = [
   '你好，欢迎来到溧水！我是淮源姐，很高兴陪你走这一程。',
@@ -21,17 +22,18 @@ function useReducedMotion() {
 // Isolate the looping guide media from the rest of the homepage.
 export default memo(function WelcomeGuide({ host }) {
   const reduced = useReducedMotion();
-  const [paused, setPaused] = useState(false);
   const [step, setStep] = useState(0);
   const [run, setRun] = useState(0);
   const [welcoming, setWelcoming] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const [notice, setNotice] = useState('');
   const speechRun = useRef(0);
+  const speechOwner = useRef(Symbol('welcome-speech'));
   const ownsSpeech = useRef(false);
   const speechTimeout = useRef(null);
 
   const cancelSpeech = () => {
+    guideSpeechActivity.set(speechOwner.current, false);
     speechRun.current += 1;
     window.clearTimeout(speechTimeout.current);
     if (ownsSpeech.current && 'speechSynthesis' in window) window.speechSynthesis.cancel();
@@ -50,6 +52,7 @@ export default memo(function WelcomeGuide({ host }) {
       setRun((value) => value + 1);
     }
     return () => {
+      guideSpeechActivity.set(speechOwner.current, false);
       speechRun.current += 1;
       window.clearTimeout(speechTimeout.current);
       if (ownsSpeech.current && 'speechSynthesis' in window) window.speechSynthesis.cancel();
@@ -111,21 +114,20 @@ export default memo(function WelcomeGuide({ host }) {
       utterance.rate = 0.95;
       if (chineseVoice) utterance.voice = chineseVoice;
       utterance.onstart = () => {
-        if (speechRun.current === token) { setStep(index); setSpeaking(true); }
+        if (speechRun.current === token) { setStep(index); setSpeaking(true); guideSpeechActivity.set(speechOwner.current, true); }
       };
       utterance.onerror = failed;
       utterance.onend = () => {
         if (index !== lines.length - 1 || speechRun.current !== token) return;
         window.clearTimeout(speechTimeout.current);
         ownsSpeech.current = false;
+        guideSpeechActivity.set(speechOwner.current, false);
         setSpeaking(false);
         setWelcoming(false);
       };
       window.speechSynthesis.speak(utterance);
     });
   };
-
-  const animated = Boolean(host.portraitMotion) && !paused && !reduced;
 
   return (
     <aside className="welcome-guide" aria-label="淮源姐欢迎导览">
@@ -138,16 +140,13 @@ export default memo(function WelcomeGuide({ host }) {
         <p aria-live="polite" aria-atomic="true">{lines[step]}</p>
       </div>
       <div className="welcome-stage">
-        <GuideMedia persona={host} state={speaking ? 'speaking' : 'idle'} animated={animated} />
+        <GuideMedia persona={host} state={speaking ? 'speaking' : 'idle'} />
       </div>
       <div className="welcome-controls">
-        <button className="welcome-listen" type="button" onClick={listen} aria-pressed={speaking}>
+        <button className="welcome-listen" type="button" onClick={listen} aria-label={speaking ? '停止介绍（淮源姐）' : '听欢迎介绍（淮源姐）'} aria-pressed={speaking}>
           <span aria-hidden="true">{speaking ? 'Ⅱ' : '▷'}</span>{speaking ? '停止介绍' : '听欢迎介绍'}
         </button>
         <button type="button" onClick={replay}>重播字幕</button>
-        {host.portraitMotion && <button type="button" onClick={() => setPaused((value) => !value)} aria-pressed={paused} disabled={reduced}>
-          {reduced ? '静态模式' : paused ? '播放形象' : '暂停形象'}
-        </button>}
       </div>
       <div className="welcome-footnote" role="status">{notice || '数字人形象为 AI 生成 · 点击后播放语音'}</div>
     </aside>

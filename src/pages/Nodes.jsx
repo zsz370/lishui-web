@@ -6,6 +6,7 @@ import { topics, getTopic, getGroup, belongsToTopic, collectionUrl, detailUrl } 
 import { getPersona, guideUrl } from '../data/personas.js';
 import { useItinerary } from '../data/store.jsx';
 import Photo from '../components/Photo.jsx';
+import { nodePhotos } from '../data/nodeMedia.js';
 import TopicIcon from '../components/TopicIcon.jsx';
 import GuideAvatar from '../components/GuideAvatar.jsx';
 import ServiceShortcuts from '../components/ServiceShortcuts.jsx';
@@ -19,7 +20,7 @@ export default function Nodes() {
   const query = params.get('q') || '';
   const [limit, setLimit] = useState(6);
   const { add, has } = useItinerary();
-  useEffect(() => setLimit(6), [query, topic?.id]);
+  useEffect(() => setLimit(6), [query, topic?.id, group?.id]);
   const results = useMemo(() => {
     const keyword = query.trim().toLowerCase();
     if (!keyword) return [];
@@ -58,7 +59,7 @@ export default function Nodes() {
       {query.trim() ? <section className="search-results" aria-label="搜索结果" aria-live="polite">
         <div className="section-heading"><h2>找到 {results.length} 处相关内容</h2><button type="button" onClick={() => updateQuery('')}>回到栏目</button></div>
         {results.length === 0 ? <div className="experience-empty"><MagnifyingGlass size={36} weight="light" aria-hidden="true" /><h2>暂时没有找到这段关键词</h2><p>试试“湖”“糕点”或一个地点的名字。</p><button type="button" className="experience-button" onClick={() => updateQuery('')}>按栏目慢慢逛</button></div> : <>
-          <div className="search-result-list">{results.slice(0, limit).map((node) => <Link key={node.id} to={searchDetailUrl(node.id)}><span className="result-category">{node.cat}</span><div><h3>{node.name}</h3><p>{node.summary}</p></div><CaretRight size={18} aria-hidden="true" /></Link>)}</div>
+          <div className="search-result-list">{results.slice(0, limit).map((node) => <Link key={node.id} to={searchDetailUrl(node.id)}><Photo src={nodePhotos[node.id]} alt={node.name}/><span className="result-category">{node.cat}</span><div><h3>{node.name}</h3><p>{node.summary}</p></div><CaretRight size={18} aria-hidden="true" /></Link>)}</div>
           {results.length > limit && <button type="button" className="explore-more" onClick={() => setLimit((value) => value + 6)}>查看更多搜索结果</button>}
         </>}
       </section> : !topic ? <>
@@ -89,6 +90,7 @@ export default function Nodes() {
         </section>}
 
       </>}
+      {!query.trim() && <section className="destination-directory" aria-labelledby="directory-title"><header className="journal-heading"><h2 id="directory-title">{topic ? `${topic.name}，继续发现` : '想看的地方，都在这里'}</h2><p>点开图片了解故事，喜欢的地方可以先加入行程。</p></header><div className="destination-grid">{nodes.filter(node => belongsToTopic(node, topic)).slice(0, limit).map(node => <article key={node.id}><Link to={`/nodes/${node.id}`}><Photo src={nodePhotos[node.id]} alt={node.name} /><span>{node.cat}</span><h3>{node.name}<ArrowUpRight size={18} aria-hidden="true" /></h3><p>{node.summary}</p></Link><button type="button" onClick={() => add(node.id)} disabled={has(node.id)}>{has(node.id) ? '已加入我的行程' : '+ 加入我的行程'}</button></article>)}</div>{limit < nodes.filter(node => belongsToTopic(node, topic)).length && <button type="button" className="directory-more" onClick={() => setLimit(value => value + 6)}>继续看更多地点 <CaretRight size={17} aria-hidden="true" /></button>}</section>}
       <PageGuide id="explore-guide" title="下一站，和导游一起选" description={primary ? `正在看${primary.name}。可以问这里的故事，也可以问美食、天气和交通。` : '先告诉我想看风景、尝乡味还是逛街区，淮源姐会陪你一起安排。'} node={primary} />
       <section className="explore-atlas-entry" aria-labelledby="explore-atlas-title">
         <div><p className="section-overline">翻一页，遇见另一种溧水</p><h2 id="explore-atlas-title">还有一些风物，等你慢慢发现。</h2><p>把山水、乡味、民俗与街区收进一本图鉴。看一张图，读一段介绍，找到下一处好奇。</p></div>

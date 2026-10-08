@@ -1,0 +1,60 @@
+/* 全站沿用溧水品牌与固定浅色模式。布局层不改变数据、路由或安全校验。
+   层级：正文0，粘性页头30，手机导航沿用40，键盘跳转50。 */
+:root { --travel-ink: #284736; --travel-muted: #52664f; --travel-line: #cad4c2; --travel-paper: #f6f3ec; color-scheme: light; }
+body { background: #f6f3ec; font-family: 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', system-ui, sans-serif; }
+.app-main { max-width: 1240px; padding: 26px 28px 45px; }
+.app-header { background: #fffdf8; backdrop-filter: none; border-color: #cad4c2; }
+.app-header-inner { max-width: 1240px; min-height: 72px; padding: 12px 28px; }
+.desktop-nav { gap: 4px; font-size: 14px; white-space: nowrap; }
+.desktop-nav a { min-height: 44px; padding: 11px 15px; border-radius: 8px; }
+.desktop-nav a.is-active { background: #284736; color: #fffdf8; }
+.app-brand small { color: #52664f; }
+.mobile-header-greeting { color: #52664f; }
+.app-footer { max-width: none; display: flex; align-items: center; justify-content: space-between; gap: 25px; text-align: left; padding: 28px max(28px,calc((100vw - 1184px)/2)); color: #52664f; }
+.app-footer p { font-size: 14px; } .app-footer span { font-size: 12px; color: #52664f; }
+.app-footer nav { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
+.app-footer nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; }
+.skip-to-content { position: fixed; z-index: 50; left: 16px; top: 12px; padding: 12px 20px; color: #fffdf8; background: #284736; border-radius: 8px; transform: translateY(-180%); }
+.skip-to-content:focus { transform: translateY(0); }
+.app-main:focus { outline: none; }
+.app-shell :is(a,button,input,textarea,select,summary):focus-visible { outline: 3px solid #284736; outline-offset: 4px; }
+.app-shell .experience-button { font-size: 15px; border-radius: 8px; background: #284736; border-color: #284736; color: #fffdf8; white-space: nowrap; }
+.app-shell .experience-button:hover { background: #3e5a40; }
+.app-shell .experience-button:disabled { background: #e2eadb; color: #52664f; border-color: #cad4c2; }
+.app-shell :is(.section-heading h2,.explore-heading h1,.itinerary-heading h1,.atlas-heading h1,.detail-story h1) { font-family: 'Microsoft YaHei','PingFang SC',sans-serif; letter-spacing: -.025em; font-weight: 600; }
+.app-shell .section-heading>p { color: #52664f; }
+.app-shell :is(.explore-heading h1 + p,.itinerary-heading h1 + p) { color: #52664f; font-size: 16px; }
+.app-shell .section-overline { color: #52664f; }
+.app-shell .detail-layout { grid-template-columns: minmax(0,1.3fr) minmax(0,.8fr); gap: 30px; }
+.app-shell .detail-story { display: block; border-radius: 12px; background: #fffdf8; border-color: #cad4c2; }
+.app-shell .detail-photo { height: 300px; min-height: 0; aspect-ratio: auto; }
+.app-shell .detail-story-copy { padding: 28px; }
+.app-shell .detail-story h1 { font-size: 32px; }
+.app-shell .detail-description { color: #52664f; font-size: 16px; line-height: 1.95; }
+.app-shell .detail-source { color: #52664f; font-size: 12px; }
+.app-shell .detail-extra { color: #52664f; font-size: 15px; }
+.app-shell .detail-actions a,.app-shell .detail-back { color: #52664f; font-size: 14px; }
+.destination-directory { margin: 55px 0; padding-top: 35px; border-top: 1px solid #cad4c2; }
+.destination-directory .journal-heading { margin-bottom: 26px; }
+.destination-directory h2 { font-size: 29px; line-height: 1.5; font-weight: 600; }
+.destination-directory .journal-heading p { font-size: 16px; color: #52664f; margin-top: 9px; }
+.destination-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 32px 25px; }
+.destination-grid article { min-width: 0; }
+.destination-grid article>a { display: block; }
+.destination-grid .experience-photo { height: 210px; border-radius: 12px; }
+.destination-grid article>a>span:not(.experience-photo) { display: block; font-size: 13px; color: #52664f; margin: 13px 0 4px; }
+.destination-grid h3 { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 21px; line-height: 1.6; margin-top: 12px; font-weight: 600; }
+.destination-grid h3 svg { flex-shrink: 0; }
+.destination-grid p { font-size: 15px; line-height: 1.85; color: #52664f; margin-top: 8px; }
+.destination-grid button { min-height: 44px; font-size: 14px; margin-top: 9px; }
+.destination-grid button:disabled { color: #52664f; }
+.directory-more { display: flex; align-items: center; justify-content: center; gap: 12px; border: 1px solid #879c7d; border-radius: 8px; min-height: 48px; padding: 10px 25px; margin: 30px auto 0; font-size: 15px; }
+.app-shell .photo-fallback { font-size: 14px; color: #52664f; }
+.detail-related { margin-bottom: 10px; }
+@media (max-width: 1100px) { .desktop-nav a { padding-inline: 11px; } .app-header-inner { gap: 12px; } }
+@media (max-width: 767px) { .app-main { padding: 20px 18px 28px; } .app-header-inner { min-height: 64px; padding: 10px 18px; } .app-footer { flex-direction: column; align-items: start; gap: 12px; padding: 25px 18px 105px; } .app-footer nav { gap: 25px; } .app-shell .detail-layout { grid-template-columns: 1fr; gap: 22px; } .app-shell .detail-photo { height: 230px; } .app-shell .detail-story-copy { padding: 23px 20px; } .app-shell .detail-story h1 { font-size: 27px; } .destination-directory { margin: 35px 0; padding-top: 25px; } .destination-directory h2 { font-size: 25px; } .destination-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 25px 15px; } .destination-grid .experience-photo { height: 160px; } .destination-grid h3 { font-size: 18px; } .destination-grid p { font-size: 14px; } .destination-grid button { font-size: 13px; } }
+@media (max-width: 380px) { .destination-grid { grid-template-columns: 1fr; } .destination-grid .experience-photo { height: 195px; } }
+@media (prefers-reduced-motion: reduce) { .app-shell *, .app-shell *::before, .app-shell *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+.app-shell .mobile-tabbar a { color: #52664f; }
+.app-shell .mobile-tabbar a.is-active { color: #284736; }
+.app-shell :is(.nav-count,.tabbar-count) { background: #284736; color: #fffdf8; }

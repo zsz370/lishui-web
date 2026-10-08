@@ -8,6 +8,7 @@ export const nodePhotos = {
   f_ypg: '/assets/catalog/food-cloud-cake.webp', f_wf: '/assets/catalog/food-wufan.webp',
   f_hm: '/assets/catalog/food-blackberry.webp', c_tj: '/assets/catalog/culture-iron.webp',
   c_ldl: '/assets/catalog/culture-luoshan-dragon.png', c_hl: '/assets/catalog/culture-helinfang.png',
+  c_ljd: '/nodes/c_ljd.jpg',
   c_cs: '/assets/catalog/culture-cishan.jpg', c_xsm: '/assets/catalog/culture-xisong.png',
   c_tdd: '/assets/catalog/culture-tiaodangdang.jpg', c_syg: '/assets/catalog/culture-fishing-song.png',
   c_lh: '/assets/catalog/culture-paper-cut.jpg', c_qh: '/assets/catalog/culture-lanterns.jpg',

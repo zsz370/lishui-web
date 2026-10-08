@@ -33,10 +33,10 @@ export function createProviders(config, fetcher = fetch, runFile = execFile, { s
     return upstream('硅基流动', `${service.base}/${path}`, options, request);
   };
   const providers = {
-    async generateStream(messages, { onDelta = () => {}, timeoutMs = 30000 } = {}) {
+    async generateStream(messages, { onDelta = () => {}, timeoutMs = 30000, maxTokens = 650, temperature = 0 } = {}) {
       const started = Date.now(); let usage;
       try {
-        const options = json({ model: config.llm.model, messages, temperature: 0, max_tokens: 650, enable_thinking: false, stream: true, stream_options: { include_usage: true } });
+        const options = json({ model: config.llm.model, messages, temperature, max_tokens: maxTokens, enable_thinking: false, stream: true, stream_options: { include_usage: true } });
         options.headers.Authorization = `Bearer ${requireValue(config.llm.key, '硅基流动')}`;
         options.signal = AbortSignal.timeout(timeoutMs);
         const response = await request(`${config.llm.base}/chat/completions`, options);

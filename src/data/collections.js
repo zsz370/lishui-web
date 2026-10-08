@@ -45,7 +45,7 @@ export const topics = [
         cover: '/assets/catalog/culture-luoshan-dragon.png', expert: '01_huaiyuanjie', nodeIds: ['c_ldl', 'c_hl', 'c_ljd'] },
       { id: 'festivals', name: '节庆里的热闹', subtitle: '听一听，人间烟火的声音',
         intro: '庙会、马灯和乡间节俗，是认识地方生活的另一扇窗。先听一个故事，再按兴趣继续了解。',
-        cover: '/assets/catalog/culture-cishan.jpg', expert: '01_huaiyuanjie', nodeIds: ['c_cs', 'c_xsm', 'c_xz', 'c_tdd', 'c_dsh', 'c_dw', 'c_syg', 'c_qh'] },
+        cover: '/assets/catalog/culture-cishan.jpg', expert: '01_huaiyuanjie', nodeIds: ['c_cs', 'c_xsm', 'c_tdd', 'c_syg', 'c_qh'] },
     ],
   },
   {

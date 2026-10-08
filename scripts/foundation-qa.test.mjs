@@ -7,6 +7,7 @@ import { getNode } from '../src/data/nodes.js';
 import { createChat, validateChat } from '../server/chat.mjs';
 import { ask } from '../src/services/chat.js';
 import { visitorAnswer } from '../src/data/visitorAnswerCopy.js';
+import { isItineraryRecommendation } from '../src/services/itineraryRecommendation.js';
 const unexpected = async () => { throw new Error('Unexpected external request'); };
 const empty = { retrieve: unexpected };
 const tools = { generate: unexpected, search: unexpected, weather: unexpected, stays: unexpected, places: unexpected, route: unexpected, translate: unexpected };
@@ -21,6 +22,13 @@ test('全部服务基础QA在线服务端与客户端答复一致并保留角色
   for (const qa of approvedServiceQA) {
     const input = { question: qa.q, nodeId: 'n_tsq', serviceId: 'weather' };
     const [server, client] = await Promise.all([createChat(tools, empty)(validateChat(input)), ask(input)]);
+    if (isItineraryRecommendation(input)) {
+      assert.equal(server.kind,'planning');assert.equal(client.kind,'planning');
+      assert.equal(server.content,client.content);assert.deepEqual(server.recommendedPlan,client.recommendedPlan);
+      assert.match(server.content,/上午｜.*午间｜.*下午｜/s);assert.doesNotMatch(server.content,/待核|不能安排/);
+      assert(server.sources.length);assert.equal(server.speaker.id,qa.expertId);
+      continue;
+    }
     for (const response of [server, client]) {
       assert.equal(response.kind, 'preset', qa.q);
       assert.equal(response.content, visitorAnswer(qa));
@@ -38,7 +46,8 @@ test('单一翻译含景点上下文、天气与订房文字时只翻译指定�
   assert.deepEqual(calls,['明天下雨，我想预订无想山酒店。']);
   assert.equal(response.kind,'translation');
   assert.equal(response.operations.trace.length,1);
-  assert(response.operations.trace.every((task) => task.agentId === '01_huaiyuanjie' || task.agentId === '01_huaiyuanjie'));
+  assert(response.operations.trace.every((task) => task.agentId === 'expert_translate'));
+  assert.equal(response.speaker.id,'01_huaiyuanjie');
   assert.deepEqual(response.operations.trace.filter((task) => !task.taskId.startsWith('dispatch:')).map((task) => task.taskId), ['etiquette']);
 });
 

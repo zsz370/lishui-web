@@ -21,7 +21,7 @@ const server = createServer(async (request, response) => {
       if (mode === 'reset') { request.socket.destroy(); return; }
       if (mode === 'streamcut' || mode === 'timeout') {
         response.writeHead(200, { 'Content-Type': 'text/event-stream; charset=utf-8' });
-        response.write(`event: progress\ndata: ${JSON.stringify({ taskId: 'weather', agentId: '01_huaiyuanjie', label: '核对天气', status: 'running' })}\n\n`);
+        response.write(`event: progress\ndata: ${JSON.stringify({ taskId: 'weather', agentId: 'expert_weather', label: '核对天气', status: 'running' })}\n\n`);
         const timer = setTimeout(() => {
           if (mode === 'timeout') response.write(`event: error\ndata: ${JSON.stringify({ error: { message: '本地验收：查询超时，请稍后重试。' } })}\n\n`);
           response.end();

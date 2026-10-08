@@ -1,0 +1,43 @@
+{
+  "measurements": [
+    {
+      "phase": "hero-motion",
+      "lighthouseVersion": "13.5.0",
+      "fetchTime": "2026-10-07T06:52:18.671Z",
+      "scores": {
+        "performance": 77,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "fcpMs": 1814.9913999999999,
+      "lcpMs": 6089.991400000001,
+      "cls": 0,
+      "tbtMs": 19,
+      "chatInitiallyDownloaded": false
+    },
+    {
+      "phase": "hero-performance",
+      "lighthouseVersion": "13.5.0",
+      "fetchTime": "2026-10-07T06:54:02.800Z",
+      "scores": {
+        "performance": 80,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "fcpMs": 1668.7651,
+      "lcpMs": 5268.7651000000005,
+      "cls": 0,
+      "tbtMs": 6,
+      "chatInitiallyDownloaded": false
+    }
+  ],
+  "mainGzipKB": {
+    "motionRestored": 164.23,
+    "deferredChat": 148.6,
+    "reductionPercent": 9.52
+  },
+  "serverFilesUnchanged": true,
+  "note": "两次为本地生产预览的手机模拟，同样保留动态形象与5秒轮播；不是公网测速，LCP仍未达到2.5s目标。 最终另微调了仅320px窄屏的暂停按钮位置；Lighthouse模拟宽度下布局不变。"
+}

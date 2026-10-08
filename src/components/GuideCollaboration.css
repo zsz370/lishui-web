@@ -1,0 +1,20 @@
+.app-shell .guide-expert-progress { display:flex; flex-wrap:wrap; gap:7px; list-style:none; padding:0; margin:8px 0; }
+.app-shell .guide-expert-progress li { display:flex; flex-wrap:wrap; gap:5px; border:1px solid #c7d1c8; background:#f0f3ee; border-radius:4px; padding:5px 8px; color:#304c3e; font-size:12px; line-height:1.65; }
+.app-shell .guide-expert-progress li span+span::before { content:'·'; margin-right:5px; }
+.app-shell .guide-expert-progress li[data-status='failed'],.app-shell .guide-expert-progress li[data-status='needs_input'] { background:#f5eee3; border-color:#d6bfa5; color:#71492c; }
+.app-shell .guide-collaboration { margin-top:18px; padding-top:12px; border-top:1px solid #d6ddd4; color:#405746; }
+.app-shell .guide-collaboration h3 { font-size:13px; font-weight:600; margin:0 0 8px; }
+.app-shell .guide-collaboration p { font-size:12px; line-height:1.85; margin:4px 0 8px; }
+.app-shell .guide-collaboration summary { min-height:44px; display:list-item; padding:10px 0; cursor:pointer; font-size:13px; line-height:1.8; }
+.app-shell .guide-collaboration details>div { display:grid; gap:14px; padding-bottom:8px; }
+.app-shell .guide-collaboration h4 { font-size:13px; font-weight:600; }
+.app-shell .guide-collaboration a { display:block; width:fit-content; max-width:100%; overflow-wrap:anywhere; min-height:44px; padding:10px 0; font-size:13px; text-decoration:underline; }
+.app-shell .guide-collaboration [data-source='web'] { border-left:2px solid #ad6847; padding-left:12px; }
+.app-shell .guide-collaboration summary:focus-visible,.app-shell .guide-collaboration a:focus-visible { outline:2px solid #325b46; outline-offset:3px; }
+.app-shell .about-experts { padding:24px 0; border-top:1px solid #c7d1c8; }
+.app-shell .about-experts>p { max-width:65ch; line-height:1.9; margin:12px 0 20px; }
+.app-shell .about-experts dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 30px; }
+.app-shell .about-experts dl>div { padding:18px 0; border-top:1px solid #d6ddd4; }
+.app-shell .about-experts dt { font-weight:600; }
+.app-shell .about-experts dd { font-size:14px; line-height:1.85; margin-top:8px; color:#405746; }
+@media(max-width:600px) { .app-shell .about-experts dl { grid-template-columns:1fr; } }

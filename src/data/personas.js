@@ -1,9 +1,10 @@
 // 当前产品只有淮源姐，退役角色素材与历史记录已归档。
+import { agentPersona } from './agentPersona.js';
 export const HOST_ID = '01_huaiyuanjie';
 export const host = {
-  id: HOST_ID, name: '淮源姐', category: 'guide', color: '#325b46',
+  id: HOST_ID, name: agentPersona.name, category: 'guide', color: '#325b46',
   domain: '你的溧水旅行向导', tagline: '山水、乡味、乡里故事，陪你慢慢认识溧水。',
-  intro: '从想去的地方，到吃住行的安排，都可以直接问我。已有的出行条件我会接着记，拿不准的信息一起确认。',
+  intro: agentPersona.opening.capabilities,
   destination: '/guide', action: '和淮源姐聊聊', transparent: true,
   portrait: '/assets/personas/transparent/01_huaiyuanjie-poster.webp',
   avatar: '/assets/personas/transparent/01_huaiyuanjie-avatar.webp',

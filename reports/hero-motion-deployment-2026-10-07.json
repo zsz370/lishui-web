@@ -1,0 +1,44 @@
+{
+  "release": "20261007-motion-24b41b6d58",
+  "backup": "/var/backups/lishui-guide/20261007-motion-24b41b6d58",
+  "staticFilesChecked": 80,
+  "previousHashedAssetsRetained": 47,
+  "originHTTP": {
+    "/": 200,
+    "/nodes": 200,
+    "/nodes/n_dls": 200,
+    "/itinerary": 200,
+    "/robots.txt": 200,
+    "/assets/display/hero-lakeside-640.webp": 200,
+    "/assets/personas/transparent/01_huaiyuanjie-poster.webp": 200
+  },
+  "ready": {
+    "ready": true,
+    "index": {
+      "ready": true,
+      "chunks": 135,
+      "dimensions": 1024,
+      "model": "BAAI/bge-m3",
+      "hash": "2815a0885614d82ee1147934e38e8f9d9bfa702b7d155cab05e4e21e135263d1",
+      "builtAt": "2026-10-07T02:54:16.747Z"
+    },
+    "llm": {
+      "provider": "SiliconFlow",
+      "model": "Qwen/Qwen3.5-4B",
+      "configured": true
+    },
+    "tools": {
+      "webSearch": true,
+      "weather": true,
+      "map": true,
+      "translation": true,
+      "stays": true
+    }
+  },
+  "nginxUnchanged": true,
+  "cyberFilesUnchanged": true,
+  "cyberFilesChecked": 532,
+  "cyberProcessesUnchanged": true,
+  "port3000Unchanged": true,
+  "apiServiceUnchanged": true
+}

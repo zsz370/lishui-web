@@ -2,6 +2,7 @@ import { getPersona } from '../data/personas.js';
 import { getTravelService, recommendStays, serviceSources, stayDefaults } from '../data/travelServices.js';
 import { getWeather, selectWeatherDay, weatherText, weatherAdvice } from './weather.js';
 import { extractTripContext, stayOverview, transportOverview } from './chatContext.js';
+import { followUpChoices } from './followUpChoices.js';
 
 const rules = [
   ['support', /丢失|丢了|遗失|失物|投诉|退票|退改|退款|求助|报警|急救|发票|厕所|洗手间|卫生间|母婴室|lost|refund|help/i],
@@ -39,7 +40,7 @@ export function inferStayPreferences(question, base = stayDefaults) {
   if (/山里|山中|山居|无想山|竹海/.test(question)) pref.area = 'mountain';
   else if (/乡村|田园|村里|山凹/.test(question)) pref.area = 'rural';
   else if (/城区|市区|地铁附近/.test(question)) pref.area = 'city';
-  const budget = question.match(/(?:预算|每晚|一晚)?\s*(\d{2,5})\s*(?:元|块)/);
+  const budget = question.replace(/(?:总预算|行程预算)\s*\d{1,5}\s*(?:元|块)?/g, '').match(/(?:预算|每晚|一晚)?\s*(\d{2,5})\s*(?:元|块)/);
   if (budget) pref.budget = Number(budget[1]) <= 300 ? '300' : Number(budget[1]) <= 600 ? '600' : 'flexible';
   return pref;
 }
@@ -77,12 +78,12 @@ export async function answerTravelService(serviceId, question, { history = [], p
     pref.transport = ctx.mode === 'driving' ? 'drive' : 'transit';
     pref.companions = ctx.companions;
     if (ctx.maxPrice) pref.budget = ctx.maxPrice <= 300 ? '300' : ctx.maxPrice <= 600 ? '600' : 'flexible';
-    if (!ctx.checkInDate || !ctx.checkOutDate) return reply('stay', stayOverview(ctx), { kind: 'needs_input', ...sourced(serviceSources.stays), stayPreferences: pref });
+    if (!ctx.checkInDate || !ctx.checkOutDate) return reply('stay', stayOverview(ctx), { kind: 'needs_input', ...sourced(serviceSources.stays), stayPreferences: pref, choiceGroups: followUpChoices('stay',ctx,{question,history,preferences}) });
     return reply('stay', accommodationAnswer(pref, question, ctx), { ...sourced(serviceSources.stays), stayPreferences: pref, links: [{ label: '按条件比较住宿', url: '/services?service=stay' }] });
   }
   if (serviceId === 'transport') {
     const ctx = extractTripContext({ question, history, preferences }, node);
-    if (!ctx.origin || !ctx.destination) return reply('transport', transportOverview(ctx), { kind: 'needs_input', ...sourced(serviceSources.transit) });
+    if (!ctx.origin || !ctx.destination) return reply('transport', transportOverview(ctx), { kind: 'needs_input', ...sourced(serviceSources.transit), choiceGroups: followUpChoices('transport',ctx,{question,history,preferences}) });
     let content = `先确认你的出发地和目的地${node ? `，当前正在看「${node.name}」` : ''}。\n高铁“溧水站”与地铁 S7“溧水站”是不同站点，搜索时请明确交通方式。\n从南京方向到溧水城区，可比较高铁到溧水站后接驳，或经机场线 S1 方向在空港新城江宁衔接 S7；具体换乘按当天线路图与列车指示安排。`;
     if (/S9|石臼湖|水上列车/i.test(question)) content = '想看跨湖列车风景，认识的是 S9 跨石臼湖路段；S7 主要服务溧水城区方向，两者不能互换。先核对你的出发站、目的地和当天运营信息，再安排换乘及到湖边的接驳。';
     if (/自驾|开车|停车/.test(question)) content = `自驾请在导航中确认「${node?.name || '你的目的地'}」的正式入口与停车场；节假日按现场指引停放。停车收费、开放车位与充电设施尚未接入实时信息，请先向景区或经营方确认。`;
@@ -111,5 +112,5 @@ export async function answerTravelService(serviceId, question, { history = [], p
   const description=days===1?'一天时间可以围绕一个片区，安排少量喜欢的地点，留出吃饭和返程时间。':days===2?'两天一晚，可以先选落脚片区，再把两天的活动和返程衔接起来。':'先选喜欢的片区，把游玩、吃饭和休息放在一起考虑。';
   const known=ctx.origin?`从${ctx.origin}出发的条件已记下。`:'';
   const questionBack=!ctx.origin?'你准备从哪里出发？':!days?'准备来几天？':'更想看山水、尝乡味，还是听民俗故事？';
-  return reply('planning',`${known}${description}${transit?'没有车的话，优先比较公共交通可达的去处，再确认最后一段接驳。':''}\n可以从天生桥的河谷、无想山的山林或周园的收藏中选一个主目的地；具体开放和预约在出发前再核对。\n${questionBack}`,{kind:'needs_input',links:[{label:'看看这些地方',url:'/nodes'},{label:'整理我的行程',url:'/itinerary'}]});
+  return reply('planning',`${known}${description}${transit?'没有车的话，优先比较公共交通可达的去处，再确认最后一段接驳。':''}\n可以从天生桥的河谷、无想山的山林或周园的收藏中选一个主目的地；具体开放和预约在出发前再核对。\n${questionBack}`,{kind:'needs_input',choiceGroups:followUpChoices('planning',ctx,{question,history,preferences}),links:[{label:'看看这些地方',url:'/nodes'},{label:'整理我的行程',url:'/itinerary'}]});
 }

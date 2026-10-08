@@ -6,13 +6,18 @@ import App from './App.jsx';
 import './index.css';
 import './styles/Experience.css';
 import './styles/Services.css';
+import './styles/TravelDesign.css';
+import './styles/Expedition.css';
+import './pages/DesignPreview.css';
+import './styles/WholeSiteDesign.css';
+import { AccountProvider } from './data/account.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ItineraryProvider>
+      <AccountProvider><ItineraryProvider>
         <App />
-      </ItineraryProvider>
+      </ItineraryProvider></AccountProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );
