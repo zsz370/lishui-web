@@ -1,0 +1,54 @@
+
+> lishui-web@0.1.0 prebuild
+> npm run check:introductions
+
+
+> lishui-web@0.1.0 check:introductions
+> node scripts/check-node-introductions.mjs
+
+简介覆盖检查通过：29/29，均有独立正文与出处。分类：{"山水":9,"美食":7,"民俗":10,"街区":3}。
+含待补充资料说明：晶桥云片糕、明觉铁画锻制技艺、石臼渔歌。此检查不等同于事实全量审核。
+
+> lishui-web@0.1.0 build
+> vite build
+
+vite v6.4.3 building for production...
+transforming...
+✓ 4688 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                    1.04 kB │ gzip:   0.64 kB
+dist/assets/JourneyThread-B011ALrr.css             0.78 kB │ gzip:   0.39 kB
+dist/assets/NodeDetail-D_YREfsJ.css                1.29 kB │ gzip:   0.51 kB
+dist/assets/Itinerary-DlJF22x8.css                 1.47 kB │ gzip:   0.60 kB
+dist/assets/DragonExperience-DQlcaJei.css          3.97 kB │ gzip:   1.24 kB
+dist/assets/Atlas-CaE0nYii.css                     5.58 kB │ gzip:   1.64 kB
+dist/assets/Guide-Bfu_Ot0e.css                     6.83 kB │ gzip:   1.85 kB
+dist/assets/Account-Sr5XgVIf.css                  11.11 kB │ gzip:   2.75 kB
+dist/assets/index-DaKq1ezq.css                   153.34 kB │ gzip:  26.95 kB
+dist/assets/latestRequest-CXPP6X6O.js              0.26 kB │ gzip:   0.19 kB
+dist/assets/PageGuide-DtoYkGbJ.js                  0.99 kB │ gzip:   0.58 kB
+dist/assets/JourneyThread-BbQLPunA.js              1.05 kB │ gzip:   0.62 kB
+dist/assets/ServiceShortcuts-BcwCK-nI.js           1.12 kB │ gzip:   0.66 kB
+dist/assets/ArrowLeft.es-nU2OC1x3.js               1.53 kB │ gzip:   0.60 kB
+dist/assets/MagnifyingGlass.es-BAmJgo_o.js         1.62 kB │ gzip:   0.65 kB
+dist/assets/X.es-xWGz-4K3.js                       1.92 kB │ gzip:   0.64 kB
+dist/assets/ArrowClockwise.es-BEnSUBOp.js          1.99 kB │ gzip:   0.76 kB
+dist/assets/DownloadSimple.es-CPUGwUkJ.js          2.00 kB │ gzip:   0.67 kB
+dist/assets/weather-BRE78A3i.js                    4.26 kB │ gzip:   2.39 kB
+dist/assets/CloudSun.es-BYxR9LdJ.js                4.83 kB │ gzip:   1.60 kB
+dist/assets/Atlas-Cc36HYUY.js                      6.36 kB │ gzip:   2.84 kB
+dist/assets/travelServices-DMUKrkXM.js             6.51 kB │ gzip:   3.48 kB
+dist/assets/NodeDetail-BjO_wzw0.js                 7.35 kB │ gzip:   3.53 kB
+dist/assets/Account-FW6fRXW5.js                    7.49 kB │ gzip:   3.11 kB
+dist/assets/Translate.es-peIf7K6C.js               8.44 kB │ gzip:   2.43 kB
+dist/assets/Nodes-BEaSajpg.js                     10.57 kB │ gzip:   3.80 kB
+dist/assets/chat-CW2j1CRg.js                      10.76 kB │ gzip:   5.48 kB
+dist/assets/DragonExperience-CXVoOOeC.js          12.39 kB │ gzip:   5.27 kB
+dist/assets/Services-BQF2A0Mt.js                  21.13 kB │ gzip:   7.49 kB
+dist/assets/Guide-B9pJyfTg.js                     22.00 kB │ gzip:   8.28 kB
+dist/assets/presetQA-C3vI95OY.js                  29.20 kB │ gzip:  14.02 kB
+dist/assets/itineraryRecommendation-iVxpHXqW.js   30.66 kB │ gzip:  14.32 kB
+dist/assets/Itinerary-DahWxC6h.js                 39.79 kB │ gzip:  14.13 kB
+dist/assets/index-fNcGOecl.js                    428.47 kB │ gzip: 149.84 kB
+✓ built in 3.87s

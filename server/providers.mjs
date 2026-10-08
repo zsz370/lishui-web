@@ -3,15 +3,18 @@ import { execFile } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { AppError, requireValue, upstream, safeUrl, textField, dates, today } from './core.mjs';
 import { readModelStream } from './modelStream.mjs';
+import { normalizeStaySearch, stayProviderSort, stayQueryKeyword, selectStayHotels } from './staySearch.mjs';
 
 export function normalizeHotels(raw, query) {
   if (raw?.status !== 0 || !Array.isArray(raw.data?.itemList)) throw new AppError('UPSTREAM_FAILED', '飞猪未返回有效的住宿查询结果', 502);
+  const selected=selectStayHotels(raw.data.itemList.slice(0,100),query);
   return { provider: '飞猪 FlyAI', checkedAt: new Date().toISOString(), query,
     scope: '按日期查询酒店/民宿及平台返回报价；未返回的房型库存、设施和取消政策须在预订页面确认',
-    hotels: raw.data.itemList.slice(0, 5).map((hotel) => ({
+    candidateCount:selected.candidateCount,ratingUnavailable:selected.ratingUnavailable,
+    hotels: selected.hotels.map((hotel) => ({
       name: String(hotel.name || '未命名住宿').slice(0, 120), address: String(hotel.address || '').slice(0, 250),
       price: hotel.price === undefined || hotel.price === null || hotel.price === '' ? null : String(hotel.price).slice(0, 40),
-      score: typeof hotel.score === 'number' || typeof hotel.score === 'string' ? hotel.score : null,
+      score:hotel.score,hotelType:hotel.hotelType,brandName:hotel.brandName,
       latitude: Number.isFinite(Number(hotel.latitude)) && hotel.latitude !== null ? Number(hotel.latitude) : null,
       longitude: Number.isFinite(Number(hotel.longitude)) && hotel.longitude !== null ? Number(hotel.longitude) : null,
       url: safeUrl(hotel.detailUrl || hotel.jumpUrl),
@@ -136,7 +139,9 @@ export function createProviders(config, fetcher = fetch, runFile = execFile, { s
       const destName = textField(query.destName || '南京市溧水区','住宿目的地',80);
       const dateRange = dates(query.checkInDate,query.checkOutDate);
       if (query.maxPrice !== undefined && (!Number.isFinite(query.maxPrice) || query.maxPrice < 1 || query.maxPrice > 100000)) throw new AppError('INVALID_INPUT','住宿预算格式不正确');
-      const args = ['search-hotels','--dest-name',destName,'--check-in-date',dateRange.checkInDate,'--check-out-date',dateRange.checkOutDate,'--sort','price_asc'];
+      const hotelPreference=normalizeStaySearch(query),keywords=stayQueryKeyword(destName,hotelPreference);
+      const args = ['search-hotels','--dest-name',destName,'--check-in-date',dateRange.checkInDate,'--check-out-date',dateRange.checkOutDate,'--sort',stayProviderSort(hotelPreference)];
+      if(keywords)args.push('--key-words',keywords);
       if (query.maxPrice !== undefined) args.push('--max-price',String(query.maxPrice));
       if (query.poiName) args.push('--poi-name',textField(query.poiName,'附近景点',80));
       if (query.hotelTypes) { if (!['酒店','民宿','客栈'].includes(query.hotelTypes)) throw new AppError('INVALID_INPUT','住宿类型不正确'); args.push('--hotel-types',query.hotelTypes); }
@@ -150,7 +155,7 @@ export function createProviders(config, fetcher = fetch, runFile = execFile, { s
         if (error) return reject(new AppError('UPSTREAM_FAILED','飞猪住宿暂时无法查询，请稍后重试',502));
         try { resolve(JSON.parse(stdout)); } catch { reject(new AppError('UPSTREAM_FAILED','飞猪住宿响应格式异常',502)); }
       }));
-      return normalizeHotels(raw,{destName,...dateRange,...(query.maxPrice ? {maxPrice:query.maxPrice} : {})});
+      return normalizeHotels(raw,{destName,...dateRange,hotelPreference,...(query.maxPrice ? {maxPrice:query.maxPrice} : {})});
     },
   };
   for(const operation of ['search','weather','places','route','translate','stays']) {

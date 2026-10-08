@@ -1,0 +1,9 @@
+{"question":"给小林写一句道歉，我忘记帮他浇花了。不要旅游例子。","kind":"casual","ms":1542,"deltaEvents":32}
+{"question":"再短一点，保留小林，只给一句成稿","kind":"casual","ms":671,"deltaEvents":10}
+{"question":"有没有酒店推荐","kind":"needs_input","ms":85,"deltaEvents":0}
+{"question":"那无想山呢","kind":"preset","ms":72,"deltaEvents":0}
+{"question":"那它的门票呢","kind":"needs_input","ms":71,"deltaEvents":0}
+{"question":"不带孩子，朋友两个人自驾","kind":"planning","ms":1656,"deltaEvents":5}
+{"question":"把上面的回答翻译成英文","kind":"translation","ms":479,"deltaEvents":0}
+{"question":"请讲讲天生桥胭脂河的漕运与运输背景","kind":"rag","ms":13988,"deltaEvents":0}
+{"question":"明天溧水天气","kind":"agent","ms":230,"deltaEvents":0}

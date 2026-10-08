@@ -1,0 +1,10 @@
+warning: in the working copy of 'scripts/audit-guide.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/single-guide.test.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'server/conversation.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'server/knowledge.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'server/recommendation.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/data/guideMemory.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/Account.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/services/api.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/services/casualConversation.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/services/itineraryRecommendation.js', LF will be replaced by CRLF the next time Git touches it

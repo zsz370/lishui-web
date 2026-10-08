@@ -1,0 +1,51 @@
+{
+  "existingChanged": [
+    "src/components/StayPlanner.jsx",
+    "src/data/guideMemory.js",
+    "src/services/casualConversation.js",
+    "src/services/chatContext.js",
+    "src/services/conversationContext.js",
+    "src/services/travelAdvice.js",
+    "server/chat.mjs",
+    "server/conversation.mjs",
+    "server/providers.mjs",
+    "server/recommendationTools.mjs",
+    "scripts/travel-agent-state.test.mjs",
+    "README.md"
+  ],
+  "newFiles": [
+    "src/data/hotelBrands.js",
+    "src/services/stayPreferences.js",
+    "src/services/stayPresentation.js",
+    "server/staySearch.mjs",
+    "scripts/hotel-quality.test.mjs"
+  ],
+  "sourceFilesTotal": 17,
+  "protectedUnchanged": [
+    "server/core.mjs",
+    "server/index.mjs",
+    "server/modelStream.mjs",
+    "server/account-api.mjs",
+    "server/accounts-config.mjs",
+    "server/supabase-accounts.mjs",
+    "src/data/presetQA.js",
+    "src/data/foundationQA.js",
+    "src/data/nodeIntroductions.js",
+    "src/data/nodes.js",
+    "src/data/agentPersona.js",
+    "package.json",
+    "package-lock.json",
+    "src/pages/Home.jsx",
+    "src/pages/Guide.jsx",
+    "src/components/ChatPanel.jsx"
+  ],
+  "chatNonHotelLogicUnchanged": true,
+  "otherProviderLogicUnchanged": true,
+  "conversationOnlyStayRoutingAdded": true,
+  "sourceCSSUnchanged": true,
+  "compiledCSSUnchanged": true,
+  "vectorIndexUnchanged": true,
+  "newDependencies": 0,
+  "deletedFiles": [],
+  "secretMatches": 0
+}

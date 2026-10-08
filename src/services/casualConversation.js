@@ -1,6 +1,9 @@
 import { agentPersona } from '../data/agentPersona.js';
 import { host } from '../data/personas.js';
 import { nodes } from '../data/nodes.js';
+import { dialogueContext } from './conversationContext.js';
+import { dialogueTopicText } from './tripConditions.js';
+import { hotelSearchIntent,hotelPreferenceFollowUp } from './stayPreferences.js';
 
 const normalize = text => String(text || '').toLowerCase().replace(/[\s,，。.？?!！、：:~～“”"']/g, '');
 const greetings = /^(?:(?:你好|您好|嗨|哈喽|hello|hi|hey|早上好|早安|下午好|晚上好|在吗|在不在|淮源姐|淮源姐姐)(?:呀|啊|呢|哦)?)+$/;
@@ -10,11 +13,14 @@ const travel = /溧水|南京|景点|景区|门票|票价|档期|非遗|酒店|�
 const aliases = ['玉带糕', '云片糕', '手抓鸡', '明觉铁画', '韩熙载', '周邦彦', 'S9'];
 const mentionsPlace = text => aliases.some(name => text.includes(name)) || nodes.some(node => node.name.split(/[·／/]/).some(name => name.length > 1 && text.includes(name)));
 const travelFollowUp = /^(?:那|这|它|再|换|改|继续|还有|有没有|有吗|可以吗|怎么样|好玩吗|好吃吗|远吗|方便吗|预算|日期|入住|退房|明天|后天|今天|几位|两人|两个人|[1-9一二三四五六七八九十]+(?:人|位)|怎么|如何|为什么|多少钱|何时|什么时候|名字|名称|历史|故事|来源|非遗|能不能|要不要|我不想)/;
-const factualQuestion = text => travel.test(text) || mentionsPlace(text) || /研学|开河|只有一天|没有车|无车|两天一晚/.test(text);
+const factualQuestion = text => {text=dialogueTopicText(text);return travel.test(text) || mentionsPlace(text) || /研学|开河|只有一天|没有车|无车|两天一晚/.test(text);};
 
 export function conversationIntent(question, history = [], { nodeId, serviceId } = {}) {
+  const context = dialogueContext({question, history, nodeId, serviceId});
+  if(context.task==='stay'&&(hotelSearchIntent(question)||hotelPreferenceFollowUp(question)))return null;
+  if (context.correction && (context.activeTask || serviceId) || context.continuation && context.task !== 'conversation') return null;
   // 排除用户对表达方式的限制；“不要引导旅游”本身不是旅行查询。
-  const topic = question.replace(/(?:不要|不必|不用|别|无需|不需要)(?:再)?(?:引导|转到|推荐|提|举|使用|用)?[^，。！？\n]{0,8}(?:旅游|旅行|景点|行程)(?:的?例子|话题|推荐)?/g, '');
+  const topic = dialogueTopicText(question);
   if (factualQuestion(topic)) return null;
   const text = normalize(question);
   if (greetings.test(text)) return 'greeting';

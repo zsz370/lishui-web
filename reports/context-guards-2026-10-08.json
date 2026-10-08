@@ -1,0 +1,30 @@
+{
+  "changedExistingFiles": [
+    "src/components/ChatPanel.jsx",
+    "src/data/chatRouting.js",
+    "src/data/guideMemory.js",
+    "src/data/guideSession.jsx",
+    "src/pages/Guide.jsx",
+    "src/services/casualConversation.js",
+    "src/services/chat.js",
+    "src/services/chatContext.js",
+    "src/services/itineraryRecommendation.js",
+    "server/chat.mjs",
+    "server/conversation.mjs",
+    "README.md"
+  ],
+  "newImplementationFiles": [
+    "src/services/conversationContext.js",
+    "server/dialogueRouting.mjs",
+    "scripts/dialogue-context.test.mjs"
+  ],
+  "coreUnchanged": true,
+  "apiValidationUnchanged": true,
+  "existingChatSafetyGuardsUnchanged": true,
+  "reviewedQaUnchanged": true,
+  "knowledgeIndexUnchanged": true,
+  "designAndMediaHashesUnchanged": 60,
+  "accountsUnchanged": true,
+  "dependenciesUnchanged": true,
+  "secretMatches": 0
+}

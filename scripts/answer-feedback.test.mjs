@@ -30,18 +30,18 @@ test('游客文案覆盖新增语料，吃法不夹非遗元数据，传说和�
   assert.doesNotMatch(visitorAnswerCopy['洪蓝手抓鸡怎么吃？'],/非遗|名录|散养|皮脆/);
 });
 
-test('正文确实先于HTTP最终结果到达；首条回答不等待其他任务汇总',async(t)=>{
+test('普通聊天的真实token先于HTTP最终结果到达，校验过的知识完成事件另行展示',async(t)=>{
   let release; const gate=new Promise((resolve)=>{release=resolve;});t.after(()=>release());
-  const provider={generate:async()=>'{"selectedIds":["K1"]}',generateStream:async(_, {onDelta})=>{onDelta('天生桥');await gate;onDelta('与人工开河有关。');return '天生桥与人工开河有关。';}};
+  const provider={generateStream:async(_, {onDelta})=>{onDelta('你好');await gate;onDelta('，我在呢。');return '你好，我在呢。';}};
   const base=await listen(t,createApi({config:{...getConfig({}),rateLimit:100},providers:provider,knowledge,log:()=>{}}));
-  const response=await fetch(base+'/api/chat/stream',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(input)});
+  const response=await fetch(base+'/api/chat/stream',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:'你好'})});
   let finished=false,first;
   const seen=new Promise((resolve)=>{first=resolve;});
   const entries=[];
   const resultPromise=readChatEvents(response,()=>{},(entry)=>{entries.push(entry);if(entry.type==='delta')first();}).then((r)=>{finished=true;return r;});
   await Promise.race([seen,delay(1500).then(()=>{throw Error('正文没有提前到达');})]);assert.equal(finished,false);
-  assert.equal(entries[0].delta,'天生桥');release();
-  const result=await resultPromise;assert.equal(result.content,'天生桥与人工开河有关。');assert(entries.some((e)=>e.type==='complete'));
+  assert.equal(entries[0].delta,'你好');release();
+  const result=await resultPromise;assert.equal(result.content,'你好，我在呢。');assert(entries.some((e)=>e.type==='complete'));
 });
 
 test('真实模型HTTP SSE分片解码，不展示思考字段；请求携带stream:true',async(t)=>{

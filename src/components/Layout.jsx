@@ -30,7 +30,7 @@ export default function Layout({ children }) {
     previousPath.current = pathname;
     const main = document.getElementById('main-content');
     const focus = () => {
-      const target = hash ? document.getElementById(hash.slice(1)) : main?.querySelector('h1');
+      const target = hash ? document.getElementById(hash.slice(1)) : [...(main?.querySelectorAll('h1')||[])].find(element=>element.getClientRects().length>0);
       if (!target) return false;
       target.tabIndex = -1;
       target.focus({ preventScroll: true });

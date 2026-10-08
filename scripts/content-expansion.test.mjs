@@ -45,8 +45,7 @@ test('六类设施各三项，仅为行前建议，完整问题走固定问答�
 
 test('缺来源的节点及具体设施事实都隔离，未混入获审语料或问答', async () => {
   const approved = new Set([...approvedQA, ...approvedServiceQA].map(qa => qa.id));
-  const corpus = JSON.parse(await readFile(new URL('../docs/corpus-audit/approved-corpus.json', import.meta.url), 'utf8'));
-  const pending = JSON.parse(await readFile(new URL('../docs/corpus-audit/pending-review.json', import.meta.url), 'utf8'));
+  const {reviewedChunks,pendingReview}=await import('../src/data/reviewedCorpus.js');const corpus={chunks:reviewedChunks},pending={items:pendingReview};
   for (const qa of [...expansionPendingNodeQA, ...expansionPendingServiceQA]) {
     assert.equal(qa.status, 'pending'); assert(qa.reason); assert.equal(qa.a, '');
     assert(!approved.has(qa.id)); assert(!corpus.chunks.some(chunk => chunk.id === qa.id));

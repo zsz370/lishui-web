@@ -1,0 +1,22 @@
+
+> lishui-web@0.1.0 audit:guide
+> node scripts/audit-guide.mjs
+
+{
+  "checkedAt": "2026-10-08T11:47:51.306Z",
+  "architecture": "single-guide",
+  "guide": "01_huaiyuanjie",
+  "nodes": 29,
+  "services": 8,
+  "index": {
+    "ready": true,
+    "chunks": 127,
+    "dimensions": 1024,
+    "model": "BAAI/bge-m3",
+    "hash": "50eb0894f9da306ac52fb72e64a1b476b8f92a2160a0a347b4afc4aa715f1b38",
+    "builtAt": "2026-10-07T07:45:45.044Z"
+  },
+  "indexAction": "索引可用",
+  "factsUnchanged": true,
+  "legacyEvaluation": "旧多角色比较实验保留历史，当前不再使用其结论或入口"
+}

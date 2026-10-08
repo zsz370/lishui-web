@@ -1,8 +1,8 @@
 import { readFile, writeFile, mkdir, rename } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { AppError } from './core.mjs';
+import { reviewedChunks } from '../src/data/reviewedCorpus.js';
 
-const corpusPath = new URL('../docs/corpus-audit/approved-corpus.json',import.meta.url);
 const indexPath = new URL('../runtime.local/knowledge-index.json',import.meta.url);
 export const corpusHash = (chunks) => createHash('sha256').update(JSON.stringify(chunks)).digest('hex');
 export const vectorText = (chunk) => `${chunk.question}\n${chunk.answer}`;
@@ -12,7 +12,7 @@ export function cosine(a,b) {
   return aa && bb ? dot/Math.sqrt(aa*bb) : 0;
 }
 export async function readCorpus() {
-  const raw = JSON.parse(await readFile(corpusPath,'utf8'));
+  const raw = { chunks: reviewedChunks };
   if (!raw.chunks?.every((chunk) => chunk.status === 'approved' && chunk.sources.length > 0)) throw new Error('Only approved, sourced chunks can be indexed');
   return raw.chunks;
 }

@@ -19,6 +19,8 @@ import { visitorAnswer } from '../src/data/visitorAnswerCopy.js';
 import { followUpChoices } from '../src/services/followUpChoices.js';
 import { answerConversation } from './conversation.mjs';
 import { answerRecommendation } from './recommendation.mjs';
+import { routeDialogue } from './dialogueRouting.mjs';
+import { staySearchDescription, stayHotelLine, stayEmptyReason } from '../src/services/stayPresentation.js';
 
 export const emergency = /救命|晕倒|无法呼吸|严重受伤|火灾|遇险|落水|孩子走失|孩子走丢|报警|急救|emergency/i;
 const timeSensitive = /今天|明天|本周|今年|最新|门票|票价|价格|多少钱|开放|预约|活动|班次|末班|报名|采摘/;
@@ -50,6 +52,9 @@ export function createChat(providers,knowledge) {
     checkCancelled();
     const question=input.question;
     if(emergency.test(question)) return answerTravelService('support',question);
+    const routed=await routeDialogue(input,providers,{signal});
+    if(routed.reply)return routed.reply;
+    input=routed.input;
     const recommendation=await answerRecommendation(input,providers,{signal,onProgress,onAnswer,disableKnowledge});
     if(recommendation)return recommendation;
     const foundation=queryServiceQA(question);
@@ -92,10 +97,10 @@ export function createChat(providers,knowledge) {
       if(id==='stay') {
         if(!ctx.checkInDate||!ctx.checkOutDate) return serviceReply(id,stayOverview(ctx),{kind:'needs_input',choiceGroups:followUpChoices('stay',ctx,input,today())});
         try { dates(ctx.checkInDate,ctx.checkOutDate); } catch(error) { return serviceReply(id,error.message,{kind:'needs_input',choiceGroups:followUpChoices('stay',{...ctx,checkInDate:undefined},input,today())}); }
-        const data=await providers.stays({destName:'南京市溧水区',checkInDate:ctx.checkInDate,checkOutDate:ctx.checkOutDate,maxPrice:ctx.maxPrice,poiName:node?.name?.split('·')[0],...(/民宿/.test(question)?{hotelTypes:'民宿'}:{})});
+        const data=await providers.stays({destName:'南京市溧水区',checkInDate:ctx.checkInDate,checkOutDate:ctx.checkOutDate,maxPrice:ctx.maxPrice,poiName:ctx.destination,hotelPreference:ctx.hotelPreference,...(/民宿/.test(question)?{hotelTypes:'民宿'}:{})});
         stayResult=data;
-        const listings=data.hotels.map((hotel,index)=>`${index+1}. ${hotel.name}：${hotel.price||'平台未提供报价'}\n${hotel.address}`).join('\n\n');
-        return serviceReply(id,`${ctx.checkInDate}入住，${ctx.checkOutDate}退房${ctx.maxPrice?`，每晚预算${ctx.maxPrice}元以内`:''}。\n\n${listings||'这次查询没有找到匹配的住宿，可调整预算或片区。'}\n\n平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。${ctx.companions==='seniors'?'带长辈还需向酒店确认电梯、入口台阶和浴室防滑。':''}\n查询时间：${data.checkedAt}`,{source:data.provider,links:data.hotels.filter((hotel)=>hotel.url).map((hotel)=>({label:hotel.name,url:hotel.url})),stayData:data,evidenceGroups:liveEvidence(data.hotels.filter(hotel=>hotel.url).map(hotel=>({label:hotel.name,url:hotel.url})),'按本次日期与预算查询；平台报价不代表锁房或库存承诺。')});
+        const listings=data.hotels.map(stayHotelLine).join('\n\n');
+        return serviceReply(id,`${ctx.checkInDate}入住，${ctx.checkOutDate}退房${ctx.maxPrice?`，每晚预算${ctx.maxPrice}元以内`:''}。${staySearchDescription(data)}\n\n${listings||stayEmptyReason(data)}\n\n${data.ratingUnavailable&&data.hotels.length?'平台本轮未提供评分数值，可在酒店详情页比较住客评价。':''}平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。${ctx.companions==='seniors'?'带长辈还需向酒店确认电梯、入口台阶和浴室防滑。':''}\n查询时间：${data.checkedAt}`,{source:data.provider,links:data.hotels.filter((hotel)=>hotel.url).map((hotel)=>({label:hotel.name,url:hotel.url})),stayData:data,evidenceGroups:liveEvidence(data.hotels.filter(hotel=>hotel.url).map(hotel=>({label:hotel.name,url:hotel.url})),'按本次日期与预算查询；平台报价不代表锁房或库存承诺。')});
       }
       return answerTravelService(id,question,{history:input.history,preferences:input.preferences,node});
     }));

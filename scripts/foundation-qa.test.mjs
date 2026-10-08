@@ -78,12 +78,12 @@ test('未经审核的网络传说摘录被过滤，选中引用不附带无关�
 });
 
 test('派生修复完整保留187行出处，童谣待核不进入批准索引', async () => {
-  const data=JSON.parse(await readFile(new URL('../docs/corpus-audit/normalized-qa.json',import.meta.url),'utf8'));
+  const data=JSON.parse(await readFile(new URL('./fixtures/normalization-review.json',import.meta.url),'utf8'));
   assert.equal(data.count,184);assert.equal(data.repairedRawRows,6);
   const repaired=data.items.filter((item)=>item.repair);
   assert.equal(repaired.length,3);assert.equal(repaired.filter((item)=>item.status==='approved').length,2);
   assert.equal(repaired.find((item)=>item.question==='来首溧水童谣？').status,'pending');
-  const corpus=JSON.parse(await readFile(new URL('../docs/corpus-audit/approved-corpus.json',import.meta.url),'utf8'));
+  const {reviewedChunks:chunks}=await import('../src/data/reviewedCorpus.js');const corpus={chunks,count:chunks.length};
   assert.equal(corpus.count,approvedQA.length+approvedServiceQA.length);
   assert(!corpus.chunks.some((chunk)=>chunk.question==='来首溧水童谣？'));
 });

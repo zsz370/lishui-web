@@ -1,0 +1,313 @@
+{
+  "base": "http://127.0.0.1:15186",
+  "sourceDomain": "lsguide.cn",
+  "passed": true,
+  "ready": {
+    "ready": true,
+    "index": {
+      "ready": true,
+      "chunks": 127,
+      "dimensions": 1024,
+      "model": "BAAI/bge-m3",
+      "hash": "50eb0894f9da306ac52fb72e64a1b476b8f92a2160a0a347b4afc4aa715f1b38",
+      "builtAt": "2026-10-07T07:45:45.044Z"
+    },
+    "llm": {
+      "provider": "SiliconFlow",
+      "model": "Qwen/Qwen3.5-35B-A3B",
+      "configured": true
+    },
+    "tools": {
+      "webSearch": true,
+      "weather": true,
+      "map": true,
+      "translation": true,
+      "stays": true
+    }
+  },
+  "account": {
+    "configured": true,
+    "user": null
+  },
+  "requests": 9,
+  "rows": [
+    {
+      "question": "给小林写一句道歉，我忘记帮他浇花了。不要旅游例子。",
+      "kind": "casual",
+      "content": "小林，对不起，我忙忘了帮你浇花。\n\n需要我帮你把这句话扩充成一段诚恳的留言，或者想个补救的小主意吗？",
+      "trace": [
+        {
+          "taskId": "conversation",
+          "agentId": "01_huaiyuanjie",
+          "tools": [],
+          "status": "completed",
+          "label": "正在回答",
+          "startedAt": "2026-10-08T12:15:19.698Z",
+          "checkedAt": "2026-10-08T12:15:21.160Z",
+          "durationMs": 1462
+        }
+      ],
+      "firstDeltaMs": 646,
+      "deltaEvents": 32,
+      "completeMs": 1542
+    },
+    {
+      "question": "再短一点，保留小林，只给一句成稿",
+      "history": [
+        {
+          "role": "user",
+          "content": "给小林写一句道歉，我忘记帮他浇花了。不要旅游例子。"
+        },
+        {
+          "role": "expert",
+          "content": "小林，对不起，我忙忘了帮你浇花。\n\n需要我帮你把这句话扩充成一段诚恳的留言，或者想个补救的小主意吗？"
+        }
+      ],
+      "kind": "casual",
+      "content": "小林，抱歉，我忘了给你浇花。",
+      "trace": [
+        {
+          "taskId": "conversation",
+          "agentId": "01_huaiyuanjie",
+          "tools": [],
+          "status": "completed",
+          "label": "正在回答",
+          "startedAt": "2026-10-08T12:15:21.236Z",
+          "checkedAt": "2026-10-08T12:15:21.829Z",
+          "durationMs": 593
+        }
+      ],
+      "firstDeltaMs": 418,
+      "deltaEvents": 10,
+      "completeMs": 671
+    },
+    {
+      "question": "有没有酒店推荐",
+      "history": [
+        {
+          "role": "user",
+          "content": "天生桥门票多少钱"
+        },
+        {
+          "role": "expert",
+          "content": "无想山也适合游览。"
+        }
+      ],
+      "kind": "needs_input",
+      "content": "可以比较溧水城区、乡村和山居，结合想去的地点选择接驳方便的片区。\n请补充入住日期和退房日期，我继续找酒店。",
+      "context": {
+        "weatherDate": "2026-10-08",
+        "weatherDateAssumed": true,
+        "location": "lishui",
+        "locationAssumed": false,
+        "mode": "transit",
+        "to": "en",
+        "correction": false,
+        "companions": "general"
+      },
+      "trace": [
+        {
+          "taskId": "stay",
+          "agentId": "expert_stay",
+          "status": "needs_input",
+          "tools": [
+            "stay_search"
+          ],
+          "dependsOn": [],
+          "startedAt": "2026-10-08T12:15:21.909Z",
+          "checkedAt": "2026-10-08T12:15:21.910Z",
+          "durationMs": 1
+        }
+      ],
+      "deltaEvents": 0,
+      "completeMs": 85
+    },
+    {
+      "question": "那无想山呢",
+      "history": [
+        {
+          "role": "user",
+          "content": "天生桥门票多少钱"
+        },
+        {
+          "role": "expert",
+          "content": "天生桥成人门票参考价18元。"
+        }
+      ],
+      "kind": "preset",
+      "content": "2026年10月5日核对的天池参考价：成人10元，儿童、老人、学生优待票半价，即5元。优惠资格和证件请向景区确认，其他区域或项目以当天公告为准。你准备去天池，还是以山林慢步为主？",
+      "deltaEvents": 0,
+      "completeMs": 72
+    },
+    {
+      "question": "那它的门票呢",
+      "history": [
+        {
+          "role": "user",
+          "content": "有什么景点推荐"
+        },
+        {
+          "role": "expert",
+          "content": "天生桥、无想山和石臼湖。"
+        }
+      ],
+      "kind": "needs_input",
+      "content": "你想了解哪一处？选一站，我接着回答。",
+      "deltaEvents": 0,
+      "completeMs": 71
+    },
+    {
+      "question": "不带孩子，朋友两个人自驾",
+      "history": [
+        {
+          "role": "user",
+          "content": "溧水亲子一日游"
+        },
+        {
+          "role": "expert",
+          "content": "可以先整理亲子路线。"
+        }
+      ],
+      "kind": "planning",
+      "content": "溧水一日游推荐\n按你刚补充的条件继续安排。推荐把山水与乡味放进这趟旅行，按下面的顺序慢慢逛。\n\n上午｜天生桥·胭脂河\n天生桥与胭脂河共同构成一处人文山水景观。把石桥、两侧岩壁与河谷连起来看，认识开河通航的历史。\n\n午间｜乡味午餐 · 洪蓝手抓鸡\n洪蓝手抓鸡是溧水洪蓝的代表乡味之一，地方餐桌和制作手艺是它的两重看点。午餐推荐尝这道地方菜，吃饭后留一点休息时间。\n\n下午｜无想山\n无想山既有山林景致，也保存着无想寺、韩熙载读书台和摩崖石刻等人文线索。选山林慢步或人文寻访，留意沿途遗址说明与石刻。\n\n按上午、午间、下午这个节奏走，最后留出返程时间。想换成另一种玩法，告诉我想保留或替换哪一站。",
+      "trace": [
+        {
+          "taskId": "knowledge",
+          "agentId": "expert_culture",
+          "tools": [
+            "knowledge_retrieval"
+          ],
+          "dependsOn": [],
+          "status": "completed",
+          "startedAt": "2026-10-08T12:15:22.132Z",
+          "checkedAt": "2026-10-08T12:15:22.137Z",
+          "durationMs": 5
+        },
+        {
+          "taskId": "planning_summary",
+          "agentId": "expert_planning",
+          "tools": [
+            "synthesis"
+          ],
+          "dependsOn": [
+            "knowledge"
+          ],
+          "status": "completed",
+          "startedAt": "2026-10-08T12:15:22.137Z",
+          "method": "model_selection",
+          "checkedAt": "2026-10-08T12:15:23.712Z",
+          "durationMs": 1575
+        }
+      ],
+      "firstDeltaMs": 80,
+      "deltaEvents": 5,
+      "completeMs": 1656
+    },
+    {
+      "question": "把上面的回答翻译成英文",
+      "history": [
+        {
+          "role": "user",
+          "content": "你好"
+        },
+        {
+          "role": "expert",
+          "content": "小林，抱歉啊，我忘记帮你浇花了。"
+        }
+      ],
+      "kind": "translation",
+      "content": "Xiaolin, I'm sorry, I forgot to water the flowers for you.",
+      "context": {
+        "weatherDate": "2026-10-08",
+        "weatherDateAssumed": true,
+        "location": "lishui",
+        "locationAssumed": true,
+        "mode": "transit",
+        "to": "en",
+        "correction": false,
+        "companions": "general"
+      },
+      "trace": [
+        {
+          "taskId": "etiquette",
+          "agentId": "expert_translate",
+          "status": "completed",
+          "tools": [
+            "translate"
+          ],
+          "dependsOn": [],
+          "startedAt": "2026-10-08T12:15:23.790Z",
+          "checkedAt": "2026-10-08T12:15:24.196Z",
+          "durationMs": 406
+        }
+      ],
+      "deltaEvents": 0,
+      "completeMs": 479
+    },
+    {
+      "question": "请讲讲天生桥胭脂河的漕运与运输背景",
+      "nodeId": "n_tsq",
+      "kind": "rag",
+      "content": "胭脂河是明初开凿的，目的是把江南水路与南京连起来，方便运粮食和物资，也能减少绕长江的风险。天生桥就在这段漕运背景里。\n\n您想了解胭脂河的具体开凿过程，还是天生桥在运输中的具体作用？",
+      "context": {
+        "weatherDate": "2026-10-08",
+        "weatherDateAssumed": true,
+        "location": "lishui",
+        "locationAssumed": false,
+        "mode": "transit",
+        "to": "en",
+        "correction": false,
+        "companions": "general"
+      },
+      "trace": [
+        {
+          "taskId": "knowledge",
+          "agentId": "expert_culture",
+          "status": "completed",
+          "tools": [
+            "knowledge_retrieval",
+            "web_search"
+          ],
+          "dependsOn": [],
+          "startedAt": "2026-10-08T12:15:24.271Z",
+          "checkedAt": "2026-10-08T12:15:38.183Z",
+          "durationMs": 13912
+        }
+      ],
+      "deltaEvents": 0,
+      "completeMs": 13988
+    },
+    {
+      "question": "明天溧水天气",
+      "kind": "agent",
+      "content": "溧水城区 2026-10-09：晴，14.59—25.7℃，降水概率0%。\n按体感增减衣物，户外行程同时留意现场天气。\n查询时间：2026/10/8 20:15:38（北京时间）。城区网格预报不能代替山间、湖边现场判断。",
+      "context": {
+        "weatherDate": "2026-10-09",
+        "weatherDateAssumed": false,
+        "location": "lishui",
+        "locationAssumed": false,
+        "mode": "transit",
+        "to": "en",
+        "correction": false,
+        "companions": "general"
+      },
+      "trace": [
+        {
+          "taskId": "weather",
+          "agentId": "expert_weather",
+          "status": "completed",
+          "tools": [
+            "weather_forecast"
+          ],
+          "dependsOn": [],
+          "startedAt": "2026-10-08T12:15:38.291Z",
+          "checkedAt": "2026-10-08T12:15:38.430Z",
+          "durationMs": 139
+        }
+      ],
+      "deltaEvents": 0,
+      "completeMs": 230
+    }
+  ],
+  "publicHttpsClaimed": false
+}

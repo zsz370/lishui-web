@@ -13,6 +13,7 @@ import { queryTicketQA, ticketOnlyQuestion } from '../data/ticketReference.js';
 import { enhanceGuideReply, guideFallback } from './guideSuggestions.js';
 import { casualReply, conversationIntent, casualFallback } from './casualConversation.js';
 import { isItineraryRecommendation, prepareRecommendation, recommendationReply } from './itineraryRecommendation.js';
+import { requestHistory } from './conversationContext.js';
 
 export async function ask({ nodeId, question, expertId, serviceId, history, preferences, signal, onProgress, onAnswer }) {
   signal?.throwIfAborted();
@@ -29,9 +30,9 @@ export async function ask({ nodeId, question, expertId, serviceId, history, pref
   const urgent = /救命|晕倒|无法呼吸|严重受伤|火灾|遇险|落水|孩子走失|孩子走丢|报警|急救|emergency/i.test(question);
   if (urgent) return answerTravelService('support', question);
   if (backendEnabled) {
-    return enhanceGuideReply(await apiChatStream({ nodeId: node?.id, question, expertId,
+    return enhanceGuideReply(await apiChatStream({ nodeId, question, expertId,
       serviceId: mentioned ? undefined : serviceId, preferences,
-      history: (history || []).filter((message) => !message.incomplete && ['user', 'expert', 'assistant'].includes(message.role)).slice(-6).map(({ role, content }) => ({ role, content: content.slice(0, 4000) })),
+      history: requestHistory(history,{question,nodeId,serviceId,preferences}).map(({ role, content }) => ({ role, content: content.slice(0, 4000) })),
     }, { signal, onProgress, onAnswer }),node?.id);
   }
   if (isItineraryRecommendation({question, nodeId, serviceId, history, preferences})) return recommendationReply(prepareRecommendation({question, nodeId, serviceId, history, preferences}));

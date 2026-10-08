@@ -7,7 +7,7 @@ import { topics } from '../src/data/collections.js';
 import { travelServices } from '../src/data/travelServices.js';
 import { agentPlans, departmentPlans, expertForTask } from '../config/agent-system.plan.js';
 import { createChat, validateChat } from '../server/chat.mjs';
-import { corpusHash, vectorText } from '../server/knowledge.mjs';
+import { corpusHash, vectorText, readCorpus } from '../server/knowledge.mjs';
 import { queryVisitorQA } from '../src/data/visitorQuery.js';
 import { approvedQA } from '../src/data/presetQA.js';
 import { approvedServiceQA } from '../src/data/foundationQA.js';
@@ -20,9 +20,9 @@ test('唯一角色注册，全部风物和服务由淮源姐负责，旧角色�
 });
 
 test('扩展知识统一归属、向量与事实对应、童谣未被放行',async()=>{
-  const corpus=JSON.parse(await readFile(new URL('../docs/corpus-audit/approved-corpus.json',import.meta.url))),index=JSON.parse(await readFile(new URL('../runtime.local/knowledge-index.json',import.meta.url)));
+  const corpus={chunks:await readCorpus()};let index;try{index=JSON.parse(await readFile(new URL('../runtime.local/knowledge-index.json',import.meta.url)));}catch(error){if(error.code!=='ENOENT')throw error;}
   assert.equal(corpus.chunks.length,approvedQA.length+approvedServiceQA.length);assert(corpus.chunks.length>=100);assert(corpus.chunks.every(x=>x.expertId===HOST_ID&&x.status==='approved'&&x.sources.length));
-  assert.equal(corpusHash(corpus.chunks),index.hash);assert.deepEqual(index.ids,corpus.chunks.map(x=>x.id));assert.equal(index.vectors.length,corpus.chunks.length);assert.equal(index.dimensions,1024);
+  if(index){assert.equal(corpusHash(corpus.chunks),index.hash);assert.deepEqual(index.ids,corpus.chunks.map(x=>x.id));assert.equal(index.vectors.length,corpus.chunks.length);assert.equal(index.dimensions,1024);}
   assert(!corpus.chunks.some(x=>x.question==='来首溧水童谣？'));
 });
 

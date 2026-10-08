@@ -3,6 +3,8 @@ import { getTravelService, recommendStays, serviceSources, stayDefaults } from '
 import { getWeather, selectWeatherDay, weatherText, weatherAdvice } from './weather.js';
 import { extractTripContext, stayOverview, transportOverview } from './chatContext.js';
 import { followUpChoices } from './followUpChoices.js';
+import { routingText } from './tripConditions.js';
+import { hotelSearchIntent } from './stayPreferences.js';
 
 const rules = [
   ['support', /丢失|丢了|遗失|失物|投诉|退票|退改|退款|求助|报警|急救|发票|厕所|洗手间|卫生间|母婴室|lost|refund|help/i],
@@ -17,7 +19,9 @@ const rules = [
 const emergency = /救命|晕倒|无法呼吸|严重受伤|火灾|遇险|落水|孩子走失|孩子走丢|报警|急救|emergency/i;
 export function routeServices(question, fallback) {
   if (emergency.test(question)) return ['support'];
+  question=routingText(question);
   let matches = rules.filter(([, pattern]) => pattern.test(question)).map(([id]) => id);
+  if(hotelSearchIntent(question)&&!matches.includes('stay'))matches.unshift('stay');
   if (matches.includes('stay')) matches = matches.filter((id) => id !== 'accessibility');
   if (matches.includes('etiquette') && /英文|英语|翻译|english|translate/i.test(question) && !/丢失|丢了|投诉|退款/.test(question)) matches = matches.filter((id) => id !== 'support');
   // A rain query includes the forecast and adjustment advice in the weather response.

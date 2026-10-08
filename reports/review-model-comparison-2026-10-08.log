@@ -1,0 +1,12 @@
+{"model":"Qwen/Qwen3.5-4B","case":"改写不丢事件且遵守只给成稿","passed":true,"ms":471}
+{"model":"Qwen/Qwen3.5-9B","case":"改写不丢事件且遵守只给成稿","passed":true,"ms":705}
+{"model":"Qwen/Qwen3.5-35B-A3B","case":"改写不丢事件且遵守只给成稿","passed":true,"ms":708}
+{"model":"Qwen/Qwen3.5-4B","case":"问候不触发资料或天气","passed":true,"ms":545}
+{"model":"Qwen/Qwen3.5-9B","case":"问候不触发资料或天气","passed":true,"ms":484}
+{"model":"Qwen/Qwen3.5-35B-A3B","case":"问候不触发资料或天气","passed":true,"ms":729}
+{"model":"Qwen/Qwen3.5-35B-A3B","case":"旅游历史后新概念问题独立解释","passed":true,"ms":3262}
+{"model":"Qwen/Qwen3.5-4B","case":"旅游历史后新概念问题独立解释","passed":true,"ms":5452}
+{"model":"Qwen/Qwen3.5-35B-A3B","case":"两天知识库路线真实完成而非模型失败兜底","passed":true,"ms":2424}
+{"model":"Qwen/Qwen3.5-9B","case":"旅游历史后新概念问题独立解释","passed":true,"ms":6420}
+{"model":"Qwen/Qwen3.5-9B","case":"两天知识库路线真实完成而非模型失败兜底","passed":false,"ms":8707}
+{"model":"Qwen/Qwen3.5-4B","case":"两天知识库路线真实完成而非模型失败兜底","passed":false,"ms":25007}

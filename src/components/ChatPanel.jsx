@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { PaperPlaneRight, SpeakerHigh, Stop, ArrowClockwise } from '@phosphor-icons/react';
 import { host } from '../data/personas.js';
 import { useGuideSession } from '../data/guideSessionContext.js';
-import { planChat } from '../data/chatRouting.js';
+import { dialogueContext } from '../services/conversationContext.js';
 import { agentPersona } from '../data/agentPersona.js';
 import GuideCollaboration, { ExpertProgress } from './GuideCollaboration.jsx';
 import { createAnswerSpeech } from '../services/answerSpeech.js';
@@ -23,15 +23,10 @@ export default function ChatPanel() {
   useLayoutEffect(()=>{
     const element=scroll.current, saved={...session.scrollState.current};
     if(!element)return;
-    // 等路由内容完成布局再恢复，忽略挂载期间的临时零位置滚动事件。
-    const frame=window.requestAnimationFrame(()=>{
-      element.scrollTop=saved.pinned?element.scrollHeight:saved.top;
-      atEnd.current=saved.pinned;firstScroll.current=false;
-    });
-    return ()=>{
-      window.cancelAnimationFrame(frame);
-      if(!firstScroll.current)session.scrollState.current={top:element.scrollTop,pinned:atEnd.current};
-    };
+    // Layout is committed here; restore before a navigation or background-tab frame can intervene.
+    element.scrollTop=saved.pinned?element.scrollHeight:saved.top;
+    atEnd.current=saved.pinned;firstScroll.current=false;
+    // Unmounting can zero DOM geometry; onScroll already saved the last visible position.
   },[]);
   useEffect(()=>{speechController.current=createAnswerSpeech({onState:setSpeech});return ()=>speechController.current?.dispose();},[]);
   useEffect(()=>{if(session.pending)speechController.current?.stop();},[session.pending]);
@@ -56,27 +51,28 @@ export default function ChatPanel() {
     if(forceEnd.current||atEnd.current||!session.messages.length){element.scrollTop=session.messages.length?element.scrollHeight:0;atEnd.current=true;forceEnd.current=false;setNewContent(false);}
     else setNewContent(true);
   },[session.messages,session.drafts,session.tasks,viewport.active,viewport.height]);
-  const rememberScroll=()=>{const element=scroll.current;if(!element||firstScroll.current)return;atEnd.current=nearMessageEnd(element);session.scrollState.current={top:element.scrollTop,pinned:atEnd.current};if(atEnd.current)setNewContent(false);};
+  const rememberScroll=()=>{const element=scroll.current;if(!element||firstScroll.current||!element.getClientRects().length||!element.clientHeight)return;atEnd.current=nearMessageEnd(element);session.scrollState.current={top:element.scrollTop,pinned:atEnd.current};if(atEnd.current)setNewContent(false);};
   const send=(text,options={})=>{
     speechController.current?.stop();forceEnd.current=true;
-    const q=String(text??session.question).trim(), mentioned=planChat({question:q}).mentioned[0];session.send(text,options);
-    const nodeId=mentioned?.id||options.nodeId;
+    const q=String(text??session.question).trim(), context=dialogueContext({question:q,history:session.messages,nodeId:params.get('node')});session.send(text,options);
+    const nodeId=options.nodeId;
+    if(context.excluded.includes(params.get('node'))){const next=new URLSearchParams(params);next.delete('node');setParams(next,{replace:true});}
     if(nodeId&&params.get('node')!==nodeId){const next=new URLSearchParams(params);next.set('node',nodeId);next.delete('service');setParams(next,{replace:true});}
   };
   const choose=choice=>send(choice.question,{preferences:choice.preferences,planPatch:choice.planPatch});
   const adopt=recommended=>{speechController.current?.stop();updatePlan(adoptRecommendation(recommended,plan));navigate('/itinerary');};
   return <div ref={panel} className={'guide-conversation'+(viewport.active?' is-keyboard-open':'')} style={{'--chat-visible-height':viewport.height+'px','--chat-viewport-top':viewport.top+'px'}}>
     <aside className="guide-presence"><GuidePortrait persona={host} /><h2>淮源姐</h2><p>{session.pending?'正在为你整理答复':speech.status==='playing'?'正在朗读':'你的溧水旅行向导'}</p><small>数字人形象为AI生成</small></aside>
-    <div className="guide-dialogue"><div className="guide-dialogue-top"><span>从一个问题开始，慢慢聊。</span><button type="button" onClick={()=>{speechController.current?.stop();session.clear();document.getElementById('huaiyuan-question')?.focus();}}>新对话</button></div>
+    <div className="guide-dialogue"><div className="guide-dialogue-top"><span>从一个问题开始，慢慢聊。</span><button type="button" onClick={()=>{speechController.current?.stop();session.clear();const next=new URLSearchParams(params);next.delete('node');next.delete('service');setParams(next,{replace:true});document.getElementById('huaiyuan-question')?.focus();}}>新对话</button></div>
       <div className="guide-dialogue-messages" ref={scroll} onScroll={rememberScroll} role="log" aria-label="与淮源姐的对话记录" aria-live="polite" aria-busy={session.pending}>
         {!session.messages.length&&<div className="guide-chat-welcome"><h2>{agentPersona.opening.welcome}</h2><p>{agentPersona.opening.capabilities}</p><p>{agentPersona.opening.invitation}</p><div>{agentPersona.opening.examples.map(q=><button type="button" key={q} onClick={()=>send(q)}>{q}</button>)}</div></div>}
         {session.messages.map((m,i)=><Message key={i} message={m} speech={speech.messageId===i?speech:null} onPlay={()=>speechController.current?.play(i,m.content.replace(/\[(?:K|W)\d+\]/g,''))} onStop={()=>speechController.current?.stop()} pending={session.pending} onSend={send} onChoose={choose} onAdopt={adopt} plan={plan}/>)}
         {session.drafts.length>0&&<div className="guide-response-draft">{session.drafts.map((m,i)=><Message key={i} message={m} pending />)}</div>}
-        {session.pending&&<div className="guide-query-state" role="status"><p>{session.drafts.length?'正在继续整理…':'正在查阅，请稍等。'}</p><ExpertProgress tasks={session.tasks}/><button type="button" onClick={session.cancel}>停止查询</button></div>}
+      {session.pending&&<div className="guide-query-state" role="status"><p>{session.tasks.some(task=>task.taskId==='conversation')?'正在回答…':session.drafts.length?'正在继续整理…':'正在理解你的问题…'}</p><ExpertProgress tasks={session.tasks}/><button type="button" onClick={session.cancel}>停止查询</button></div>}
       </div>
       {newContent&&<button type="button" className="guide-new-content" onClick={()=>{atEnd.current=true;scroll.current.scrollTop=scroll.current.scrollHeight;rememberScroll();}}>查看最新内容</button>}
       {session.retry&&!session.pending&&<div className="guide-retry"><button type="button" aria-label="使用上次的条件重试这个问题" onClick={()=>{forceEnd.current=true;session.send(session.retry.question,{retry:true});}}><ArrowClockwise size={16} aria-hidden="true"/>重试这个问题</button></div>}
-      <form className="guide-composer" onSubmit={e=>{e.preventDefault();send();}}><label className="sr-only" htmlFor="huaiyuan-question">向淮源姐提问</label><textarea id="huaiyuan-question" rows={2} maxLength={1000} value={session.question} onChange={e=>session.setQuestion(e.target.value)} placeholder="说说你想去哪里，或问一个感兴趣的问题…" onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();send();}}}/><button type="submit" disabled={session.pending||!session.question.trim()} aria-label="发送问题"><PaperPlaneRight size={22} aria-hidden="true"/></button></form><p className="guide-input-note">{session.memorySaved?'出行条件与未发送草稿保存在本机；历史对话刷新后结束。':'当前浏览器无法保存，请及时导出行程。'} Enter发送，Shift＋Enter换行。</p>
+      <form className="guide-composer" onSubmit={e=>{e.preventDefault();send();}}><label className="sr-only" htmlFor="huaiyuan-question">向淮源姐提问</label><textarea id="huaiyuan-question" rows={2} maxLength={1000} disabled={session.initializing} value={session.question} onChange={e=>session.setQuestion(e.target.value)} placeholder={session.initializing?'正在恢复出行条件…':'说说你想去哪里，或问一个感兴趣的问题…'} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();send();}}}/><button type="submit" disabled={session.initializing||session.pending||!session.question.trim()} aria-label="发送问题"><PaperPlaneRight size={22} aria-hidden="true"/></button></form><p className="guide-input-note">{session.memorySaved?'出行条件与未发送草稿按账号保存在本机；历史对话刷新后结束。':'当前浏览器无法保存，请及时导出行程。'} Enter发送，Shift＋Enter换行。</p>
     </div>
   </div>;
 }

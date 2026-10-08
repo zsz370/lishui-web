@@ -1,0 +1,60 @@
+{
+  "version": "2026-10-04",
+  "count": 184,
+  "rawRows": 187,
+  "repairedRawRows": 6,
+  "mergedPairs": 3,
+  "approvedRepairs": 2,
+  "pendingRepairs": 1,
+  "scope": "历史结构修复的审核摘要；只含问题、审核状态、行号，不包含未审答案或私有材料路径。",
+  "items": [
+    {
+      "question": "只有一天时间，推荐哪条线？",
+      "status": "approved",
+      "repair": "merge_split_rows_and_revise",
+      "reviewedQuestionId": "service:planning:只有一天时间，推荐哪条线？",
+      "sourceRows": [
+        {
+          "row": 5,
+          "sheet": "QA"
+        },
+        {
+          "row": 6,
+          "sheet": "QA"
+        }
+      ]
+    },
+    {
+      "question": "字体能调大吗？",
+      "status": "approved",
+      "repair": "merge_split_rows_and_revise",
+      "reviewedQuestionId": "service:etiquette:字体能调大吗？",
+      "sourceRows": [
+        {
+          "row": 5,
+          "sheet": "QA"
+        },
+        {
+          "row": 6,
+          "sheet": "QA"
+        }
+      ]
+    },
+    {
+      "question": "来首溧水童谣？",
+      "status": "pending",
+      "repair": "merge_split_rows_and_revise",
+      "reviewedQuestionId": null,
+      "sourceRows": [
+        {
+          "row": 4,
+          "sheet": "QA"
+        },
+        {
+          "row": 5,
+          "sheet": "QA"
+        }
+      ]
+    }
+  ]
+}

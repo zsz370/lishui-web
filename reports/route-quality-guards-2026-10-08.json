@@ -1,0 +1,39 @@
+{
+  "existingChanged": [
+    "src/services/chatContext.js",
+    "src/services/conversationContext.js",
+    "src/services/itineraryRecommendation.js",
+    "src/services/tripConditions.js",
+    "server/recommendation.mjs",
+    "README.md"
+  ],
+  "newFiles": [
+    "server/recommendationTools.mjs",
+    "src/services/tripPlanningState.js",
+    "scripts/route-quality.test.mjs",
+    "scripts/travel-agent-state.test.mjs"
+  ],
+  "sourceFilesTotal": 10,
+  "protectedUnchanged": [
+    "server/core.mjs",
+    "server/chat.mjs",
+    "src/data/presetQA.js",
+    "src/data/foundationQA.js",
+    "src/data/nodeIntroductions.js",
+    "src/data/nodes.js",
+    "src/data/agentPersona.js",
+    "server/providers.mjs",
+    "server/index.mjs",
+    "server/account-api.mjs",
+    "server/accounts-config.mjs",
+    "server/supabase-accounts.mjs",
+    "package-lock.json",
+    "package.json",
+    "src/pages/Home.jsx"
+  ],
+  "sourceCSSUnchanged": true,
+  "compiledCSSUnchanged": true,
+  "newDependencies": 0,
+  "deletedFiles": [],
+  "secretMatches": 0
+}

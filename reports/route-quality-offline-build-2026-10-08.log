@@ -1,0 +1,45 @@
+
+> lishui-web@0.1.0 demo:offline:build
+> node scripts/build-offline-demo.mjs
+
+vite v6.4.3 building for offline...
+transforming...
+✓ 4689 modules transformed.
+rendering chunks...
+computing gzip size...
+.local_demo/site/index.html                                    1.04 kB │ gzip:   0.64 kB
+.local_demo/site/assets/JourneyThread-B011ALrr.css             0.78 kB │ gzip:   0.39 kB
+.local_demo/site/assets/NodeDetail-D_YREfsJ.css                1.29 kB │ gzip:   0.51 kB
+.local_demo/site/assets/Itinerary-DlJF22x8.css                 1.47 kB │ gzip:   0.60 kB
+.local_demo/site/assets/DragonExperience-DQlcaJei.css          3.97 kB │ gzip:   1.24 kB
+.local_demo/site/assets/Atlas-CaE0nYii.css                     5.58 kB │ gzip:   1.64 kB
+.local_demo/site/assets/Guide-Bfu_Ot0e.css                     6.83 kB │ gzip:   1.85 kB
+.local_demo/site/assets/Account-Sr5XgVIf.css                  11.11 kB │ gzip:   2.75 kB
+.local_demo/site/assets/index-DaKq1ezq.css                   153.34 kB │ gzip:  26.95 kB
+.local_demo/site/assets/latestRequest-CXPP6X6O.js              0.26 kB │ gzip:   0.19 kB
+.local_demo/site/assets/PageGuide-jfXW6-op.js                  0.99 kB │ gzip:   0.58 kB
+.local_demo/site/assets/JourneyThread-DTeEfWaq.js              1.05 kB │ gzip:   0.62 kB
+.local_demo/site/assets/ServiceShortcuts-QNQCLx7f.js           1.12 kB │ gzip:   0.66 kB
+.local_demo/site/assets/ArrowLeft.es-BRO_vdjl.js               1.53 kB │ gzip:   0.60 kB
+.local_demo/site/assets/MagnifyingGlass.es-BkFoINLn.js         1.62 kB │ gzip:   0.65 kB
+.local_demo/site/assets/X.es-D7guGuNZ.js                       1.92 kB │ gzip:   0.64 kB
+.local_demo/site/assets/ArrowClockwise.es-DOGi8DTv.js          1.99 kB │ gzip:   0.77 kB
+.local_demo/site/assets/DownloadSimple.es-DXbNudWn.js          2.00 kB │ gzip:   0.67 kB
+.local_demo/site/assets/weather-dJnI4kYA.js                    2.26 kB │ gzip:   1.42 kB
+.local_demo/site/assets/CloudSun.es-D9aPEpWG.js                4.83 kB │ gzip:   1.60 kB
+.local_demo/site/assets/Atlas-RAj85utI.js                      6.36 kB │ gzip:   2.84 kB
+.local_demo/site/assets/travelServices-DMUKrkXM.js             6.51 kB │ gzip:   3.48 kB
+.local_demo/site/assets/NodeDetail-CBZkj1zW.js                 7.35 kB │ gzip:   3.54 kB
+.local_demo/site/assets/Account-Bcu7siRc.js                    7.49 kB │ gzip:   3.11 kB
+.local_demo/site/assets/Translate.es-Bnr_vNxa.js               8.44 kB │ gzip:   2.43 kB
+.local_demo/site/assets/chat-Bs7e7A6e.js                      10.47 kB │ gzip:   5.40 kB
+.local_demo/site/assets/Nodes-DxEkaKT0.js                     10.57 kB │ gzip:   3.80 kB
+.local_demo/site/assets/DragonExperience-LxVztVE2.js          12.39 kB │ gzip:   5.27 kB
+.local_demo/site/assets/Services-B_zdQU3z.js                  21.25 kB │ gzip:   7.58 kB
+.local_demo/site/assets/Guide-IggzL5Ez.js                     22.00 kB │ gzip:   8.28 kB
+.local_demo/site/assets/presetQA-uW4A_j4w.js                  29.20 kB │ gzip:  14.03 kB
+.local_demo/site/assets/itineraryRecommendation-PC12UM50.js   35.49 kB │ gzip:  16.41 kB
+.local_demo/site/assets/Itinerary-Df_LNvtY.js                 38.46 kB │ gzip:  13.68 kB
+.local_demo/site/assets/index-BIhFBqT6.js                    425.94 kB │ gzip: 148.77 kB
+✓ built in 5.89s
+离线演示构建完成：90个文件，13664178字节。目录：.local_demo

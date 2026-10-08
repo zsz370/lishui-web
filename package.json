@@ -21,7 +21,8 @@
     "eval:human:prepare": "node scripts/prepare-human-review.mjs",
     "test:curation": "node --test scripts/content-curation.test.mjs scripts/review-score.test.mjs",
     "check:content": "node --env-file=config/integrations.env.local scripts/check-content-live.mjs",
-    "knowledge:export": "node scripts/normalize-qa.mjs && node scripts/export-reviewed-corpus.mjs",
+    "knowledge:export": "node scripts/export-reviewed-corpus.mjs",
+    "qa:normalize:archive": "node scripts/normalize-qa.mjs",
     "check:foundation": "node --env-file=config/integrations.env.local scripts/check-foundation-live.mjs",
     "dev": "node scripts/dev-local.mjs",
     "dev:web": "vite",
@@ -32,7 +33,9 @@
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "audit:guide": "node scripts/audit-guide.mjs",
-    "test:guide": "node --test scripts/single-guide.test.mjs"
+    "test:guide": "node --test scripts/single-guide.test.mjs",
+    "test:dialogue": "node --test scripts/dialogue-context.test.mjs scripts/review-dialogue.test.mjs",
+    "test:review": "node --test scripts/review-dialogue.test.mjs scripts/review-integrity.test.mjs"
   },
   "dependencies": {
     "@fly-ai/flyai-cli": "1.0.16",

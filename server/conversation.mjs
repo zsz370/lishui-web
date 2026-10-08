@@ -2,11 +2,16 @@ import { conversationIntent } from '../src/services/casualConversation.js';
 import { agentPersona } from '../src/data/agentPersona.js';
 import { host, HOST_ID } from '../src/data/personas.js';
 import { AppError } from './core.mjs';
+import { dialogueContext, isSocialQuestion } from '../src/services/conversationContext.js';
 
 export async function answerConversation(input, providers, { signal, onProgress = () => {}, onAnswer = () => {} } = {}) {
   const checkCancelled = () => signal?.throwIfAborted();
   checkCancelled();
+  const context = dialogueContext(input);
+  if(context.task==='stay')return null;
+  if (['planning','knowledge'].includes(input.dialogueRoute)) return null;
   if (!conversationIntent(input.question, input.history, input)) {
+    if (context.continuation && context.task && context.task !== 'conversation') return null;
     // 模糊表达由模型理解。涉及具体出行事实时不允许分类器放行到无证据的对话分支。
     if (/门票|票价|价格|多少钱|档期|开放|预约|活动|班次|末班|非遗|名录|传说|历史|开河|工程|研学|文化|看点|天气|气温|预报|实时|最新|怎么去|怎么走|怎么到|怎么坐|换乘|停车|住宿|酒店|民宿|预算|日期|入住|退房|两天|一天|翻译|英文|英语/.test(input.question)) return null;
     try {
@@ -22,9 +27,10 @@ export async function answerConversation(input, providers, { signal, onProgress 
   const entry = { taskId: 'conversation', agentId: HOST_ID, tools: [], status: 'running', label: '正在回答', startedAt: new Date().toISOString() };
   onProgress({ ...entry });
   const publish = data => { checkCancelled(); onAnswer({ taskId: entry.taskId, agentId: HOST_ID, speaker: host, ...data }); };
+  const social=isSocialQuestion(input.question);
   const messages = [
-    { role: 'system', content: ['你是' + agentPersona.identity + '，也能陪用户自由交流、写作和学习。', ...agentPersona.tone, ...agentPersona.boundaries, agentPersona.conversation.rule, agentPersona.conversation.realtimeBoundary].join('\n') },
-    ...(input.history || []).slice(-6).map(({ role, content }) => ({ role: role === 'user' ? 'user' : 'assistant', content })),
+    { role: 'system', content: ['你是' + agentPersona.identity + '，也能陪用户自由交流、写作和学习。', ...agentPersona.tone, ...agentPersona.boundaries, agentPersona.conversation.rule, agentPersona.conversation.realtimeBoundary, '当前用户的问题优先。连续改写时沿用最近实际作品及原始要求；礼貌招呼不覆盖写作任务，不把“再短一点”误解成改写问候。明确换话题时回答新问题。',...(social?['用户当前只在问候，直接回应一句招呼。不重提先前任务、出行条件，不添加查询说明或能力边界。']:[])].join('\n') },
+    ...(social?[]:input.history || []).slice(-6).map(({ role, content }) => ({ role: role === 'user' ? 'user' : 'assistant', content })),
     { role: 'user', content: input.question },
   ];
   try {

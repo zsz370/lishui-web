@@ -1,0 +1,178 @@
+[
+  {
+    "label": "溧水全季",
+    "status": 0,
+    "date": "2026-10-09",
+    "rawCount": 1,
+    "fields": [
+      "address",
+      "brandName",
+      "commissionMoneyYuan",
+      "decorationTime",
+      "detailUrl",
+      "interestsPoi",
+      "latitude",
+      "longitude",
+      "mainPic",
+      "name",
+      "price",
+      "rate",
+      "shId",
+      "star"
+    ],
+    "hotels": [
+      {
+        "address": "南京市溧水区永阳街道西坛路99号",
+        "brandName": null,
+        "name": "全季南京溧水永寿坊商业街酒店",
+        "price": "¥265",
+        "rate": null,
+        "star": "舒适型"
+      }
+    ]
+  },
+  {
+    "label": "溧水桔子",
+    "status": 0,
+    "date": "2026-10-09",
+    "rawCount": 2,
+    "fields": [
+      "address",
+      "brandName",
+      "commissionMoneyYuan",
+      "decorationTime",
+      "detailUrl",
+      "interestsPoi",
+      "latitude",
+      "longitude",
+      "mainPic",
+      "name",
+      "price",
+      "rate",
+      "shId",
+      "star"
+    ],
+    "hotels": [
+      {
+        "address": "宝塔北路22号金都华府商业街北端",
+        "brandName": null,
+        "name": "桔子南京溧水开发区机场路酒店",
+        "price": "¥249",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "碧桂园影湖路111号",
+        "brandName": null,
+        "name": "桔子南京溧水大学城酒店",
+        "price": "¥225",
+        "rate": null,
+        "star": "舒适型"
+      }
+    ]
+  },
+  {
+    "label": "溧水华住",
+    "status": 0,
+    "date": "2026-10-09",
+    "rawCount": 10,
+    "fields": [
+      "address",
+      "brandName",
+      "commissionMoneyYuan",
+      "decorationTime",
+      "detailUrl",
+      "interestsPoi",
+      "latitude",
+      "longitude",
+      "mainPic",
+      "name",
+      "price",
+      "rate",
+      "shId",
+      "star"
+    ],
+    "hotels": [
+      {
+        "address": "珍珠南路158号学府雅苑16幢",
+        "brandName": null,
+        "name": "汉庭南京溧水万达广场酒店",
+        "price": "¥125",
+        "rate": null,
+        "star": "经济型"
+      },
+      {
+        "address": "石湫街道雨山路1号秦淮世家花园云景街区6幢单元105室",
+        "brandName": null,
+        "name": "汉庭南京溧水大学城酒店",
+        "price": "¥156",
+        "rate": null,
+        "star": "经济型"
+      },
+      {
+        "address": "南京市溧水区永阳街道西坛路99号",
+        "brandName": null,
+        "name": "全季南京溧水永寿坊商业街酒店",
+        "price": "¥265",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "宝塔北路22号金都华府商业街北端",
+        "brandName": null,
+        "name": "桔子南京溧水开发区机场路酒店",
+        "price": "¥249",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "溧水区秦淮路158号1幢",
+        "brandName": null,
+        "name": "星程南京溧水顾家欧亚达广场酒店",
+        "price": "¥120",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "永阳街道金井路66号52栋101室",
+        "brandName": null,
+        "name": "南京溧水花间堂·福林邑",
+        "price": "¥469",
+        "rate": null,
+        "star": "豪华型"
+      },
+      {
+        "address": "碧桂园影湖路111号",
+        "brandName": null,
+        "name": "桔子南京溧水大学城酒店",
+        "price": "¥225",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "江苏省南京市溧水区永阳镇珍珠北路75号",
+        "brandName": null,
+        "name": "汉庭南京溧水海乐城通济街酒店",
+        "price": "¥188",
+        "rate": null,
+        "star": "经济型"
+      },
+      {
+        "address": "南京市溧水区交通东路69号天利广场",
+        "brandName": null,
+        "name": "宜必思南京溧水站天利广场酒店",
+        "price": "¥99",
+        "rate": null,
+        "star": "经济型"
+      },
+      {
+        "address": "永阳镇珍珠南路8号",
+        "brandName": null,
+        "name": "海友南京溧水尚溧城酒店",
+        "price": "¥128",
+        "rate": null,
+        "star": "经济型"
+      }
+    ]
+  }
+]

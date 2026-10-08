@@ -1,0 +1,16 @@
+{
+  "sourceDomain": "lsguide.cn",
+  "sourceViaSsh": true,
+  "originalQuestionVerified": true,
+  "staySuggestionVerified": true,
+  "followUpButton": "保留天数，改成亲子游",
+  "retainedDays": 2,
+  "retainedPeople": 3,
+  "retainedHoliday": true,
+  "familyContentVerified": true,
+  "screenshots": [
+    "route-quality-origin-question-2026-10-08.png",
+    "route-quality-origin-stay-2026-10-08.png"
+  ],
+  "publicHttpsClaimed": false
+}

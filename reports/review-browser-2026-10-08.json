@@ -1,0 +1,33 @@
+{
+  "environment": "本机IAB，真实生产构建；账号和延迟住宿结果使用独立本机夹具，不访问Supabase",
+  "passed": true,
+  "checks": [
+    "慢账号列表加载显示读取中；切到回收站后只显示回收站结果。",
+    "访客草稿登录A后不显示；A刷新恢复自己的草稿；退出恢复访客；登录B输入为空。",
+    "住宿查询600元期间改为300元，旧请求取消；旧响应返回后不显示旧结果。",
+    "模拟Atlas懒加载503，显示重新加载和返回；恢复标题获得焦点；返回首页聚焦首页标题。",
+    "未知链接显示没有找到这一页，正常图鉴29项仍可打开，已加载图片无破损。",
+    "聊天一次503显示重试，点击重试恢复同一票价问题；那无想山呢继续回答天池参考价。",
+    "390×844无横向溢出，发送44×44，手机导航高度46；390×420模拟键盘输入底边390.67小于420。",
+    "消息旧阅读位置432.67像素，离开探索页再返回仍为432.67像素。",
+    "动态形象处于播放状态、没有原生视频控制；语音状态切换由既有自动测试验证。"
+  ],
+  "screenshots": [
+    "review-page-recovery-2026-10-08.png",
+    "review-mobile-keyboard-2026-10-08.png"
+  ],
+  "notCovered": [
+    "真实iOS/Android系统软键盘与系统语音音色，桌面IAB只能验证布局缩小及浏览器状态。"
+  ],
+  "deployedSource": {
+    "domain": "lsguide.cn",
+    "release": "20261008-review-4be2037264",
+    "model": "Qwen/Qwen3.5-35B-A3B",
+    "ordinaryContextFollowUp": "小林与浇花事件保留，只给一句成稿，无知识库引导",
+    "actualSSEVerifiedInApiWalkthrough": true,
+    "screenshots": [
+      "review-origin-first-question-2026-10-08.png",
+      "review-origin-conversation-2026-10-08.png"
+    ]
+  }
+}

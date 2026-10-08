@@ -1,0 +1,23 @@
+{"question":"天生桥门票多少钱","kind":"preset","completeMs":87,"deltaEvents":0}
+{"question":"那无想山呢","kind":"preset","completeMs":5,"deltaEvents":0}
+{"question":"那它的门票呢","kind":"needs_input","completeMs":5,"deltaEvents":0}
+{"question":"把上面的回答翻译成英文","kind":"translation","completeMs":266,"deltaEvents":0}
+{"question":"给小林写一句道歉，我忘记帮他浇花了。不要旅游例子。","kind":"casual","completeMs":1575,"deltaEvents":29}
+{"question":"再口语一点","kind":"casual","completeMs":3591,"deltaEvents":32}
+{"question":"溧水两天自驾游，想去周园，不去无想山","kind":"planning","completeMs":6733,"deltaEvents":8}
+{"question":"你好","kind":"casual","completeMs":2605,"deltaEvents":26}
+{"question":"谢谢","kind":"casual","completeMs":14001,"deltaEvents":27}
+{"question":"你好","kind":"casual","completeMs":1437,"deltaEvents":47}
+{"question":"谢谢","kind":"casual","completeMs":1153,"deltaEvents":33}
+{"question":"明天出发，两个人，总预算2000元，轻松一点","kind":"planning","completeMs":7574,"deltaEvents":8}
+{"question":"有没有酒店推荐","kind":"needs_input","completeMs":10,"deltaEvents":0}
+{"question":"谢谢","kind":"casual","completeMs":36735,"deltaEvents":15}
+Error: 这次答复没能完成，请重试。
+    at consume (file:///E:/%E6%95%B0%E5%AA%92/lishui-web/src/services/chatStream.js:16:33)
+    at readChatEvents (file:///E:/%E6%95%B0%E5%AA%92/lishui-web/src/services/chatStream.js:25:53)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async ask (file:///E:/%E6%95%B0%E5%AA%92/lishui-web/.web_review/review-live-check.mjs:14:15)
+    at async turn (file:///E:/%E6%95%B0%E5%AA%92/lishui-web/.web_review/review-live-check.mjs:27:58)
+    at async writing (file:///E:/%E6%95%B0%E5%AA%92/lishui-web/.web_review/review-live-check.mjs:29:39)
+    at async Promise.allSettled (index 1)
+    at async file:///E:/%E6%95%B0%E5%AA%92/lishui-web/.web_review/review-live-check.mjs:42:19

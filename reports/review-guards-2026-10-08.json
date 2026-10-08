@@ -1,0 +1,50 @@
+{
+  "baselineFilesChecked": 194,
+  "changedExistingFiles": [
+    "src/App.jsx",
+    "src/components/ChatPanel.jsx",
+    "src/components/Layout.jsx",
+    "src/components/StayPlanner.jsx",
+    "src/data/chatRouting.js",
+    "src/data/guideMemory.js",
+    "src/data/guideSession.jsx",
+    "src/pages/Account.jsx",
+    "src/pages/Guide.jsx",
+    "src/services/api.js",
+    "src/services/casualConversation.js",
+    "src/services/chatContext.js",
+    "src/services/conversationContext.js",
+    "src/services/itineraryRecommendation.js",
+    "src/services/travelAdvice.js",
+    "server/conversation.mjs",
+    "server/dialogueRouting.mjs",
+    "server/index.mjs",
+    "server/knowledge.mjs",
+    "server/recommendation.mjs",
+    "scripts/answer-feedback.test.mjs",
+    "scripts/audit-guide.mjs",
+    "scripts/content-expansion.test.mjs",
+    "scripts/export-reviewed-corpus.mjs",
+    "scripts/foundation-qa.test.mjs",
+    "scripts/single-guide.test.mjs",
+    "README.md",
+    "package.json"
+  ],
+  "originalFilesPreserved": true,
+  "coreAndChatSafetyUnchanged": true,
+  "apiValidationUnchanged": true,
+  "reviewedFactsAndIndexUnchanged": true,
+  "accountBackendAndRlsUnchanged": true,
+  "dependenciesUnchanged": true,
+  "sourceCssUnchanged": true,
+  "staticDesignMediaChecked": 60,
+  "generatedUnusedUtility": [
+    {
+      "selector": ".static",
+      "declaration": "position:static",
+      "usedByUi": false
+    }
+  ],
+  "secretMatches": 0,
+  "unexpectedDeletions": 0
+}

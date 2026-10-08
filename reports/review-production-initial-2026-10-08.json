@@ -1,0 +1,87 @@
+{
+  "base": "http://127.0.0.1:15186",
+  "sourceDomain": "lsguide.cn",
+  "passed": false,
+  "ready": {
+    "ready": true,
+    "index": {
+      "ready": true,
+      "chunks": 127,
+      "dimensions": 1024,
+      "model": "BAAI/bge-m3",
+      "hash": "50eb0894f9da306ac52fb72e64a1b476b8f92a2160a0a347b4afc4aa715f1b38",
+      "builtAt": "2026-10-07T07:45:45.044Z"
+    },
+    "llm": {
+      "provider": "SiliconFlow",
+      "model": "Qwen/Qwen3.5-4B",
+      "configured": true
+    },
+    "tools": {
+      "webSearch": true,
+      "weather": true,
+      "map": true,
+      "translation": true,
+      "stays": true
+    }
+  },
+  "account": {
+    "configured": true,
+    "user": null
+  },
+  "requests": 2,
+  "rows": [
+    {
+      "question": "给小林写一句道歉，我忘记帮他浇花了。不要旅游例子。",
+      "kind": "casual",
+      "content": "对不起小林，我忘了帮你浇花，下次一定记得。\n\n（需要我帮你润色语气，还是直接这样发？）",
+      "trace": [
+        {
+          "taskId": "conversation",
+          "agentId": "01_huaiyuanjie",
+          "tools": [],
+          "status": "completed",
+          "label": "正在回答",
+          "startedAt": "2026-10-08T11:55:08.582Z",
+          "checkedAt": "2026-10-08T11:55:10.151Z",
+          "durationMs": 1569
+        }
+      ],
+      "firstDeltaMs": 587,
+      "deltaEvents": 27,
+      "completeMs": 1664
+    },
+    {
+      "question": "再短一点，不加开头说明",
+      "history": [
+        {
+          "role": "user",
+          "content": "给小林写一句道歉，我忘记帮他浇花了。不要旅游例子。"
+        },
+        {
+          "role": "expert",
+          "content": "对不起小林，我忘了帮你浇花，下次一定记得。\n\n（需要我帮你润色语气，还是直接这样发？）"
+        }
+      ],
+      "kind": "casual",
+      "content": "忘了帮你浇花，抱歉。\n\n（需要调整语气或补充细节吗？）",
+      "trace": [
+        {
+          "taskId": "conversation",
+          "agentId": "01_huaiyuanjie",
+          "tools": [],
+          "status": "completed",
+          "label": "正在回答",
+          "startedAt": "2026-10-08T11:55:10.241Z",
+          "checkedAt": "2026-10-08T11:55:11.227Z",
+          "durationMs": 986
+        }
+      ],
+      "firstDeltaMs": 379,
+      "deltaEvents": 17,
+      "completeMs": 1064
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /小林/. Input:\n\n'忘了帮你浇花，抱歉。\\n\\n（需要调整语气或补充细节吗？）'\n\n    at file:///E:/%E6%95%B0%E5%AA%92/lishui-web/.web_review/review-production-check.mjs:18:155\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "publicHttpsClaimed": false
+}

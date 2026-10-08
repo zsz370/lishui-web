@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAccount } from '../data/account.jsx';
 import { useItinerary } from '../data/store.jsx';
 import { useGuideSession } from '../data/guideSessionContext.js';
 import './Itinerary.css';
 import '../components/Account.css';
+import { createLatestRequest } from '../services/latestRequest.js';
 
 export default function Account(){
   const account=useAccount(),{loadAccountCard}=useItinerary(),guide=useGuideSession(),navigate=useNavigate(),[params]=useSearchParams();
   const [mode,setMode]=useState('login'),[email,setEmail]=useState(''),[password,setPassword]=useState(''),[confirm,setConfirm]=useState('');
   const [busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[cards,setCards]=useState([]),[trash,setTrash]=useState(false),[listError,setListError]=useState('');
-  const loadCards=async()=>{setListError('');try{const result=await account.request('cards'+(trash?'?trash=true':''));setCards(result.cards||[]);}catch(error){setListError(error.message);}};
+  const listing=useRef(createLatestRequest()),[listLoading,setListLoading]=useState(false);
+  const loadCards=async()=>{const ticket=listing.current.begin();setListError('');setListLoading(true);try{const result=await account.request('cards'+(trash?'?trash=true':''),{signal:ticket.controller.signal});if(listing.current.current(ticket))setCards(result.cards||[]);}catch(error){if(listing.current.current(ticket))setListError(error.message);}finally{if(listing.current.current(ticket))setListLoading(false);}};
   useEffect(()=>{if(/access_token=|refresh_token=/.test(window.location.hash)){window.history.replaceState(null,'',window.location.pathname+window.location.search);setNotice('请用邮箱和密码登录。');}},[]);
-  useEffect(()=>{let active=true;if(!account.user){setCards([]);return;}setListError('');account.request('cards'+(trash?'?trash=true':'')).then(data=>{if(active)setCards(data.cards||[]);}).catch(error=>{if(active)setListError(error.message);});return()=>{active=false;};},[account.user?.id,trash]);
+  useEffect(()=>{listing.current.cancel();setCards([]);setListError('');setListLoading(false);if(account.user)loadCards();return()=>listing.current.cancel();},[account.user?.id,trash]);
   const authenticate=async event=>{event.preventDefault();if(busy)return;if(mode==='signup'&&password!==confirm){setNotice('两次密码不一致，请重新确认。');return;}setBusy(true);setNotice('');try{await account.authenticate(mode,email,password);setPassword('');setConfirm('');guide.clear();if(params.get('next')==='itinerary')navigate('/itinerary');}catch(error){setNotice(error.message);}finally{setBusy(false);}};
   const openCard=async card=>{if(busy)return;setBusy(true);setNotice('');try{const result=await account.request('cards/'+card.id);loadAccountCard(result.card);navigate('/itinerary');}catch(error){setNotice(error.message);}finally{setBusy(false);}};
   const moveCard=async card=>{if(busy)return;setBusy(true);setNotice('');try{await account.request('cards/'+card.id+'/'+(trash?'restore':'trash'),{body:{revision:card.updated_at}});setNotice(trash?'已恢复行程卡。':'已移到回收站，可以恢复。');await loadCards();}catch(error){setNotice(error.message);}finally{setBusy(false);}};
@@ -30,7 +32,7 @@ export default function Account(){
       <button className="experience-button" type="submit" disabled={busy||!account.configured||account.status!=='ready'}>{busy?'正在处理…':mode==='signup'?'注册账号':'登录'}</button>
     </form></>}
     {notice&&<p className="account-notice" role="status">{notice}</p>}
-    {account.user&&<section aria-labelledby="account-cards-heading"><div className="plan-section-heading"><h2 id="account-cards-heading">{trash?'行程回收站':'已保存的行程卡'}</h2><div><button type="button" className="experience-text-button" onClick={()=>setTrash(value=>!value)}>{trash?'返回行程卡':'查看回收站'}</button><button type="button" className="experience-text-button" onClick={loadCards}>刷新列表</button></div></div>{listError&&<p role="status">{listError}</p>}<div className="account-cards">{cards.map(card=><article key={card.id}><h3>{card.title}</h3><p className="plan-source-note">更新于 {new Date(card.updated_at).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})}</p><div>{!trash&&<button type="button" className="experience-button" disabled={busy} onClick={()=>openCard(card)}>载入编辑</button>}<button type="button" className="experience-text-button" disabled={busy} onClick={()=>moveCard(card)}>{trash?'恢复卡片':'移到回收站'}</button></div></article>)}</div>{!cards.length&&!listError&&<p>{trash?'回收站还没有卡片。':'还没有保存的卡片。先把喜欢的地方加入行程，再保存到账号。'}</p>}<p className="plan-source-note">载入卡片会替换本机当前草稿。每张卡保留保存时的条件；实时天气、报价和路线仍需行前重查。</p><Link className="experience-text-button" to="/itinerary">去整理行程</Link></section>}
+    {account.user&&<section aria-labelledby="account-cards-heading"><div className="plan-section-heading"><h2 id="account-cards-heading">{trash?'行程回收站':'已保存的行程卡'}</h2><div><button type="button" className="experience-text-button" disabled={busy} onClick={()=>{listing.current.cancel();setCards([]);setTrash(value=>!value);}}>{trash?'返回行程卡':'查看回收站'}</button><button type="button" className="experience-text-button" disabled={listLoading||busy} onClick={loadCards}>刷新列表</button></div></div>{listLoading&&<p role="status">正在读取行程卡…</p>}{listError&&<p role="status">{listError}</p>}<div className="account-cards">{cards.map(card=><article key={card.id}><h3>{card.title}</h3><p className="plan-source-note">更新于 {new Date(card.updated_at).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})}</p><div>{!trash&&<button type="button" className="experience-button" disabled={busy||listLoading} onClick={()=>openCard(card)}>载入编辑</button>}<button type="button" className="experience-text-button" disabled={busy||listLoading} onClick={()=>moveCard(card)}>{trash?'恢复卡片':'移到回收站'}</button></div></article>)}</div>{!listLoading&&!cards.length&&!listError&&<p>{trash?'回收站还没有卡片。':'还没有保存的卡片。先把喜欢的地方加入行程，再保存到账号。'}</p>}<p className="plan-source-note">载入卡片会替换本机当前草稿。每张卡保留保存时的条件；实时天气、报价和路线仍需行前重查。</p><Link className="experience-text-button" to="/itinerary">去整理行程</Link></section>}
     <details><summary>账号与行程怎样保存</summary><p>账号由 Supabase 提供认证，邮箱和密码通过本站后端用于注册或登录。登录令牌保存在浏览器受保护的 Cookie 中，页面不保存你的密码。只有点“确认保存”后，行程条件、地点与备注才会保存到 Supabase 项目的个人行程表；其他账号不能读取你的卡片。</p><p>未登录仍能编辑并导出本机行程；登录后的草稿按账号分开在本机保存，退出后回到访客草稿，不会展示另一个账号的草稿。云端卡片可移到回收站和恢复。</p><p>淮源姐是 AI 数字导游，日常聊天和动态整理为 AI 辅助生成。对话不作为行程卡自动保存；最近对话只用于本次问答，日期、价格、班次与活动仍按已审资料或实际查询核对。</p></details>
   </div>;
 }

@@ -1,0 +1,344 @@
+{
+  "source": "同一当前代码、人格、安全规则和已审知识库；真实供应商调用",
+  "officialModelCatalog": "https://www.siliconflow.cn/models",
+  "rows": [
+    {
+      "model": "Qwen/Qwen3.5-35B-A3B",
+      "passed": 4,
+      "cases": [
+        {
+          "model": "Qwen/Qwen3.5-35B-A3B",
+          "case": "改写不丢事件且遵守只给成稿",
+          "passed": true,
+          "completeMs": 708,
+          "firstDeltaMs": 526,
+          "deltaEvents": 9,
+          "content": "小林，忘了给你浇花，抱歉。",
+          "trace": [
+            {
+              "taskId": "conversation",
+              "agentId": "01_huaiyuanjie",
+              "tools": [],
+              "status": "completed",
+              "label": "正在回答",
+              "startedAt": "2026-10-08T12:04:11.615Z",
+              "checkedAt": "2026-10-08T12:04:12.302Z",
+              "durationMs": 687
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-35B-A3B",
+          "case": "问候不触发资料或天气",
+          "passed": true,
+          "completeMs": 729,
+          "firstDeltaMs": 313,
+          "deltaEvents": 10,
+          "content": "今天问候收到，你那边一切顺利吗？",
+          "trace": [
+            {
+              "taskId": "conversation",
+              "agentId": "01_huaiyuanjie",
+              "tools": [],
+              "status": "completed",
+              "label": "正在回答",
+              "startedAt": "2026-10-08T12:04:12.303Z",
+              "checkedAt": "2026-10-08T12:04:13.031Z",
+              "durationMs": 728
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-35B-A3B",
+          "case": "旅游历史后新概念问题独立解释",
+          "passed": true,
+          "completeMs": 3262,
+          "firstDeltaMs": 321,
+          "deltaEvents": 198,
+          "content": "闭包就是函数“记住”了它诞生时的环境。哪怕函数跑到了外面，它依然能访问当初定义它时的那些变量。\n\n想象一个工厂函数，它造出一个计数器：\n\n```javascript\nfunction 创建计数器() {\n  let 次数 = 0; // 这是内部变量\n\n  return function() {\n    次数++;\n    console.log(\"当前次数：\" + 次数);\n  };\n}\n\nlet 我的计数器 = 创建计数器();\n我的计数器(); // 输出：当前次数：1\n我的计数器(); // 输出：当前次数：2\n```\n\n这里 `创建计数器` 已经执行完了，按理说内部的 `次数` 应该没了。但因为返回的函数是个闭包，它把 `次数` 紧紧“抱”在怀里，每次调用都能接着用。\n\n需要我帮你整理一段更复杂的闭包应用场景，或者聊聊它在实际开发里的注意点吗？",
+          "trace": [
+            {
+              "taskId": "conversation",
+              "agentId": "01_huaiyuanjie",
+              "tools": [],
+              "status": "completed",
+              "label": "正在回答",
+              "startedAt": "2026-10-08T12:04:13.032Z",
+              "checkedAt": "2026-10-08T12:04:16.293Z",
+              "durationMs": 3261
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-35B-A3B",
+          "case": "两天知识库路线真实完成而非模型失败兜底",
+          "passed": true,
+          "completeMs": 2424,
+          "firstDeltaMs": 13,
+          "deltaEvents": 8,
+          "content": "溧水2日游推荐\n按你刚补充的条件继续安排。已记下：2026-10-09出发，同行2人，这趟总预算2000元。\n推荐把山水与乡味放进这趟旅行，按下面的顺序慢慢逛。\n\n第1天 · 上午｜周园\n周园是一处结合园林建筑与收藏展示的文化游览空间，以徽派建筑和佛教文化为主题。从门窗、梁柱和庭院布局看起，挑一两类雕刻或家具慢慢看。\n\n第1天 · 午间｜乡味午餐 · 洪蓝手抓鸡\n洪蓝手抓鸡是溧水洪蓝的代表乡味之一，地方餐桌和制作手艺是它的两重看点。午餐推荐尝这道地方菜，吃饭后留一点休息时间。\n\n第1天 · 下午｜天生桥·胭脂河\n天生桥与胭脂河共同构成一处人文山水景观。把石桥、两侧岩壁与河谷连起来看，认识开河通航的历史。\n\n第2天 · 上午｜石臼湖\n石臼湖以开阔水面和湖岸风景为看点，也是溧水山水游的一处代表。在允许到达的岸边看湖，慢慢欣赏水面与远岸。\n\n第2天 · 午间｜通济街\n通济街位于溧水城中商业片区，官方商圈介绍将其与海乐城、永寿坊联系起来，构成城区消费与街巷游逛的一部分。把午餐和休息放在这一段，按自己的口味选择餐饮。\n\n第2天 · 下午｜无想水镇\n无想水镇位于溧水城南，以唐风建筑和城隍文化街区作为游逛线索。沿街巷慢步，留意唐风建筑与沿水空间。\n\n按上午、午间、下午这个节奏走，最后留出返程时间。想换成另一种玩法，告诉我想保留或替换哪一站。",
+          "trace": [
+            {
+              "taskId": "knowledge",
+              "agentId": "expert_culture",
+              "tools": [
+                "knowledge_retrieval"
+              ],
+              "dependsOn": [],
+              "status": "completed",
+              "startedAt": "2026-10-08T12:04:16.294Z",
+              "checkedAt": "2026-10-08T12:04:16.306Z",
+              "durationMs": 12
+            },
+            {
+              "taskId": "planning_summary",
+              "agentId": "expert_planning",
+              "tools": [
+                "synthesis"
+              ],
+              "dependsOn": [
+                "knowledge"
+              ],
+              "status": "completed",
+              "startedAt": "2026-10-08T12:04:16.306Z",
+              "method": "model_selection",
+              "checkedAt": "2026-10-08T12:04:18.717Z",
+              "durationMs": 2411
+            }
+          ]
+        }
+      ],
+      "apiStatuses": [
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-9B",
+      "passed": 3,
+      "cases": [
+        {
+          "model": "Qwen/Qwen3.5-9B",
+          "case": "改写不丢事件且遵守只给成稿",
+          "passed": true,
+          "completeMs": 705,
+          "firstDeltaMs": 457,
+          "deltaEvents": 9,
+          "content": "小林，对不起，花没浇上。",
+          "trace": [
+            {
+              "taskId": "conversation",
+              "agentId": "01_huaiyuanjie",
+              "tools": [],
+              "status": "completed",
+              "label": "正在回答",
+              "startedAt": "2026-10-08T12:04:11.614Z",
+              "checkedAt": "2026-10-08T12:04:12.298Z",
+              "durationMs": 684
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-9B",
+          "case": "问候不触发资料或天气",
+          "passed": true,
+          "completeMs": 484,
+          "firstDeltaMs": 322,
+          "deltaEvents": 6,
+          "content": "今天挺好的，心情怎么样？",
+          "trace": [
+            {
+              "taskId": "conversation",
+              "agentId": "01_huaiyuanjie",
+              "tools": [],
+              "status": "completed",
+              "label": "正在回答",
+              "startedAt": "2026-10-08T12:04:12.298Z",
+              "checkedAt": "2026-10-08T12:04:12.782Z",
+              "durationMs": 484
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-9B",
+          "case": "旅游历史后新概念问题独立解释",
+          "passed": true,
+          "completeMs": 6420,
+          "firstDeltaMs": 310,
+          "deltaEvents": 172,
+          "content": "闭包就是函数能记住并访问它的词法作用域，即使该函数在其词法作用域之外执行。简单说，内部函数持有外部函数的变量引用，不会随外部函数结束而销毁。\n\n**小例子：**\n\n```javascript\nfunction createCounter() {\n  let count = 0; // 私有变量\n  return function() {\n    count++;\n    return count;\n  };\n}\n\nconst counter = createCounter();\nconsole.log(counter()); // 1\nconsole.log(counter()); // 2\n```\n\n`createCounter` 返回的匿名函数形成了闭包，它保留了 `count` 变量。每次调用 `counter`，`count` 都会累加，因为它被闭包“记住”了。\n\n需要更复杂的场景或实际开发中的用法吗？",
+          "trace": [
+            {
+              "taskId": "conversation",
+              "agentId": "01_huaiyuanjie",
+              "tools": [],
+              "status": "completed",
+              "label": "正在回答",
+              "startedAt": "2026-10-08T12:04:12.783Z",
+              "checkedAt": "2026-10-08T12:04:19.202Z",
+              "durationMs": 6419
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-9B",
+          "case": "两天知识库路线真实完成而非模型失败兜底",
+          "passed": false,
+          "completeMs": 8707,
+          "firstDeltaMs": 1,
+          "deltaEvents": 8,
+          "content": "溧水2日游推荐\n按你刚补充的条件继续安排。已记下：2026-10-09出发，同行2人，这趟总预算2000元。\n推荐把山水与乡味放进这趟旅行，按下面的顺序慢慢逛。\n\n第1天 · 上午｜周园\n周园是一处结合园林建筑与收藏展示的文化游览空间，以徽派建筑和佛教文化为主题。从门窗、梁柱和庭院布局看起，挑一两类雕刻或家具慢慢看。\n\n第1天 · 午间｜乡味午餐 · 洪蓝手抓鸡\n洪蓝手抓鸡是溧水洪蓝的代表乡味之一，地方餐桌和制作手艺是它的两重看点。午餐推荐尝这道地方菜，吃饭后留一点休息时间。\n\n第1天 · 下午｜天生桥·胭脂河\n天生桥与胭脂河共同构成一处人文山水景观。把石桥、两侧岩壁与河谷连起来看，认识开河通航的历史。\n\n第2天 · 上午｜石臼湖\n石臼湖以开阔水面和湖岸风景为看点，也是溧水山水游的一处代表。在允许到达的岸边看湖，慢慢欣赏水面与远岸。\n\n第2天 · 午间｜通济街\n通济街位于溧水城中商业片区，官方商圈介绍将其与海乐城、永寿坊联系起来，构成城区消费与街巷游逛的一部分。把午餐和休息放在这一段，按自己的口味选择餐饮。\n\n第2天 · 下午｜无想水镇\n无想水镇位于溧水城南，以唐风建筑和城隍文化街区作为游逛线索。沿街巷慢步，留意唐风建筑与沿水空间。\n\n按上午、午间、下午这个节奏走，最后留出返程时间。想换成另一种玩法，告诉我想保留或替换哪一站。",
+          "trace": [
+            {
+              "taskId": "knowledge",
+              "agentId": "expert_culture",
+              "tools": [
+                "knowledge_retrieval"
+              ],
+              "dependsOn": [],
+              "status": "completed",
+              "startedAt": "2026-10-08T12:04:19.203Z",
+              "checkedAt": "2026-10-08T12:04:19.203Z",
+              "durationMs": 0
+            },
+            {
+              "taskId": "planning_summary",
+              "agentId": "expert_planning",
+              "tools": [
+                "synthesis"
+              ],
+              "dependsOn": [
+                "knowledge"
+              ],
+              "status": "completed",
+              "startedAt": "2026-10-08T12:04:19.203Z",
+              "method": "reviewed_knowledge_completion",
+              "checkedAt": "2026-10-08T12:04:27.909Z",
+              "durationMs": 8706
+            }
+          ]
+        }
+      ],
+      "apiStatuses": [
+        200,
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3.5-4B",
+      "passed": 3,
+      "cases": [
+        {
+          "model": "Qwen/Qwen3.5-4B",
+          "case": "改写不丢事件且遵守只给成稿",
+          "passed": true,
+          "completeMs": 471,
+          "firstDeltaMs": 369,
+          "deltaEvents": 7,
+          "content": "小林，抱歉忘了浇花。",
+          "trace": [
+            {
+              "taskId": "conversation",
+              "agentId": "01_huaiyuanjie",
+              "tools": [],
+              "status": "completed",
+              "label": "正在回答",
+              "startedAt": "2026-10-08T12:04:11.597Z",
+              "checkedAt": "2026-10-08T12:04:12.061Z",
+              "durationMs": 464
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-4B",
+          "case": "问候不触发资料或天气",
+          "passed": true,
+          "completeMs": 545,
+          "firstDeltaMs": 280,
+          "deltaEvents": 19,
+          "content": "挺好的，刚把消息整理完，你呢？是想聊聊天，还是想试试写作？",
+          "trace": [
+            {
+              "taskId": "conversation",
+              "agentId": "01_huaiyuanjie",
+              "tools": [],
+              "status": "completed",
+              "label": "正在回答",
+              "startedAt": "2026-10-08T12:04:12.062Z",
+              "checkedAt": "2026-10-08T12:04:12.606Z",
+              "durationMs": 544
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-4B",
+          "case": "旅游历史后新概念问题独立解释",
+          "passed": true,
+          "completeMs": 5452,
+          "firstDeltaMs": 282,
+          "deltaEvents": 129,
+          "content": "闭包就是函数和它引用的外部变量，一起打包在一起。即使外部作用域销毁，包里的变量还能被访问。\n\n简单例子：\n```javascript\nfunction createCounter() {\n  let count = 0;\n  return function() {\n    count++;\n    return count;\n  };\n}\n\nconst counter = createCounter();\nconsole.log(counter()); // 1\nconsole.log(counter()); // 2\n```\n\n这里 `count` 在 `createCounter` 外部，但内部返回的函数能一直用它。\n\n需要我再讲一两个应用场景或画图解释吗？",
+          "trace": [
+            {
+              "taskId": "conversation",
+              "agentId": "01_huaiyuanjie",
+              "tools": [],
+              "status": "completed",
+              "label": "正在回答",
+              "startedAt": "2026-10-08T12:04:12.607Z",
+              "checkedAt": "2026-10-08T12:04:18.058Z",
+              "durationMs": 5451
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3.5-4B",
+          "case": "两天知识库路线真实完成而非模型失败兜底",
+          "passed": false,
+          "completeMs": 25007,
+          "firstDeltaMs": 2,
+          "deltaEvents": 8,
+          "content": "溧水2日游推荐\n按你刚补充的条件继续安排。已记下：2026-10-09出发，同行2人，这趟总预算2000元。\n推荐把山水与乡味放进这趟旅行，按下面的顺序慢慢逛。\n\n第1天 · 上午｜周园\n周园是一处结合园林建筑与收藏展示的文化游览空间，以徽派建筑和佛教文化为主题。从门窗、梁柱和庭院布局看起，挑一两类雕刻或家具慢慢看。\n\n第1天 · 午间｜乡味午餐 · 洪蓝手抓鸡\n洪蓝手抓鸡是溧水洪蓝的代表乡味之一，地方餐桌和制作手艺是它的两重看点。午餐推荐尝这道地方菜，吃饭后留一点休息时间。\n\n第1天 · 下午｜天生桥·胭脂河\n天生桥与胭脂河共同构成一处人文山水景观。把石桥、两侧岩壁与河谷连起来看，认识开河通航的历史。\n\n第2天 · 上午｜石臼湖\n石臼湖以开阔水面和湖岸风景为看点，也是溧水山水游的一处代表。在允许到达的岸边看湖，慢慢欣赏水面与远岸。\n\n第2天 · 午间｜通济街\n通济街位于溧水城中商业片区，官方商圈介绍将其与海乐城、永寿坊联系起来，构成城区消费与街巷游逛的一部分。把午餐和休息放在这一段，按自己的口味选择餐饮。\n\n第2天 · 下午｜无想水镇\n无想水镇位于溧水城南，以唐风建筑和城隍文化街区作为游逛线索。沿街巷慢步，留意唐风建筑与沿水空间。\n\n按上午、午间、下午这个节奏走，最后留出返程时间。想换成另一种玩法，告诉我想保留或替换哪一站。",
+          "trace": [
+            {
+              "taskId": "knowledge",
+              "agentId": "expert_culture",
+              "tools": [
+                "knowledge_retrieval"
+              ],
+              "dependsOn": [],
+              "status": "completed",
+              "startedAt": "2026-10-08T12:04:18.059Z",
+              "checkedAt": "2026-10-08T12:04:18.059Z",
+              "durationMs": 0
+            },
+            {
+              "taskId": "planning_summary",
+              "agentId": "expert_planning",
+              "tools": [
+                "synthesis"
+              ],
+              "dependsOn": [
+                "knowledge"
+              ],
+              "status": "completed",
+              "startedAt": "2026-10-08T12:04:18.059Z",
+              "method": "reviewed_knowledge_completion",
+              "checkedAt": "2026-10-08T12:04:43.065Z",
+              "durationMs": 25006
+            }
+          ]
+        }
+      ],
+      "apiStatuses": [
+        200,
+        200,
+        200
+      ]
+    }
+  ]
+}

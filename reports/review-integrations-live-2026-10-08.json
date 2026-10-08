@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-10-08T12:17:45.446Z",
+  "live": true,
+  "scope": "通过真实服务端适配器验证只读查询；搜索报价不保证客房库存",
+  "results": [
+    {
+      "provider": "bocha",
+      "status": "passed",
+      "durationMs": 270,
+      "resultCount": 5
+    },
+    {
+      "provider": "amap_poi",
+      "status": "passed",
+      "durationMs": 143,
+      "resultCount": 5
+    },
+    {
+      "provider": "amap_route",
+      "status": "passed",
+      "durationMs": 38,
+      "routeCount": 1
+    },
+    {
+      "provider": "baidu_translation",
+      "status": "passed",
+      "durationMs": 372,
+      "translated": true
+    },
+    {
+      "provider": "qweather",
+      "status": "passed",
+      "durationMs": 127,
+      "forecastDays": 7,
+      "currentConditionsAvailable": true
+    },
+    {
+      "provider": "llm",
+      "status": "passed",
+      "durationMs": 2569,
+      "model": "Qwen/Qwen3.5-35B-A3B",
+      "nonempty": true
+    },
+    {
+      "provider": "embedding",
+      "status": "passed",
+      "durationMs": 269,
+      "model": "BAAI/bge-m3",
+      "dimensions": 1024
+    },
+    {
+      "provider": "stay_query",
+      "status": "passed",
+      "durationMs": 1619,
+      "resultCount": 5,
+      "withQuote": 5,
+      "roomInventoryReturned": false,
+      "scope": "按日期查询酒店/民宿及平台返回报价；未返回的房型库存、设施和取消政策须在预订页面确认"
+    }
+  ]
+}

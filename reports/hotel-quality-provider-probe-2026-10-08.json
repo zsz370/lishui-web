@@ -1,0 +1,330 @@
+[
+  {
+    "label": "评分排序",
+    "status": 0,
+    "date": "2026-10-09",
+    "rawCount": 10,
+    "fields": [
+      "address",
+      "brandName",
+      "commissionMoneyYuan",
+      "decorationTime",
+      "detailUrl",
+      "interestsPoi",
+      "latitude",
+      "longitude",
+      "mainPic",
+      "name",
+      "price",
+      "rate",
+      "shId",
+      "star"
+    ],
+    "hotels": [
+      {
+        "address": "珍珠南路158号学府雅苑16幢",
+        "brandName": null,
+        "name": "汉庭南京溧水万达广场酒店",
+        "price": "¥125",
+        "rate": null,
+        "star": "经济型"
+      },
+      {
+        "address": "天生桥大道388号时代广场东楼",
+        "brandName": "百达屋",
+        "name": "南京溧水新时代开元名都大酒店",
+        "price": "¥366",
+        "rate": null,
+        "star": "豪华型"
+      },
+      {
+        "address": "溧水区交通东路8号弘阳家居20栋1层",
+        "brandName": "东呈",
+        "name": "宜尚酒店(南京溧水高铁站五洲商贸城店)",
+        "price": "¥145",
+        "rate": null,
+        "star": "高档型"
+      },
+      {
+        "address": "石湫街道雨山路1号秦淮世家花园云景街区6幢单元105室",
+        "brandName": null,
+        "name": "汉庭南京溧水大学城酒店",
+        "price": "¥156",
+        "rate": null,
+        "star": "经济型"
+      },
+      {
+        "address": "江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房",
+        "brandName": "首旅如家",
+        "name": "如家商旅(金标)-南京溧水天生桥大道店",
+        "price": "¥116",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "南京市溧水区永阳街道西坛路99号",
+        "brandName": null,
+        "name": "全季南京溧水永寿坊商业街酒店",
+        "price": "¥265",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "宝塔北路22号金都华府商业街北端",
+        "brandName": null,
+        "name": "桔子南京溧水开发区机场路酒店",
+        "price": "¥249",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "南京溧水区和凤镇骆山村520号",
+        "brandName": null,
+        "name": "南京臼这里·湖畔民宿",
+        "price": "¥890",
+        "rate": null,
+        "star": "豪华型"
+      },
+      {
+        "address": "经济开发区福田路1号科创大厦 1层部分，2层部分，3层部分，4-12层",
+        "brandName": null,
+        "name": "南京富悦国际酒店（禄口机场店）",
+        "price": "¥300",
+        "rate": null,
+        "star": "豪华型"
+      },
+      {
+        "address": "江苏南京溧水凤凰名苑一单元601",
+        "brandName": null,
+        "name": "南京无想民宿(溧水店)",
+        "price": "¥542",
+        "rate": null,
+        "star": "经济型"
+      }
+    ]
+  },
+  {
+    "label": "全季",
+    "status": 0,
+    "date": "2026-10-09",
+    "rawCount": 11,
+    "fields": [
+      "address",
+      "brandName",
+      "commissionMoneyYuan",
+      "decorationTime",
+      "detailUrl",
+      "interestsPoi",
+      "latitude",
+      "longitude",
+      "mainPic",
+      "name",
+      "price",
+      "rate",
+      "shId",
+      "star"
+    ],
+    "hotels": [
+      {
+        "address": "南京秦淮区后标营路25-1号",
+        "brandName": null,
+        "name": "全季南京博物院航空航天大学酒店",
+        "price": "¥273",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "江苏省南京市龙园西路106号宝地园25栋主楼",
+        "brandName": null,
+        "name": "全季南京龙江新城市广场酒店",
+        "price": "¥408",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "南京浦口区盘城街道龙泰路17号",
+        "brandName": null,
+        "name": "全季酒店(南京北站生物医药谷店)",
+        "price": "¥305",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "东山街道同夏路24号东山阳光新城B栋1层部分、7-10层",
+        "brandName": null,
+        "name": "全季南京江宁天印大道酒店",
+        "price": "¥268",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "东山街道竹山路242号",
+        "brandName": null,
+        "name": "全季南京江宁龙湖天街路酒新亭路地铁站酒店",
+        "price": "¥281",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "石狮路8号12-3#",
+        "brandName": null,
+        "name": "全季南京金马路地铁站酒店",
+        "price": "¥351",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "江苏省南京市玄武区红山南路69号",
+        "brandName": null,
+        "name": "全季南京火车站酒店",
+        "price": "¥333",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "江苏省南京市秦淮区莫愁路329",
+        "brandName": null,
+        "name": "全季酒店（南京新街口朝天宫地铁站店)",
+        "price": "¥296",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "江苏省南京市建邺区河西大街230号台湾名品城10馆（河西大街与苍山路交汇处）",
+        "brandName": null,
+        "name": "全季南京河西博览中心酒店",
+        "price": "¥283",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "江苏省南京市玄武区大石桥29号新虹飞电信城",
+        "brandName": null,
+        "name": "全季南京新街口丹凤街酒店",
+        "price": "¥280",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "江苏省南京市江宁区天元西路199号",
+        "brandName": null,
+        "name": "全季南京百家湖酒店",
+        "price": "¥280",
+        "rate": null,
+        "star": "舒适型"
+      }
+    ]
+  },
+  {
+    "label": "桔子",
+    "status": 0,
+    "date": "2026-10-09",
+    "rawCount": 11,
+    "fields": [
+      "address",
+      "brandName",
+      "commissionMoneyYuan",
+      "decorationTime",
+      "detailUrl",
+      "interestsPoi",
+      "latitude",
+      "longitude",
+      "mainPic",
+      "name",
+      "price",
+      "rate",
+      "shId",
+      "star"
+    ],
+    "hotels": [
+      {
+        "address": "南京市雨花台区安德门大街15号",
+        "brandName": null,
+        "name": "桔子南京安德门地铁站酒店",
+        "price": "¥286",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "江宁区麒麟开城路111号（近中山陵、梧桐大道、园博园、麒麟科创园）",
+        "brandName": null,
+        "name": "南京中山陵风景区麒麟门地铁站桔子水晶酒店",
+        "price": "¥366",
+        "rate": null,
+        "star": "高档型"
+      },
+      {
+        "address": "南京市秦淮区中山东路532-1号，金蝶大学科技园2号门，近明故宫地铁站、南京博物院",
+        "brandName": null,
+        "name": "桔子南京博物院明故宫地铁站酒店",
+        "price": "¥297",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "南京市秦淮区大石坝26号",
+        "brandName": null,
+        "name": "桔子南京夫子庙景区酒店",
+        "price": "¥329",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "南京市建邺区河西大街66号",
+        "brandName": null,
+        "name": "南京奥体中胜国际博览中心桔子水晶酒店",
+        "price": "¥309",
+        "rate": null,
+        "star": "高档型"
+      },
+      {
+        "address": "栖霞区仙林大道181号万达茂A座27楼",
+        "brandName": null,
+        "name": "南京仙林万达茂桔子水晶酒店",
+        "price": "¥347",
+        "rate": null,
+        "star": "高档型"
+      },
+      {
+        "address": "南京市雨花台区板桥新城新林大道板桥新城科创中心3号楼第一至五层",
+        "brandName": null,
+        "name": "桔子南京板桥吾悦广场酒店",
+        "price": "¥281",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "新浦路128号宝隆时代广场6号楼",
+        "brandName": null,
+        "name": "南京浦口研创园桔子水晶酒店",
+        "price": "¥429",
+        "rate": null,
+        "star": "高档型"
+      },
+      {
+        "address": "江苏省南京市鼓楼区中山北路28号",
+        "brandName": null,
+        "name": "南京鼓楼桔子水晶酒店",
+        "price": "¥372",
+        "rate": null,
+        "star": "高档型"
+      },
+      {
+        "address": "秦淮区夫子庙长乐路74-76号（夫子庙探花楼左侧20米）",
+        "brandName": null,
+        "name": "桔子南京夫子庙老门东酒店",
+        "price": "¥288",
+        "rate": null,
+        "star": "舒适型"
+      },
+      {
+        "address": "南京市鼓楼区湖南路18号苏宁环球购物中心",
+        "brandName": null,
+        "name": "南京玄武湖桔子水晶酒店",
+        "price": "¥316",
+        "rate": null,
+        "star": "高档型"
+      }
+    ]
+  }
+]

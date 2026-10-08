@@ -1,0 +1,12 @@
+{"question":"国庆溧水两天一夜三人旅游方案","kind":"planning","method":"model_selection","ms":3760,"deltas":8}
+{"question":"第二天上午换成周园，第一天和其他安排不变","kind":"planning","method":"model_selection","ms":2909,"deltas":8}
+{"question":"改成亲子一日游","kind":"planning","method":"model_selection","ms":1756,"deltas":5}
+{"question":"想轻松一点，少走路","kind":"planning","ms":1621,"deltas":5}
+{"question":"改成两天自驾游","kind":"planning","ms":3778,"deltas":9}
+{"question":"这个回答真是太差劲了，保留周园，不去无想山","kind":"planning","ms":3429,"deltas":9}
+{"question":"你好，今天怎么样","kind":"casual","ms":795,"deltas":29}
+{"question":"按刚才条件找住宿","kind":"needs_input","ms":56,"deltas":0}
+{"question":"2026年10月10日入住，2026年10月11日退房，每晚600元","kind":"agent","ms":1593,"deltas":0}
+{"question":"溧水两天一夜两个人自驾，不带孩子，想看湖","kind":"planning","ms":4248,"deltas":9}
+{"question":"改成一日游，只去天生桥和无想山","kind":"planning","ms":1393,"deltas":6}
+{"question":"2026年10月10日出发，溧水两天一夜三人自驾，想看自然山水","kind":"planning","ms":5247,"deltas":9}

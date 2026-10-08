@@ -10,6 +10,7 @@ import { personas } from '../src/data/personas.js';
 import { accountConfig } from './accounts-config.mjs';
 import { createSupabaseAccounts } from './supabase-accounts.mjs';
 import { createAccountApi } from './account-api.mjs';
+import { canDisplayAnswerEvent } from '../src/services/chatDisplay.js';
 
 export function createApi({config,providers,knowledge,accounts,log=console.log}) {
   const limits=new Map(); let inflight=0;
@@ -57,7 +58,7 @@ export function createApi({config,providers,knowledge,accounts,log=console.log})
         streaming=true;res.setHeader('Content-Type','text/event-stream; charset=utf-8');res.setHeader('X-Accel-Buffering','no');res.flushHeaders();
         event('ready',{requestId,startedAt:new Date().toISOString()});
         heartbeat=setInterval(()=>{if(!res.destroyed&&!res.writableEnded)res.write(': keepalive\n\n');},10000);heartbeat.unref();
-        result=await chat(valid,{...runtime,onProgress:(entry)=>event('progress',entry),onAnswer:(entry)=>event('answer',entry)});
+        result=await chat(valid,{...runtime,onProgress:(entry)=>event('progress',entry),onAnswer:(entry)=>{if(canDisplayAnswerEvent(entry))event('answer',entry);}});
       }
       else if(url.pathname==='/api/chat') result=await chat(validateChat(input),runtime);
       else if(url.pathname==='/api/weather') result=await activeProviders.weather(textField(input.location||'lishui','地点',20));
