@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "kind": "rag",
+  "content": "联网资料仍需核对。2024年南京农业嘉年华和“双新双创”大会在溧水展示过：新农人作品、细胞培养肉等科技农业成果、智能农机、智慧农业系统；非遗（紫砂、剪纸、糖画）、民俗表演；以及稻米、蔬菜、茶叶、谷里鱼圆、东沟老鹅等农产品和美食。\n\n您想先了解科技展区，还是美食市集？",
+  "sources": [
+    {
+      "label": "好吃又好玩!今天一起在溧水庆丰收乡村新农溧水县优质农产品_网易订阅",
+      "url": "https://www.163.com/dy/article/JCS24KT105345OV9.html"
+    },
+    {
+      "label": "好吃又好玩！今天一起在溧水庆丰收",
+      "url": "https://m.thepaper.cn/newsDetail_forward_28838672"
+    },
+    {
+      "label": "新农民新业态创业创新大会在溧水开幕_中国江苏网",
+      "url": "http://jsnews.jschina.com.cn/shms/202009/t20200924_2634738.shtml"
+    }
+  ],
+  "retrieval": {
+    "approvedChunks": 1,
+    "webResults": 5,
+    "searchFailed": false
+  }
+}

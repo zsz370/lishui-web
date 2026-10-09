@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "sourceDomain": "lsguide.cn",
+  "sourceAccess": "existing source HTTP listener over SSH through loopback QA proxy",
+  "publicHTTPSClaimed": false,
+  "checks": [
+    "本机季节推荐显示四个主打节点卡片与继续提问",
+    "点击周邦彦问题返回已审游客版原文",
+    "源站傅家边票价显示待核提示、主题卡片和继续提问",
+    "源站主题卡片点击后可返回傅家边已审游客版",
+    "最终版本票价提示与主题卡片可见"
+  ],
+  "screenshot": "customer-routing-origin-2026-10-09.jpg"
+}

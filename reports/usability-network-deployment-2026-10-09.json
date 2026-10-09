@@ -1,0 +1,79 @@
+{
+  "release": "20261009-usability-network-2c5d60f76b",
+  "backup": "/var/backups/lishui-guide/20261009-usability-network-2c5d60f76b",
+  "staticFilesChecked": 89,
+  "previousHashedAssetsRetained": 502,
+  "originHTTP": {
+    "/": 200,
+    "/guide": 200,
+    "/login": 200,
+    "/about": 200,
+    "/atlas": 200,
+    "/culture/dragon": 200,
+    "/nodes": 200,
+    "/nodes/c_ljd": 200,
+    "/itinerary": 200,
+    "/robots.txt": 200,
+    "/nodes/c_ljd.jpg": 200,
+    "/assets/personas/transparent/01_huaiyuanjie-idle.webm": 200,
+    "/assets/personas/transparent/01_huaiyuanjie-speaking.webm": 200
+  },
+  "ready": {
+    "ready": true,
+    "index": {
+      "ready": true,
+      "chunks": 127,
+      "dimensions": 1024,
+      "model": "BAAI/bge-m3",
+      "hash": "50eb0894f9da306ac52fb72e64a1b476b8f92a2160a0a347b4afc4aa715f1b38",
+      "builtAt": "2026-10-07T07:45:45.044Z"
+    },
+    "llm": {
+      "provider": "SiliconFlow",
+      "model": "Qwen/Qwen3.5-35B-A3B",
+      "configured": true
+    },
+    "tools": {
+      "webSearch": true,
+      "weather": true,
+      "map": true,
+      "translation": true,
+      "stays": true
+    }
+  },
+  "needsInputGroups": [
+    "stay-date",
+    "companions",
+    "stay-budget"
+  ],
+  "nginxUnchanged": true,
+  "cyberFilesUnchanged": true,
+  "cyberFilesChecked": 532,
+  "cyberProcessesUnchanged": true,
+  "port3000Unchanged": true,
+  "coreValidationUnchanged": true,
+  "apiUpdated": true,
+  "expertStaySmokePassed": true,
+  "accountConfigured": true,
+  "openConversationCoveredByTests": true,
+  "refreshTokensIssued": false,
+  "uniquePublicGuidePassed": true,
+  "indexHashUnchanged": true,
+  "previousAPI": {
+    "MainPID": "2394153",
+    "WorkingDirectory": "/home/zhangpanhh/apps/lishui-web/releases/20261009-usability-network-b57e2e4217",
+    "ActiveState": "active"
+  },
+  "currentAPI": {
+    "MainPID": "2395935",
+    "WorkingDirectory": "/home/zhangpanhh/apps/lishui-web/releases/20261009-usability-network-2c5d60f76b",
+    "ActiveState": "active"
+  },
+  "secretMatches": 0,
+  "previousModel": "Qwen/Qwen3.5-35B-A3B",
+  "currentModel": "Qwen/Qwen3.5-35B-A3B",
+  "bochaKeyUpdated": true,
+  "otherIntegrationConfigUnchanged": true,
+  "chatProtectionUnchanged": true,
+  "otherProviderLogicUnchanged": true
+}

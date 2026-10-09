@@ -11,6 +11,8 @@ import TopicIcon from '../components/TopicIcon.jsx';
 import GuideAvatar from '../components/GuideAvatar.jsx';
 import ServiceShortcuts from '../components/ServiceShortcuts.jsx';
 import PageGuide from '../components/PageGuide.jsx';
+import { matchesNode, nodeSearchRank } from '../services/nodeSearch.js';
+import { useSearchDraft } from '../services/useSearchDraft.js';
 
 
 export default function Nodes() {
@@ -24,14 +26,14 @@ export default function Nodes() {
   const results = useMemo(() => {
     const keyword = query.trim().toLowerCase();
     if (!keyword) return [];
-    return nodes.filter((node) => belongsToTopic(node, topic))
-      .filter((node) => `${node.name} ${node.summary} ${(node.facts || []).join(' ')}`.toLowerCase().includes(keyword));
-  }, [query, topic]);
+    return nodes.filter(node => matchesNode(node,keyword)).sort((a,b)=>nodeSearchRank(b,keyword)-nodeSearchRank(a,keyword));
+  }, [query]);
   const updateQuery = (value) => {
     const next = new URLSearchParams(params);
     if (value) next.set('q', value); else next.delete('q');
     setParams(next, { replace: true });
   };
+  const search = useSearchDraft(query, updateQuery);
   const selectedNodes = (group?.nodeIds || []).map(getNode).filter(Boolean);
   const primary = selectedNodes[0];
 
@@ -47,7 +49,7 @@ export default function Nodes() {
     <div className="explore-page">
       <div className="explore-heading">
         <div><p className="section-overline">跟着心意，认识溧水</p><h1>{topic ? topic.name : '探索溧水'}</h1><p>{topic ? topic.description : '先选一个主题。山水、乡味与故事，慢慢遇见。'}</p><a className="page-guide-jump" href="#explore-guide">让导游帮我选 <ArrowUpRight size={16} aria-hidden="true" /></a></div>
-        <div className="explore-search"><label className="sr-only" htmlFor="explore-query">搜索想去的地方或想尝的味道</label><MagnifyingGlass size={20} aria-hidden="true" /><input id="explore-query" type="search" value={query} onChange={(event) => updateQuery(event.target.value)} placeholder="搜地点、乡味或故事" />{query && <button type="button" aria-label="清空搜索" onClick={() => updateQuery('')}><X size={16} aria-hidden="true" /></button>}</div>
+        <div className="explore-search"><label className="sr-only" htmlFor="explore-query">搜索想去的地方或想尝的味道</label><MagnifyingGlass size={20} aria-hidden="true" /><input id="explore-query" type="search" autoComplete="off" value={search.value} onChange={search.onChange} onCompositionStart={search.onCompositionStart} onCompositionEnd={search.onCompositionEnd} />{search.value && <button type="button" aria-label="清空搜索" onClick={search.clear}><X size={16} aria-hidden="true" /></button>}</div>
       </div>
 
       <nav className="explore-topic-tabs" aria-label="探索栏目">

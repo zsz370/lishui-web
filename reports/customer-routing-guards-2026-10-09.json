@@ -1,0 +1,24 @@
+{
+  "changed": [
+    "src/services/itineraryRecommendation.js",
+    "src/services/travelAdvice.js",
+    "server/chat.mjs",
+    "scripts/recommendation.test.mjs"
+  ],
+  "new": [
+    "src/services/placeRecommendation.js",
+    "scripts/customer-routing.test.mjs"
+  ],
+  "sourceFilesTotal": 6,
+  "allOtherBaselineFilesUnchanged": true,
+  "coreValidationUnchanged": true,
+  "chatSafetyAndToolsUnchanged": true,
+  "itineraryWhitelistAndEvidenceUnchanged": true,
+  "reviewedDataUnchanged": true,
+  "SSEProtocolUnchanged": true,
+  "compiledCSSUnchanged": true,
+  "vectorIndexUnchanged": true,
+  "dependenciesAdded": 0,
+  "deletedFiles": 0,
+  "secretMatches": 0
+}

@@ -1,0 +1,16 @@
+
+> lishui-web@0.1.0 test:atlas
+> node --test scripts/atlas-content.test.mjs
+
+✔ 用户撤下条目不会出现在目录、栏目或现行问答，旧API请求也不能继续推荐 (0.9478ms)
+✔ 旧收藏剔除撤下地点，保留有效地点与用户条件；不把万达迁移成不同地点 (2.3851ms)
+✔ 撤下待核不充作审核通过，修订与新增单独记入已审数，童谣仍隔离 (0.2683ms)
+✔ 图鉴每项正文出处可用，当前29项配图实际存在，撤下节点不再公开 (3.2193ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 92.0748

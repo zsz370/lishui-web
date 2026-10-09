@@ -69,7 +69,7 @@ test('日期待定或非法的部分条件仍是needs_input，选项不抛异常
 
 test('人格进入生成prompt；缺证据提供官方公告/现场路径，不编联系方式',async()=>{
   const result=await createChat({search:async()=>[]},emptyKnowledge)(validateChat({question:'这处景点有夜间寄存吗'}));
-  assert.match(result.content,/暂未找到.*待核/);assert.match(result.content,/最新公告|现场工作人员/);
+  assert.match(result.content,/没查到能直接回答/);assert.doesNotMatch(result.content,/具体结论待核|知识库/);assert.match(result.content,/最新公告|现场工作人员/);
   assert.doesNotMatch(result.content,/\d{7,}/);
   const calls=[];
   const chunk={question:'开河关系',answer:'人工开河工程有关。',kind:'fact',score:.9,sources:[{label:'测试已审来源',url:'https://example.org/reviewed'}]};

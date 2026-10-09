@@ -1,0 +1,17 @@
+
+> lishui-web@0.1.0 test:content
+> node --test scripts/content-depth.test.mjs
+
+✔ 四个主打节点的五项指南均有对应正文、出处和运营待确认项 (0.8105ms)
+✔ 建成时间、人物身份和文化背景不会放行未核细节 (0.2808ms)
+✔ 传统会期、农业采收和同名歌曲保留各自的时效及资料边界 (0.1215ms)
+✔ 全部完整节点QA使用对应游客版，审核来源不变且不触发外部服务 (4.6759ms)
+✔ 已审人物变体答复不会混入相反的未审改名故事 (18.9642ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.6104

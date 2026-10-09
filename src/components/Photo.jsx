@@ -15,7 +15,7 @@ function PhotoContent({ src, srcSet, fallbackSrc, alt, className, eager, fallbac
     <span className={`experience-photo ${className} ${ready ? 'is-ready' : ''}`}>
       {!src || failed ? <span className="photo-fallback"><ImageSquare size={30} weight="light" aria-hidden="true" /><span>{fallback}</span></span> : <>
         {!ready && <span className="photo-loading" aria-hidden="true" />}
-        <img src={useFallback ? fallbackSrc : src} srcSet={useFallback ? undefined : srcSet} sizes={srcSet ? '(max-width: 767px) 100vw, 640px' : undefined} alt={alt} loading={eager ? 'eager' : 'lazy'} onLoad={() => setReady(true)} onError={() => {
+        <img decoding="async" src={useFallback ? fallbackSrc : src} srcSet={useFallback ? undefined : srcSet} sizes={srcSet ? '(max-width: 767px) 100vw, 640px' : undefined} alt={alt} loading={eager ? 'eager' : 'lazy'} onLoad={() => setReady(true)} onError={() => {
           if (fallbackSrc && !useFallback && fallbackSrc !== src) { setUseFallback(true); setReady(false); }
           else setFailed(true);
         }} />

@@ -37,7 +37,7 @@ test('登录只返回公开用户，生产 Cookie 为 HttpOnly / Secure / SameSi
   for(const cookie of response.headers.getSetCookie()){assert.match(cookie,/^__Host-lishui_/);assert.match(cookie,/HttpOnly/);assert.match(cookie,/SameSite=Lax/);assert.match(cookie,/Secure/);assert.match(cookie,/Path=\//);}
   assert.match(response.headers.getSetCookie()[1],/Max-Age=0/);
 });
-test('注册直接登录，无邮件确认或验证码，只保留有期限的访问Cookie',async t=>{const {request}=await setup(t);const response=await request('signup',{body:{email:'a@example.invalid',password:'test-only-pass'}});assert.equal(response.status,200);assert.equal((await response.json()).user.id,a);assert.match(response.headers.getSetCookie()[0],/Max-Age=3600/);assert.doesNotMatch(response.headers.getSetCookie().join(' '),/refresh_account/);});
+test('用户名注册直接登录，无邮件确认或验证码，只保留有期限的访问Cookie',async t=>{const {request}=await setup(t);const response=await request('signup',{body:{username:'testuser',password:'Travel123'}});assert.equal(response.status,200);assert.equal((await response.json()).user.id,a);assert.match(response.headers.getSetCookie()[0],/Max-Age=3600/);assert.doesNotMatch(response.headers.getSetCookie().join(' '),/refresh_account/);});
 test('账号写入拒绝跨站、无 Origin、错误方法与过长请求',async t=>{
   const {request}=await setup(t);
   for(const headers of [{Origin:'https://evil.example'},{Origin:''}])assert.equal((await request('login',{body:{},headers})).status,403);

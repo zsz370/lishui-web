@@ -10,6 +10,7 @@ import GuideAvatar from '../components/GuideAvatar.jsx';
 import NodeVisitGuide from '../components/NodeVisitGuide.jsx';
 import JourneyThread from '../components/JourneyThread.jsx';
 import { useItinerary } from '../data/store.jsx';
+import { nodeReading } from '../services/nodeReading.js';
 
 export default function NodeDetail() {
   const { id } = useParams();
@@ -26,6 +27,8 @@ export default function NodeDetail() {
   if (params.get('from')) searchOrigin.set('topic', params.get('from'));
   const back = searchQuery ? `/nodes?${searchOrigin}` : topic ? collectionUrl(topic.id, group?.id) : '/nodes';
   const introduction = node.introduction;
+  const reading=nodeReading(node.id);
+  const sources=[...new Map([...node.introductionSources,...reading.flatMap(section=>section.sources)].map(source=>[source.url,source])).values()];
   return <div className="detail-experience">
     <Link className="detail-back" to={back}><ArrowLeft size={17} aria-hidden="true" />回到{searchQuery ? '搜索结果' : topic?.name || '探索栏目'}</Link>
     <JourneyThread step="discover" />
@@ -34,12 +37,14 @@ export default function NodeDetail() {
         <div className="detail-photo"><Photo src={nodePhotos[node.id]} alt={node.name} eager /></div>
         <div className="detail-story-copy"><p className="section-overline">{group?.name || node.cat} · 简介</p><h1>{node.name}</h1>
           <div className="detail-description">{introduction.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+          <div className="detail-reading">{reading.map(section=><section key={section.id}><h2>{section.title}</h2><p>{section.content}</p></section>)}</div>
+          {node.introductionReviewNote&&<details className="detail-extra"><summary>这段资料的说明</summary><p>{node.introductionReviewNote}</p></details>}
           <Link className="detail-ask-link" to={guideLink({nodeId:node.id})}><GuideAvatar className="chat-avatar" persona={persona} /><span>向{persona.name}提问</span><ArrowUpRight size={17} aria-hidden="true" /></Link>
           <div className="detail-actions"><button className="experience-button" type="button" onClick={() => add(node.id)} disabled={has(node.id)}>{has(node.id) ? '已加入我的行程' : '+ 加入我的行程'}</button><Link to="/itinerary">看看我的行程 <ArrowUpRight size={16} aria-hidden="true" /></Link></div>
           <NodeVisitGuide nodeId={node.id} />
           {node.id === 'c_ldl' && <Link className="detail-ask-link" to="/culture/dragon">用三道小题认识骆山大龙 <ArrowUpRight size={17} aria-hidden="true" /></Link>}
           {node.facts && <details className="detail-extra"><summary>再了解一点</summary><ul>{node.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul></details>}
-          <div className="detail-sources" aria-label="简介参考资料">{node.introductionSources.map((source) => <a key={source.url} className="detail-source" href={source.url} target="_blank" rel="noreferrer">资料参考：{source.label} <ArrowUpRight size={13} aria-hidden="true" /></a>)}</div>
+          <details className="detail-sources" aria-label="简介参考资料"><summary>阅读参考资料</summary>{sources.map((source) => <a key={source.url} className="detail-source" href={source.url} target="_blank" rel="noreferrer">{source.label} <ArrowUpRight size={13} aria-hidden="true" /></a>)}</details>
         </div>
       </section>
       <section id="guide" className="detail-chat" aria-label="数字导游问答">

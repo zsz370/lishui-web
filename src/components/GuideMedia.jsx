@@ -19,21 +19,24 @@ function MotionVideo({ src, poster, name, onFailure }) {
   const element = useRef(null);
   useEffect(() => {
     let disposed = false;
+    const video = element.current;
+    let visible = true;
     const update = () => {
-      const video = element.current;
       if (!video) return;
-      if (document.hidden) video.pause();
+      if (document.hidden || !visible) video.pause();
       else {
         const result = video.play();
-        result?.catch(() => { if (!disposed) onFailure(); });
+        result?.catch(error => { if (!disposed && visible && !document.hidden && error?.name !== 'AbortError') onFailure(); });
       }
     };
     update();
+    const observer=typeof IntersectionObserver==='function'?new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();}):null;
+    if(video)observer?.observe(video);
     document.addEventListener('visibilitychange', update);
     return () => {
       disposed = true;
       document.removeEventListener('visibilitychange', update);
-      element.current?.pause();
+      observer?.disconnect();video?.pause();
     };
   }, [src]);
   return <video ref={element} className="guide-motion-video" src={src} poster={poster}

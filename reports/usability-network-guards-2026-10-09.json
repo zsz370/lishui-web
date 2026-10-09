@@ -1,0 +1,496 @@
+{
+  "protectedFiles": {
+    "server/core.mjs": true,
+    "server/index.mjs": true,
+    "server/modelStream.mjs": true,
+    "server/providers.mjs": true,
+    "server/accounts-config.mjs": true,
+    "src/data/presetQA.js": true,
+    "src/data/foundationQA.js": true,
+    "src/data/contentExpansionQA.js": true,
+    "src/data/reviewedCorpus.js": true,
+    "src/data/nodes.js": true,
+    "src/data/chatRouting.js": true,
+    "src/services/chatContext.js": true,
+    "src/services/chatStream.js": true,
+    "src/services/chatDisplay.js": true,
+    "src/data/visitorAnswerCopy.js": true,
+    "package.json": true
+  },
+  "inputValidationUnchanged": true,
+  "evidenceCitationNumberLegendChecksUnchanged": true,
+  "promptInjectionProtectionUnchanged": true,
+  "secretMatches": 0,
+  "changedFiles": [
+    "src/App.jsx",
+    "src/components/ChatPanel.jsx",
+    "src/components/GuideMedia.jsx",
+    "src/components/HomeHero.jsx",
+    "src/components/Layout.jsx",
+    "src/components/Photo.jsx",
+    "src/data/account.jsx",
+    "src/data/agentPersona.js",
+    "src/data/atlas.js",
+    "src/data/nodeIntroductions.js",
+    "src/pages/Account.jsx",
+    "src/pages/Atlas.jsx",
+    "src/pages/NodeDetail.jsx",
+    "src/pages/Nodes.jsx",
+    "src/services/accountCredentials.js",
+    "src/services/nodeReading.js",
+    "src/services/nodeSearch.js",
+    "src/services/pageModules.js",
+    "src/services/personaExpression.js",
+    "src/services/useSearchDraft.js",
+    "src/styles/WholeSiteDesign.css",
+    "server/account-api.mjs",
+    "server/chat.mjs",
+    "server/supabase-accounts.mjs",
+    "scripts/accounts.test.mjs",
+    "scripts/customer-routing.test.mjs",
+    "scripts/node-search.test.mjs",
+    "scripts/persona-collaboration.test.mjs",
+    "scripts/review-integrity.test.mjs",
+    "scripts/username-account.test.mjs",
+    "scripts/web-fallback.test.mjs"
+  ],
+  "introductions": [
+    {
+      "id": "n_tsq",
+      "name": "天生桥·胭脂河",
+      "paragraphs": 3,
+      "characters": 254,
+      "reviewedReading": 3,
+      "sources": [
+        {
+          "label": "南京大学转载新华日报：胭脂河与天生桥",
+          "url": "https://www.nju.edu.cn/info/3191/218951.htm"
+        }
+      ]
+    },
+    {
+      "id": "n_wx",
+      "name": "无想山",
+      "paragraphs": 3,
+      "characters": 240,
+      "reviewedReading": 3,
+      "sources": [
+        {
+          "label": "溧水区政府：区情简介",
+          "url": "https://www.njls.gov.cn/zjls/qqjj/"
+        }
+      ]
+    },
+    {
+      "id": "n_fjb",
+      "name": "傅家边",
+      "paragraphs": 3,
+      "characters": 250,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "溧水区政府：2026溧水赏梅季",
+          "url": "https://www.njls.gov.cn/jrs/zjdt/202602/t20260224_5795570.html"
+        }
+      ]
+    },
+    {
+      "id": "n_sj",
+      "name": "石臼湖",
+      "paragraphs": 3,
+      "characters": 228,
+      "reviewedReading": 2,
+      "sources": [
+        {
+          "label": "南京市政府：石臼湖与水上列车",
+          "url": "https://www.nanjing.gov.cn/zzb/ywdt/njxx/202608/t20260817_5894512.html"
+        }
+      ]
+    },
+    {
+      "id": "n_djs",
+      "name": "大金山国防园",
+      "paragraphs": 3,
+      "characters": 240,
+      "reviewedReading": 3,
+      "sources": [
+        {
+          "label": "南京市体育局：大金山庄国防园（2023介绍）",
+          "url": "https://sports.nanjing.gov.cn/ztzl/njtyxfxcj/hwyd/202307/t20230725_3970450.html"
+        }
+      ]
+    },
+    {
+      "id": "n_zy",
+      "name": "周园",
+      "paragraphs": 3,
+      "characters": 248,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "溧水区政府：区情简介",
+          "url": "https://www.njls.gov.cn/zjls/qqjj/"
+        }
+      ]
+    },
+    {
+      "id": "n_dls",
+      "name": "东庐山观音寺",
+      "paragraphs": 3,
+      "characters": 240,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "溧水区政府：永阳街道概况",
+          "url": "https://www.njls.gov.cn/zjls/jdgk/yyjd/"
+        },
+        {
+          "label": "溧水区政府：秦淮源头相关提案答复",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/zxsyjschy/202411/t20241107_5003091.html"
+        }
+      ]
+    },
+    {
+      "id": "n_gx",
+      "name": "郭兴庄园",
+      "paragraphs": 3,
+      "characters": 237,
+      "reviewedReading": 0,
+      "sources": [
+        {
+          "label": "溧水区政府：郭兴庄园旅游特色",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221128_3767323.html"
+        }
+      ]
+    },
+    {
+      "id": "n_dp",
+      "name": "东屏湖",
+      "paragraphs": 3,
+      "characters": 222,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "溧水区政府：自然资源",
+          "url": "https://www.njls.gov.cn/zjls/zrzy/"
+        },
+        {
+          "label": "南京市体育局：大金山与东屏湖",
+          "url": "https://sports.nanjing.gov.cn/ztzl/njtyxfxcj/hwyd/202307/t20230725_3970450.html"
+        }
+      ]
+    },
+    {
+      "id": "f_ydg",
+      "name": "洪蓝玉带糕",
+      "paragraphs": 3,
+      "characters": 242,
+      "reviewedReading": 2,
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        }
+      ]
+    },
+    {
+      "id": "f_szc",
+      "name": "洪蓝手抓鸡",
+      "paragraphs": 3,
+      "characters": 245,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        }
+      ]
+    },
+    {
+      "id": "f_nr",
+      "name": "洪蓝牛肉",
+      "paragraphs": 3,
+      "characters": 238,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        }
+      ]
+    },
+    {
+      "id": "f_xc",
+      "name": "明觉香菜",
+      "paragraphs": 3,
+      "characters": 239,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水旅游：地方美食介绍（2020）",
+          "url": "https://www.thepaper.cn/newsDetail_forward_10238932"
+        }
+      ]
+    },
+    {
+      "id": "f_ypg",
+      "name": "晶桥云片糕",
+      "paragraphs": 3,
+      "characters": 236,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "深圳市政府：云片糕类糕点介绍（仅供品类参考）",
+          "url": "https://www.sz.gov.cn/cn/zjsz/szfy/intangible_items/gdsj/content/mpost_8055650.html"
+        }
+      ]
+    },
+    {
+      "id": "f_wf",
+      "name": "乌饭",
+      "paragraphs": 3,
+      "characters": 230,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "溧水区政府：和凤乌饭会（2025报道）",
+          "url": "https://www.njls.gov.cn/jrs/syw/202505/t20250507_5141483.html"
+        }
+      ]
+    },
+    {
+      "id": "f_hm",
+      "name": "白马黑莓",
+      "paragraphs": 3,
+      "characters": 225,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "国家知识产权局：白马黑莓地理标志产品保护公告",
+          "url": "https://www.cnipa.gov.cn/attach/0/20250826010509.pdf"
+        }
+      ]
+    },
+    {
+      "id": "c_ldl",
+      "name": "骆山大龙",
+      "paragraphs": 3,
+      "characters": 234,
+      "reviewedReading": 3,
+      "sources": [
+        {
+          "label": "中国非遗网：龙舞（骆山大龙）",
+          "url": "https://www.ihchina.cn/project_details/12838"
+        },
+        {
+          "label": "溧水区政府：民俗风情",
+          "url": "https://www.njls.gov.cn/zjls/yzls/msfq/"
+        }
+      ]
+    },
+    {
+      "id": "c_tj",
+      "name": "明觉铁画锻制技艺",
+      "paragraphs": 3,
+      "characters": 221,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "央广网：明觉铁画技艺介绍（级别表述另待正式文件）",
+          "url": "https://country.cnr.cn/xtxq/201406/t20140608_515636533.shtml"
+        },
+        {
+          "label": "南京市政府：2008年第一批非遗正式名录",
+          "url": "https://www.nanjing.gov.cn/zdgk/200805/t20080528_1054979.html"
+        }
+      ]
+    },
+    {
+      "id": "c_cs",
+      "name": "蒲塘桥祠山庙会",
+      "paragraphs": 3,
+      "characters": 228,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "溧水区政府：民俗风情",
+          "url": "https://www.njls.gov.cn/zjls/yzls/msfq/"
+        },
+        {
+          "label": "南京市文旅局：非遗项目名录",
+          "url": "https://wlj.nanjing.gov.cn/zwfw/bszlxz/202101/P020210105390071400964.pdf"
+        }
+      ]
+    },
+    {
+      "id": "c_xsm",
+      "name": "西宋马灯",
+      "paragraphs": 3,
+      "characters": 220,
+      "reviewedReading": 2,
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "溧水区政府：民俗风情",
+          "url": "https://www.njls.gov.cn/zjls/yzls/msfq/"
+        }
+      ]
+    },
+    {
+      "id": "c_hl",
+      "name": "何林坊双龙",
+      "paragraphs": 3,
+      "characters": 228,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "南京市农业农村局：洪蓝春节民俗活动（2026报道）",
+          "url": "https://nyncj.nanjing.gov.cn/nygzdt/202602/t20260209_5789604.html"
+        }
+      ]
+    },
+    {
+      "id": "c_ljd",
+      "name": "陆家大龙",
+      "paragraphs": 3,
+      "characters": 228,
+      "reviewedReading": 2,
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "中国江苏网：2026春节陆家大龙现场报道",
+          "url": "https://tour.jschina.com.cn/lyzx/202602/t20260223_s699bffa7e4b0263ab066b8f8.shtml"
+        }
+      ]
+    },
+    {
+      "id": "c_tdd",
+      "name": "跳当当",
+      "paragraphs": 3,
+      "characters": 222,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "南京市文旅局：非遗项目名录",
+          "url": "https://wlj.nanjing.gov.cn/zwfw/bszlxz/202101/P020210105390071400964.pdf"
+        },
+        {
+          "label": "江苏广电我苏网：2018南京非遗游乐会现场报道",
+          "url": "https://www.ourjiangsu.com/a/20180610/152862066358.shtml"
+        }
+      ]
+    },
+    {
+      "id": "c_syg",
+      "name": "石臼渔歌",
+      "paragraphs": 3,
+      "characters": 228,
+      "reviewedReading": 2,
+      "sources": [
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        }
+      ]
+    },
+    {
+      "id": "c_lh",
+      "name": "溧水剪纸",
+      "paragraphs": 3,
+      "characters": 230,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "江苏省政府：2023年省级非遗及扩展项目名录",
+          "url": "https://www.jiangsu.gov.cn/attach/0/9b994b75d7bf46d89e72fbc8834f76c8.pdf"
+        },
+        {
+          "label": "南京市教育局：溧水非遗剪纸教育活动（2024报道）",
+          "url": "https://edu.nanjing.gov.cn/xwdt/gqdt/202410/t20241008_4779852.html"
+        }
+      ]
+    },
+    {
+      "id": "c_qh",
+      "name": "秦淮源头灯会",
+      "paragraphs": 3,
+      "characters": 247,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "南京市政府：2023年第六届秦淮源头灯会",
+          "url": "https://www.nanjing.gov.cn/hdjl/xwfbh/xwfbhbzqzghcjxlfbhqwhdjqgl/mtbd/202301/t20230129_3812226.html"
+        }
+      ]
+    },
+    {
+      "id": "s_tj",
+      "name": "通济街",
+      "paragraphs": 3,
+      "characters": 227,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "溧水区政府：城区商圈与街区布局",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rddechy/202311/t20231124_4106676.html"
+        }
+      ]
+    },
+    {
+      "id": "s_hl",
+      "name": "海乐城",
+      "paragraphs": 3,
+      "characters": 233,
+      "reviewedReading": 0,
+      "sources": [
+        {
+          "label": "溧水区政府：城区商圈与街区布局",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rddechy/202311/t20231124_4106676.html"
+        }
+      ]
+    },
+    {
+      "id": "s_wxsz",
+      "name": "无想水镇",
+      "paragraphs": 3,
+      "characters": 214,
+      "reviewedReading": 1,
+      "sources": [
+        {
+          "label": "溧水区政府：无想水镇与唐风文化街区",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/dsqjrddychy/202211/t20221124_3764333.html"
+        },
+        {
+          "label": "溧水区政府：城南街区与夜间文旅活动（2024）",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rdschy/202411/t20241125_5017713.html"
+        }
+      ]
+    }
+  ]
+}

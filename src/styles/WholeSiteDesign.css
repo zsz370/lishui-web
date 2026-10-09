@@ -394,3 +394,20 @@
 }
 /* Once photography is ready, show its actual colours immediately; hover retains transform motion. */
 .app-shell.travel-redesign .experience-photo.is-ready img { opacity:1; transition-property:transform; }
+
+/* 输入只保留一层焦点边框；按钮仍保留独立键盘焦点。 */
+.app-shell :is(.guide-composer,.home-question-form,.atlas-search,.explore-search) { box-shadow:inset 0 0 0 0 transparent; }
+.app-shell :is(.guide-composer,.home-question-form,.atlas-search,.explore-search):focus-within { outline:none; border-color:#3e7460; box-shadow:inset 0 0 0 1px #3e7460; }
+.app-shell :is(.guide-composer,.home-question-form,.atlas-search,.explore-search) :is(input,textarea):focus-visible { outline:none; box-shadow:none; }
+.app-shell :is(.guide-composer,.home-question-form,.atlas-search,.explore-search) :is(input,textarea) { border:0; outline:none; }
+.app-shell .guide-composer textarea { resize:none; white-space:pre-wrap; overflow-wrap:anywhere; }
+.app-shell :is(.atlas-search,.explore-search) input::-webkit-search-cancel-button { display:none; }
+.app-shell .atlas-search input { flex:1; width:100%; }
+.app-shell .atlas-search { width:300px; max-width:100%; }
+.app-shell .explore-search button { min-width:44px; min-height:44px; }
+.app-shell.travel-redesign :is(.guide-composer,.home-question-form,.atlas-search,.explore-search):focus-within { outline:none; border-color:#3e7460; box-shadow:inset 0 0 0 1px #3e7460; }
+.app-shell.travel-redesign :is(.guide-composer,.home-question-form,.atlas-search,.explore-search) :is(input,textarea):focus-visible { outline:none; }
+.app-shell .detail-reading section { margin:24px 0; }
+.app-shell .detail-reading h2 { font-size:20px; line-height:1.7; margin-bottom:8px; font-weight:600; }
+.app-shell .detail-reading p,.app-shell .atlas-description p { font-size:16px; line-height:1.95; margin-bottom:18px; }
+.app-shell .detail-sources summary { min-height:44px; display:list-item; cursor:pointer; }

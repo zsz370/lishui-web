@@ -9,12 +9,12 @@ import { hotelSearchIntent } from './stayPreferences.js';
 const rules = [
   ['support', /丢失|丢了|遗失|失物|投诉|退票|退改|退款|求助|报警|急救|发票|厕所|洗手间|卫生间|母婴室|lost|refund|help/i],
   ['weather', /天气|气温|温度|下雨|降雨|雨天|暴雨|雷雨|穿什么|带伞|冷不冷|热不热|weather|rain|temperature/i],
-  ['stay', /住宿|住哪|住在|住一|住两|住山|住湖|酒店|民宿|订房|家庭房|亲子房|过夜|露营|stay|hotel|accommodation/i],
+  ['stay', /住宿|住哪|住在|住一|住两|住山|住湖|酒店|民宿|订房|家庭房|亲子房|过夜|露营|预算|\d{1,5}\s*(?:元|块)?以内|stay|hotel|accommodation/i],
   ['transport', /交通|怎么去|怎么走|怎么到|怎么坐|地铁|高铁|S[179]|开车|自驾|停车|班车|接驳|机场|火车|末班|打车|换乘|train|metro|bus/i],
   ['etiquette', /礼仪|礼貌|禁忌|寺庙|寺院|拍照|英文|英语|翻译|双语|english|translate|photo|toilet/i],
   ['accessibility', /轮椅|无障碍|行动不便|坡道|老人|长辈|婴儿|推车|带娃|带孩子/],
   ['shopping', /伴手礼|特产|文创|礼物|保存|保质期|买什么|购买|消费|souvenir/i],
-  ['planning', /行程|一日游|两日游|一天|两天|几天|安排|路线|怎么玩|plan|itinerary/i],
+  ['planning', /行程|规划|[一二两三四五六七\d]+日游|一天|两天|几天|安排|路线|怎么玩|自然|山水|风景|plan|itinerary/i],
 ];
 const emergency = /救命|晕倒|无法呼吸|严重受伤|火灾|遇险|落水|孩子走失|孩子走丢|报警|急救|emergency/i;
 export function routeServices(question, fallback) {
@@ -22,6 +22,8 @@ export function routeServices(question, fallback) {
   question=routingText(question);
   let matches = rules.filter(([, pattern]) => pattern.test(question)).map(([id]) => id);
   if(hotelSearchIntent(question)&&!matches.includes('stay'))matches.unshift('stay');
+  // 带主题的旅游预算不是每晚房价；明确住宿需求仍保留住宿任务。
+  if(matches.includes('planning')&&!/住宿|酒店|民宿|订房|住哪|想住|每晚|一晚|过夜|露营|hotel|stay|accommodation/i.test(question))matches=matches.filter(id=>id!=='stay');
   if (matches.includes('stay')) matches = matches.filter((id) => id !== 'accessibility');
   if (matches.includes('etiquette') && /英文|英语|翻译|english|translate/i.test(question) && !/丢失|丢了|投诉|退款/.test(question)) matches = matches.filter((id) => id !== 'support');
   // A rain query includes the forecast and adjustment advice in the weather response.
@@ -44,7 +46,7 @@ export function inferStayPreferences(question, base = stayDefaults) {
   if (/山里|山中|山居|无想山|竹海/.test(question)) pref.area = 'mountain';
   else if (/乡村|田园|村里|山凹/.test(question)) pref.area = 'rural';
   else if (/城区|市区|地铁附近/.test(question)) pref.area = 'city';
-  const budget = question.replace(/(?:总预算|行程预算)\s*\d{1,5}\s*(?:元|块)?/g, '').match(/(?:预算|每晚|一晚)?\s*(\d{2,5})\s*(?:元|块)/);
+  const budget = question.replace(/(?:总预算|行程预算)\s*\d{1,5}\s*(?:元|块)?(?:以内|以下)?/g, '').match(/(?:预算|每晚|一晚)?\s*(\d{1,5})\s*(?:(?:元|块)(?:以内|以下)?|以内|以下)/);
   if (budget) pref.budget = Number(budget[1]) <= 300 ? '300' : Number(budget[1]) <= 600 ? '600' : 'flexible';
   return pref;
 }
@@ -114,7 +116,9 @@ export async function answerTravelService(serviceId, question, { history = [], p
   const days=duration?.startsWith('两')?2:duration?1:null;
   const transit=ctx.mode==='transit'&&/没有车|无车|公共交通|地铁|高铁/.test(context);
   const description=days===1?'一天时间可以围绕一个片区，安排少量喜欢的地点，留出吃饭和返程时间。':days===2?'两天一晚，可以先选落脚片区，再把两天的活动和返程衔接起来。':'先选喜欢的片区，把游玩、吃饭和休息放在一起考虑。';
-  const known=ctx.origin?`从${ctx.origin}出发的条件已记下。`:'';
+  const givenBudget=ctx.tripBudget||[...context.matchAll(/(?:预算)?\s*(\d{1,5})\s*(?:元|块)?(?:以内|以下)/g)].at(-1)?.[1];
+  const remembered=[ctx.origin&&`从${ctx.origin}出发`,ctx.departureDate&&`${ctx.departureDate}出发`,givenBudget&&`预算${givenBudget}元以内`,/自然|山水|风景/.test(context)&&'想看自然山水'].filter(Boolean);
+  const known=remembered.length?`已记下：${remembered.join('，')}。\n`:'';
   const questionBack=!ctx.origin?'你准备从哪里出发？':!days?'准备来几天？':'更想看山水、尝乡味，还是听民俗故事？';
-  return reply('planning',`${known}${description}${transit?'没有车的话，优先比较公共交通可达的去处，再确认最后一段接驳。':''}\n可以从天生桥的河谷、无想山的山林或周园的收藏中选一个主目的地；具体开放和预约在出发前再核对。\n${questionBack}`,{kind:'needs_input',choiceGroups:followUpChoices('planning',ctx,{question,history,preferences}),links:[{label:'看看这些地方',url:'/nodes'},{label:'整理我的行程',url:'/itinerary'}]});
+  return reply('planning',`${known}${description}${transit?'没有车的话，优先比较公共交通可达的去处，再确认最后一段接驳。':''}\n可以从天生桥的河谷、无想山的山林或周园的收藏中选一个主目的地；具体开放和预约在出发前再核对。\n${questionBack}`,{kind:'needs_input',choiceGroups:followUpChoices('planning',ctx,{question,history,preferences}).filter(group=>!givenBudget||group.id!=='trip-budget'),links:[{label:'看看这些地方',url:'/nodes'},{label:'整理我的行程',url:'/itinerary'}]});
 }

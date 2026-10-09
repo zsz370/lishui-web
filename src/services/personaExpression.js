@@ -19,4 +19,4 @@ export function planningExpression(content, question, results) {
 // 模型只收到用户明确给定的出行日期，默认天气查询日期不充当行程条件。
 export const explicitConditions = ctx => ({...ctx,weatherDate:ctx.weatherDateAssumed?undefined:ctx.weatherDate,location:ctx.locationAssumed?undefined:ctx.location});
 
-export const unknownAnswer = searchFailed => `${agentPersona.refusals.unknown}${searchFailed ? '联网补充这次也没完成。' : ''}`;
+export const unknownAnswer = searchFailed => searchFailed ? '这次搜索暂时没完成，点“重试”我再帮你查。也可以补充具体地点或想了解的内容。' : agentPersona.refusals.unknown;

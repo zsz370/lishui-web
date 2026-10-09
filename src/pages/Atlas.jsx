@@ -7,15 +7,17 @@ import Photo from '../components/Photo.jsx';
 import JourneyThread from '../components/JourneyThread.jsx';
 import PageGuide from '../components/PageGuide.jsx';
 import './Atlas.css';
+import { useSearchDraft } from '../services/useSearchDraft.js';
 
 export default function Atlas() {
   const [params, setParams] = useSearchParams();
   const heading = useRef(null);
   const category = atlasCategories.includes(params.get('cat')) ? params.get('cat') : '全部';
   const query = params.get('q') || '';
+  const search = useSearchDraft(query, value => update('全部', value, undefined, true));
   const entries = filterAtlas(category, query);
   const requested = params.get('entry');
-  const preferred = requested || 'c_ldl';
+  const preferred = requested || (query.trim()?entries[0]?.id:'c_ldl');
   const index = Math.max(0, entries.findIndex((entry) => entry.id === preferred));
   const current = entries[index];
   const unavailable = requested && !atlasEntries.some((entry) => entry.id === requested);
@@ -52,13 +54,13 @@ export default function Atlas() {
     <JourneyThread />
     <div className="atlas-tools">
       <nav aria-label="图鉴分类">{atlasCategories.map((cat) => <button type="button" key={cat} aria-pressed={category === cat} onClick={() => update(cat, query, filterAtlas(cat, query)[0]?.id)}>{cat}<small>{filterAtlas(cat).length}</small></button>)}</nav>
-      <div className="atlas-search"><label htmlFor="atlas-query" className="sr-only">搜索图鉴</label><MagnifyingGlass size={18} aria-hidden="true" /><input id="atlas-query" type="search" placeholder="找一种风物" value={query} onChange={(event) => update(category, event.target.value, current?.id, true)} />{query && <button type="button" aria-label="清空图鉴搜索" onClick={() => update(category, '', current?.id, true)}><X size={16} aria-hidden="true" /></button>}</div>
+      <div className="atlas-search"><label htmlFor="atlas-query" className="sr-only">搜索图鉴</label><MagnifyingGlass size={18} aria-hidden="true" /><input id="atlas-query" type="search" autoComplete="off" value={search.value} onChange={search.onChange} onCompositionStart={search.onCompositionStart} onCompositionEnd={search.onCompositionEnd} />{search.value && <button type="button" aria-label="清空图鉴搜索" onClick={search.clear}><X size={16} aria-hidden="true" /></button>}</div>
     </div>
     {unavailable && <p className="atlas-unavailable" role="status">链接中的条目暂未收录，请从当前图鉴继续翻阅。</p>}
     {current ? <>
       <section className="atlas-reader" tabIndex={0} aria-label="图鉴阅读区，可用左右方向键翻阅" onKeyDown={keyboard}>
         <figure className="atlas-figure"><Photo src={current.photo} alt={`${current.name}资料配图`} eager fallback="暂无配图，先读一段介绍" /><figcaption>{current.photo ? '配图来自团队提供资料；不代表当前季节或活动安排。' : '文字页 · 保留风物介绍'}</figcaption></figure>
-        <div className="atlas-copy"><p className="atlas-folio">{current.cat}<span>{String(atlasEntries.findIndex((entry) => entry.id === current.id) + 1).padStart(2, '0')} / {atlasEntries.length}</span></p><h2 ref={heading} tabIndex={-1}>{current.name}</h2><p className="atlas-summary">{current.summary}</p>
+        <div className="atlas-copy"><p className="atlas-folio">{current.cat}<span>{String(atlasEntries.findIndex((entry) => entry.id === current.id) + 1).padStart(2, '0')} / {atlasEntries.length}</span></p><h2 ref={heading} tabIndex={-1}>{current.name}</h2><div className="atlas-description">{current.introduction.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>
           {current.introductionReviewNote && <p className="atlas-note">{current.introductionReviewNote}</p>}
           <div className="atlas-actions"><Link className="experience-button" to={`/nodes/${current.id}`}>打开风物名片 <ArrowUpRight size={16} aria-hidden="true" /></Link><Link to={guideLink({nodeId:current.id})}>向{guide?.name}提问 <ArrowUpRight size={15} aria-hidden="true" /></Link></div>
           <details className="atlas-sources" key={current.id}><summary>这段介绍的参考出处</summary><ul>{current.introductionSources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} <ArrowUpRight size={13} aria-hidden="true" /></a></li>)}</ul></details>

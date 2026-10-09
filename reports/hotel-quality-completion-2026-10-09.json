@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-09",
+  "release": "20261009-hotel-quality-9db21fcbc4",
+  "domain": "lsguide.cn",
+  "testsPassed": 299,
+  "newHotelTests": 21,
+  "realLocalChecks": 12,
+  "realSourceChecks": 12,
+  "productionBuild": true,
+  "offlineBuild": true,
+  "sourceBrowserPassed": true,
+  "sourceFilesMatchPublishedManifest": true,
+  "uiCSSUnchanged": true,
+  "securityGuardsUnchanged": true,
+  "cyberemotionlabUnchanged": true,
+  "privateConfigUnchanged": true,
+  "publicHTTPSClaimed": false,
+  "rollback": "/var/backups/lishui-guide/20261009-hotel-quality-9db21fcbc4"
+}

@@ -8,11 +8,11 @@ export function createSupabaseAccounts(config,fetcher=fetch) {
     const data=await response.json().catch(()=>null);
     if(!response.ok){
       if(response.status===429)throw new AppError('ACCOUNT_RATE_LIMIT','操作较频繁，请稍后重试。',429);
-      if(data?.error_code==='user_already_exists'||data?.code==='user_already_exists')throw new AppError('ACCOUNT_EXISTS','这个邮箱已经注册，请直接登录。',400);
+      if(data?.error_code==='user_already_exists'||data?.code==='user_already_exists')throw new AppError('ACCOUNT_EXISTS','这个用户名已经注册，请直接登录。',400);
       if(data?.code==='23514'&&/account card limit reached/.test(data?.message||''))throw new AppError('CARD_LIMIT','账号最多保留50张行程卡，可以载入已有卡片继续编辑和更新。',400);
       if(data?.error_code==='email_not_confirmed'||data?.code==='email_not_confirmed')throw new AppError('EMAIL_UNCONFIRMED','请先到邮箱完成注册确认，再登录。',403);
-      if(response.status===401||response.status===403||data?.error_code==='invalid_credentials'||data?.code==='invalid_credentials')throw new AppError('ACCOUNT_UNAUTHORIZED','邮箱或密码不正确，或登录已过期。',401);
-      if(response.status===400||response.status===422)throw new AppError('ACCOUNT_INVALID',path.startsWith('/rest/')?'行程未能保存，请检查卡片名称和行程内容。':'暂时无法完成操作，请检查邮箱和密码。',400);
+      if(response.status===401||response.status===403||data?.error_code==='invalid_credentials'||data?.code==='invalid_credentials')throw new AppError('ACCOUNT_UNAUTHORIZED','用户名或密码不正确，或登录已过期。',401);
+      if(response.status===400||response.status===422)throw new AppError('ACCOUNT_INVALID',path.startsWith('/rest/')?'行程未能保存，请检查卡片名称和行程内容。':'暂时无法完成操作，请检查用户名和密码。',400);
       throw new AppError('ACCOUNT_UPSTREAM','账号或行程保存服务暂时未准备好，请稍后重试。',503);
     }
     return data;
@@ -20,7 +20,7 @@ export function createSupabaseAccounts(config,fetcher=fetch) {
   const cardQuery=(userId,id,extra='')=>`/rest/v1/itinerary_cards?user_id=eq.${userId}${id?'&id=eq.'+id:''}${extra}`;
   return {
     configured:config.configured,secure:config.secure,
-    signup:(email,password,redirect)=>request('/auth/v1/signup?redirect_to='+encodeURIComponent(redirect),{method:'POST',body:{email,password}}),
+    signup:(email,password,redirect,username)=>request('/auth/v1/signup?redirect_to='+encodeURIComponent(redirect),{method:'POST',body:{email,password,...username?{data:{username}}:{}}}),
     login:(email,password)=>request('/auth/v1/token?grant_type=password',{method:'POST',body:{email,password}}),
     user:token=>request('/auth/v1/user',{token}),
     logout:token=>request('/auth/v1/logout?scope=local',{token,method:'POST'}),

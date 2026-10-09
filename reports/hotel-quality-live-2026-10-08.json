@@ -3,27 +3,27 @@
   "sourceDomain": null,
   "passed": true,
   "model": "Qwen/Qwen3.5-35B-A3B",
-  "checkInDate": "2026-10-09",
-  "checkOutDate": "2026-10-10",
-  "requests": 11,
+  "checkInDate": "2026-10-10",
+  "checkOutDate": "2026-10-11",
+  "requests": 12,
   "rows": [
     {
-      "question": "2026-10-09入住，2026-10-10退房，溧水酒店推荐，预算不限",
+      "question": "2026-10-10入住，2026-10-11退房，溧水酒店推荐，预算不限",
       "history": [],
       "preferences": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "agent",
-      "content": "2026-10-09入住，2026-10-10退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥366 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥145 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥116 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:51.309Z",
+      "content": "2026-10-10入住，2026-10-11退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥377 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥152 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥118 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:01.794Z",
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:10:51.309Z",
+        "checkedAt": "2026-10-09T04:11:01.794Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
             "sort": "comfort",
             "keyword": "",
@@ -38,13 +38,13 @@
           {
             "name": "全季南京溧水永寿坊商业街酒店",
             "address": "南京市溧水区永阳街道西坛路99号",
-            "price": "¥265",
+            "price": "¥276",
             "score": null,
             "hotelType": "舒适型",
             "brandName": null,
             "latitude": 31.6594,
             "longitude": 119.02,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0pgXOu",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0dtKw9",
             "roomInventory": null
           },
           {
@@ -56,50 +56,50 @@
             "brandName": null,
             "latitude": 31.6736,
             "longitude": 119.019,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2oerMr",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1USBBU",
             "roomInventory": null
           },
           {
             "name": "南京溧水新时代开元名都大酒店",
             "address": "天生桥大道388号时代广场东楼",
-            "price": "¥366",
+            "price": "¥377",
             "score": null,
             "hotelType": "豪华型",
             "brandName": "百达屋",
             "latitude": 31.635865,
             "longitude": 119.044462,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2Nu7aD",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F4PEK2B",
             "roomInventory": null
           },
           {
             "name": "宜尚酒店(南京溧水高铁站五洲商贸城店)",
             "address": "溧水区交通东路8号弘阳家居20栋1层",
-            "price": "¥145",
+            "price": "¥152",
             "score": null,
             "hotelType": "高档型",
             "brandName": "东呈",
             "latitude": 31.664145,
             "longitude": 119.048532,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1nARjD",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F15jG5o",
             "roomInventory": null
           },
           {
             "name": "如家商旅(金标)-南京溧水天生桥大道店",
             "address": "江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房",
-            "price": "¥116",
+            "price": "¥118",
             "score": null,
             "hotelType": "舒适型",
             "brandName": "首旅如家",
             "latitude": 31.641547,
             "longitude": 119.017676,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2zqA7J",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2MlE6M",
             "roomInventory": null
           }
         ]
       },
       "context": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
         "hotelPreference": {
           "sort": "comfort",
           "keyword": "",
@@ -107,7 +107,7 @@
           "excludeKeywords": [],
           "budgetCleared": true
         },
-        "weatherDate": "2026-10-10",
+        "weatherDate": "2026-10-11",
         "weatherDateAssumed": false,
         "location": "lishui",
         "locationAssumed": false,
@@ -125,60 +125,60 @@
             "stay_search"
           ],
           "dependsOn": [],
-          "startedAt": "2026-10-08T14:10:49.680Z",
-          "checkedAt": "2026-10-08T14:10:51.310Z",
-          "durationMs": 1630
+          "startedAt": "2026-10-09T04:11:00.078Z",
+          "checkedAt": "2026-10-09T04:11:01.794Z",
+          "durationMs": 1716
         }
       ],
-      "completeMs": 1681
+      "completeMs": 1739
     },
     {
-      "question": "想住华住旗下酒店",
+      "question": "评分高一点",
       "history": [
         {
           "role": "user",
-          "content": "2026-10-09入住，2026-10-10退房，溧水酒店推荐，预算不限"
+          "content": "2026-10-10入住，2026-10-11退房，溧水酒店推荐，预算不限"
         },
         {
           "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥366 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥145 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥116 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:51.309Z"
+          "content": "2026-10-10入住，2026-10-11退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥377 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥152 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥118 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:01.794Z"
         }
       ],
       "preferences": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "agent",
-      "content": "2026-10-09入住，2026-10-10退房。按“华住”筛选。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 星程南京溧水顾家欧亚达广场酒店：¥120 · 舒适型\n溧水区秦淮路158号1幢\n\n4. 南京溧水花间堂·福林邑：¥469 · 豪华型\n永阳街道金井路66号52栋101室\n\n5. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:54.100Z",
+      "content": "2026-10-10入住，2026-10-11退房。按平台评分优先查询。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥377 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥152 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥118 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:03.322Z",
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:10:54.100Z",
+        "checkedAt": "2026-10-09T04:11:03.322Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
-            "sort": "comfort",
-            "keyword": "华住",
+            "sort": "rating",
+            "keyword": "",
             "excludeNames": [],
             "excludeKeywords": []
           }
         },
         "scope": "按日期查询酒店/民宿及平台返回报价；未返回的房型库存、设施和取消政策须在预订页面确认",
-        "candidateCount": 8,
+        "candidateCount": 9,
         "ratingUnavailable": true,
         "hotels": [
           {
             "name": "全季南京溧水永寿坊商业街酒店",
             "address": "南京市溧水区永阳街道西坛路99号",
-            "price": "¥265",
+            "price": "¥276",
             "score": null,
             "hotelType": "舒适型",
             "brandName": null,
             "latitude": 31.6594,
             "longitude": 119.02,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F020eWX",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1jItmM",
             "roomInventory": null
           },
           {
@@ -190,7 +190,149 @@
             "brandName": null,
             "latitude": 31.6736,
             "longitude": 119.019,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2FACaz",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2zJbRD",
+            "roomInventory": null
+          },
+          {
+            "name": "南京溧水新时代开元名都大酒店",
+            "address": "天生桥大道388号时代广场东楼",
+            "price": "¥377",
+            "score": null,
+            "hotelType": "豪华型",
+            "brandName": "百达屋",
+            "latitude": 31.635865,
+            "longitude": 119.044462,
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2yerCC",
+            "roomInventory": null
+          },
+          {
+            "name": "宜尚酒店(南京溧水高铁站五洲商贸城店)",
+            "address": "溧水区交通东路8号弘阳家居20栋1层",
+            "price": "¥152",
+            "score": null,
+            "hotelType": "高档型",
+            "brandName": "东呈",
+            "latitude": 31.664145,
+            "longitude": 119.048532,
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2XxwNa",
+            "roomInventory": null
+          },
+          {
+            "name": "如家商旅(金标)-南京溧水天生桥大道店",
+            "address": "江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房",
+            "price": "¥118",
+            "score": null,
+            "hotelType": "舒适型",
+            "brandName": "首旅如家",
+            "latitude": 31.641547,
+            "longitude": 119.017676,
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F4Ns9iB",
+            "roomInventory": null
+          }
+        ]
+      },
+      "context": {
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "hotelPreference": {
+          "sort": "rating",
+          "keyword": "",
+          "excludeNames": [],
+          "excludeKeywords": [],
+          "budgetCleared": true
+        },
+        "weatherDate": "2026-10-11",
+        "weatherDateAssumed": false,
+        "location": "lishui",
+        "locationAssumed": false,
+        "mode": "transit",
+        "to": "en",
+        "correction": false,
+        "companions": "general"
+      },
+      "trace": [
+        {
+          "taskId": "stay",
+          "agentId": "expert_stay",
+          "status": "completed",
+          "tools": [
+            "stay_search"
+          ],
+          "dependsOn": [],
+          "startedAt": "2026-10-09T04:11:01.804Z",
+          "checkedAt": "2026-10-09T04:11:03.322Z",
+          "durationMs": 1518
+        }
+      ],
+      "completeMs": 1524
+    },
+    {
+      "question": "想住华住旗下酒店",
+      "history": [
+        {
+          "role": "user",
+          "content": "2026-10-10入住，2026-10-11退房，溧水酒店推荐，预算不限"
+        },
+        {
+          "role": "expert",
+          "content": "2026-10-10入住，2026-10-11退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥377 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥152 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥118 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:01.794Z"
+        },
+        {
+          "role": "user",
+          "content": "评分高一点"
+        },
+        {
+          "role": "expert",
+          "content": "2026-10-10入住，2026-10-11退房。按平台评分优先查询。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥377 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥152 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥118 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:03.322Z"
+        }
+      ],
+      "preferences": {
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
+      },
+      "kind": "agent",
+      "content": "2026-10-10入住，2026-10-11退房。按“华住”筛选。按平台评分优先查询。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 星程南京溧水顾家欧亚达广场酒店：¥120 · 舒适型\n溧水区秦淮路158号1幢\n\n4. 南京溧水花间堂·福林邑：¥537 · 豪华型\n永阳街道金井路66号52栋101室\n\n5. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:05.211Z",
+      "stayData": {
+        "provider": "飞猪 FlyAI",
+        "checkedAt": "2026-10-09T04:11:05.211Z",
+        "query": {
+          "destName": "南京市溧水区",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
+          "hotelPreference": {
+            "sort": "rating",
+            "keyword": "华住",
+            "excludeNames": [],
+            "excludeKeywords": []
+          }
+        },
+        "scope": "按日期查询酒店/民宿及平台返回报价；未返回的房型库存、设施和取消政策须在预订页面确认",
+        "candidateCount": 9,
+        "ratingUnavailable": true,
+        "hotels": [
+          {
+            "name": "全季南京溧水永寿坊商业街酒店",
+            "address": "南京市溧水区永阳街道西坛路99号",
+            "price": "¥276",
+            "score": null,
+            "hotelType": "舒适型",
+            "brandName": null,
+            "latitude": 31.6594,
+            "longitude": 119.02,
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3jDUGU",
+            "roomInventory": null
+          },
+          {
+            "name": "桔子南京溧水开发区机场路酒店",
+            "address": "宝塔北路22号金都华府商业街北端",
+            "price": "¥249",
+            "score": null,
+            "hotelType": "舒适型",
+            "brandName": null,
+            "latitude": 31.6736,
+            "longitude": 119.019,
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0hEwcn",
             "roomInventory": null
           },
           {
@@ -202,19 +344,19 @@
             "brandName": null,
             "latitude": 31.651906,
             "longitude": 119.044553,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F341suO",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3nEqiH",
             "roomInventory": null
           },
           {
             "name": "南京溧水花间堂·福林邑",
             "address": "永阳街道金井路66号52栋101室",
-            "price": "¥469",
+            "price": "¥537",
             "score": null,
             "hotelType": "豪华型",
             "brandName": null,
             "latitude": 31.6239,
             "longitude": 119.038,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1N0mVS",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F05Vy4q",
             "roomInventory": null
           },
           {
@@ -226,22 +368,22 @@
             "brandName": null,
             "latitude": 31.6449,
             "longitude": 118.901,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1IIjfR",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3K56yL",
             "roomInventory": null
           }
         ]
       },
       "context": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
         "hotelPreference": {
-          "sort": "comfort",
+          "sort": "rating",
           "keyword": "华住",
           "excludeNames": [],
           "excludeKeywords": [],
           "budgetCleared": true
         },
-        "weatherDate": "2026-10-10",
+        "weatherDate": "2026-10-11",
         "weatherDateAssumed": false,
         "location": "lishui",
         "locationAssumed": false,
@@ -259,23 +401,31 @@
             "stay_search"
           ],
           "dependsOn": [],
-          "startedAt": "2026-10-08T14:10:51.325Z",
-          "checkedAt": "2026-10-08T14:10:54.100Z",
-          "durationMs": 2775
+          "startedAt": "2026-10-09T04:11:03.328Z",
+          "checkedAt": "2026-10-09T04:11:05.211Z",
+          "durationMs": 1883
         }
       ],
-      "completeMs": 2787
+      "completeMs": 1886
     },
     {
       "question": "全季呢",
       "history": [
         {
           "role": "user",
-          "content": "2026-10-09入住，2026-10-10退房，溧水酒店推荐，预算不限"
+          "content": "2026-10-10入住，2026-10-11退房，溧水酒店推荐，预算不限"
         },
         {
           "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥366 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥145 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥116 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:51.309Z"
+          "content": "2026-10-10入住，2026-10-11退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥377 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥152 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥118 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:01.794Z"
+        },
+        {
+          "role": "user",
+          "content": "评分高一点"
+        },
+        {
+          "role": "expert",
+          "content": "2026-10-10入住，2026-10-11退房。按平台评分优先查询。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥377 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥152 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥118 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:03.322Z"
         },
         {
           "role": "user",
@@ -283,25 +433,25 @@
         },
         {
           "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房。按“华住”筛选。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 星程南京溧水顾家欧亚达广场酒店：¥120 · 舒适型\n溧水区秦淮路158号1幢\n\n4. 南京溧水花间堂·福林邑：¥469 · 豪华型\n永阳街道金井路66号52栋101室\n\n5. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:54.100Z"
+          "content": "2026-10-10入住，2026-10-11退房。按“华住”筛选。按平台评分优先查询。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 星程南京溧水顾家欧亚达广场酒店：¥120 · 舒适型\n溧水区秦淮路158号1幢\n\n4. 南京溧水花间堂·福林邑：¥537 · 豪华型\n永阳街道金井路66号52栋101室\n\n5. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:05.211Z"
         }
       ],
       "preferences": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "agent",
-      "content": "2026-10-09入住，2026-10-10退房。按“全季”筛选。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:55.129Z",
+      "content": "2026-10-10入住，2026-10-11退房。按“全季”筛选。按平台评分优先查询。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:06.375Z",
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:10:55.129Z",
+        "checkedAt": "2026-10-09T04:11:06.375Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
-            "sort": "comfort",
+            "sort": "rating",
             "keyword": "全季",
             "excludeNames": [],
             "excludeKeywords": []
@@ -314,28 +464,28 @@
           {
             "name": "全季南京溧水永寿坊商业街酒店",
             "address": "南京市溧水区永阳街道西坛路99号",
-            "price": "¥265",
+            "price": "¥276",
             "score": null,
             "hotelType": "舒适型",
             "brandName": null,
             "latitude": 31.6594,
             "longitude": 119.02,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0otO37",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1AqiYa",
             "roomInventory": null
           }
         ]
       },
       "context": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
         "hotelPreference": {
-          "sort": "comfort",
+          "sort": "rating",
           "keyword": "全季",
           "excludeNames": [],
           "excludeKeywords": [],
           "budgetCleared": true
         },
-        "weatherDate": "2026-10-10",
+        "weatherDate": "2026-10-11",
         "weatherDateAssumed": false,
         "location": "lishui",
         "locationAssumed": false,
@@ -353,31 +503,27 @@
             "stay_search"
           ],
           "dependsOn": [],
-          "startedAt": "2026-10-08T14:10:54.110Z",
-          "checkedAt": "2026-10-08T14:10:55.129Z",
-          "durationMs": 1019
+          "startedAt": "2026-10-09T04:11:05.217Z",
+          "checkedAt": "2026-10-09T04:11:06.375Z",
+          "durationMs": 1158
         }
       ],
-      "completeMs": 1026
+      "completeMs": 1163
     },
     {
       "question": "改找桔子",
       "history": [
         {
           "role": "user",
-          "content": "2026-10-09入住，2026-10-10退房，溧水酒店推荐，预算不限"
+          "content": "2026-10-10入住，2026-10-11退房，溧水酒店推荐，预算不限"
         },
         {
-          "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥366 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥145 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥116 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:51.309Z"
+          "role": "user",
+          "content": "评分高一点"
         },
         {
           "role": "user",
           "content": "想住华住旗下酒店"
-        },
-        {
-          "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房。按“华住”筛选。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 星程南京溧水顾家欧亚达广场酒店：¥120 · 舒适型\n溧水区秦淮路158号1幢\n\n4. 南京溧水花间堂·福林邑：¥469 · 豪华型\n永阳街道金井路66号52栋101室\n\n5. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:54.100Z"
         },
         {
           "role": "user",
@@ -385,25 +531,25 @@
         },
         {
           "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房。按“全季”筛选。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:55.129Z"
+          "content": "2026-10-10入住，2026-10-11退房。按“全季”筛选。按平台评分优先查询。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:06.375Z"
         }
       ],
       "preferences": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "agent",
-      "content": "2026-10-09入住，2026-10-10退房。按“桔子”筛选。优先比较舒适型连锁酒店。\n\n1. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n2. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:56.208Z",
+      "content": "2026-10-10入住，2026-10-11退房。按“桔子”筛选。按平台评分优先查询。\n\n1. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n2. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:07.499Z",
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:10:56.208Z",
+        "checkedAt": "2026-10-09T04:11:07.499Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
-            "sort": "comfort",
+            "sort": "rating",
             "keyword": "桔子",
             "excludeNames": [],
             "excludeKeywords": []
@@ -422,7 +568,7 @@
             "brandName": null,
             "latitude": 31.6736,
             "longitude": 119.019,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F44hNaT",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1jOWs3",
             "roomInventory": null
           },
           {
@@ -434,22 +580,22 @@
             "brandName": null,
             "latitude": 31.6449,
             "longitude": 118.901,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3GvfM2",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F4SuBdt",
             "roomInventory": null
           }
         ]
       },
       "context": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
         "hotelPreference": {
-          "sort": "comfort",
+          "sort": "rating",
           "keyword": "桔子",
           "excludeNames": [],
           "excludeKeywords": [],
           "budgetCleared": true
         },
-        "weatherDate": "2026-10-10",
+        "weatherDate": "2026-10-11",
         "weatherDateAssumed": false,
         "location": "lishui",
         "locationAssumed": false,
@@ -467,19 +613,23 @@
             "stay_search"
           ],
           "dependsOn": [],
-          "startedAt": "2026-10-08T14:10:55.138Z",
-          "checkedAt": "2026-10-08T14:10:56.208Z",
-          "durationMs": 1070
+          "startedAt": "2026-10-09T04:11:06.382Z",
+          "checkedAt": "2026-10-09T04:11:07.499Z",
+          "durationMs": 1117
         }
       ],
-      "completeMs": 1077
+      "completeMs": 1121
     },
     {
       "question": "预算200到300元",
       "history": [
         {
           "role": "user",
-          "content": "2026-10-09入住，2026-10-10退房，溧水酒店推荐，预算不限"
+          "content": "2026-10-10入住，2026-10-11退房，溧水酒店推荐，预算不限"
+        },
+        {
+          "role": "user",
+          "content": "评分高一点"
         },
         {
           "role": "user",
@@ -495,26 +645,26 @@
         },
         {
           "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房。按“桔子”筛选。优先比较舒适型连锁酒店。\n\n1. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n2. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:56.208Z"
+          "content": "2026-10-10入住，2026-10-11退房。按“桔子”筛选。按平台评分优先查询。\n\n1. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n2. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:07.499Z"
         }
       ],
       "preferences": {
         "budget": "300",
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "agent",
-      "content": "2026-10-09入住，2026-10-10退房，每晚预算300元以内。按“桔子”筛选。优先比较舒适型连锁酒店。报价范围200—300元。\n\n1. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n2. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:57.206Z",
+      "content": "2026-10-10入住，2026-10-11退房，每晚预算300元以内。按“桔子”筛选。按平台评分优先查询。报价范围200—300元。\n\n1. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n2. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:08.614Z",
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:10:57.206Z",
+        "checkedAt": "2026-10-09T04:11:08.614Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
-            "sort": "comfort",
+            "sort": "rating",
             "keyword": "桔子",
             "excludeNames": [],
             "excludeKeywords": [],
@@ -535,7 +685,7 @@
             "brandName": null,
             "latitude": 31.6736,
             "longitude": 119.019,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2MwbHI",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0p6GLY",
             "roomInventory": null
           },
           {
@@ -547,24 +697,24 @@
             "brandName": null,
             "latitude": 31.6449,
             "longitude": 118.901,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2qZ7wW",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F4XdhI7",
             "roomInventory": null
           }
         ]
       },
       "context": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
         "maxPrice": 300,
         "hotelPreference": {
-          "sort": "comfort",
+          "sort": "rating",
           "keyword": "桔子",
           "excludeNames": [],
           "excludeKeywords": [],
           "minPrice": 200,
           "maxPrice": 300
         },
-        "weatherDate": "2026-10-10",
+        "weatherDate": "2026-10-11",
         "weatherDateAssumed": false,
         "location": "lishui",
         "locationAssumed": false,
@@ -582,23 +732,23 @@
             "stay_search"
           ],
           "dependsOn": [],
-          "startedAt": "2026-10-08T14:10:56.220Z",
-          "checkedAt": "2026-10-08T14:10:57.206Z",
-          "durationMs": 986
+          "startedAt": "2026-10-09T04:11:07.506Z",
+          "checkedAt": "2026-10-09T04:11:08.614Z",
+          "durationMs": 1108
         }
       ],
-      "completeMs": 995
+      "completeMs": 1113
     },
     {
       "question": "评分4.8以上",
       "history": [
         {
           "role": "user",
-          "content": "2026-10-09入住，2026-10-10退房，溧水酒店推荐，预算不限"
+          "content": "2026-10-10入住，2026-10-11退房，溧水酒店推荐，预算不限"
         },
         {
           "role": "user",
-          "content": "想住华住旗下酒店"
+          "content": "评分高一点"
         },
         {
           "role": "user",
@@ -614,26 +764,26 @@
         },
         {
           "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房，每晚预算300元以内。按“桔子”筛选。优先比较舒适型连锁酒店。报价范围200—300元。\n\n1. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n2. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:57.206Z"
+          "content": "2026-10-10入住，2026-10-11退房，每晚预算300元以内。按“桔子”筛选。按平台评分优先查询。报价范围200—300元。\n\n1. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n2. 桔子南京溧水大学城酒店：¥225 · 舒适型\n碧桂园影湖路111号\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:08.614Z"
         }
       ],
       "preferences": {
         "budget": "300",
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "agent",
-      "content": "2026-10-09入住，2026-10-10退房，每晚预算300元以内。按“桔子”筛选。优先比较舒适型连锁酒店。报价范围200—300元。评分条件4.8分以上。\n\n平台没有返回可用于评分筛选的数值；可以先按品牌比较，再在详情页查看评价。\n\n平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:59.685Z",
+      "content": "2026-10-10入住，2026-10-11退房，每晚预算300元以内。按“桔子”筛选。按平台评分优先查询。报价范围200—300元。评分条件4.8分以上。\n\n平台没有返回可用于评分筛选的数值；可以先按品牌比较，再在详情页查看评价。\n\n平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:09.641Z",
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:10:59.685Z",
+        "checkedAt": "2026-10-09T04:11:09.641Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
-            "sort": "comfort",
+            "sort": "rating",
             "keyword": "桔子",
             "excludeNames": [],
             "excludeKeywords": [],
@@ -648,11 +798,11 @@
         "hotels": []
       },
       "context": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
         "maxPrice": 300,
         "hotelPreference": {
-          "sort": "comfort",
+          "sort": "rating",
           "keyword": "桔子",
           "excludeNames": [],
           "excludeKeywords": [],
@@ -660,7 +810,7 @@
           "maxPrice": 300,
           "minScore": 4.8
         },
-        "weatherDate": "2026-10-10",
+        "weatherDate": "2026-10-11",
         "weatherDateAssumed": false,
         "location": "lishui",
         "locationAssumed": false,
@@ -678,19 +828,19 @@
             "stay_search"
           ],
           "dependsOn": [],
-          "startedAt": "2026-10-08T14:10:57.218Z",
-          "checkedAt": "2026-10-08T14:10:59.686Z",
-          "durationMs": 2468
+          "startedAt": "2026-10-09T04:11:08.625Z",
+          "checkedAt": "2026-10-09T04:11:09.641Z",
+          "durationMs": 1016
         }
       ],
-      "completeMs": 2477
+      "completeMs": 1025
     },
     {
       "question": "取消评分，品牌不限，预算不限",
       "history": [
         {
           "role": "user",
-          "content": "2026-10-09入住，2026-10-10退房，溧水酒店推荐，预算不限"
+          "content": "2026-10-10入住，2026-10-11退房，溧水酒店推荐，预算不限"
         },
         {
           "role": "user",
@@ -710,23 +860,23 @@
         },
         {
           "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房，每晚预算300元以内。按“桔子”筛选。优先比较舒适型连锁酒店。报价范围200—300元。评分条件4.8分以上。\n\n平台没有返回可用于评分筛选的数值；可以先按品牌比较，再在详情页查看评价。\n\n平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:10:59.685Z"
+          "content": "2026-10-10入住，2026-10-11退房，每晚预算300元以内。按“桔子”筛选。按平台评分优先查询。报价范围200—300元。评分条件4.8分以上。\n\n平台没有返回可用于评分筛选的数值；可以先按品牌比较，再在详情页查看评价。\n\n平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:09.641Z"
         }
       ],
       "preferences": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "agent",
-      "content": "2026-10-09入住，2026-10-10退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥366 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥145 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥116 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:11:02.284Z",
+      "content": "2026-10-10入住，2026-10-11退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥377 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥152 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥118 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:11.294Z",
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:11:02.284Z",
+        "checkedAt": "2026-10-09T04:11:11.294Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
             "sort": "comfort",
             "keyword": "",
@@ -741,13 +891,13 @@
           {
             "name": "全季南京溧水永寿坊商业街酒店",
             "address": "南京市溧水区永阳街道西坛路99号",
-            "price": "¥265",
+            "price": "¥276",
             "score": null,
             "hotelType": "舒适型",
             "brandName": null,
             "latitude": 31.6594,
             "longitude": 119.02,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F16QpBp",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3FfQtA",
             "roomInventory": null
           },
           {
@@ -759,50 +909,50 @@
             "brandName": null,
             "latitude": 31.6736,
             "longitude": 119.019,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0Ec7QQ",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3QuSnH",
             "roomInventory": null
           },
           {
             "name": "南京溧水新时代开元名都大酒店",
             "address": "天生桥大道388号时代广场东楼",
-            "price": "¥366",
+            "price": "¥377",
             "score": null,
             "hotelType": "豪华型",
             "brandName": "百达屋",
             "latitude": 31.635865,
             "longitude": 119.044462,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F4FsK1a",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F4KXxPe",
             "roomInventory": null
           },
           {
             "name": "宜尚酒店(南京溧水高铁站五洲商贸城店)",
             "address": "溧水区交通东路8号弘阳家居20栋1层",
-            "price": "¥145",
+            "price": "¥152",
             "score": null,
             "hotelType": "高档型",
             "brandName": "东呈",
             "latitude": 31.664145,
             "longitude": 119.048532,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F20IuX3",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2D4Fq1",
             "roomInventory": null
           },
           {
             "name": "如家商旅(金标)-南京溧水天生桥大道店",
             "address": "江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房",
-            "price": "¥116",
+            "price": "¥118",
             "score": null,
             "hotelType": "舒适型",
             "brandName": "首旅如家",
             "latitude": 31.641547,
             "longitude": 119.017676,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3jBEB9",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0IQaXo",
             "roomInventory": null
           }
         ]
       },
       "context": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
         "hotelPreference": {
           "sort": "comfort",
           "keyword": "",
@@ -810,7 +960,7 @@
           "excludeKeywords": [],
           "budgetCleared": true
         },
-        "weatherDate": "2026-10-10",
+        "weatherDate": "2026-10-11",
         "weatherDateAssumed": false,
         "location": "lishui",
         "locationAssumed": false,
@@ -828,19 +978,19 @@
             "stay_search"
           ],
           "dependsOn": [],
-          "startedAt": "2026-10-08T14:10:59.705Z",
-          "checkedAt": "2026-10-08T14:11:02.284Z",
-          "durationMs": 2579
+          "startedAt": "2026-10-09T04:11:09.649Z",
+          "checkedAt": "2026-10-09T04:11:11.294Z",
+          "durationMs": 1645
         }
       ],
-      "completeMs": 2589
+      "completeMs": 1650
     },
     {
       "question": "换一批其他酒店",
       "history": [
         {
           "role": "user",
-          "content": "2026-10-09入住，2026-10-10退房，溧水酒店推荐，预算不限"
+          "content": "2026-10-10入住，2026-10-11退房，溧水酒店推荐，预算不限"
         },
         {
           "role": "user",
@@ -860,23 +1010,23 @@
         },
         {
           "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥265 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥366 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥145 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥116 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:11:02.284Z"
+          "content": "2026-10-10入住，2026-10-11退房。优先比较舒适型连锁酒店。\n\n1. 全季南京溧水永寿坊商业街酒店：¥276 · 舒适型\n南京市溧水区永阳街道西坛路99号\n\n2. 桔子南京溧水开发区机场路酒店：¥249 · 舒适型\n宝塔北路22号金都华府商业街北端\n\n3. 南京溧水新时代开元名都大酒店：¥377 · 豪华型\n天生桥大道388号时代广场东楼\n\n4. 宜尚酒店(南京溧水高铁站五洲商贸城店)：¥152 · 高档型\n溧水区交通东路8号弘阳家居20栋1层\n\n5. 如家商旅(金标)-南京溧水天生桥大道店：¥118 · 舒适型\n江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:11.294Z"
         }
       ],
       "preferences": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "agent",
-      "content": "2026-10-09入住，2026-10-10退房。优先比较舒适型连锁酒店。\n\n1. 南京臼这里·湖畔民宿：¥890 · 豪华型\n南京溧水区和凤镇骆山村520号\n\n2. 汉庭南京溧水万达广场酒店：¥125 · 经济型\n珍珠南路158号学府雅苑16幢\n\n3. 汉庭南京溧水大学城酒店：¥156 · 经济型\n石湫街道雨山路1号秦淮世家花园云景街区6幢单元105室\n\n4. 南京无想民宿(溧水店)：¥542 · 经济型\n江苏南京溧水凤凰名苑一单元601\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:11:03.691Z",
+      "content": "2026-10-10入住，2026-10-11退房。优先比较舒适型连锁酒店。\n\n1. 南京臼这里·湖畔民宿：¥826 · 豪华型\n南京溧水区和凤镇骆山村520号\n\n2. 汉庭南京溧水万达广场酒店：¥142 · 经济型\n珍珠南路158号学府雅苑16幢\n\n3. 汉庭南京溧水大学城酒店：¥165 · 经济型\n石湫街道雨山路1号秦淮世家花园云景街区6幢单元105室\n\n4. 南京无想民宿(溧水店)：¥542 · 经济型\n江苏南京溧水凤凰名苑一单元601\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:12.782Z",
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:11:03.691Z",
+        "checkedAt": "2026-10-09T04:11:12.782Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
             "sort": "comfort",
             "keyword": "",
@@ -897,37 +1047,37 @@
           {
             "name": "南京臼这里·湖畔民宿",
             "address": "南京溧水区和凤镇骆山村520号",
-            "price": "¥890",
+            "price": "¥826",
             "score": null,
             "hotelType": "豪华型",
             "brandName": null,
             "latitude": 31.442921,
             "longitude": 118.966527,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0I0r4p",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2m5nBT",
             "roomInventory": null
           },
           {
             "name": "汉庭南京溧水万达广场酒店",
             "address": "珍珠南路158号学府雅苑16幢",
-            "price": "¥125",
+            "price": "¥142",
             "score": null,
             "hotelType": "经济型",
             "brandName": null,
             "latitude": 31.6303,
             "longitude": 119.031,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F4OkmF6",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F49evjg",
             "roomInventory": null
           },
           {
             "name": "汉庭南京溧水大学城酒店",
             "address": "石湫街道雨山路1号秦淮世家花园云景街区6幢单元105室",
-            "price": "¥156",
+            "price": "¥165",
             "score": null,
             "hotelType": "经济型",
             "brandName": null,
             "latitude": 31.644,
             "longitude": 118.906,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F18tkd7",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1kpWIH",
             "roomInventory": null
           },
           {
@@ -939,14 +1089,14 @@
             "brandName": null,
             "latitude": 31.637078321329177,
             "longitude": 119.0026112688977,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F4Dl4DC",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2eAZ0q",
             "roomInventory": null
           }
         ]
       },
       "context": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
         "hotelPreference": {
           "sort": "comfort",
           "keyword": "",
@@ -960,7 +1110,7 @@
           "excludeKeywords": [],
           "budgetCleared": true
         },
-        "weatherDate": "2026-10-10",
+        "weatherDate": "2026-10-11",
         "weatherDateAssumed": false,
         "location": "lishui",
         "locationAssumed": false,
@@ -978,31 +1128,31 @@
             "stay_search"
           ],
           "dependsOn": [],
-          "startedAt": "2026-10-08T14:11:02.297Z",
-          "checkedAt": "2026-10-08T14:11:03.691Z",
-          "durationMs": 1394
+          "startedAt": "2026-10-09T04:11:11.301Z",
+          "checkedAt": "2026-10-09T04:11:12.782Z",
+          "durationMs": 1481
         }
       ],
-      "completeMs": 1402
+      "completeMs": 1486
     },
     {
-      "question": "2026-10-09入住，2026-10-10退房，溧水酒店，每晚40元以内，按价格从低到高",
+      "question": "2026-10-10入住，2026-10-11退房，溧水酒店，每晚40元以内，按价格从低到高",
       "history": [],
       "preferences": {
         "budget": "40",
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "agent",
-      "content": "2026-10-09入住，2026-10-10退房，每晚预算40元以内。按价格从低到高比较。\n\n1. 南京溧水区明都宾馆：¥31 · 经济型\n溧水区珍珠北路(溧水皮肤防治所旁)。\n\n2. 南京文明旅社：¥37 · 经济型\n南京市溧水区珍珠北路东3-3号。\n\n3. 南京溧水区万国旅馆：¥37 · 经济型\n溧水县珍珠北路(老长途汽车站对面)。\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:11:04.794Z",
+      "content": "2026-10-10入住，2026-10-11退房，每晚预算40元以内。按价格从低到高比较。\n\n1. 南京溧水区明都宾馆：¥31 · 经济型\n溧水区珍珠北路(溧水皮肤防治所旁)。\n\n2. 南京溧水鹏城宾馆：¥37 · 经济型\n永阳镇交通路42号\n\n3. 南京文明旅社：¥37 · 经济型\n南京市溧水区珍珠北路东3-3号。\n\n4. 南京溧水区万国旅馆：¥37 · 经济型\n溧水县珍珠北路(老长途汽车站对面)。\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:13.869Z",
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:11:04.794Z",
+        "checkedAt": "2026-10-09T04:11:13.869Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
             "sort": "budget",
             "keyword": "",
@@ -1012,7 +1162,7 @@
           "maxPrice": 40
         },
         "scope": "按日期查询酒店/民宿及平台返回报价；未返回的房型库存、设施和取消政策须在预订页面确认",
-        "candidateCount": 3,
+        "candidateCount": 4,
         "ratingUnavailable": true,
         "hotels": [
           {
@@ -1024,7 +1174,19 @@
             "brandName": null,
             "latitude": 31.658709,
             "longitude": 119.031703,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2ee9wD",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3GQs9A",
+            "roomInventory": null
+          },
+          {
+            "name": "南京溧水鹏城宾馆",
+            "address": "永阳镇交通路42号",
+            "price": "¥37",
+            "score": null,
+            "hotelType": "经济型",
+            "brandName": null,
+            "latitude": 31.657986,
+            "longitude": 119.03364,
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1pKUId",
             "roomInventory": null
           },
           {
@@ -1036,7 +1198,7 @@
             "brandName": null,
             "latitude": 31.659849,
             "longitude": 119.031757,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0zGsxZ",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F40ibrN",
             "roomInventory": null
           },
           {
@@ -1048,14 +1210,14 @@
             "brandName": null,
             "latitude": 31.65847,
             "longitude": 119.031703,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F27AW6A",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2AX7l1",
             "roomInventory": null
           }
         ]
       },
       "context": {
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
         "maxPrice": 40,
         "hotelPreference": {
           "sort": "budget",
@@ -1064,7 +1226,7 @@
           "excludeKeywords": []
         },
         "origin": "低到高",
-        "weatherDate": "2026-10-10",
+        "weatherDate": "2026-10-11",
         "weatherDateAssumed": false,
         "location": "lishui",
         "locationAssumed": false,
@@ -1082,33 +1244,33 @@
             "stay_search"
           ],
           "dependsOn": [],
-          "startedAt": "2026-10-08T14:11:03.696Z",
-          "checkedAt": "2026-10-08T14:11:04.795Z",
-          "durationMs": 1099
+          "startedAt": "2026-10-09T04:11:12.785Z",
+          "checkedAt": "2026-10-09T04:11:13.869Z",
+          "durationMs": 1084
         }
       ],
-      "completeMs": 1104
+      "completeMs": 1087
     },
     {
       "question": "你好，今天怎么样",
       "history": [
         {
           "role": "user",
-          "content": "2026-10-09入住，2026-10-10退房，溧水酒店，每晚40元以内，按价格从低到高"
+          "content": "2026-10-10入住，2026-10-11退房，溧水酒店，每晚40元以内，按价格从低到高"
         },
         {
           "role": "expert",
-          "content": "2026-10-09入住，2026-10-10退房，每晚预算40元以内。按价格从低到高比较。\n\n1. 南京溧水区明都宾馆：¥31 · 经济型\n溧水区珍珠北路(溧水皮肤防治所旁)。\n\n2. 南京文明旅社：¥37 · 经济型\n南京市溧水区珍珠北路东3-3号。\n\n3. 南京溧水区万国旅馆：¥37 · 经济型\n溧水县珍珠北路(老长途汽车站对面)。\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-08T14:11:04.794Z"
+          "content": "2026-10-10入住，2026-10-11退房，每晚预算40元以内。按价格从低到高比较。\n\n1. 南京溧水区明都宾馆：¥31 · 经济型\n溧水区珍珠北路(溧水皮肤防治所旁)。\n\n2. 南京溧水鹏城宾馆：¥37 · 经济型\n永阳镇交通路42号\n\n3. 南京文明旅社：¥37 · 经济型\n南京市溧水区珍珠北路东3-3号。\n\n4. 南京溧水区万国旅馆：¥37 · 经济型\n溧水县珍珠北路(老长途汽车站对面)。\n\n平台本轮未提供评分数值，可在酒店详情页比较住客评价。平台报价会变化，不代表已锁定客房；房型库存、早餐、入住人数和取消政策请打开酒店详情确认。\n查询时间：2026-10-09T04:11:13.869Z"
         }
       ],
       "preferences": {
         "budget": "40",
-        "checkInDate": "2026-10-09",
-        "checkOutDate": "2026-10-10",
-        "weatherDate": "2026-10-10"
+        "checkInDate": "2026-10-10",
+        "checkOutDate": "2026-10-11",
+        "weatherDate": "2026-10-11"
       },
       "kind": "casual",
-      "content": "你好呀，淮源姐在这儿呢。今天心情不错，正等着和你聊聊天。\n\n你最近有什么想聊的话题，或者需要帮忙的地方吗？",
+      "content": "你好呀，今天过得还好吗？",
       "trace": [
         {
           "taskId": "conversation",
@@ -1116,22 +1278,22 @@
           "tools": [],
           "status": "completed",
           "label": "正在回答",
-          "startedAt": "2026-10-08T14:11:04.803Z",
-          "checkedAt": "2026-10-08T14:11:05.695Z",
-          "durationMs": 892
+          "startedAt": "2026-10-09T04:11:13.874Z",
+          "checkedAt": "2026-10-09T04:11:14.498Z",
+          "durationMs": 624
         }
       ],
-      "completeMs": 897
+      "completeMs": 628
     },
     {
       "directAPI": true,
       "stayData": {
         "provider": "飞猪 FlyAI",
-        "checkedAt": "2026-10-08T14:11:07.236Z",
+        "checkedAt": "2026-10-09T04:11:15.976Z",
         "query": {
           "destName": "南京市溧水区",
-          "checkInDate": "2026-10-09",
-          "checkOutDate": "2026-10-10",
+          "checkInDate": "2026-10-10",
+          "checkOutDate": "2026-10-11",
           "hotelPreference": {
             "sort": "comfort",
             "keyword": "",
@@ -1146,13 +1308,13 @@
           {
             "name": "全季南京溧水永寿坊商业街酒店",
             "address": "南京市溧水区永阳街道西坛路99号",
-            "price": "¥265",
+            "price": "¥276",
             "score": null,
             "hotelType": "舒适型",
             "brandName": null,
             "latitude": 31.6594,
             "longitude": 119.02,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2bW5ti",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2BRxrF",
             "roomInventory": null
           },
           {
@@ -1164,53 +1326,53 @@
             "brandName": null,
             "latitude": 31.6736,
             "longitude": 119.019,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3jEKBD",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F4JPlnX",
             "roomInventory": null
           },
           {
             "name": "南京溧水新时代开元名都大酒店",
             "address": "天生桥大道388号时代广场东楼",
-            "price": "¥366",
+            "price": "¥377",
             "score": null,
             "hotelType": "豪华型",
             "brandName": "百达屋",
             "latitude": 31.635865,
             "longitude": 119.044462,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F3zqX2b",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0oxLkq",
             "roomInventory": null
           },
           {
             "name": "宜尚酒店(南京溧水高铁站五洲商贸城店)",
             "address": "溧水区交通东路8号弘阳家居20栋1层",
-            "price": "¥145",
+            "price": "¥152",
             "score": null,
             "hotelType": "高档型",
             "brandName": "东呈",
             "latitude": 31.664145,
             "longitude": 119.048532,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F42MsAk",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F2R3cIa",
             "roomInventory": null
           },
           {
             "name": "如家商旅(金标)-南京溧水天生桥大道店",
             "address": "江苏省南京市溧水区永阳镇秀园西苑2期(建设中)秀园西苑保障房",
-            "price": "¥116",
+            "price": "¥118",
             "score": null,
             "hotelType": "舒适型",
             "brandName": "首旅如家",
             "latitude": 31.641547,
             "longitude": 119.017676,
-            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F0MWnMc",
+            "url": "https://router.feizhu.com/multi/webview?url=https%3A%2F%2Frouter.feizhu.com%2Fws%2F1kuyu0",
             "roomInventory": null
           }
         ],
         "diagnostics": {
-          "requestId": "f289b5ff-afc4-417f-b92d-1fdcc30176bc",
-          "durationMs": 1538,
+          "requestId": "8b26963b-5fdf-4370-ad90-102fccaa8aa2",
+          "durationMs": 1476,
           "operations": [
             {
               "operation": "stays",
-              "durationMs": 1538,
+              "durationMs": 1476,
               "status": "completed"
             }
           ]

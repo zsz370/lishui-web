@@ -40,7 +40,7 @@ test('无docs、无私钥、无本地向量的新工作目录也能运行整套�
  await assert.rejects(()=>access(join(temp,'docs')));await assert.rejects(()=>access(join(temp,'config/integrations.env.local')));await assert.rejects(()=>access(join(temp,'runtime.local')));
  const tests=(await readdir(join(temp,'scripts'))).filter(name=>name.endsWith('test.mjs')&&name!=='review-integrity.test.mjs').map(name=>'scripts/'+name);
  const childEnvironment={...process.env};delete childEnvironment.NODE_TEST_CONTEXT;
- const result=await run(process.execPath,['--test',...tests],{cwd:temp,env:childEnvironment,maxBuffer:6*1024*1024});assert.match(result.stdout,/(?:fail 0)/);
+ const result=await run(process.execPath,['--test','--test-concurrency=1',...tests],{cwd:temp,env:childEnvironment,maxBuffer:6*1024*1024});assert.match(result.stdout,/(?:fail 0)/);
  const audit=await run(process.execPath,['scripts/audit-guide.mjs'],{cwd:temp,env:childEnvironment});assert.match(audit.stdout,/索引|rag:index/);
  const exported=await run(process.execPath,['scripts/export-reviewed-corpus.mjs'],{cwd:temp,env:childEnvironment});assert.match(exported.stdout,/'approved'|"approved"/);
  const data=JSON.parse(await readFile(join(temp,'docs/corpus-audit/approved-corpus.json'),'utf8'));assert.equal(corpusHash(data.chunks),corpusHash(await readCorpus()));

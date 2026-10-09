@@ -1,0 +1,10 @@
+{
+  "username": "qa10093a616cbf",
+  "signup": true,
+  "save": true,
+  "logout": true,
+  "login": true,
+  "crossSessionLoad": true,
+  "testCardMovedToRecoverableTrash": true,
+  "passed": true
+}

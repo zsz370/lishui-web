@@ -74,7 +74,7 @@ export default memo(function HomeHero({ editorial = false }) {
         <p className="home-hero-description">{editorial ? <>在秦淮源头，寻一段山水与烟火。</> : <>山水怎么逛，乡味怎么尝？<br/>从你的好奇，开始这一程。</>}</p>
         <form className="home-question-form" onSubmit={ask}>
           <label className="home-sr-only" htmlFor="home-question">问淮源姐</label>
-          <input id="home-question" maxLength={1000} value={question} onChange={event=>setQuestion(event.target.value)} placeholder="只有一天，没车，怎么逛？"/>
+          <input id="home-question" maxLength={1000} value={question} onChange={event=>setQuestion(event.target.value)}/>
           <button type="submit" aria-label="和淮源姐开始对话"><PaperPlaneRight size={23} aria-hidden="true"/></button>
         </form>
         <div className="hero-question-links"><Link to="/guide?q=只有一天，没有车，怎么逛溧水？">帮我规划一天<ArrowUpRight size={16} aria-hidden="true"/></Link><Link to="/guide?node=n_wx&q=无想山名字是怎么来的？">听无想山的故事<ArrowUpRight size={16} aria-hidden="true"/></Link></div>

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "sourceDomain": "lsguide.cn",
+  "sourceAccess": "SSH to existing source HTTP listener through a loopback-only QA proxy",
+  "publicHttpsClaimed": false,
+  "checkInDate": "2026-10-10",
+  "checkOutDate": "2026-10-11",
+  "checks": [
+    "住宿表单按日期返回全季、桔子、开元等实际候选及原始报价",
+    "源站导游按华住条件返回真实酒店及供应商类型",
+    "源站日期与查询品牌在答复中保持",
+    "实际评分缺失时没有补造数字评分"
+  ],
+  "screenshot": "hotel-quality-origin-2026-10-09.jpg"
+}

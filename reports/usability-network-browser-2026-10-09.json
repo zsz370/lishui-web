@@ -1,0 +1,25 @@
+{
+  "searchChinese": true,
+  "searchPinyin": true,
+  "exactNameRank": true,
+  "signupUsername": true,
+  "passwordRange": [
+    8,
+    15
+  ],
+  "noAuthTechnicalCopy": true,
+  "networkAnswer": true,
+  "mobileCheck": {
+    "contentWidth": 375,
+    "input": {
+      "bottom": 757.3333740234375,
+      "left": 28.666667938232425,
+      "right": 290.0000114440918
+    },
+    "outlineStyle": "none",
+    "pageWidth": 375,
+    "sendHeight": 44,
+    "value": "第一行\n ",
+    "wrapperOutlineStyle": "none"
+  }
+}

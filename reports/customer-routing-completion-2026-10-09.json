@@ -1,0 +1,18 @@
+{
+  "release": "20261009-customer-routing-b2e732a0a4",
+  "domain": "lsguide.cn",
+  "baselineTests": 299,
+  "finalTests": 341,
+  "newTests": 42,
+  "requiredSuitesPassed": 11,
+  "realSourceCustomerQuestionsPassed": 15,
+  "hotelContinuationChecksPassed": 2,
+  "sourceManifestMatchesLocal": true,
+  "cyberemotionlabUnchanged": true,
+  "nginxUnchanged": true,
+  "privateConfigUnchanged": true,
+  "reviewedDataUnchanged": true,
+  "SSEProtocolUnchanged": true,
+  "rollback": "/var/backups/lishui-guide/20261009-customer-routing-b2e732a0a4",
+  "publicHTTPSClaimed": false
+}

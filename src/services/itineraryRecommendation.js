@@ -2,12 +2,13 @@ import { nodes, getNode } from '../data/nodes.js';
 import { host } from '../data/personas.js';
 import { createStop, validDate } from '../data/itinerary.js';
 import { approvedQA } from '../data/presetQA.js';
+import { queryServiceQA } from '../data/foundationQA.js';
 import { dialogueContext, mentionedPlaces } from './conversationContext.js';
 import { transportMode, destinationStatement, routingText, partyDescription, tripDuration, explicitDates } from './tripConditions.js';
 import { extractTripContext } from './chatContext.js';
 import { recommendationRevision } from './tripPlanningState.js';
 
-const itineraryWords = /一日游|两日游|[一二两三四五六七\d]+(?:天|日(?:自驾|亲子|旅游|旅行|游玩))|游玩路线|旅游路线|旅行路线|行程|怎么玩|怎么逛|怎么安排|怎么串|串起来|一起逛|完整安排|替代.*(?:推荐|地方)|安排行程|路线推荐|推荐.*路线|itinerary/i;
+const itineraryWords = /一日游|两日游|[一二两三四五六七\d]+(?:天|日(?:自驾|亲子|旅游|旅行|游玩|游))|游玩路线|旅游路线|旅行路线|行程|怎么玩|怎么逛|怎么安排|怎么串|串起来|一起逛|完整安排|替代.*(?:推荐|地方)|安排行程|路线推荐|推荐.*路线|itinerary/i;
 const revisions = /^(?:那|再|改|换|继续|不去|不想去|去掉|增加|加入|带|我们|想|我想|慢|轻松|少走|多看)/;
 const externalFacts = /天气|气温|预报|房价|房态|订房|住宿|酒店|民宿|入住|退房|怎么去|怎么坐|换乘|班次|末班|门票|票价|开放时间|几点开|预约|演出|展演|灯会|大龙|庙会|马灯|翻译|英文|英语|急救|报警/;
 const names = node => node.name.split(/[·／/]/).filter(name => name.length > 1);
@@ -18,7 +19,7 @@ export function isItineraryRecommendation(input) {
   const question = routingText(input.question);
   if (externalFacts.test(question) || /学习|工作|健身|编程|作文|写作|虚构|小说|翻译|注册|登录|账号|账户|行程卡|保存|导出|丢失|退出/.test(question)) return false;
   const normalize = text => text.replace(/[\s，。？?!！]/g, '');
-  if (approvedQA.some(qa => normalize(qa.q) === normalize(question)) || /前要准备|准备哪些|准备什么|能进入|可以进入/.test(question)) return false;
+  if (queryServiceQA(input.question) || approvedQA.some(qa => normalize(qa.q) === normalize(question)) || /前要准备|准备哪些|准备什么|能进入|可以进入/.test(question)) return false;
   if (input.dialogueRoute === 'planning') return true;
   const context = dialogueContext(input);
   if(context.task==='conversation')return false;
@@ -27,7 +28,7 @@ export function isItineraryRecommendation(input) {
   return itineraryWords.test(question) && (trip || context.activeTask || /行程|路线推荐|怎么安排/.test(question))
     || context.continuation && context.task === 'planning'
     || revisions.test(question) && itineraryWords.test(previous) && !externalFacts.test(previous)
-    || /^(?:有什么推荐|推荐一下|推荐几个|帮我推荐(?:一下)?|帮我安排(?:一下)?|安排一下|玩点(?:什么|啥))[？?。\s]*$/.test(question) && (!context.task || ['planning','knowledge'].includes(context.task));
+    || /^(?:有没有推荐|有什么推荐|推荐一下|推荐几个|帮我推荐(?:一下)?|帮我安排(?:一下)?|安排一下|玩点(?:什么|啥))[？?。\s]*$/.test(question) && (!context.task || ['planning','knowledge'].includes(context.task));
 }
 
 const periods = ['上午', '午间', '下午'];

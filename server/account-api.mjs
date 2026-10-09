@@ -1,6 +1,7 @@
-import { randomUUID } from 'node:crypto';
+import { randomUUID, createHash } from 'node:crypto';
 import { AppError, clientAddress, textField, safeUrl } from './core.mjs';
 import { normalizePlan } from '../src/data/itinerary.js';
+import { normalizeUsername, validUsername, passwordPattern, passwordHint } from '../src/services/accountCredentials.js';
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 const tokenPattern=/^[A-Za-z0-9._-]{10,4000}$/;
 const cookieNames=secure=>secure?['__Host-lishui_access','__Host-lishui_refresh']:['lishui_access','lishui_refresh'];
@@ -13,7 +14,7 @@ export function createAccountApi(provider,config,{now=Date.now}={}) {
     if(!tokenPattern.test(session.access_token||''))throw new AppError('ACCOUNT_UPSTREAM','登录服务未返回有效会话。',503);
     res.setHeader('Set-Cookie',[`${names[0]}=${session.access_token}; Max-Age=${Math.max(1,Math.min(3600,Number(session.expires_in)||3600))}${base}`,`${names[1]}=; Max-Age=0${base}`]);
   }
-  const publicUser=user=>{if(!uuid.test(user?.id||'')||typeof user.email!=='string')throw new AppError('ACCOUNT_UNAUTHORIZED','登录状态失效，请重新登录。',401);return{id:user.id,email:user.email};};
+  const publicUser=user=>{if(!uuid.test(user?.id||'')||typeof user.email!=='string')throw new AppError('ACCOUNT_UNAUTHORIZED','登录状态失效，请重新登录。',401);const username=user.user_metadata?.username;return validUsername(username)?{id:user.id,username:normalizeUsername(username)}:{id:user.id,email:user.email,username:user.email};};
   async function session(req,res){
     const [access]=cookies(req,names);
     if(access){try{return{token:access,user:publicUser(await provider.user(access))};}catch(error){if(error.status!==401&&error.status!==403)throw error;}}
@@ -38,9 +39,15 @@ export function createAccountApi(provider,config,{now=Date.now}={}) {
       if(req.method==='POST'&&!String(req.headers['content-type']||'').startsWith('application/json'))throw new AppError('INVALID_INPUT','请发送JSON',415);
       const input=req.method==='POST'?await body(req):{};
       if(req.method==='POST'&&['/api/account/signup','/api/account/login'].includes(url.pathname)){
-        const email=textField(input.email,'邮箱',254).toLowerCase();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw new AppError('INVALID_INPUT','请填写有效邮箱');
-        if(typeof input.password!=='string'||input.password.length<8||input.password.length>128)throw new AppError('INVALID_INPUT','密码请使用8至128个字符');
-        const result=url.pathname.endsWith('/signup')?await provider.signup(email,input.password,req.headers.origin+'/login'):await provider.login(email,input.password);
+        const signup=url.pathname.endsWith('/signup');
+        const identifier=textField(input.username??input.email,'用户名',254);
+        // 旧邮箱账号只保留登录兼容，归属ID不变；新账号以规范用户名的唯一映射认证。
+        const legacy=!signup&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(identifier);
+        if(!legacy&&!validUsername(identifier))throw new AppError('INVALID_INPUT','用户名请使用3–24位中文、字母、数字、下划线或短横线。');
+        const username=legacy?null:normalizeUsername(identifier);
+        const email=legacy?identifier.toLowerCase():createHash('sha256').update(username).digest('hex')+'@users.lsguide.cn';
+        if(typeof input.password!=='string'||(legacy?(input.password.length<8||input.password.length>128):!passwordPattern.test(input.password)))throw new AppError('INVALID_INPUT',legacy?'密码不正确，请重新输入。':passwordHint);
+        const result=signup?await provider.signup(email,input.password,req.headers.origin+'/login',username):await provider.login(email,input.password);
         if(!result?.access_token)throw new AppError('ACCOUNT_CONFIG_MISMATCH','注册暂未完成，请联系管理员检查账号配置。',503);
         const user=publicUser(await provider.user(result.access_token));setCookies(res,result);return send(200,{user,confirmationRequired:false});
       }

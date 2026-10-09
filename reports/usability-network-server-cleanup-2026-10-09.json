@@ -1,0 +1,256 @@
+{
+  "activeRelease": "20261009-usability-network-b57e2e4217",
+  "retained": [
+    "20261006-73620ddf01ee",
+    "20261009-customer-routing-b2e732a0a4",
+    "20261009-icp-footer-1f392602de",
+    "20261009-usability-network-b57e2e4217"
+  ],
+  "archivedCount": 30,
+  "rows": [
+    {
+      "release": "20261006-73620ddf01ee-failed-empty",
+      "files": 1,
+      "sourceBytes": 0,
+      "archiveBytes": 299,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261006-73620ddf01ee-failed-empty.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261006-agent-motion",
+      "files": 42,
+      "sourceBytes": 2356430,
+      "archiveBytes": 1903913,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261006-agent-motion.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261006-brand-meili",
+      "files": 84,
+      "sourceBytes": 24378055,
+      "archiveBytes": 23914614,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261006-brand-meili.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261006-client-resilience",
+      "files": 13,
+      "sourceBytes": 739864,
+      "archiveBytes": 232310,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261006-client-resilience.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261006-title-only",
+      "files": 2,
+      "sourceBytes": 1264,
+      "archiveBytes": 1156,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261006-title-only.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-content-40921c0c1a",
+      "files": 230,
+      "sourceBytes": 15656511,
+      "archiveBytes": 12184251,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-content-40921c0c1a.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-design-1135edbb88",
+      "files": 248,
+      "sourceBytes": 16961558,
+      "archiveBytes": 13516426,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-design-1135edbb88.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-design-ecc6e65030",
+      "files": 240,
+      "sourceBytes": 16941683,
+      "archiveBytes": 13508701,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-design-ecc6e65030.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-huaiyuan-single",
+      "files": 236,
+      "sourceBytes": 26899272,
+      "archiveBytes": 24595888,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-huaiyuan-single.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-motion-24b41b6d58",
+      "files": 245,
+      "sourceBytes": 16956026,
+      "archiveBytes": 13511863,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-motion-24b41b6d58.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-performance-2af0ce4263",
+      "files": 250,
+      "sourceBytes": 16962951,
+      "archiveBytes": 13519284,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-performance-2af0ce4263.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-performance-ded6081458",
+      "files": 254,
+      "sourceBytes": 16974700,
+      "archiveBytes": 13524146,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-performance-ded6081458.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-persona-experts-bcb32c165b",
+      "files": 280,
+      "sourceBytes": 17767166,
+      "archiveBytes": 14322646,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-persona-experts-bcb32c165b.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-persona-experts-bce5871834",
+      "files": 280,
+      "sourceBytes": 17769126,
+      "archiveBytes": 14323367,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-persona-experts-bce5871834.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-usability-2665c3fd52",
+      "files": 264,
+      "sourceBytes": 17640733,
+      "archiveBytes": 14286335,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-usability-2665c3fd52.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-usability-a8c1375055",
+      "files": 263,
+      "sourceBytes": 17638705,
+      "archiveBytes": 14285845,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-usability-a8c1375055.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-usability-c1a29d6b23",
+      "files": 263,
+      "sourceBytes": 17637990,
+      "archiveBytes": 14285637,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-usability-c1a29d6b23.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261007-visual-6b98fabe2c",
+      "files": 262,
+      "sourceBytes": 17678449,
+      "archiveBytes": 14292862,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261007-visual-6b98fabe2c.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261008-accounts-bb05445c7a",
+      "files": 304,
+      "sourceBytes": 17985452,
+      "archiveBytes": 14382681,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261008-accounts-bb05445c7a.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261008-context-f1b45c8ed8",
+      "files": 327,
+      "sourceBytes": 18225965,
+      "archiveBytes": 14462318,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261008-context-f1b45c8ed8.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261008-dialogue-1d76cfb6d9",
+      "files": 308,
+      "sourceBytes": 18056127,
+      "archiveBytes": 14403036,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261008-dialogue-1d76cfb6d9.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261008-dialogue-f2b152fd86",
+      "files": 307,
+      "sourceBytes": 18054305,
+      "archiveBytes": 14402526,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261008-dialogue-f2b152fd86.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261008-recommendation-57673072ff",
+      "files": 316,
+      "sourceBytes": 18140494,
+      "archiveBytes": 14434006,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261008-recommendation-57673072ff.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261008-recommendation-9d88ee297b",
+      "files": 316,
+      "sourceBytes": 18140254,
+      "archiveBytes": 14433962,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261008-recommendation-9d88ee297b.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261008-review-244eebea95",
+      "files": 558,
+      "sourceBytes": 19718237,
+      "archiveBytes": 14947494,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261008-review-244eebea95.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261008-review-4be2037264",
+      "files": 562,
+      "sourceBytes": 19800113,
+      "archiveBytes": 14958583,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261008-review-4be2037264.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261008-route-quality-568db1fe95",
+      "files": 574,
+      "sourceBytes": 20036990,
+      "archiveBytes": 15017518,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261008-route-quality-568db1fe95.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261009-customer-routing-17a1141d04",
+      "files": 410,
+      "sourceBytes": 19285075,
+      "archiveBytes": 14818550,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261009-customer-routing-17a1141d04.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261009-customer-routing-3dab1b49fa",
+      "files": 634,
+      "sourceBytes": 20689489,
+      "archiveBytes": 15263175,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261009-customer-routing-3dab1b49fa.tar.gz",
+      "verified": true
+    },
+    {
+      "release": "20261009-hotel-quality-9db21fcbc4",
+      "files": 602,
+      "sourceBytes": 20505866,
+      "archiveBytes": 15208961,
+      "archive": "/home/zhangpanhh/apps/lishui-web/archived-releases/20261009-hotel-quality-9db21fcbc4.tar.gz",
+      "verified": true
+    }
+  ],
+  "sourceBytes": 489598850,
+  "archiveBytes": 392942353,
+  "apiProcessUnchanged": true,
+  "recovery": "Extract archived-releases/<release>.tar.gz under releases; symlinks retain their original targets."
+}

@@ -9,6 +9,8 @@ import { createChat, validateChat } from '../server/chat.mjs';
 import { createApi } from '../server/index.mjs';
 import { getConfig } from '../server/core.mjs';
 import { readChatEvents } from '../src/services/chatStream.js';
+import { queryServiceQA } from '../src/data/foundationQA.js';
+import { visitorAnswer } from '../src/data/visitorAnswerCopy.js';
 
 const input = (question, extra = {}) => validateChat({ question, ...extra });
 const knowledge = { chunks: [], status: () => ({ ready: true, chunks: 0 }), retrieve: async () => { throw Error('推荐不得搜索不相关事实'); } };
@@ -22,7 +24,10 @@ const noDisclaimer = result => {
 test('推荐问题直接完成上午午间下午安排，无日期或指定景点也有完整路线', async () => {
   const chat = createChat({}, knowledge);
   for (const question of ['溧水一日游路线推荐', '十月份溧水游玩路线推荐', '只有一天时间，推荐哪条线？']) {
-    const result = await chat(input(question)); noDisclaimer(result);
+    const result = await chat(input(question));
+    const reviewed=queryServiceQA(question);
+    if(reviewed){assert.equal(result.kind,'preset');assert.equal(result.content,visitorAnswer(reviewed));assert.deepEqual(result.sources,reviewed.sources);continue;}
+    noDisclaimer(result);
     assert.equal(result.recommendedPlan.days, 1); assert.equal(result.recommendedPlan.stops.length, 3);
     for (const period of ['上午', '午间', '下午']) assert.match(result.content, new RegExp(period + '｜'));
     assert.match(result.content, /天生桥.*手抓鸡.*无想山/s);

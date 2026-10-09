@@ -1,0 +1,86 @@
+[
+  {
+    "round": 0,
+    "label": "首页",
+    "path": "/",
+    "elapsedMs": 336,
+    "heading": "山水之间，\n遇见美溧。"
+  },
+  {
+    "round": 0,
+    "label": "问淮源姐",
+    "path": "/guide",
+    "elapsedMs": 217,
+    "heading": "这一程，和淮源姐聊聊。"
+  },
+  {
+    "round": 0,
+    "label": "发现溧水",
+    "path": "/nodes",
+    "elapsedMs": 262,
+    "heading": "探索溧水"
+  },
+  {
+    "round": 0,
+    "label": "风物图鉴",
+    "path": "/atlas",
+    "elapsedMs": 231,
+    "heading": "溧水风物图鉴"
+  },
+  {
+    "round": 0,
+    "label": "我的行程",
+    "path": "/itinerary",
+    "elapsedMs": 267,
+    "heading": "我的溧水行程"
+  },
+  {
+    "round": 0,
+    "label": "用户登录",
+    "path": "/login",
+    "elapsedMs": 190,
+    "heading": "登录遇见美溧"
+  },
+  {
+    "round": 1,
+    "label": "首页",
+    "path": "/",
+    "elapsedMs": 235,
+    "heading": "山水之间，\n遇见美溧。"
+  },
+  {
+    "round": 1,
+    "label": "问淮源姐",
+    "path": "/guide",
+    "elapsedMs": 222,
+    "heading": "这一程，和淮源姐聊聊。"
+  },
+  {
+    "round": 1,
+    "label": "发现溧水",
+    "path": "/nodes",
+    "elapsedMs": 224,
+    "heading": "探索溧水"
+  },
+  {
+    "round": 1,
+    "label": "风物图鉴",
+    "path": "/atlas",
+    "elapsedMs": 233,
+    "heading": "溧水风物图鉴"
+  },
+  {
+    "round": 1,
+    "label": "我的行程",
+    "path": "/itinerary",
+    "elapsedMs": 235,
+    "heading": "我的溧水行程"
+  },
+  {
+    "round": 1,
+    "label": "用户登录",
+    "path": "/login",
+    "elapsedMs": 193,
+    "heading": "登录遇见美溧"
+  }
+]

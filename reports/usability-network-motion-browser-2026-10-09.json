@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "offscreenPaused": true,
+  "visibleResumed": true,
+  "video": {
+    "paused": false,
+    "readyState": 4,
+    "src": "/assets/personas/transparent/01_huaiyuanjie-idle.webm",
+    "time": 0.154546
+  },
+  "noStaticFallback": true
+}

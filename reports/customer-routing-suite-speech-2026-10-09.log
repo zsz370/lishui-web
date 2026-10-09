@@ -1,0 +1,20 @@
+
+> lishui-web@0.1.0 test:speech
+> node --test scripts/answer-speech.test.mjs
+
+✔ 分段保留全答复及传说限定语，Unicode字符不被拆开 (1.7768ms)
+✔ 点击只准备声音，真实start/end驱动字幕和结束；后续段未开始不显示播放 (0.6169ms)
+✔ 停止后迟到的start/end/error不恢复播放或覆盖新答复 (0.182ms)
+✔ 重播从答复第一字开始，不叠加旧语音 (0.1003ms)
+✔ 仅使用本地中文声音，不默认采用远程中文或本机英文 (0.1472ms)
+✔ 异步voice清单加载后播放；停止或卸载会移除监听与定时器 (0.1272ms)
+✔ 没有voice清单或无法启动会给出可恢复错误，播放超时会停止声音 (0.1835ms)
+✔ 不支持API、调用异常或设备error均保留文字路径；空文字不入队 (0.1828ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 65.3555

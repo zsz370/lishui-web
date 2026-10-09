@@ -1,0 +1,16 @@
+warning: in the working copy of 'reports/hotel-quality-live-2026-10-08.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/accounts.test.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/persona-collaboration.test.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/recommendation.test.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/review-integrity.test.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'server/account-api.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'server/supabase-accounts.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/GuideMedia.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Photo.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/data/account.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/data/agentPersona.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/data/atlas.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/Account.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/services/itineraryRecommendation.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/services/personaExpression.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/WholeSiteDesign.css', LF will be replaced by CRLF the next time Git touches it

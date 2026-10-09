@@ -1,0 +1,516 @@
+{
+  "passed": true,
+  "base": "http://127.0.0.1:15184",
+  "sourceDomain": null,
+  "requests": 15,
+  "rows": [
+    {
+      "question": "有没有推荐",
+      "kind": "planning",
+      "content": "溧水一日游\n先按一天安排。以人文山水为主，每天最多两个主要游览点，午餐就近解决。\n\n上午｜天生桥·胭脂河\n把石桥、两侧岩壁与河谷连起来看，认识开河通航的历史。\n\n午间｜就近午餐 · 洪蓝手抓鸡\n在游览点周边选餐厅，不为吃饭专程绕去另一片区。菜单有洪蓝手抓鸡时可以尝尝，先问配料与份量，饭后留出休息时间。\n\n下午｜无想山\n选山林慢步或人文寻访，留意沿途遗址说明与石刻。\n\n路线串联\n第1天：天生桥·胭脂河 → 无想山\n交通方式还没指定，这份先给游玩顺序；自驾按导航衔接，无车则把跨片区接驳单独查好。最后一天下午按返程时间收尾，不再额外加点。",
+      "sources": [
+        {
+          "label": "南京大学转载新华日报：胭脂河与天生桥",
+          "url": "https://www.nju.edu.cn/info/3191/218951.htm"
+        },
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        },
+        {
+          "label": "溧水区政府：区情简介",
+          "url": "https://www.njls.gov.cn/zjls/qqjj/"
+        }
+      ],
+      "suggest": [
+        "保留天数，改成亲子游",
+        "保留天数，想轻松一点",
+        "改成两天一夜"
+      ],
+      "plan": {
+        "title": "溧水一日游",
+        "days": 1,
+        "nights": 0,
+        "stops": [
+          {
+            "nodeId": "n_tsq",
+            "day": 1,
+            "period": "上午",
+            "role": "visit",
+            "note": "上午：把石桥、两侧岩壁与河谷连起来看，认识开河通航的历史。"
+          },
+          {
+            "nodeId": "f_szc",
+            "day": 1,
+            "period": "午间",
+            "role": "meal",
+            "note": "午间：洪蓝手抓鸡是溧水洪蓝的代表乡味之一，地方餐桌和制作手艺是它的两重看点。"
+          },
+          {
+            "nodeId": "n_wx",
+            "day": 1,
+            "period": "下午",
+            "role": "visit",
+            "note": "下午：选山林慢步或人文寻访，留意沿途遗址说明与石刻。"
+          }
+        ]
+      },
+      "ms": 1075,
+      "deltaEvents": 5
+    },
+    {
+      "question": "溧水，自然，2000以内，明天出发",
+      "kind": "needs_input",
+      "content": "已记下：2026-10-10出发，预算2000元以内，想看自然山水。\n先选喜欢的片区，把游玩、吃饭和休息放在一起考虑。\n可以从天生桥的河谷、无想山的山林或周园的收藏中选一个主目的地；具体开放和预约在出发前再核对。\n你准备从哪里出发？",
+      "suggest": [
+        "只有一天，又没有车，怎么安排？",
+        "两天一晚，要先考虑什么？",
+        "下雨天适合怎样逛？"
+      ],
+      "choiceGroups": [
+        {
+          "id": "companions",
+          "prompt": "几位同行？也可以说明成人、儿童人数。",
+          "choices": [
+            {
+              "label": "1人",
+              "question": "1人出行，继续规划行程",
+              "preferences": {
+                "companions": "1人"
+              },
+              "planPatch": {}
+            },
+            {
+              "label": "2人",
+              "question": "2人出行，继续规划行程",
+              "preferences": {
+                "companions": "2人"
+              },
+              "planPatch": {}
+            },
+            {
+              "label": "3人以上",
+              "question": "3人以上出行，继续规划行程",
+              "preferences": {
+                "companions": "3人以上"
+              },
+              "planPatch": {}
+            }
+          ]
+        },
+        {
+          "id": "origin",
+          "prompt": "从哪里出发？",
+          "choices": [
+            {
+              "label": "南京南站",
+              "question": "从南京南站出发，继续安排行程",
+              "preferences": {
+                "origin": "南京南站"
+              },
+              "planPatch": {
+                "origin": {
+                  "query": "南京南站",
+                  "city": "",
+                  "place": null
+                }
+              }
+            },
+            {
+              "label": "南京市区",
+              "question": "从南京市区出发，继续安排行程",
+              "preferences": {
+                "origin": "南京市区"
+              },
+              "planPatch": {
+                "origin": {
+                  "query": "南京市区",
+                  "city": "",
+                  "place": null
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "ms": 605,
+      "deltaEvents": 0
+    },
+    {
+      "question": "能帮我完成三日游溧水的规划吗",
+      "kind": "planning",
+      "content": "溧水3天2夜\n以人文山水为主，每天最多两个主要游览点，午餐就近解决。\n\n第1天 · 上午｜天生桥·胭脂河\n把石桥、两侧岩壁与河谷连起来看，认识开河通航的历史。\n\n第1天 · 午间｜就近午餐 · 洪蓝手抓鸡\n在游览点周边选餐厅，不为吃饭专程绕去另一片区。菜单有洪蓝手抓鸡时可以尝尝，先问配料与份量，饭后留出休息时间。\n\n第1天 · 下午｜无想山\n选山林慢步或人文寻访，留意沿途遗址说明与石刻。\n\n第1天 · 晚间｜无想水镇\n晚餐后留一段短逛。沿街巷慢步，留意唐风建筑与沿水空间。当天开放允许时再去，累了就直接回酒店休息。\n住宿建议｜溧水城区连住2晚\n建议选城区作落脚点，把晚餐与补给放在一起。按同行人数比较房型、早餐与取消条款。这是住宿选择建议，具体酒店与报价按入住日期查询。\n\n第2天 · 上午｜大金山国防园\n从展品了解国防知识，选一个感兴趣的主题参观。\n\n第2天 · 午间｜就近午餐 · 洪蓝牛肉\n在游览点周边选餐厅，不为吃饭专程绕去另一片区。菜单有洪蓝牛肉时可以尝尝，先问配料与份量，饭后留出休息时间。\n\n第2天 · 下午｜东屏湖\n在允许到达的岸边看湖，留意水面、远岸与光影。\n\n第3天 · 上午｜周园\n从门窗、梁柱和庭院布局看起，挑一两类雕刻或家具慢慢看。\n\n第3天 · 午间｜海乐城\n把午餐、补给和休息放在这一段，吃完再开始下一站。\n\n第3天 · 下午｜石臼湖\n看开阔湖面与远岸；湖岸观景和S9车窗看湖选一种作为主体验。\n\n路线串联\n第1天：天生桥·胭脂河 → 无想山 → 无想水镇（晚餐后可选）\n第2天：大金山国防园 → 东屏湖\n第3天：周园 → 石臼湖\n大金山国防园毗邻东屏湖，把展馆与湖景放在同一天，减少跨片区换点。\n交通方式还没指定，这份先给游玩顺序；自驾按导航衔接，无车则把跨片区接驳单独查好。最后一天下午按返程时间收尾，不再额外加点。",
+      "sources": [
+        {
+          "label": "南京大学转载新华日报：胭脂河与天生桥",
+          "url": "https://www.nju.edu.cn/info/3191/218951.htm"
+        },
+        {
+          "label": "南京市政府：2023年第五批非遗名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html"
+        },
+        {
+          "label": "溧水区文旅局：地方特色菜与非遗美食",
+          "url": "https://www.njls.gov.cn/zwgk/qzxta/dsyjwyhdychy/202211/t20221129_3767985.html"
+        },
+        {
+          "label": "溧水区政府：区情简介",
+          "url": "https://www.njls.gov.cn/zjls/qqjj/"
+        },
+        {
+          "label": "南京市体育局：大金山与东屏湖",
+          "url": "https://sports.nanjing.gov.cn/ztzl/njtyxfxcj/hwyd/202307/t20230725_3970450.html"
+        },
+        {
+          "label": "溧水区政府：自然资源",
+          "url": "https://www.njls.gov.cn/zjls/zrzy/"
+        },
+        {
+          "label": "溧水区政府：城区商圈与街区布局",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rddechy/202311/t20231124_4106676.html"
+        },
+        {
+          "label": "南京市政府：石臼湖与水上列车",
+          "url": "https://www.nanjing.gov.cn/zzb/ywdt/njxx/202608/t20260817_5894512.html"
+        },
+        {
+          "label": "溧水区政府：无想水镇与唐风文化街区",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/dsqjrddychy/202211/t20221124_3764333.html"
+        },
+        {
+          "label": "溧水区政府：城南街区与夜间文旅活动（2024）",
+          "url": "https://www.njls.gov.cn/zwgk/qrddbjy/rdschy/202411/t20241125_5017713.html"
+        }
+      ],
+      "suggest": [
+        "保留天数，改成亲子游",
+        "保留天数，想轻松一点",
+        "按刚才条件找住宿"
+      ],
+      "plan": {
+        "title": "溧水3天2夜",
+        "days": 3,
+        "nights": 2,
+        "stops": [
+          {
+            "nodeId": "n_tsq",
+            "day": 1,
+            "period": "上午",
+            "role": "visit",
+            "note": "上午：把石桥、两侧岩壁与河谷连起来看，认识开河通航的历史。"
+          },
+          {
+            "nodeId": "f_szc",
+            "day": 1,
+            "period": "午间",
+            "role": "meal",
+            "note": "午间：洪蓝手抓鸡是溧水洪蓝的代表乡味之一，地方餐桌和制作手艺是它的两重看点。"
+          },
+          {
+            "nodeId": "n_wx",
+            "day": 1,
+            "period": "下午",
+            "role": "visit",
+            "note": "下午：选山林慢步或人文寻访，留意沿途遗址说明与石刻。"
+          },
+          {
+            "nodeId": "s_wxsz",
+            "day": 1,
+            "period": "晚间",
+            "role": "visit",
+            "note": "晚餐后可选：沿街巷慢步，留意唐风建筑与沿水空间。按当天开放与体力选择。"
+          },
+          {
+            "nodeId": "n_djs",
+            "day": 2,
+            "period": "上午",
+            "role": "visit",
+            "note": "上午：从展品了解国防知识，选一个感兴趣的主题参观。"
+          },
+          {
+            "nodeId": "f_nr",
+            "day": 2,
+            "period": "午间",
+            "role": "meal",
+            "note": "午间：洪蓝牛肉是溧水地方特色美食，也是认识洪蓝饮食手艺的入口。"
+          },
+          {
+            "nodeId": "n_dp",
+            "day": 2,
+            "period": "下午",
+            "role": "visit",
+            "note": "下午：在允许到达的岸边看湖，留意水面、远岸与光影。"
+          },
+          {
+            "nodeId": "n_zy",
+            "day": 3,
+            "period": "上午",
+            "role": "visit",
+            "note": "上午：从门窗、梁柱和庭院布局看起，挑一两类雕刻或家具慢慢看。"
+          },
+          {
+            "nodeId": "s_hl",
+            "day": 3,
+            "period": "午间",
+            "role": "meal",
+            "note": "午间：把购物或补给集中在这一站，不把商场反复排成全天的游览主题。"
+          },
+          {
+            "nodeId": "n_sj",
+            "day": 3,
+            "period": "下午",
+            "role": "visit",
+            "note": "下午：看开阔湖面与远岸；湖岸观景和S9车窗看湖选一种作为主体验。"
+          }
+        ]
+      },
+      "ms": 2294,
+      "deltaEvents": 11
+    },
+    {
+      "question": "溧水十月有什么值得去的",
+      "kind": "guide",
+      "content": "可以先从这四处认识溧水，挑一处喜欢的，再把行程连起来：\n\n1. 天生桥·胭脂河——天生桥与胭脂河共同构成一处人文山水景观。明代开凿胭脂河时，工匠在破岩形成的河道上保留巨石作为桥梁，使天然山石与人工开河工程连在一起。\n\n2. 无想山——无想山既有山林景致，也保存着无想寺、韩熙载读书台和摩崖石刻等人文线索。山路上的寺院遗迹与题刻，让这里的风景多了一层读书、游历与文学的记忆。\n\n3. 傅家边——傅家边是溧水的田园游览目的地，赏梅与草莓体验是认识这里的两条线索。花木、果园和乡村景观相互衔接，让赏花、了解种植与品尝当季果品可以放进同一段行程。\n\n4. 石臼湖——石臼湖以开阔水面和湖岸风景为看点，也是溧水山水游的一处代表。南京地铁S9号线跨湖而过，从列车车窗看湖，能获得与岸边停留不同的观景视角。\n\n开放、票价和当期活动，出发前再向景区或主办方确认。想先了解哪一处？也可以告诉我有几天、同行人和出行方式。",
+      "sources": [
+        {
+          "label": "南京大学转载新华日报：胭脂河与天生桥",
+          "url": "https://www.nju.edu.cn/info/3191/218951.htm"
+        },
+        {
+          "label": "溧水区政府：区情简介",
+          "url": "https://www.njls.gov.cn/zjls/qqjj/"
+        },
+        {
+          "label": "溧水区政府：2026溧水赏梅季",
+          "url": "https://www.njls.gov.cn/jrs/zjdt/202602/t20260224_5795570.html"
+        },
+        {
+          "label": "南京市政府：石臼湖与水上列车",
+          "url": "https://www.nanjing.gov.cn/zzb/ywdt/njxx/202608/t20260817_5894512.html"
+        }
+      ],
+      "relatedTopics": [
+        {
+          "nodeId": "n_tsq",
+          "title": "天生桥·胭脂河",
+          "url": "/nodes/n_tsq",
+          "questions": [
+            "天生桥是天然的还是人工的？",
+            "胭脂河的水为什么是红的？",
+            "去天生桥要注意什么？"
+          ]
+        },
+        {
+          "nodeId": "n_wx",
+          "title": "无想山",
+          "url": "/nodes/n_wx",
+          "questions": [
+            "无想山名字是怎么来的？",
+            "周邦彦和溧水有什么关系？",
+            "韩熙载是谁？"
+          ]
+        },
+        {
+          "nodeId": "n_fjb",
+          "title": "傅家边",
+          "url": "/nodes/n_fjb",
+          "questions": [
+            "傅家边什么时候去最好？",
+            "傅家边能采摘什么？",
+            "去傅家边采摘要注意什么？"
+          ]
+        },
+        {
+          "nodeId": "n_sj",
+          "title": "石臼湖",
+          "url": "/nodes/n_sj",
+          "questions": [
+            "石臼湖什么时候最美？",
+            "石臼湖名字怎么来的？",
+            "石臼湖水上列车是什么？"
+          ]
+        }
+      ],
+      "suggest": [
+        "只有一天，没有车，怎么逛溧水？",
+        "溧水两天一夜自驾游怎么安排？"
+      ],
+      "ms": 2,
+      "deltaEvents": 0
+    },
+    {
+      "question": "傅家边门票多少钱",
+      "kind": "rag",
+      "content": "待核：当前票价、档期或班次还没有取得可确认的信息，请向景区或运营方核对当日公告。",
+      "sources": [
+        {
+          "label": "南京傅家边科技园区游玩攻略简介,南京傅家边科技园区门票/地址/图片/开放时间/照片/门票价格【携程攻略】",
+          "url": "https://you.ctrip.com/sight/nanjing9/140559.html"
+        }
+      ],
+      "relatedTopics": [
+        {
+          "nodeId": "n_fjb",
+          "title": "傅家边",
+          "url": "/nodes/n_fjb",
+          "questions": [
+            "傅家边什么时候去最好？",
+            "傅家边能采摘什么？",
+            "去傅家边采摘要注意什么？"
+          ]
+        }
+      ],
+      "suggest": [
+        "推荐几个地方",
+        "只有一天，没有车，怎么逛溧水？"
+      ],
+      "choiceGroups": [],
+      "ms": 1028,
+      "deltaEvents": 0
+    },
+    {
+      "question": "周园值得去吗？",
+      "kind": "preset",
+      "content": "如果喜欢建筑和收藏，周园可以纳入考虑。它以佛教文化和徽派建筑为主题，展示石雕、木雕、古床和古典家具等。出发前确认当天展陈、开放和预约即可。",
+      "sources": [
+        {
+          "label": "溧水区政府：区情简介（周园、无想山及东屏湖背景）",
+          "url": "https://www.njls.gov.cn/zjls/qqjj/201806/t20180614_1173572.html"
+        }
+      ],
+      "ms": 2,
+      "deltaEvents": 0
+    },
+    {
+      "question": "周邦彦和溧水有什么关系？",
+      "kind": "preset",
+      "content": "周邦彦曾任溧水县令，写下《满庭芳·夏日溧水无想山作》。其中“风老莺雏，雨肥梅子，午阴嘉树清圆”，描写了这里的夏日山水。",
+      "sources": [
+        {
+          "label": "金陵图书馆：夏日溧水无想山作",
+          "url": "https://www.jllib.cn/zy/gbgk/jtzc/202104/P020210422372176308406.pdf",
+          "publishedAt": "2017"
+        }
+      ],
+      "ms": 2,
+      "deltaEvents": 0
+    },
+    {
+      "question": "天生桥是天然的还是人工的？",
+      "kind": "preset",
+      "content": "天生桥的形成与明代人工开凿胭脂河有关。工匠用火烧水激的方法破岩开河，并保留巨石作为桥梁。",
+      "sources": [
+        {
+          "label": "南京大学转载新华日报：胭脂河两岸的石头为什么是红的",
+          "url": "https://www.nju.edu.cn/info/3191/218951.htm",
+          "publishedAt": "2021-03-05"
+        }
+      ],
+      "ms": 1,
+      "deltaEvents": 0
+    },
+    {
+      "question": "胭脂河的水为什么是红的？",
+      "kind": "preset",
+      "content": "呈暗红色的主要是两岸岩土，原因与铁元素氧化有关；河水本身并不是一直红色的。",
+      "sources": [
+        {
+          "label": "南京大学转载新华日报：胭脂河两岸的石头为什么是红的",
+          "url": "https://www.nju.edu.cn/info/3191/218951.htm",
+          "publishedAt": "2021-03-05"
+        }
+      ],
+      "ms": 2,
+      "deltaEvents": 0
+    },
+    {
+      "question": "无想山名字是怎么来的？",
+      "kind": "preset",
+      "content": "地方文章里有一段传说：韩熙载在山中读书，想到佛家的“无我”，便把旧称龙鸣山的山称作无想山，古寺也称无想寺。这是地方掌故，尚无史料确证。",
+      "sources": [
+        {
+          "label": "江苏省地方志：洪蓝山水古今吟（地名叙述）",
+          "url": "https://jssdfz.jiangsu.gov.cn/n257/20210430/i6225.html",
+          "publishedAt": "2020-10-29"
+        }
+      ],
+      "ms": 1,
+      "deltaEvents": 0
+    },
+    {
+      "question": "傅家边什么时候去最好？",
+      "kind": "preset",
+      "content": "想赏梅或体验草莓，可以关注冬末春初。花期和果园安排每年会变，出发前再看当季公告。你准备哪天去，更想赏花还是采摘？",
+      "sources": [
+        {
+          "label": "溧水区政府：2026溧水赏梅季",
+          "url": "https://www.njls.gov.cn/jrs/zjdt/202602/t20260224_5795570.html",
+          "publishedAt": "2026-02-24"
+        }
+      ],
+      "ms": 2,
+      "deltaEvents": 0
+    },
+    {
+      "question": "石臼湖名字怎么来的？",
+      "kind": "preset",
+      "content": "江苏省地方志文章记载，石臼湖因形似石臼而得名。",
+      "sources": [
+        {
+          "label": "江苏省地方志：洪蓝山水古今吟",
+          "url": "https://jssdfz.jiangsu.gov.cn/n257/20210430/i6225.html",
+          "publishedAt": "2021-04-30"
+        }
+      ],
+      "ms": 1,
+      "deltaEvents": 0
+    },
+    {
+      "question": "石臼湖水上列车是什么？",
+      "kind": "preset",
+      "content": "指南京地铁S9号线跨越石臼湖的景观路段。列车沿跨湖桥梁行驶，窗外能看到湖面，并非在水中行驶。",
+      "sources": [
+        {
+          "label": "南京市政府：石臼湖与S9跨湖列车",
+          "url": "https://www.nanjing.gov.cn/zzb/ywdt/njxx/202608/t20260817_5894512.html",
+          "publishedAt": "2026-08-17"
+        }
+      ],
+      "ms": 1,
+      "deltaEvents": 0
+    },
+    {
+      "question": "洪蓝手抓鸡怎么吃？",
+      "kind": "preset",
+      "content": "可以按自己的口味撕取鸡肉，搭配店家提供的蘸料。具体蘸料和吃法，也可以请店家介绍。",
+      "sources": [
+        {
+          "label": "南京市政府：宁政发〔2023〕11号正式名录",
+          "url": "https://www.nanjing.gov.cn/xxgkn/zfgb/202302/t20230227_3837570.html",
+          "publishedAt": "2023-01-20"
+        }
+      ],
+      "ms": 1,
+      "deltaEvents": 0
+    },
+    {
+      "question": "骆山大龙是几级非遗？",
+      "kind": "preset",
+      "content": "国家级。龙舞（骆山大龙）于2008年列入第二批国家级非遗扩展项目，保护单位是南京市溧水区文化馆。",
+      "sources": [
+        {
+          "label": "中国非遗网：龙舞（骆山大龙）",
+          "url": "https://www.ihchina.cn/project_details/12838",
+          "publishedAt": "2008"
+        }
+      ],
+      "ms": 2,
+      "deltaEvents": 0
+    }
+  ],
+  "publicHttpsClaimed": false
+}
